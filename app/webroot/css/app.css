@@ -3,6 +3,29 @@
 	position: absolute;
 	z-index: 2;
 }
+#thought{
+  color: #777;
+  text-decoration: none;
+  padding-top: 5px;
+  font-size: 13pt;
+  padding-left: 23px;
+}
+#thought:hover{
+  text-decoration: none;
+}
+#logoName{
+  color: white;
+  text-decoration: none;
+  font-size: 20pt;
+}
+#logoName:hover{
+  text-decoration: none;
+}
+#logo1{
+    height: 68px;
+  padding-bottom: 10px;
+  padding-left: 21px;
+}
 #top2-brand{
 color:#FFF;
 }
@@ -18,7 +41,7 @@ background-color: transparent;
 #top2-wrapper{
 	  background-color: #2e4b90;
 	  font-family: 'Open Sans',sans-serif;
-	  height: 70px;
+    height: 83px;
 	  padding-top: 15px;
 }
 #top1-menu > li > a {
@@ -47,6 +70,7 @@ background-color: transparent;
 }
 #top2-menu > li > a {
   color: #FFFFFF;
+  font-size: 13pt;
 }
 #top2-menu  > li > a:hover{
 text-decoration: underline;

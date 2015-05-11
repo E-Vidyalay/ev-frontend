@@ -24,13 +24,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+      <a id="thought">આજ નો સુવિચાર </a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right" id="top1-menu">
-        <li><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
+        <li><a href="#">Login<span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Sign Up</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -55,14 +56,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" id="top2-brand" href="#">Brand</a>
+          <a href="#" id="logoName"><?php echo $this->Html->image('cropped-EV_LOGO42.png',array('id' => 'logo1' ))?>  ઈ-વિદ્યાલય</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right" id="top2-menu">
-        <li><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
+        <li><a href="#">Home<span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Contact Us</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
