@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2015-05-12 11:13:36 Error: Fatal Error (4): syntax error, unexpected '?>', expecting function (T_FUNCTION) in [/opt/lampp/htdocs/ev-frontend/app/Controller/StudentsController.php, line 45]
 2015-05-12 11:13:36 Error: [FatalErrorException] syntax error, unexpected '?>', expecting function (T_FUNCTION)
 Request URL: /ev-frontend/students
@@ -810,3 +811,24 @@ Stack Trace:
 #3 /opt/lampp/htdocs/ev-frontend/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(studentsController), Object(CakeRequest))
 #4 /opt/lampp/htdocs/ev-frontend/app/webroot/index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #5 {main}
+=======
+2015-05-12 12:04:16 Error: Fatal Error (4): syntax error, unexpected '=', expecting ')' in [/Applications/XAMPP/xamppfiles/htdocs/ev-frontend/app/View/Layouts/site_layout.ctp, line 26]
+2015-05-12 12:04:16 Error: [FatalErrorException] syntax error, unexpected '=', expecting ')'
+Request URL: /ev-frontend/
+Stack Trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/ev-frontend/lib/Cake/Error/ErrorHandler.php(213): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/Applications/X...', 26)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/Applications/X...', 26, Array)
+#2 /Applications/XAMPP/xamppfiles/htdocs/ev-frontend/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/Applications/X...', 26, Array)
+#3 /Applications/XAMPP/xamppfiles/htdocs/ev-frontend/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-05-12 12:04:16 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ev-frontend/css/cake.generic.css
+Stack Trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/ev-frontend/app/webroot/index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+>>>>>>> eb8ccdcbff9d9cb4d88a165c4d14f2425b0abd5b
