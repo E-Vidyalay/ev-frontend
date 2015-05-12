@@ -1,11 +1,11 @@
 <?php
 	class StudentsController extends AppController{
 		public function index(){
-			$this->layout='default';
+			$this->layout='site_layout';
 		}
 
 		public function login(){
-			$this->layout='default';
+			$this->layout='site_layout';
 			if($this->Session->check('Auth.Student')){
 				$this->redirect(array('controller'=>'Students','action'=>'index'));
 			}
@@ -20,7 +20,7 @@
 			}
 		}
 		public function logout(){
-			$this->layout='default';
+			$this->layout='site_layout';
 			if($this->Auth->logout()){
 				$this->Session->setFlash('Logged out successfully','default',array('class'=>'alert alert-success'),'success');
 				$this->redirect(array('controller'=>'Students','action'=>'login'));
@@ -30,7 +30,7 @@
 			}
 		}
 		public function register(){
-			$this->layout='default';
+			$this->layout='site_layout';
 	    	if($this->request->is('post')){
 	    		$data=$this->request->data;
 	    		$data['Student']['email']=$data['Student']['username'];
