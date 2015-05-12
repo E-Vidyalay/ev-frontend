@@ -1,90 +1,76 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>E-Vidyalay</title>
-    <?php
-      echo $this->Html->css('bootstrap');
-      echo $this->Html->css('bootstrap-theme');
-      echo $this->Html->css('font-awesome');
-      echo $this->Html->css('app');
-      echo $this->fetch('css');
-      echo $this->fetch('script');
-    ?>
-  </head>
-  <body>
-  <div id="wrapper">
-  <!-- Navigation -->
-<nav class="navbar navbar-default">
-  <div class="container-fluid" id="top1-wrapper">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a id="thought">આજ નો સુવિચાર </a>
-    </div>
+<head>
+  <title>ઈ-વિદ્યાલય</title>
+  <?php
+    echo $this->Html->css('normalize');
+    echo $this->Html->css('foundation');
+    echo $this->Html->css('app');
+    echo $this->fetch('css');
+  ?>
+</head>
+<body>
+<div class="off-canvas-wrap" data-offcanvas>
+  <div class="inner-wrap">
+    <nav class="tab-bar hide-for-large hide-for-xlarge hide-for-xxlarge">
+      <section class="left-small">
+        <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+      </section>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right" id="top1-menu">
-        <li><a href="#">Login<span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Sign Up</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-      </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-  <div class="container-fluid" id="top2-wrapper">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-          <a href="#" id="logoName"><?php echo $this->Html->image('cropped-EV_LOGO42.png',array('id' => 'logo1' ))?>  ઈ-વિદ્યાલય</a>
-    </div>
+      <section class="middle tab-bar-section">
+        <h1 class="title">Menu</h1>
+      </section>
+    </nav>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right" id="top2-menu">
-        <li><a href="#">Home<span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Contact Us</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
+    <aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        <li><label>Foundation</label></li>
+        <li><a href="#">The Psychohistorians</a></li>
+        <li><a href="#">...</a></li>
       </ul>
-      </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+    </aside>
+
+    <div> 
+      <section id='top-section' class="hide-for-small hide-for-medium">
+        <section id='top-left'>
+
+        </section>
+        <section id='top-right' class="right">
+          <a href="#">Login</a>
+          <a href="#">Register</a>
+        </section>
+      </section>
+      <section id="top-head">
+        <?php echo $this->Html->image('ev-logo2.png',array('id'=>'brand-logo'));?>
+        <span id="brand-name">ઈ-વિદ્યાલય</span>
+        <ul class="right hide-for-small hide-form-medium" id="top-menu">
+          <li><a>Home</a></li>
+          <li><a>About us</a></li>
+          <li><a>Contact us</a></li>
+        </ul>
+      </section>
+    </div>
+    <section class="main-section" >
+      <!-- content goes here -->
+        <div clas="row" id="main-content">
+            <?php echo $content_for_layout; ?>
+        </div>
+    </section>
+
+  <a class="exit-off-canvas"></a>
+
+  </div>
 </div>
-<?php
-      echo $this->Html->script('jquery.js');
-      echo $this->Html->script('app.js');
-      echo $this->Html->script('bootstrap.js');
-    ?>
+
+
+  <?php
+    echo $this->Html->script('vendor/modernizr');
+    echo $this->Html->script('vendor/jquery');
+    echo $this->Html->script('foundation.min');
+    echo $this->fetch('script');
+  ?>
+  <script type="text/javascript">
+      $(document).foundation();
+  </script>
 </body>
 </html>

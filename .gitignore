@@ -1,0 +1,7 @@
+.DS_Store
+*.DS_Store
+admin/app/tmp/*
+/admin/app/tmp/*
+admin/app/tmp/cache/*
+admin/app/tmp/logs/*
+
