@@ -73,15 +73,17 @@
 
 
   <?php
+    echo $this->Html->script('jquery-1.11.0');
     echo $this->Html->script('vendor/modernizr');
     echo $this->Html->script('vendor/jquery');
     echo $this->Html->script('foundation.min');
+    echo $this->Html->script('remove-alert');
     echo $this->fetch('script');
   ?>
   <?php 
                     echo $this->Session->flash('success');
                     echo $this->Session->flash('error');
-                    echo $this->Session->flash('auth', array('params'=>array('class'=>'alert alert-danger')));
+                    echo $this->Session->flash('auth', array('params'=>array('class'=>'alert-box alert radius')));
                 ?>
   <script type="text/javascript">
       $(document).foundation();

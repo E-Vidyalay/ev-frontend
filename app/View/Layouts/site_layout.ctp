@@ -85,10 +85,12 @@
 
 
   <?php
+    echo $this->Html->script('jquery-1.11.0');
     echo $this->Html->script('vendor/modernizr');
     echo $this->Html->script('vendor/jquery');
     echo $this->Html->script('foundation.min');
     echo $this->Html->script('foundation-icons.min');
+    echo $this->Html->script('remove-alert');
     echo $this->fetch('script');
   ?>
   <script type="text/javascript">
