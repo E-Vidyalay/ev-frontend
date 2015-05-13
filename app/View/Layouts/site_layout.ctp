@@ -36,7 +36,6 @@
     <div> 
       <section id='top-section' class="hide-for-small hide-for-medium">
         <section id='top-left'>
-
         </section>
         <section id='top-right' class="right">
           <a href="#">Login</a>
