@@ -24,13 +24,15 @@
 	position: fixed;
 	width: 100%;
 }
-#brand-logo{
+.brand-logo{
 	height: 95px;
 	padding-left: 28px;
 	padding-top:5px;
 }
-
-#top-head span{
+#small{
+	padding-top: 10px;
+}
+.brand-name{
 	font-size: 30px;
 	color: #fff;
 	padding-left: 15px;

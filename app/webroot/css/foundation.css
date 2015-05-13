@@ -4671,13 +4671,11 @@ blockquote p {
 
 .tab-bar {
   -webkit-backface-visibility: hidden;
-  background: #FFF;
+  background: #054b9a;
   color: #333;
   width: 100%;
   height: 130px;
   line-height: 2.8125rem;
-  position: fixed;
-  top:0;
    }
   .tab-bar h1, .tab-bar h2, .tab-bar h3, .tab-bar h4, .tab-bar h5, .tab-bar h6 {
     color: #333;
@@ -4693,7 +4691,6 @@ blockquote p {
   position: absolute;
   top: 0;
   width: 2.8125rem;
-  border-right: solid 1px #1a1a1a;
   left: 0; }
 
 .right-small {
@@ -4729,6 +4726,7 @@ blockquote p {
   display: block;
   height: 1.8125rem;
   padding: 0;
+  margin-top: 40px;
   position: relative;
   text-indent: 2.1875rem;
   transform: translate3d(0, 0, 0);
@@ -4741,10 +4739,10 @@ blockquote p {
     top: 50%;
     margin-top: -0.5rem;
     left: 0.90625rem;
-    box-shadow: 0 0 0 1px #333, 0 7px 0 1px #333, 0 14px 0 1px #333;
+    box-shadow: 0 0 0 1px #fff, 0 7px 0 1px #fff, 0 14px 0 1px #fff;
     width: 1rem; }
   .tab-bar .menu-icon span:hover:after {
-    box-shadow: 0 0 0 1px #333, 0 7px 0 1px #333, 0 14px 0 1px #333; }
+    box-shadow: 0 0 0 1px #fff, 0 7px 0 1px #fff, 0 14px 0 1px #fff; }
 
 .left-off-canvas-menu {
   -webkit-backface-visibility: hidden;

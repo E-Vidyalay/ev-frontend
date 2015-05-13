@@ -18,7 +18,10 @@
       </section>
 
       <section class="middle tab-bar-section">
-        <h1 class="title">Menu</h1>
+        <div id="small">
+        <?php echo $this->Html->image('ev-logo2.png',array('class'=>'brand-logo'));?>
+        <span class="brand-name">ઈ-વિદ્યાલય</span>
+        </div>
       </section>
     </nav>
 
@@ -40,10 +43,10 @@
           <a href="#">Register</a>
         </section>
       </section>
-      <section id="top-head">
-        <?php echo $this->Html->image('ev-logo2.png',array('id'=>'brand-logo'));?>
-        <span id="brand-name">ઈ-વિદ્યાલય</span>
-        <ul class="right hide-for-small hide-form-medium" id="top-menu">
+      <section id="top-head" class="hide-for-small hide-form-medium">
+        <?php echo $this->Html->image('ev-logo2.png',array('class'=>'brand-logo'));?>
+        <span class="brand-name">ઈ-વિદ્યાલય</span>
+        <ul class="right" id="top-menu">
           <li><a>Home</a></li>
           <li><a>About us</a></li>
           <li><a>Contact us</a></li>
