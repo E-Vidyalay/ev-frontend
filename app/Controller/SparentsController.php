@@ -1,23 +1,23 @@
 <?php
-	class StudentsController extends AppController{
+	class SparentsController extends AppController{
 		public function index(){
 			$this->layout='site_layout';
 		}
 		public function beforeFilter(){
 			parent::beforeFilter();
 			//$this->Auth->authorize = 'actions';
-			//$this->Auth->initialize = array('controller'=>'Students');
+			//$this->Auth->initialize = array('controller'=>'Parents');
 			//$this->Auth->authenticate = array('Form');
 			$this->Auth->authenticate = array(
-	            'Form' => array('userModel' => 'Student')
+	            'Form' => array('userModel' => 'Sparent')
 	        );
 	        $this->Auth->allow('logout','login','register');
 		}
 
 		public function login(){
 			$this->layout='site_layout';
-			if($this->Session->check('Auth.Student')){
-				$this->redirect(array('controller'=>'Students','action'=>'index'));
+			if($this->Session->check('Auth.Sparent')){
+				$this->redirect(array('controller'=>'Sparents','action'=>'index'));
 			}
 			if($this->request->is('post')){
 				if($this->Auth->login()){
@@ -33,7 +33,7 @@
 			$this->layout='site_layout';
 			if($this->Auth->logout()){
 				$this->Session->setFlash('Logged out successfully','default',array('class'=>'alert alert-success'),'success');
-				$this->redirect(array('controller'=>'Students','action'=>'login'));
+				$this->redirect(array('controller'=>'Sparents','action'=>'login'));
 			}
 			else{
 				die("error");
@@ -43,10 +43,10 @@
 			$this->layout='site_layout';
 	    	if($this->request->is('post')){
 	    		$data=$this->request->data;
-	    		$data['Student']['email']=$data['Student']['username'];
-	    		if($this->Student->save($data)){
+	    		$data['Sparent']['email']=$data['Sparent']['username'];
+	    		if($this->Sparent->save($data)){
 	    			$this->Session->setFlash('Successfully registered, approval email is sent to you, please apporve it first','default',array('class'=>'alert-box success radius'),'success');
-	            	$this->redirect(array('controller'=>'Students','action'=>'login'));
+	            	$this->redirect(array('controller'=>'Sparents','action'=>'login'));
 	    		}
 	    		else{
 	    			$this->Session->setFlash('Sorry, there was error','default',array('class'=>'alert-box alert radius'),'error');
