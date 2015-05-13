@@ -16,6 +16,7 @@
 	color: #6e7271!important;
 	line-height: 30px;
 	padding: 0 8px;
+	float: right;
 }
 #top-head{
 	height: 100px;
@@ -40,13 +41,14 @@
 #main-content{
 	margin-top:150px;
 }
+#top-menu{
+	margin-right: 7px;
+}
 #top-menu li{
 	display: inline-block;
 	padding-left: 5px;
 	padding-right: 5px;
 	padding-top: 35px;
-
-
 }
 #top-menu li a{
 	color: #fff;
@@ -58,5 +60,4 @@
 	color: #fff;
 	background-color: #4787d0;
 	border-radius: 3px;
-	
 }

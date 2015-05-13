@@ -35,12 +35,16 @@
 
     <div> 
       <section id='top-section' class="hide-for-small hide-for-medium">
-        <section id='top-left'>
-        </section>
-        <section id='top-right' class="right">
-          <a href="#">Login</a>
-          <a href="#">Register</a>
-        </section>
+        <div class="row">
+          <div class="columns large-6 left">
+
+          </div>
+          <div class="columns large-6" id="top-right">
+            <!-- Write menu in reverse order-->
+            <a href="#">Login</a>
+            <a href="#">Register</a>
+          </div>
+        </div>
       </section>
       <section id="top-head" class="hide-for-small hide-for-medium">
         <?php echo $this->Html->image('ev-logo2.png',array('class'=>'brand-logo'));?>
