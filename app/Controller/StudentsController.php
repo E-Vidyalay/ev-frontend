@@ -3,6 +3,16 @@
 		public function index(){
 			$this->layout='site_layout';
 		}
+		public function beforeFilter(){
+			parent::beforeFilter();
+			//$this->Auth->authorize = 'actions';
+			//$this->Auth->initialize = array('controller'=>'Students');
+			//$this->Auth->authenticate = array('Form');
+			$this->Auth->authenticate = array(
+	            'Form' => array('userModel' => 'Student')
+	        );
+	        $this->Auth->allow('logout','login','register');
+		}
 
 		public function login(){
 			$this->layout='site_layout';
@@ -36,7 +46,7 @@
 	    		$data['Student']['email']=$data['Student']['username'];
 	    		if($this->Student->save($data)){
 	    			$this->Session->setFlash('Successfully registered, approval email is sent to you, please apporve it first','default',array('class'=>'alert-box success radius'),'success');
-	            	$this->redirect(array('controller'=>'Students','action'=>'index'));
+	            	$this->redirect(array('controller'=>'Students','action'=>'login'));
 	    		}
 	    		else{
 	    			$this->Session->setFlash('Sorry, there was error','default',array('class'=>'alert-box alert radius'),'error');

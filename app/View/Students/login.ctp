@@ -6,7 +6,7 @@
                         <h4 style="text-align:center">ઈ-વિદ્યાલય | વિદ્યાર્થી  લોગીન</h4>
                     </div>
                     <div class="panel-body">
-                        <?php echo $this->Form->create('User',array('controller'=>'Students','action'=>'login')) ?>
+                        <?php echo $this->Form->create('Student',array('controller'=>'Students','action'=>'login')) ?>
                             <fieldset>
                                 <div class="form-group">
                                     <?php echo $this->Form->input('username',array(
