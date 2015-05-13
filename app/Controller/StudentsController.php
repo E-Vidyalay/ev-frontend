@@ -5,9 +5,9 @@
 		}
 		public function beforeFilter(){
 			parent::beforeFilter();
-			//$this->Auth->authorize = 'actions';
+			//$this->Auth->authorize = 'Controller';
 			//$this->Auth->initialize = array('controller'=>'Students');
-			//$this->Auth->authenticate = array('Form');
+			$this->Auth->authenticate = array('Form');
 			$this->Auth->authenticate = array(
 	            'Form' => array('userModel' => 'Student'));
 	        $this->Auth->allow('logout','login','register');

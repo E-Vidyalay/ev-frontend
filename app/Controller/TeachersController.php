@@ -7,7 +7,7 @@
 			parent::beforeFilter();
 			//$this->Auth->authorize = 'actions';
 			//$this->Auth->initialize = array('controller'=>'Teachers');
-			//$this->Auth->authenticate = array('Form');
+			$this->Auth->authenticate = array('Form');
 			$this->Auth->authenticate = array(
 	            'Form' => array('userModel' => 'Teacher')
 	        );
