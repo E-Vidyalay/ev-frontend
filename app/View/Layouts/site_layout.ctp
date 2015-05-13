@@ -43,7 +43,7 @@
           <a href="#">Register</a>
         </section>
       </section>
-      <section id="top-head" class="hide-for-small hide-form-medium">
+      <section id="top-head" class="hide-for-small hide-for-medium">
         <?php echo $this->Html->image('ev-logo2.png',array('class'=>'brand-logo'));?>
         <span class="brand-name">ઈ-વિદ્યાલય</span>
         <ul class="right" id="top-menu">
