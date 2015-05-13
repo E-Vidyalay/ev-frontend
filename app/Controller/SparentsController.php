@@ -1,7 +1,7 @@
 <?php
 	class SparentsController extends AppController{
 		public function index(){
-			$this->layout='site_layout';
+			$this->layout='parent_layout';
 		}
 		public function beforeFilter(){
 			parent::beforeFilter();
@@ -21,18 +21,18 @@
 			}
 			if($this->request->is('post')){
 				if($this->Auth->login()){
-					$this->Session->setFlash('Logged in successfully','default',array('class'=>'alert alert-success'),'success');
-					$this->redirect($this->Auth->redirectUrl());
+					$this->Session->setFlash('Logged in successfully','default',array('class'=>'alert-box success radius'),'success');
+					$this->redirect(array('controller'=>'Sparents','action'=>'index'));
 				}
 				else{
-					$this->Session->setFlash('Sorry invalid username or password','default',array('class'=>'alert alert-danger'),'error');
+					$this->Session->setFlash('Sorry invalid username or password','default',array('class'=>'alert-box alert radius'),'error');
 				}
 			}
 		}
 		public function logout(){
 			$this->layout='site_layout';
 			if($this->Auth->logout()){
-				$this->Session->setFlash('Logged out successfully','default',array('class'=>'alert alert-success'),'success');
+				$this->Session->setFlash('Logged out successfully','default',array('class'=>'alert-box success radius'),'success');
 				$this->redirect(array('controller'=>'Sparents','action'=>'login'));
 			}
 			else{
@@ -45,7 +45,7 @@
 	    		$data=$this->request->data;
 	    		$data['Sparent']['email']=$data['Sparent']['username'];
 	    		if($this->Sparent->save($data)){
-	    			$this->Session->setFlash('Successfully registered, approval email is sent to you, please apporve it first','default',array('class'=>'alert-box success radius'),'success');
+	    			$this->Session->setFlash('Successfully registered','default',array('class'=>'alert-box success radius'),'success');
 	            	$this->redirect(array('controller'=>'Sparents','action'=>'login'));
 	    		}
 	    		else{

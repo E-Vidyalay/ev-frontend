@@ -1,11 +1,7 @@
-<div class="container">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
-                    <div class="panel-heading">
-                        <h4 style="text-align:center">ઈ-વિદ્યાલય | વિદ્યાર્થી  લોગીન</h4>
-                    </div>
-                    <div class="panel-body">
+<div class="row">
+    <div class="large-5 medium-6 small-8 colums medium-offset-3 small-offset-2 large-offset-4 panel">
+                        <h3 style="text-align:center">ઈ-વિદ્યાલય | વિદ્યાર્થી  લોગીન</h3>
+                    <hr/>
                         <?php echo $this->Form->create('Student',array('controller'=>'Students','action'=>'login')) ?>
                             <fieldset>
                                 <div class="form-group">
@@ -35,18 +31,18 @@
                                             'type'=>'submit',
                                             'div'=>false,
                                             'label'=>false,
-                                            'class'=>'btn btn-lg btn-success btn-block'
+                                            'class'=>'button expand small radius',
+                                            'style'=>'font-size: 15pt'
                                         ));
                                 ?>
                             </fieldset>
                         </form>
-                    </div>
-                </div>
-                <?php 
+                        <?php 
                     echo $this->Session->flash('success');
                     echo $this->Session->flash('error');
                     echo $this->Session->flash('auth', array('params'=>array('class'=>'alert alert-danger')));
                 ?>
-            </div>
-        </div>
-    </div>
+                    </div>
+                    
+                </div>
+                

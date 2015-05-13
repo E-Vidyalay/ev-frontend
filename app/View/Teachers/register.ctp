@@ -1,8 +1,6 @@
-<br/>
-<br/>
 <div class="row">
 	<div class="large-5 medium-6 small-8 colums medium-offset-3 small-offset-2 large-offset-4 panel">
-		<h3> New Teacher | Registration </h3>
+		<h3 style="text-align:center"> નવા શિક્ષકો | નોંધણી </h3>
 		<hr/>
 		<?php
 			echo $this->Form->create('Teacher',array('controller'=>'Teachers','action'=>'register'));

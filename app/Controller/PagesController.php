@@ -44,10 +44,14 @@ class PagesController extends AppController {
  * @throws NotFoundException When the view file could not be found
  *	or MissingViewException in debug mode.
  */
-	public function beforeFilter(){
+	/*public function beforeFilter(){
 		AppController::beforeFilter();
 		$this->layout= 'site_layout';
-	}
+		$this->Auth->authenticate = array(
+	            'Form' => array('userModel' => 'Student')
+	        );
+	        $this->Auth->allow('logout','login','register');
+	}*/
 
 	public function display() {
 		$path = func_get_args();
@@ -77,5 +81,9 @@ class PagesController extends AppController {
 			}
 			throw new NotFoundException();
 		}
+
 	}
+	public function index(){
+			$this->redirect(array('controller'=>'Students','action'=>'login'));
+		}
 }

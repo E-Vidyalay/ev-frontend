@@ -1,3 +1,4 @@
+.size-24 { font-size: 24px; }
 #top-section{
 	height: 30px;
 	top:0;
@@ -13,7 +14,9 @@
 	float: left;
 	font-weight: 400;
 	font-size: 13px;
-	color: #6e7271!important;
+	background-color: #008CBA;
+  	border-color: #007095;
+	/*color: #6e7271!important;*/
 	line-height: 30px;
 	padding: 0 8px;
 	float: right;

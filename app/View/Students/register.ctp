@@ -1,8 +1,6 @@
-<br/>
-<br/>
 <div class="row">
 	<div class="large-5 medium-6 small-8 colums medium-offset-3 small-offset-2 large-offset-4 panel">
-		<h3> New Student | Registration </h3>
+		<h3 style="text-align:center"> નવા વિદ્યાર્થી | નોંધણી </h3>
 		<hr/>
 		<?php
 			echo $this->Form->create('Student',array('controller'=>'Students','action'=>'register'));
@@ -19,10 +17,10 @@
 				'required'
 			));
 			echo $this->Form->input('birthdate',array(
-				'placeholder'=>'Date of birth',
-				'label'=>false,
+				'label'=>'Date of Birth',
 				'dateFormat'=>'DMY',
-				'minYear'=>date('Y')-20,
+				'minYear'=>date('Y')-50,
+				'style'=>'width: 100px',
 				'required'
 			));
 			echo $this->Form->input('username',array(

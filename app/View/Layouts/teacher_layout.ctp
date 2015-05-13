@@ -5,7 +5,6 @@
   <?php
     echo $this->Html->css('normalize');
     echo $this->Html->css('foundation');
-    echo $this->Html->css('foundation-icons');
     echo $this->Html->css('app');
     echo $this->fetch('css');
   ?>
@@ -42,24 +41,13 @@
           </div>
           <div class="columns large-6" id="top-right">
             <!-- Write menu in reverse order-->
-            <!--<a href="#">Register</a>-->
-            <a class="button" data-dropdown="RegisterDropdown" aria-controls="RegisterDropdown" href="#">Register</a>
-            <a class="button" data-dropdown="loginDropdown" aria-controls="loginDropdown" aria-expanded="false">Login</a>
+            <a class="button" data-dropdown="accountDropdown" aria-controls="accountDropdown" aria-expanded="false">Account</a>
           </div>
         </div>
       </section>
-      <ul id="loginDropdown" class="f-dropdown" data-dropdown-content tabindex="-1" aria-hidden="true" aria-autoclose="false" tabindex="-1">
+      <ul id="accountDropdown" class="f-dropdown" data-dropdown-content tabindex="-1" aria-hidden="true" aria-autoclose="false" tabindex="-1">
 
-              <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fi-torso')) . "&nbsp;&nbsp;As Student",array('controller' => 'Students', 'action' => 'login'),array('escape' => false)); ?></li>
-              <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fi-torso-business')) . "&nbsp;&nbsp;As Teacher",array('controller' => 'teachers', 'action' => 'login'),array('escape' => false)); ?></li>
-              <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fi-torsos-female-male')) . "&nbsp;&nbsp;As Parent",array('controller' => 'Sparents', 'action' => 'login'),array('escape' => false)); ?>
-              </li>
-      </ul>
-       <ul id="RegisterDropdown" class="f-dropdown" data-dropdown-content tabindex="-1" aria-hidden="true" aria-autoclose="false" tabindex="-1">
-              <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fi-torso')) . "&nbsp;&nbsp;As Student",array('controller' => 'Students', 'action' => 'register'),array('escape' => false)); ?></li>
-              <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fi-torso-business')) . "&nbsp;&nbsp;As Teacher",array('controller' => 'teachers', 'action' => 'register'),array('escape' => false)); ?></li>
-              <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fi-torsos-female-male')) . "&nbsp;&nbsp;As Parent",array('controller' => 'Sparents', 'action' => 'register'),array('escape' => false)); ?>
-              </li>
+              <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fi-torso')) . "&nbsp;&nbsp;Logout",array('controller' => 'teachers', 'action' => 'logout'),array('escape' => false)); ?></li>
       </ul>
       <section id="top-head" class="hide-for-small hide-for-medium">
         <?php echo $this->Html->image('ev-logo2.png',array('class'=>'brand-logo'));?>
@@ -88,12 +76,15 @@
     echo $this->Html->script('vendor/modernizr');
     echo $this->Html->script('vendor/jquery');
     echo $this->Html->script('foundation.min');
-    echo $this->Html->script('foundation-icons.min');
     echo $this->fetch('script');
   ?>
+  <?php 
+                    echo $this->Session->flash('success');
+                    echo $this->Session->flash('error');
+                    echo $this->Session->flash('auth', array('params'=>array('class'=>'alert alert-danger')));
+                ?>
   <script type="text/javascript">
       $(document).foundation();
   </script>
-  <script type="text/javascript"></script>
 </body>
 </html>
