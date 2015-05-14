@@ -17,7 +17,6 @@
  * @since         CakePHP(tm) v 0.2.9
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-
 App::uses('AppController', 'Controller');
 
 /**
@@ -35,19 +34,25 @@ class PagesController extends AppController {
  *
  * @var array
  */
-	public $uses = array();
-	public $helpers=array('Html','Js');
-/**
- * Displays a view
- *
- * @return void
- * @throws NotFoundException When the view file could not be found
- *	or MissingViewException in debug mode.
- */
-	public function beforeFilter(){
-		AppController::beforeFilter();
-		$this->layout= 'site_layout';
-	}
+	public $uses = array('Article');
+
+
+    public function beforeFilter()
+    {
+        AppController::beforeFilter();
+
+        $this->layout = 'site_layout';
+
+        // Basic setup
+        // $this->Auth->authenticate = array('Form');
+
+        // // Pass settings in
+        // $this->Auth->authenticate = array(
+        //     'Form' => array('userModel' => 'User')
+        // );
+
+        // $this->Auth->allow('index','display');
+    }
 
 	public function display() {
 		$path = func_get_args();
@@ -67,7 +72,23 @@ class PagesController extends AppController {
 		if (!empty($path[$count - 1])) {
 			$title_for_layout = Inflector::humanize($path[$count - 1]);
 		}
+
 		$this->set(compact('page', 'subpage', 'title_for_layout'));
+
+
+        //Create Content
+        $article = $this->Article->find('first',array('conditions'=>array('Article.alias'=>$page)));
+
+        if($article==null){
+            $this -> redirect(array('controller' => 'home', 'action' => 'index'));
+        }
+
+
+        $this->set('article',html_entity_decode($article['Article']['content']));
+        $this->set('articleTitle',$article['Article']['title']);
+
+        $this->layout = 'site_layout';
+
 
 		try {
 			$this->render(implode('/', $path));
@@ -77,5 +98,15 @@ class PagesController extends AppController {
 			}
 			throw new NotFoundException();
 		}
+
+
 	}
 }
+
+
+
+
+
+
+
+
