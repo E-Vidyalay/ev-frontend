@@ -114,6 +114,18 @@
     height: 100%;
     
 }
+.login_dialouge_heading{
+	background-color:#054b9a;
+	color:#fff;
+	font-size: 16px;
+	padding: 10px 10px;
+}
+.ev-alert{
+	top:130px;
+	right:20px;
+	position: absolute;
+	z-index: 8000;
+}
 @media only screen and (max-width: 64.0625em) {
 	#main-content{
 		margin-top:70px;
@@ -124,3 +136,4 @@
 		margin-top:70px;
 	}
 }
+

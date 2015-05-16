@@ -51,7 +51,7 @@ class PagesController extends AppController {
         //     'Form' => array('userModel' => 'User')
         // );
 
-        // $this->Auth->allow('index','display');
+         $this->Auth->allow('index','display');
     }
 
 	public function display() {

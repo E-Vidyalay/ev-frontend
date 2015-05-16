@@ -112,3 +112,18 @@ CakeLog::config('error', array(
 	'types' => array('warning', 'error', 'critical', 'alert', 'emergency'),
 	'file' => 'error',
 ));
+CakePlugin::load('Opauth', array('routes' => true, 'bootstrap' => true));
+
+Configure::write('Opauth.path', '/auth/');
+//Configure::write('Opauth.path', '/cakestudio/auth/');
+
+Configure::write('Opauth.Strategy.Google', array(
+    'client_id' => '708517605806-e98v9rp5p7ao0qh2qco71qsh06fn96no.apps.googleusercontent.com',
+    'client_secret' => 'JI-LHf3_QBss2a1of9qM-CdX'
+));
+Configure::write('Opauth.Strategy.Facebook', array(
+    'app_id' => '586092931531545',
+    'app_secret' => 'f7a7db2625502e164156dd435d101f0b',
+    'scope'=>'email'
+));
+

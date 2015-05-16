@@ -42,8 +42,8 @@
           </div>
           <div class="columns large-6" id="top-right">
             <!-- Write menu in reverse order-->
-            <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-lock fa-fw')) . " Login",array('controller'=>'pages','action'=>'vision'),array('escape' => false)); ?>
-            <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-pencil fa-fw')) . " Register",array('controller'=>'pages','action'=>'vision'),array('escape' => false)); ?>
+            <a href="#" data-reveal-id="login"><i class="fa fa-lock fa-fw"></i>Login</a>
+            <a href="#" data-reveal-id="register"><i class="fa fa-pencil fa-fw"></i>Register</a>
             <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-eye fa-fw')) . " Vision",array('controller'=>'pages','action'=>'vision'),array('escape' => false)); ?>
             <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-bookmark-o fa-fw')) . " About EVidyalay",array('controller'=>'pages','action'=>'about_us'),array('escape' => false)); ?>
           </div>
@@ -92,6 +92,13 @@
     </div>
     <section class="main-section" >
       <!-- content goes here -->
+        <div class="ev-alert">
+            <?php
+                echo $this->Session->flash('success');
+                echo $this->Session->flash('error');
+                echo $this->Session->flash('auth', array('params'=>array('class'=>'alert alert-danger')));
+            ?>
+        </div>
         <div clas="row" id="main-content">
             <?php echo $content_for_layout; ?>
         </div>
@@ -101,12 +108,13 @@
 
   </div>
 </div>
-
+  <?php echo $this->Element('Dialogs');?>
 
   <?php
     echo $this->Html->script('vendor/modernizr');
     echo $this->Html->script('vendor/jquery');
     echo $this->Html->script('foundation.min');
+    echo $this->Html->script('app');
     echo $this->fetch('script');
   ?>
   <script type="text/javascript">
