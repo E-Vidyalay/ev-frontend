@@ -1,7 +1,7 @@
 <div class="row">
     <div class="large-5 medium-6 small-8 colums medium-offset-3 small-offset-2 large-offset-4 panel">
                         <h3 style="text-align:center">ઈ-વિદ્યાલય | વિદ્યાર્થી  લોગીન</h3>
-                    <hr/>
+                        <hr/>
                         <?php echo $this->Form->create('Student',array('controller'=>'Students','action'=>'login')) ?>
                             <fieldset>
                                 <div class="form-group">

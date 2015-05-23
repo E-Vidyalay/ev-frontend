@@ -2,6 +2,9 @@
 	class SparentsController extends AppController{
 		public function index(){
 			$this->layout='parent_layout';
+			if($this->Session->check('Auth.Sparent')){
+				$this->redirect(array('controller'=>'Sparents','action'=>'index'));
+			}
 		}
 		public function beforeFilter(){
 			parent::beforeFilter();

@@ -384,3 +384,11 @@ Cache::config('_cake_model_', array(
 	'serialize' => ($engine === 'File'),
 	'duration' => $duration
 ));
+Configure::write('Opauth.path', '/auth/');
+//Configure::write('Opauth.path', '/cakestudio/auth/');
+
+Configure::write('Opauth.Strategy.Google', array(
+   'client_id' => '724460719063.apps.googleusercontent.com',
+   'client_secret' => 'qoJ_Wukf7Hq_SYcgsLMl3BCI',
+   'redirect_uri' => 'http://dev.example.com/auth_callback/google'
+));

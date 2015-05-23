@@ -9,6 +9,7 @@
     echo $this->Html->css('app');
     echo $this->fetch('css');
   ?>
+  <script src="https://apis.google.com/js/client:platform.js" async defer></script>
 </head>
 <body>
 <div class="off-canvas-wrap" data-offcanvas>

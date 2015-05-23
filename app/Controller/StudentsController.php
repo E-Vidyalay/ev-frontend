@@ -1,8 +1,10 @@
 <?php
 	class StudentsController extends AppController{
+		
 		public function index(){
 			$this->layout='student_layout';
 		}
+		
 		public function beforeFilter(){
 			parent::beforeFilter();
 			//$this->Auth->authorize = 'Controller';
@@ -23,11 +25,16 @@
 					$this->Session->setFlash('Logged in successfully','default',array('class'=>'alert-box success radius'),'success');
 					$this->redirect(array('controller'=>'Students','action'=>'index'));
 				}
-				else{
+				else
+				{
+						$client = $this->getGoogleClient();
+		            $authUrl = $client->createAuthUrl();
+		            $this->set(array('GoogleAuthUrl' => $authUrl));
 					$this->Session->setFlash('Sorry invalid username or password','default',array('class'=>'alert-box alert radius'),'error');
 				}
 			}
 		}
+		
 		public function logout(){
 			$this->layout='site_layout';
 			if($this->Auth->logout()){
@@ -38,6 +45,7 @@
 				die("error");
 			}
 		}
+		
 		public function register(){
 			$this->layout='site_layout';
 	    	if($this->request->is('post')){
@@ -50,7 +58,7 @@
 	    		else{
 	    			$this->Session->setFlash('Sorry, there was error','default',array('class'=>'alert-box alert radius'),'error');
 	    		}
-		}
+			}
 	}
 }
 	

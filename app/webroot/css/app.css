@@ -21,6 +21,41 @@
 	padding: 0 8px;
 	float: right;
 }
+#user-sub-top-bar{
+	height: 38px;
+	background: #f4f4f4;
+}
+#user-sub-top-bar ul li a{
+	height: 38px;
+	
+	color: #ffffff;
+
+}
+#sub-tab-menu{
+	width: 100%;
+	background: #EFEFEF;
+}
+#sub-tab-menu ul li a{
+	padding: 10px;
+}
+#sub-tab-menu ul li{
+	padding-left: 15px;
+}
+.divider-sub-nav{
+	border-right: solid 1px #333333;
+	border-bottom: none;
+	border-top: none;
+	clear: none;
+	width: 0;
+	height: 38px;
+}
+.user-top-bar{
+	background: #054b9a;
+}
+.user-top-nav{
+	height: 46px;
+	background: #054b9a;
+}
 #top-head{
 	height: 100px;
 	background: #054b9a;
@@ -33,7 +68,28 @@
 	padding-left: 28px;
 	padding-top:5px;
 }
+.brand-logo-user{
+	height: 45px;
+	padding-left: 28px;
+	padding-top:5px;
+}
 #small{
+	padding-top: 10px;
+}
+#list-right{
+	color: #fff;
+	background: #054b9a;
+}
+#list-right:hover{
+	color: #fff;
+	background: #333333;
+}
+
+#list-left{
+	font-size: 20px;
+	color: #fff;
+	padding-left: 15px;
+	background: #054b9a;
 	padding-top: 10px;
 }
 .brand-name{
@@ -63,4 +119,10 @@
 	color: #fff;
 	background-color: #4787d0;
 	border-radius: 3px;
+}
+#search-bar{
+	  background: #054b9a;
+  height: 2.8125rem;
+  padding: 0 0.9375rem;
+    padding-left: 50px;
 }
