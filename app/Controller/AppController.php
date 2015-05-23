@@ -30,5 +30,26 @@ App::uses('Controller', 'Controller');
  * @package		app.Controller
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
-class AppController extends Controller {
+class AppController extends Controller {    
+    public $uses=array('UserType');
+	public $components = array(
+        'Session',
+        'Auth' => array(
+            'authenticate' => array(
+                'User' => array(
+                    'userModel' => 'User',
+                    'fields' => array(
+                        'username' => 'username',
+                        'password' => 'password'
+                    )
+                )
+            )
+        )
+    );
+	public function beforeFilter(){
+		$this->set('isLoggedIn',$this->Auth->loggedIn());
+        $this->set('activeUser',$this->Session->read('Auth'));
+        $this->activeUser = $this->Session->read('Auth');
+        $this->set('typeList',$this->UserType->find('list'));
+	}
 }
