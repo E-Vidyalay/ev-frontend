@@ -63,11 +63,15 @@
 
                     $this->Auth->login($user['User']);
                     $user=$this->data;
+                    $user_id=$this->User->getInsertID();
                     if(empty($user['User']['user_type'])) {
-                        $this->redirect(array('controller'=>'users','action'=>'set_user_type',$user['User']['id']));
+                        $this->redirect(array('controller'=>'users','action'=>'set_user_type',$user_id));
                     }
                     else{
                         if($user['User']['user_type']=='cb6f8154-fbbc-11e4-b148-01f8d649e9b6'){
+                            $student=array();
+                            $student['user_id']=$this->User->getInsertID();
+                            $this->Student->save($student);
                             $this->redirect(array('controller'=>'students','action'=>'home'));
                         }
                         if($user['User']['user_type']=='cb6f95fe-fbbc-11e4-b148-01f8d649e9b6'){
@@ -131,7 +135,6 @@
             }
 
             if($this->User->save($user)){
-                // die('bitch');
             }
 
             $this->Auth->login($user['User']);
@@ -147,7 +150,6 @@
                 $user = $this->User->findById($user_id);
 
                 $this->Auth->login($user['User']);
-
                 $this->Session->setFlash('Thank you for joining E Vidyalay!', 'default', array('class' => 'alert-box radius success') , 'success');
             }
             else
@@ -263,6 +265,9 @@
                 }
                 $this->Session->write('Auth.User', $usr);
                 if($this->data['User']['user_type']=='cb6f8154-fbbc-11e4-b148-01f8d649e9b6'){
+                    $student=array();
+                    $student['user_id']=$this->data['User']['id'];
+                    $this->Student->save($student);
                     $this->redirect(array('controller'=>'students','action'=>'home'));
                 }
                 if($this->data['User']['user_type']=='cb6f95fe-fbbc-11e4-b148-01f8d649e9b6'){
