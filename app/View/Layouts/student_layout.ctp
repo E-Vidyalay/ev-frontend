@@ -9,8 +9,29 @@
     echo $this->Html->css('app');
     echo $this->fetch('css');
   ?>
+  <script type="text/javascript" language="javascript">  
+    function disableBackButton()
+    {
+    window.history.forward()
+    } 
+    disableBackButton(); 
+    window.onload=disableBackButton(); 
+    window.onpageshow=function(evt) { if(evt.persisted) disableBackButton() } 
+    window.onunload=function() { void(0) } 
+
+    function my_onkeydown_handler() {
+        switch (event.keyCode) {
+            case 116 : // 'F5'
+                event.preventDefault();
+                event.keyCode = 0;
+                window.status = "F5 disabled";
+                break;
+        }
+    }
+    document.addEventListener("keydown", my_onkeydown_handler);
+  </script>
 </head>
-<body>
+<body onkeydown="noBack()">
 <div class="off-canvas-wrap" data-offcanvas>
   <div class="inner-wrap">
     <nav class="tab-bar hide-for-large hide-for-xlarge hide-for-xxlarge">
@@ -69,7 +90,7 @@
       <ul>
           <li><a href="#">Dashboard</a></li>
           <li><a href="#">Courses</a></li>
-          <li><a href="#">Apply for quiz ?</a></li>
+          <li><?php echo $this->Html->link('Apply for quiz !',array('controller'=>'students','action'=>'test_application',$activeUser['User']['id']));?></li>
       </ul>    
     </section>
     <section class="main-section" >
@@ -100,6 +121,9 @@
   ?>
   <script type="text/javascript">
       $(document).foundation();
+      $(document).ready(function(){
+        window.history.forward(-1);
+      });
   </script>
 </body>
 </html>

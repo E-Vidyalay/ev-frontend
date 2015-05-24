@@ -197,21 +197,22 @@
     }
     public function custom_login(){
             if($this->Session->check('Auth.User')){
-                if(empty($activeUser['User']['user_type'])){
+                //pr($this->Auth->user());
+                if(empty($this->Auth->user('user_type'))){
                         $this->redirect(array('controller'=>'users','action'=>'set_user_type',$this->Auth->user('id')));
-            }
-            else{
-                if($activeUser['User']['user_type']=='cb6f8154-fbbc-11e4-b148-01f8d649e9b6'){
-                    $this->redirect(array('controller'=>'students','action'=>'home'));
                 }
-                if($activeUser['User']['user_type']=='cb6f95fe-fbbc-11e4-b148-01f8d649e9b6'){
-                    $this->redirect(array('controller'=>'teachers','action'=>'home'));
-                }
-                if($activeUser['User']['user_type']=='d0cf96fc-fbbc-11e4-b148-01f8d649e9b6'){
-                    $this->redirect(array('controller'=>'parents','action'=>'home'));
-                }
+                else{
+                    if($this->Auth->user('user_type')=='cb6f8154-fbbc-11e4-b148-01f8d649e9b6'){
+                        $this->redirect(array('controller'=>'students','action'=>'home'));
+                    }
+                    if($this->Auth->user('user_type')=='cb6f95fe-fbbc-11e4-b148-01f8d649e9b6'){
+                        $this->redirect(array('controller'=>'teachers','action'=>'home'));
+                    }
+                    if($this->Auth->user('user_type')=='d0cf96fc-fbbc-11e4-b148-01f8d649e9b6'){
+                        $this->redirect(array('controller'=>'parents','action'=>'home'));
+                    }
 
-            }
+                }
         }
 
         if($this->request->is('post')){

@@ -204,6 +204,8 @@
 	background: #fff;
 	top:70px;
 	width: 100%;
+	z-index: 10000;
+	border-bottom: 1px solid #bbb;
 }
 .user-menu > ul{
 	margin-left: 4%;
@@ -216,8 +218,17 @@
 .user-menu >ul >li >a{
 	color: #666;
 	font-size: 13px;
+	padding: 0px 5px;
 }
 .user-menu >ul >li :hover{
 	border-bottom: 3px solid #4787d0;
 	padding-bottom: 3px;
+}
+.question-card{
+	background: #fff;
+	margin: 10px;
+	padding: 20px;
+}
+.question-panel{
+	font-size: 12px;
 }
