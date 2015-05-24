@@ -9,9 +9,6 @@ class User extends AppModel
                 'thumbnailMethod'=>"php",
                 'extensions'=> array('jpg','png','JPG','PNG','jpeg','JPEG'),
                 'thumbnailSizes' => array(
-                    'big' => '600x600',
-                    'large' => '400x400',
-                    'medium' => '200x200',
                     'small' => '100x100'
                 ),
                 'fields' => array(

@@ -48,11 +48,11 @@
             <ul class="right" id="pro-menu">
             <li>
               <a data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" id='usr-a'><?php 
-              if(empty($activeUser['User']['path_dir'])){
+              if(empty($activeUser['User']['path'])){
                   echo $this->Html->image('user_avatar.png',array('class'=>'usr-img'));
               }
               else{
-                echo '<img src="'.$this->webroot.'files/user/path/'.$activeUser['User']['path_dir'].'/small_'.$activeUser['User']['path'].'" class="usr-img"/ > ';
+                echo '<img src="'.$this->webroot.'files/user/path/'.$activeUser['User']['id'].'/small_'.$activeUser['User']['path'].'" class="usr-img"/ > ';
               }
                   ?> &nbsp;&nbsp;<?php echo $activeUser['User']['name']; ?></a>
               <ul id="drop1" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">

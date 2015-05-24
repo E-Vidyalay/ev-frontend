@@ -5,12 +5,12 @@
 		<hr/>
 		<div class="row">
 			<div class="colums large-8 large-offset-2 panel">
-				<?php 
-					echo $this->Form->create('User',array('controller'=>'users','action'=>'set_user_type','type'=>'file'));
-					echo $this->Form->input('id',array('type'=>'hidden','value'=>$activeUser['User']['id']));
+				<?php
+					echo $this->Form->create('User',array('type'=>'file','controller'=>'users','action'=>'set_user_type'));
+					echo $this->Form->input('id',array('type'=>'hidden','value'=>$uid));
 					if(empty($activeUser['User']['name'])){
 						echo "<h6> Your name </h6>";
-						echo $thi->Form->input('id',array('type'=>'text','placeholder'=>'Name','required'));
+						echo $this->Form->input('name',array('type'=>'text','placeholder'=>'Name','required','label'=>false));
 						echo "<hr/>";
 					}
 					echo "<h6> Select user type:</h6>";
@@ -30,8 +30,9 @@
 					</div>
 					<hr/>
 				<?php
-					echo $this->Form->input('Proceed',array('type'=>'submit','class'=>'button small primary radius','label'=>false,'div'=>false));
 					}
+					echo $this->Form->input('Proceed',array('type'=>'submit','class'=>'button small primary radius','label'=>false,'div'=>false));
+					echo $this->Form->end();
 				?>
 			</div>
 		</div>
