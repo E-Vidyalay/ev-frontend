@@ -14,7 +14,7 @@
     <?php
       echo $this->Form->create('User',array('controller'=>'users','action'=>'login'));
       echo $this->Form->input('username',array('type'=>'email','required','placeholder'=>'username','label'=>'Username'));
-      echo $this->Form->input('username',array('type'=>'password','required','placeholder'=>'Password','label'=>'Password'));
+      echo $this->Form->input('password',array('type'=>'password','required','placeholder'=>'Password','label'=>'Password'));
       echo $this->Form->input('Login',array('type'=>'submit','label'=>false,'div'=>false,'class'=>'button button tiny radius'));
       echo $this->Form->end();
     ?>

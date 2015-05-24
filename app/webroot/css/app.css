@@ -136,4 +136,64 @@
 		margin-top:70px;
 	}
 }
+.user-nav{
+	position:fixed;
+    left:0;
+    right:0;
+    color:#fff;
+    z-index:5000;
+    width:100%;
+	background: #054b9a;
+	width: 100%;
+}
+.user-head{
+	position:fixed;
+    left:0;
+    right:0;
+    color:#fff;
+    z-index:5000;
+    width:100%;
+	background: #054b9a;
+	height: 70px;
+	width: 100%;
+}
+#search-bar{
+	margin-top:15px;
+	border-radius:3px
+}
+.pro-brand{
+	color:#fff;
+	float: right;
+	margin-top: 18px;
+	font-size: 20px;
+}
+.usr-img{
+	height:40px;
+	border-radius: 20px;
+}
+#pro-menu > li{
+	color: #fff;
+	float: left;
+	font-size: 14px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
 
+#pro-menu > li > a{
+	color: #fff;
+  	display: block;
+  	font-size: 14px;
+  	padding: 15px 10px;
+}
+#pro-menu > li > a:hover{
+	color: #fff;
+	background-color: #4787d0;
+	border-radius: 3px;
+}
+.ev-alert-pro{
+	top:100px;
+	right:20px;
+	position: absolute;
+	z-index: 9000;
+}

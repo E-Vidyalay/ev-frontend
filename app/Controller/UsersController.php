@@ -1,5 +1,6 @@
 <?php
     class UsersController extends AppController{
+        public $uses=array('User','Student');
          public function beforeFilter()
         {
                 AppController::beforeFilter();
@@ -150,8 +151,24 @@
 
         if($this->request->is('post')){
             if($this->Auth->login()){
+                //Check if user type is set or not
                 $this->Session->setFlash('Logged in successfully','default',array('class'=>'alert-box radius success'),'success');
-                $this->redirect(array('controller'=>'pages','action'=>'home'));
+                if(empty($this->Auth->user('user_type'))){
+                    $this->redirect(array('controller'=>'users','action'=>'set_user_type',$this->Auth->user('id')));
+                }
+                else{
+                    if($this->Auth->user('user_type')=='cb6f8154-fbbc-11e4-b148-01f8d649e9b6'){
+                        $this->redirect(array('controller'=>'students','action'=>'home'));
+                    }
+                    if($this->Auth->user('user_type')=='cb6f95fe-fbbc-11e4-b148-01f8d649e9b6'){
+                        $this->redirect(array('controller'=>'teachers','action'=>'home'));
+                    }
+                    if($this->Auth->user('user_type')=='d0cf96fc-fbbc-11e4-b148-01f8d649e9b6'){
+                        $this->redirect(array('controller'=>'parents','action'=>'home'));
+                    }
+
+                }
+                
             }
             else{
                 $this->Session->setFlash('Sorry invalid username or password','default',array('class'=>'alert-box radius alert'),'error');
@@ -161,13 +178,29 @@
     }
 
     public function logout(){
-        $this->layout='ev_admin';
         if($this->Auth->logout()){
             $this->Session->setFlash('Logged out successfully','default',array('class'=>'alert-box radius success'),'success');
             $this->redirect(array('controller'=>'pages','action'=>'home'));
         }
         else{
             die("error");
+        }
+    }
+
+    public function set_user_type($id){
+        $this->layout='profile_layout';
+        if($this->request->is('post')){
+            if($this->User->save($this->data)){
+                if($this->data['User']['user_type']=='cb6f8154-fbbc-11e4-b148-01f8d649e9b6'){
+                    $this->redirect(array('controller'=>'students','action'=>'home'));
+                }
+                if($this->data['User']['user_type']=='cb6f95fe-fbbc-11e4-b148-01f8d649e9b6'){
+                    $this->redirect(array('controller'=>'teachers','action'=>'home'));
+                }
+                if($this->data['User']['user_type']=='d0cf96fc-fbbc-11e4-b148-01f8d649e9b6'){
+                    $this->redirect(array('controller'=>'parents','action'=>'home'));
+                }
+            }
         }
     }
     public function isAuthorized($user)
