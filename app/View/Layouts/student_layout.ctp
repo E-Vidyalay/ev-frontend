@@ -37,11 +37,11 @@
     <div class="user-nav"> 
       <section class="user-head hide-for-small hide-for-medium">
         <div class="row">
-          <div class="columns large-2">
+          <div class="columns large-3">
             <?php echo $this->Html->image('ev-logo2.png',array('class'=>'brand-logo'));?>
             <div class='pro-brand'>ઈ-વિદ્યાલય</div>
           </div>
-          <div class="columns large-4 large-offset-1">
+          <div class="columns large-3 large-offset-1">
               <input type="text" id="search-bar" placeholder="Search" />
           </div>
           <div class="columns large-4">
@@ -65,6 +65,13 @@
         </div>
       </section>
     </div>
+    <section class="user-menu hide-for-small hide-for-medium">
+      <ul>
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Courses</a></li>
+          <li><a href="#">Apply for quiz ?</a></li>
+      </ul>    
+    </section>
     <section class="main-section" >
       <!-- content goes here -->
         <div class="ev-alert-pro">
