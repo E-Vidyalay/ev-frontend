@@ -204,7 +204,6 @@
 	background: #fff;
 	top:70px;
 	width: 100%;
-	z-index: 10000;
 	border-bottom: 1px solid #bbb;
 }
 .user-menu > ul{
@@ -222,7 +221,7 @@
 }
 .user-menu >ul >li :hover{
 	border-bottom: 3px solid #4787d0;
-	padding-bottom: 3px;
+	padding-bottom: 10px;
 }
 .question-card{
 	background: #fff;

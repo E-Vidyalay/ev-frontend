@@ -4,6 +4,10 @@
 
 		public function home(){
 			$this->layout='student_layout';
+			$student=$this->Student->find('first',array('conditions'=>array('Student.user_id'=>$this->Auth->user('id'))));
+			$th=$this->TestApplication->find('all',array('conditions'=>array('TestApplication.student_id'=>$student['Student']['id'])));
+			$this->set('test_history',$th);
+
 		}
 
 		public function test_application($id=null){
