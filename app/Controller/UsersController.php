@@ -47,6 +47,9 @@
                     $this->Auth->login($user['User']);
                     $user=$this->data;
                     $user_id=$this->User->getInsertID();
+                    $usr=$this->Auth->user();
+                    $usr['id']=$user_id;
+                    $this->Session->write('Auth.User', $usr);
                     if(empty($user['User']['user_type'])) {
                         $this->redirect(array('controller'=>'users','action'=>'set_user_type',$user_id));
                     }
