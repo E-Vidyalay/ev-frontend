@@ -96,7 +96,7 @@
             <?php
                 echo $this->Session->flash('success');
                 echo $this->Session->flash('error');
-                echo $this->Session->flash('auth', array('params'=>array('class'=>'alert alert-danger')));
+                echo $this->Session->flash('auth', array('params'=>array('class'=>'alert-box radius alert')));
             ?>
         </div>
         <div clas="row" id="main-content">

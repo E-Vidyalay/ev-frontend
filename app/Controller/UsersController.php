@@ -1,23 +1,6 @@
 <?php
     class UsersController extends AppController{
         public $uses=array('User','Student');
-         public function beforeFilter()
-        {
-                AppController::beforeFilter();
-
-                //Set the overall layout
-                $this->layout = 'site_layout';
-
-                // Basic setup
-                $this->Auth->authenticate = array('Form');
-
-                // Pass settings in
-                $this->Auth->authenticate = array(
-                    'Form' => array('userModel' => 'User')
-                );
-
-                $this->Auth->allow('login','signup','callback','custom_login');
-        }
 
         public function signup(){
 
@@ -173,7 +156,8 @@
         }
     }
     public function login(){
-            if($this->Session->check('Auth.User')){
+        $this->layout='site_layout';
+        if($this->Session->check('Auth.User')){
                 if(empty($activeUser['User']['user_type'])){
                         $this->redirect(array('controller'=>'users','action'=>'set_user_type',$activeUser['User']['user_type']));
             }
@@ -189,10 +173,6 @@
                 }
 
             }
-        }
-        else{
-            $this->Session->setFlash('Sorry invalid username or password','default',array('class'=>'alert-box radius alert'),'error');
-            $this->redirect(array('controller'=>'pages','action'=>'home'));
         }
     }
     public function custom_login(){
@@ -279,10 +259,6 @@
                 }
             }
         }
-    }
-    public function isAuthorized($user)
-    {
-        return true;
     }
     }
 ?>

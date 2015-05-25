@@ -46,10 +46,26 @@ class AppController extends Controller {
             )
         )
     );
-	public function beforeFilter(){
-		$this->set('isLoggedIn',$this->Auth->loggedIn());
+    public function beforeFilter(){
+      
+
+        //Logged In user variables
+        $this->set('isLoggedIn',$this->Auth->loggedIn());
         $this->set('activeUser',$this->Session->read('Auth'));
+        // Basic setup
+        $this->Auth->authenticate = array('Form');
+        // Pass settings in
+        $this->Auth->authenticate = array(
+            'Form' => array('userModel' => 'User')
+        );
+        $this->Auth->allow('login','signup','callback','custom_login');
         $this->activeUser = $this->Session->read('Auth');
+        $this->isLoggedIn = $this->Auth->loggedIn();
         $this->set('typeList',$this->UserType->find('list'));
-	}
+    }
+    public function isAuthorized($user) {
+        // Here is where we should verify the role and give access based on role
+        
+        return true;
+    }
 }
