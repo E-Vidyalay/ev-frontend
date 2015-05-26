@@ -21,7 +21,7 @@
 					}
 				}
 				if($this->TestResult->saveMany($data)){
-					$this->Session->setFlash('Quiz submited Successfully!','default',array('class'=>'alert alert-success'),'success');
+					$this->Session->setFlash('Quiz submited Successfully!','default',array('class' => 'alert-box success radius') , 'success');
 					$this->redirect(array('controller'=>'TestResults','action'=>'get_result',$this->data['TestResult']['test_id']));
 				}
 			}
