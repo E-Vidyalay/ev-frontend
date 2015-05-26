@@ -51,7 +51,7 @@
       <ul class="off-canvas-list">
         <li><label>Foundation</label></li>
         <li><a href="#">The Psychohistorians</a></li>
-        <li><a href="#">...</a></li>
+        <li><?php echo $this->Html->link('Logout',array('controller'=>'users','action'=>'logout')); ?></li>
       </ul>
     </aside>
 

@@ -28,9 +28,50 @@
 
     <aside class="left-off-canvas-menu">
       <ul class="off-canvas-list">
+        <li><label>ઈ-વિદ્યાલય</label></li>
+        <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-home fa-fw')) . " પ્રવેશદ્વાર",array('controller'=>'pages','action'=>'home'),array('escape' => false)); ?></li>
+        <li class="has-submenu"><a href="#"><i class="fa fa-book fa-fw"></i>વિષય</a>
+            <ul class="left-submenu">
+            <li class="back"><a href="#">Back</a></li>
+              <li><?php echo $this->Html->link('વિડીયો લાઇબ્રેરી',array('controller'=>'pages','action'=>'index')); ?></li>
+            <li><?php echo $this->Html->link('ગણિત',array('controller'=>'pages','action'=>'index')); ?></li>
+            <li><?php echo $this->Html->link('ગુજરાતી',array('controller'=>'pages','action'=>'index')); ?></li>
+
+            </ul></li>
+        <li class="has-submenu"><a href="#"><i class="fa fa-file fa-fw"></i>કેળવણી</a>
+            <ul class="left-submenu">
+            <li class="back"><a href="#">Back</a></li>
+              <li><?php echo $this->Html->link('પ્રેરક જીવન ચરિત્રો',array('controller'=>'pages','action'=>'index')); ?></li>
+            <li><?php echo $this->Html->link('દેશભક્તિ',array('controller'=>'pages','action'=>'index')); ?></li>
+            </ul></li>
+        <li class="has-submenu"><a href="#"><i class="fa fa-edit fa-fw"></i>બાળ સાહિત્ય</a>
+            <ul class="left-submenu">
+            <li class="back"><a href="#">Back</a></li>
+              <li><?php echo $this->Html->link('પ્રેરક જીવન ચરિત્રો',array('controller'=>'pages','action'=>'index')); ?></li>
+            <li><?php echo $this->Html->link('દેશભક્તિ',array('controller'=>'pages','action'=>'index')); ?></li>
+            </ul></li>
+        <li class="has-submenu"><a href="#"><i class="fa fa-institution fa-fw"></i>જ્ઞાન સાથે ગમ્મત</a>
+            <ul class="left-submenu">
+            <li class="back"><a href="#">Back</a></li>
+              <li><?php echo $this->Html->link('પ્રેરક જીવન ચરિત્રો',array('controller'=>'pages','action'=>'index')); ?></li>
+            <li><?php echo $this->Html->link('દેશભક્તિ',array('controller'=>'pages','action'=>'index')); ?></li>
+            </ul></li>
+        <li class="has-submenu"><a href="#"><i class="fa fa-info fa-fw"></i>ઈ-વિદ્યાલય વિષે</a>
+            <ul class="left-submenu">
+            <li class="back"><a href="#">Back</a></li>
+              <li><?php echo $this->Html->link('પ્રેરક જીવન ચરિત્રો',array('controller'=>'pages','action'=>'index')); ?></li>
+            <li><?php echo $this->Html->link('દેશભક્તિ',array('controller'=>'pages','action'=>'index')); ?></li>
+            </ul></li>
+        <li class="has-submenu"><a href="#"><i class="fa fa-search-plus fa-fw"></i>ઇવિદ્યાલય++</a>
+            <ul class="left-submenu">
+            <li class="back"><a href="#">Back</a></li>
+              <li><?php echo $this->Html->link('પ્રેરક જીવન ચરિત્રો',array('controller'=>'pages','action'=>'index')); ?></li>
+            <li><?php echo $this->Html->link('દેશભક્તિ',array('controller'=>'pages','action'=>'index')); ?></li>
+            </ul></li>
+        <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-arrow-circle-right fa-fw')) . " નવું",array('controller'=>'pages','action'=>'home'),array('escape' => false)); ?></li>
         <li><label>Foundation</label></li>
-        <li><a href="#">The Psychohistorians</a></li>
-        <li><a href="#">...</a></li>
+        <li><a href="#" data-reveal-id="login"><i class="fa fa-lock fa-fw"></i>Login</a></li>
+        <li><a href="#" data-reveal-id="register"><i class="fa fa-pencil fa-fw"></i>Register</a></li>
       </ul>
     </aside>
 
