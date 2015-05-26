@@ -44,6 +44,7 @@
             <!-- Write menu in reverse order-->
             <a href="#" data-reveal-id="login"><i class="fa fa-lock fa-fw"></i>Login</a>
             <a href="#" data-reveal-id="register"><i class="fa fa-pencil fa-fw"></i>Register</a>
+            <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-newspaper-o fa-fw')) . " News letter",array('controller'=>'NewsLetters','action'=>'index'),array('escape' => false)); ?>
             <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-eye fa-fw')) . " Vision",array('controller'=>'pages','action'=>'vision'),array('escape' => false)); ?>
             <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-bookmark-o fa-fw')) . " About EVidyalay",array('controller'=>'pages','action'=>'about_us'),array('escape' => false)); ?>
           </div>
