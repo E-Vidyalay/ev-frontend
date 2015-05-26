@@ -8,7 +8,7 @@
 				echo $this->Form->create('TestApplication',array('controller'=>'TestApplications','action'=>'test_application'));
 				echo $this->Form->input('uid',array('type'=>'hidden','value'=>$uid));
 				echo $this->Form->input('student_id',array('type'=>'hidden','value'=>$student_id));
-				echo $this->Form->input('subject_id',array('type'=>'radio','options'=>$subjects,'required'));
+				echo $this->Form->input('subject_id',array('type'=>'radio','options'=>$subjects,'required','label'=>'Subjects'));
 				echo "<br/>";
 				echo $this->Form->input('Proceed',array('type'=>'submit','div'=>false,'label'=>false,'class'=>'button tiny radius'));
 			?>

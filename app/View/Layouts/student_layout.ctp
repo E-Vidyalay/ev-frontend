@@ -89,10 +89,20 @@
     <section class="user-menu hide-for-small hide-for-medium">
       <ul>
           <li><?php echo $this->Html->link('Dashboard',array('controller'=>'students','action'=>'home'));?></li>
-          <li><a href="#">Courses</a></li>
+          <li><a data-dropdown="dropVid" aria-controls="dropVid" aria-expanded="false">Courses</a>
+          </li>
           <li><?php echo $this->Html->link('Apply for quiz !',array('controller'=>'students','action'=>'test_application',$activeUser['User']['id']));?></li>
       </ul>    
     </section>
+    <ul id="dropVid" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+          <?php
+                foreach ($subj as $sub) {
+                    echo "<li>".$this->Html->link($sub['Subject']['display_name'],array('controller'=>'links','action'=>'view',$sub['Subject']['id']))."</li>";
+                    echo '<li class="divider"></li>';
+
+                }
+          ?>
+    </ul>
     <section class="main-section" >
       <!-- content goes here -->
         <div class="ev-alert-pro">

@@ -31,7 +31,7 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {    
-    public $uses=array('UserType');
+    public $uses=array('UserType','Subject');
 	public $components = array(
         'Session',
         'Auth' => array(
@@ -50,6 +50,9 @@ class AppController extends Controller {
 		$this->set('isLoggedIn',$this->Auth->loggedIn());
         $this->set('activeUser',$this->Session->read('Auth'));
         $this->activeUser = $this->Session->read('Auth');
+        $subjects=$this->Subject->find('all',array('fields'=>array('id','display_name')));
+        //pr($subjects);
+        $this->set('subj',$subjects);
         $this->set('typeList',$this->UserType->find('list'));
 	}
 }
