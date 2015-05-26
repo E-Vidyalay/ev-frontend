@@ -10,6 +10,16 @@
 ### Outputs
 * Successful registration
 
+### Inputs
+* Shalin Parmar
+* shalingmail.com
+* shalin
+* student
+* Subscribed for newsletter
+
+### Outputs
+* Asks to enter proper email address 
+
 ## Registration, Login with Google
 ### Inputs
 * Pressed Login with Google button
@@ -91,18 +101,17 @@
 
 ## Giving improper inputs-2
 ### Inputs
-* selected th english
+* selected 10th english
 * proceed
-* No option for any question
+* No option for any question selected
 * Submit
 
 ### Outputs
 * Successful submission of quiz
-* Proper report generated
-* Report of quiz is properly displayed
+* Report of quiz is properly generated and displayed
 
 ### Issue
-* Flash of Successful sumbission stays there, it does not fade away.
+* Flash of Successful submission stays there, it does not fade away.
 
 # Test case 4 : Get Report
 
@@ -119,3 +128,11 @@
 
 ### Output
 * Successfully logs out user from the site
+
+# Test case 6 : Newsletter
+
+### Input
+* None
+
+### Output
+* Newly added newsletter does not align properly.
