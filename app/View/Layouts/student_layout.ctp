@@ -97,11 +97,12 @@
     <ul id="dropVid" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
           <?php
                 foreach ($subj as $sub) {
-                    echo "<li>".$this->Html->link($sub['Subject']['display_name'],array('controller'=>'links','action'=>'view',$sub['Subject']['id']))."</li>";
+                    echo '<li id='.$sub['Subject']['id'].'>'.$this->Html->link($sub['Subject']['display_name'],array('controller'=>'links','action'=>'view',$sub['Subject']['id'])).'</li>';
                     echo '<li class="divider"></li>';
 
                 }
           ?>
+          
     </ul>
     <section class="main-section" >
       <!-- content goes here -->
