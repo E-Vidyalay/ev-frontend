@@ -66,7 +66,6 @@
 	color: #fff;
 	float: left;
 	font-size: 14px;
-	text-transform: uppercase;
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -84,7 +83,63 @@
 #top-menu > li > a:hover{
 	color: #fff;
 	background-color: #4787d0;
-	border-radius: 3px;
+}
+#top-menu >li .course-menu{
+	background: #fff;
+	right: 0px;
+	left: 0px;
+	position: absolute;
+	display: none;
+	box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.35);
+	min-height: 495px;
+}
+#top-menu > li:hover > .course-menu{
+	display: block;
+}
+.course-menu >ul{
+	list-style: none;
+	margin-left: 18%;
+	margin-top: 10px;
+}
+.course-menu >ul >li{
+	float: left;
+	clear: both;
+	margin-bottom: 5px;
+	border-left:3px solid #4787d0;
+	color:#333;
+	font-size: 14px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding: 3px 15px;
+}
+.course-menu > ul > li  >a{
+	
+}
+.course-menu > ul > li >a:hover {
+	border-bottom: 2px solid #4787d0;
+}
+
+.course-menu > ul > li > .subject-menu{
+	position: absolute;
+	border-left:1px solid #DDDDDD;
+	float: right;
+	display: none;
+	top:0;
+	bottom: 0;
+	left:330px;
+	right: 0px;
+}
+.course-menu > ul > li > .subject-menu h4{
+	padding:0px 15px;
+	font: 18px;
+}
+
+.subject-menu >li{
+	display: inline-block;
+	padding:5px 15px;
+}
+.subject-menu >li a{
+
 }
 .content-card{
 	margin-left: 40px;
@@ -92,6 +147,12 @@
 	background: #fff;
 	z-index: -100;
 	padding:10px 30px;
+}
+.topic-menu li{
+	list-style: circle;
+}
+.topic-menu >li >a{
+	font-size: 13px;
 }
 .article-content{
 	text-align: justify;

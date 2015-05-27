@@ -55,14 +55,66 @@
         <span class="brand-name">ઈ-વિદ્યાલય</span>
         <ul class="right" id="top-menu">
           <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-home fa-fw')) . " પ્રવેશદ્વાર",array('controller'=>'pages','action'=>'home'),array('escape' => false)); ?></li>
-          <li><a data-dropdown="drop1" aria-controls="drop1" aria-expanded="false"><i class="fa fa-book fa-fw"></i>વિષય</a>
-            <ul id="drop1" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
-              <li><?php echo $this->Html->link('વિડીયો લાઇબ્રેરી',array('controller'=>'pages','action'=>'index')); ?></li>
-            <li><?php echo $this->Html->link('ગણિત',array('controller'=>'pages','action'=>'index')); ?></li>
-            <li><?php echo $this->Html->link('ગુજરાતી',array('controller'=>'pages','action'=>'index')); ?></li>
-
-            </ul></li>
-            <li><a data-dropdown="drop2" aria-controls="drop1" aria-expanded="false"><i class="fa fa-file fa-fw"></i>કેળવણી</a>
+          <li class="cs-dropdown"><a><i class="fa fa-book fa-fw"></i>વિષય</a>
+            <div class="course-menu">
+            <ul>
+              <li class="active"><a href="#" data-target="math"> Maths </a>
+                <ul class="subject-menu" id="math">
+                  <h4>Maths</h4>
+                  <hr/>
+                  <li><a href="#"> <b>Primary</b> </a>
+                      <ul class="topic-menu">
+                        <li><a href="#"> Arithmetic </a></li>
+                        <li><a href="#"> Geometry </a></li>
+                      </ul>
+                  </li>
+                  <li><a href="#"> <b>Secondary</b> </a>
+                      <ul class="topic-menu">
+                        <li><a href="#"> Geometry </a></li>
+                        <li><a href="#"> Probability </a></li>
+                      </ul>
+                  </li>
+                </ul>
+              </li>
+              <li ><a href="#" data-target="sci"> Science </a>
+                <ul class="subject-menu" id="sci">
+                  <h4>Science</h4>
+                  <hr/>
+                  <li><a href="#"> <b>Primary </b></a>
+                      <ul class="topic-menu">
+                        <li><a href="#"> Soil </a></li>
+                        <li><a href="#"> Plants </a></li>
+                      </ul>
+                  </li>
+                  <li><a href="#"> <b>Secondary</b> </a>
+                      <ul class="topic-menu">
+                        <li><a href="#"> Chemistry </a></li>
+                        <li><a href="#"> Physics </a></li>
+                      </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="#" data-target="eng"> English </a>
+                <ul class="subject-menu" id="eng">
+                  <h4>English</h4>
+                  <hr/>
+                  <li><a href="#"> <b>Primary</b> </a>
+                      <ul class="topic-menu">
+                        <li><a href="#"> Arithmetic </a></li>
+                        <li><a href="#"> Geometry </a></li>
+                      </ul>
+                  </li>
+                  <li><a href="#"> <b>Secondary</b> </a>
+                      <ul class="topic-menu">
+                        <li><a href="#"> Geometry </a></li>
+                        <li><a href="#"> Probability </a></li>
+                      </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            </div>
+          <li><a data-dropdown="drop2" aria-controls="drop1" aria-expanded="false"><i class="fa fa-file fa-fw"></i>કેળવણી</a>
             <ul id="drop2" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
             <li><?php echo $this->Html->link('પ્રેરક જીવન ચરિત્રો',array('controller'=>'pages','action'=>'index')); ?></li>
             <li><?php echo $this->Html->link('દેશભક્તિ',array('controller'=>'pages','action'=>'index')); ?></li>
@@ -88,6 +140,7 @@
             <li><?php echo $this->Html->link('દેશભક્તિ',array('controller'=>'pages','action'=>'index')); ?></li>
             </ul></li>
             <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-arrow-circle-right fa-fw')) . " નવું",array('controller'=>'pages','action'=>'home'),array('escape' => false)); ?></li>
+            
         </ul>
       </section>
     </div>
