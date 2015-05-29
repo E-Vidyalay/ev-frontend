@@ -2,6 +2,7 @@
 #################################################
 /app/tmp
 /app/Config/bootstrap.php
+/app/Config/database.php
 /lib/Cake/Console/Templates/skel/tmp/
 /plugins
 /vendors
