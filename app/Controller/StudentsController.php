@@ -14,7 +14,7 @@
 			$this->layout='student_layout';
 			$student=$this->Student->find('first',array('conditions'=>array('Student.user_id'=>$id)));
 			$this->set('student_id',$student['Student']['id']);
-			$subjects=$this->Subject->find('list',array('fields'=>array('id','display_name')));
+			$subjects=$this->Subject->find('list',array('fields'=>array('id','name')));
 			$this->set('subjects',$subjects);
 			$this->set('uid',$id);
 			

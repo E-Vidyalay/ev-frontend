@@ -99,60 +99,35 @@
           <li class="cs-dropdown"><a><i class="fa fa-book fa-fw"></i>વિષય</a>
             <div class="course-menu">
             <ul>
-              <li class="active"><a href="#" data-target="math"> Maths </a>
-                <ul class="subject-menu" id="math">
-                  <h4>Maths</h4>
-                  <hr/>
-                  <li><a href="#"> <b>Primary</b> </a>
-                      <ul class="topic-menu">
-                        <li><a href="#"> Arithmetic </a></li>
-                        <li><a href="#"> Geometry </a></li>
-                      </ul>
-                  </li>
-                  <li><a href="#"> <b>Secondary</b> </a>
-                      <ul class="topic-menu">
-                        <li><a href="#"> Geometry </a></li>
-                        <li><a href="#"> Probability </a></li>
-                      </ul>
-                  </li>
-                </ul>
-              </li>
-              <li ><a href="#" data-target="sci"> Science </a>
-                <ul class="subject-menu" id="sci">
-                  <h4>Science</h4>
-                  <hr/>
-                  <li><a href="#"> <b>Primary </b></a>
-                      <ul class="topic-menu">
-                        <li><a href="#"> Soil </a></li>
-                        <li><a href="#"> Plants </a></li>
-                      </ul>
-                  </li>
-                  <li><a href="#"> <b>Secondary</b> </a>
-                      <ul class="topic-menu">
-                        <li><a href="#"> Chemistry </a></li>
-                        <li><a href="#"> Physics </a></li>
-                      </ul>
-                  </li>
-                </ul>
-              </li>
-              <li><a href="#" data-target="eng"> English </a>
-                <ul class="subject-menu" id="eng">
-                  <h4>English</h4>
-                  <hr/>
-                  <li><a href="#"> <b>Primary</b> </a>
-                      <ul class="topic-menu">
-                        <li><a href="#"> Arithmetic </a></li>
-                        <li><a href="#"> Geometry </a></li>
-                      </ul>
-                  </li>
-                  <li><a href="#"> <b>Secondary</b> </a>
-                      <ul class="topic-menu">
-                        <li><a href="#"> Geometry </a></li>
-                        <li><a href="#"> Probability </a></li>
-                      </ul>
-                  </li>
-                </ul>
-              </li>
+            <?php
+              foreach ($subjects as $sub) {
+                echo '<li><a href="#" data-target="'.$sub['Subject']['id'].'">'.$sub['Subject']['name'].' </a>';
+                echo '<ul class="subject-menu" id="'.$sub['Subject']['id'].'">
+                  <h4>'.$sub['Subject']['name'].'</h4>
+                  <hr/>';
+                  foreach ($levels as $lev) {
+                    echo '<li><a href="#"> <b>'.$lev['Level']['level_name'].'</b> </a>';
+                    foreach ($topics as $top) {
+                      if($lev['Level']['id']==$top['Topic']['level_id'] && $sub['Subject']['id']==$top['Topic']['subject_id']){
+                        echo '<ul class="topic-menu">
+                                  <li><a href="#">'.$top['Topic']['name'].'</a></li>
+                              </ul>
+                              ';
+                      }
+                      else
+                      {
+                        echo '<ul class="topic-menu">
+                              </ul>';
+                      }
+                  }
+                  echo '</li>';
+                  }
+                  
+                  
+                echo '</ul>';
+                echo '</li>';  
+              }
+            ?>
             </ul>
             </div>
           <li><a data-dropdown="drop2" aria-controls="drop1" aria-expanded="false"><i class="fa fa-file fa-fw"></i>કેળવણી</a>
