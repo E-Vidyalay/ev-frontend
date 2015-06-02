@@ -7,13 +7,13 @@
 		?>
 			<div class="row" style="border-bottom:1px dotted #bbb;margin-left:10px;margin-right:10px;">
 				<div class="columns large-4" style="padding-top:5px;font-size:13px">
-					<?php echo $h['Subject']['display_name']; ?>
+					<?php echo $h['Topic']['display_name']; ?>
 				</div>
 				<div class="columns large-4" style="padding-top:5px;font-size:13px">
 					<?php echo $h['TestApplication']['date']; ?>
 				</div>
 				<div class="columns large-4">
-					<?php echo $this->Html->link('Get report',array('controller'=>'TestResults','action'=>'get_result',$h['TestApplication']['id']),array('class'=>'button info tiny round')); ?>
+					<?php echo $this->Html->link('Get report',array('controller'=>'TestResults','action'=>'get_result',$h['TestApplication']['id']),array('class'=>'button info tiny round','style'=>'margin-top:10px')); ?>
 				</div>
 			</div>
 		<?php
