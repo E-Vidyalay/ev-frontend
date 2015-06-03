@@ -38,7 +38,7 @@
 * Fatal Error : Unsupported or undefined Opauth strategy - auth	
 
 # Test Case 2 : Login 
-## Manually
+## 2.1 Manually
 ### Inputs
 * shalin@gmail.com
 * shalin
@@ -46,6 +46,7 @@
 ### Output
 * Successful login
 
+## 2.2
 ### Inputs
 * shalin@gmail.com
 * asdfgh
@@ -53,7 +54,7 @@
 ### Output
 * UnSuccessful login
 
-## Registration, Login with Facebook
+## 2.3 Registration, Login with Facebook
 ### Inputs
 * Pressed Login with Facebook button
 
@@ -61,7 +62,7 @@
 * UnSuccessful registration
 * Fatal Error : Unsupported or undefined Opauth strategy - auth
 
-## Registration, Login with Google
+## 2.4 Registration, Login with Google
 ### Inputs
 * Pressed Login with Google button
 
@@ -90,7 +91,7 @@
 * Report of quiz is properly displayed
 
 ### Issue
-* Flash of Successful sumbission stays there, it does not fade away.
+* Flash of Successful submission stays there, it does not fade away.
 
 ## 3.2 Giving improper inputs-1
 ### Inputs
@@ -137,7 +138,7 @@
 # Test case 5 : Logout
 ## 5.1
 ### Input
-* Press Get Logout button
+* Press Logout button
 
 ### Output
 * Successfully logs out user from the site
@@ -156,4 +157,13 @@
 * Image of size 6.94 MB
 
 ### Output
+* Error
+
+### Issue
 * Unable to upload image
+##7.2
+### Input
+* Image of size 247 KB
+
+### Output
+* Image uploaded successfully
