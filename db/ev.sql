@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.7
+-- version 4.2.11
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 02, 2015 at 04:41 AM
--- Server version: 5.6.24
--- PHP Version: 5.5.20
+-- Generation Time: Jun 03, 2015 at 10:34 AM
+-- Server version: 5.6.21
+-- PHP Version: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -93,10 +93,18 @@ INSERT INTO `axi_levels` (`id`, `level_name`) VALUES
 CREATE TABLE IF NOT EXISTS `axi_links` (
   `id` char(36) NOT NULL,
   `topic_id` char(36) NOT NULL,
+  `sub_topic_id` char(36) DEFAULT NULL,
   `link_title` varchar(100) NOT NULL,
   `link_url` varchar(500) NOT NULL,
   `tags` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `axi_links`
+--
+
+INSERT INTO `axi_links` (`id`, `topic_id`, `sub_topic_id`, `link_title`, `link_url`, `tags`) VALUES
+('556e9f8f-4fa0-4cde-88c7-17f0125f2f23', '556aa68d-0198-462b-9ddb-101e125f2f23', '556bd05e-859c-4ca1-ba72-02d9125f2f23', 'Angle', 'https://www.youtube.com/embed/8YRdEPvAQWA', 'sdf');
 
 -- --------------------------------------------------------
 
@@ -423,131 +431,109 @@ INSERT INTO `axi_user_types` (`id`, `name`) VALUES
 -- Indexes for table `axi_admins`
 --
 ALTER TABLE `axi_admins`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `axi_articles`
 --
 ALTER TABLE `axi_articles`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `axi_levels`
 --
 ALTER TABLE `axi_levels`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `axi_links`
 --
 ALTER TABLE `axi_links`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `subtopic_id` (`topic_id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `subtopic_id` (`topic_id`);
 
 --
 -- Indexes for table `axi_markingschemes`
 --
 ALTER TABLE `axi_markingschemes`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `updated_by` (`updated_by`);
+ ADD PRIMARY KEY (`id`), ADD KEY `updated_by` (`updated_by`);
 
 --
 -- Indexes for table `axi_news_letters`
 --
 ALTER TABLE `axi_news_letters`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `axi_parents`
 --
 ALTER TABLE `axi_parents`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `axi_question_banks`
 --
 ALTER TABLE `axi_question_banks`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `subject_id` (`topic_id`),
-  ADD KEY `sub_topic_id` (`sub_topic_id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `subject_id` (`topic_id`), ADD KEY `sub_topic_id` (`sub_topic_id`);
 
 --
 -- Indexes for table `axi_students`
 --
 ALTER TABLE `axi_students`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `user_id_2` (`user_id`),
-  ADD KEY `user_id` (`user_id`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `user_id_2` (`user_id`), ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `axi_student_subject_mappings`
 --
 ALTER TABLE `axi_student_subject_mappings`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `updated_by` (`updated_by`),
-  ADD KEY `subject_id` (`topic_id`),
-  ADD KEY `student_id` (`student_id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `updated_by` (`updated_by`), ADD KEY `subject_id` (`topic_id`), ADD KEY `student_id` (`student_id`);
 
 --
 -- Indexes for table `axi_subjects`
 --
 ALTER TABLE `axi_subjects`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `axi_sub_topics`
 --
 ALTER TABLE `axi_sub_topics`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `topic_id` (`topic_id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `topic_id` (`topic_id`);
 
 --
 -- Indexes for table `axi_teachers`
 --
 ALTER TABLE `axi_teachers`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `axi_test_applications`
 --
 ALTER TABLE `axi_test_applications`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `student_id` (`student_id`),
-  ADD KEY `subject_id` (`topic_id`),
-  ADD KEY `sub_topic_id` (`sub_topic_id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `student_id` (`student_id`), ADD KEY `subject_id` (`topic_id`), ADD KEY `sub_topic_id` (`sub_topic_id`);
 
 --
 -- Indexes for table `axi_test_results`
 --
 ALTER TABLE `axi_test_results`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `test_id` (`test_id`),
-  ADD KEY `question_id` (`question_id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `test_id` (`test_id`), ADD KEY `question_id` (`question_id`);
 
 --
 -- Indexes for table `axi_topics`
 --
 ALTER TABLE `axi_topics`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `updated_by` (`updated_by`),
-  ADD KEY `subject_id` (`subject_id`),
-  ADD KEY `level_id` (`level_id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `updated_by` (`updated_by`), ADD KEY `subject_id` (`subject_id`), ADD KEY `level_id` (`level_id`);
 
 --
 -- Indexes for table `axi_users`
 --
 ALTER TABLE `axi_users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `google_token` (`google_token`),
-  ADD KEY `user_type` (`user_type`),
-  ADD KEY `user_type_2` (`user_type`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `google_token` (`google_token`), ADD KEY `user_type` (`user_type`), ADD KEY `user_type_2` (`user_type`);
 
 --
 -- Indexes for table `axi_user_types`
 --
 ALTER TABLE `axi_user_types`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Constraints for dumped tables
@@ -557,66 +543,66 @@ ALTER TABLE `axi_user_types`
 -- Constraints for table `axi_links`
 --
 ALTER TABLE `axi_links`
-  ADD CONSTRAINT `axi_links_ibfk_1` FOREIGN KEY (`topic_id`) REFERENCES `axi_topics` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `axi_links_ibfk_1` FOREIGN KEY (`topic_id`) REFERENCES `axi_topics` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `axi_markingschemes`
 --
 ALTER TABLE `axi_markingschemes`
-  ADD CONSTRAINT `axi_markingschemes_ibfk_1` FOREIGN KEY (`updated_by`) REFERENCES `axi_admins` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `axi_markingschemes_ibfk_1` FOREIGN KEY (`updated_by`) REFERENCES `axi_admins` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `axi_news_letters`
 --
 ALTER TABLE `axi_news_letters`
-  ADD CONSTRAINT `axi_news_letters_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `axi_admins` (`id`);
+ADD CONSTRAINT `axi_news_letters_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `axi_admins` (`id`);
 
 --
 -- Constraints for table `axi_question_banks`
 --
 ALTER TABLE `axi_question_banks`
-  ADD CONSTRAINT `axi_question_banks_ibfk_1` FOREIGN KEY (`topic_id`) REFERENCES `axi_topics` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `axi_question_banks_ibfk_1` FOREIGN KEY (`topic_id`) REFERENCES `axi_topics` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `axi_students`
 --
 ALTER TABLE `axi_students`
-  ADD CONSTRAINT `axi_students_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `axi_users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `axi_students_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `axi_users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `axi_student_subject_mappings`
 --
 ALTER TABLE `axi_student_subject_mappings`
-  ADD CONSTRAINT `axi_student_subject_mappings_ibfk_1` FOREIGN KEY (`updated_by`) REFERENCES `axi_admins` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `axi_student_subject_mappings_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `axi_students` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `axi_student_subject_mappings_ibfk_3` FOREIGN KEY (`topic_id`) REFERENCES `axi_topics` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `axi_student_subject_mappings_ibfk_1` FOREIGN KEY (`updated_by`) REFERENCES `axi_admins` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `axi_student_subject_mappings_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `axi_students` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `axi_student_subject_mappings_ibfk_3` FOREIGN KEY (`topic_id`) REFERENCES `axi_topics` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `axi_sub_topics`
 --
 ALTER TABLE `axi_sub_topics`
-  ADD CONSTRAINT `axi_sub_topics_ibfk_1` FOREIGN KEY (`topic_id`) REFERENCES `axi_topics` (`id`);
+ADD CONSTRAINT `axi_sub_topics_ibfk_1` FOREIGN KEY (`topic_id`) REFERENCES `axi_topics` (`id`);
 
 --
 -- Constraints for table `axi_test_applications`
 --
 ALTER TABLE `axi_test_applications`
-  ADD CONSTRAINT `axi_test_applications_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `axi_students` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `axi_test_applications_ibfk_2` FOREIGN KEY (`topic_id`) REFERENCES `axi_topics` (`id`);
+ADD CONSTRAINT `axi_test_applications_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `axi_students` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `axi_test_applications_ibfk_2` FOREIGN KEY (`topic_id`) REFERENCES `axi_topics` (`id`);
 
 --
 -- Constraints for table `axi_topics`
 --
 ALTER TABLE `axi_topics`
-  ADD CONSTRAINT `axi_topics_ibfk_1` FOREIGN KEY (`updated_by`) REFERENCES `axi_admins` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `axi_topics_ibfk_2` FOREIGN KEY (`subject_id`) REFERENCES `axi_subjects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `axi_topics_ibfk_3` FOREIGN KEY (`level_id`) REFERENCES `axi_levels` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `axi_topics_ibfk_1` FOREIGN KEY (`updated_by`) REFERENCES `axi_admins` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `axi_topics_ibfk_2` FOREIGN KEY (`subject_id`) REFERENCES `axi_subjects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `axi_topics_ibfk_3` FOREIGN KEY (`level_id`) REFERENCES `axi_levels` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `axi_users`
 --
 ALTER TABLE `axi_users`
-  ADD CONSTRAINT `axi_users_ibfk_1` FOREIGN KEY (`user_type`) REFERENCES `axi_user_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `axi_users_ibfk_1` FOREIGN KEY (`user_type`) REFERENCES `axi_user_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
