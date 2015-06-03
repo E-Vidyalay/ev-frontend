@@ -110,7 +110,7 @@
                     foreach ($topics as $top) {
                       if($lev['Level']['id']==$top['Topic']['level_id'] && $sub['Subject']['id']==$top['Topic']['subject_id']){
                         echo '<ul class="topic-menu">
-                                  <li><a href="#">'.$top['Topic']['name'].'</a></li>
+                                  <li>'.$this->Html->link($top['Topic']['name'],array('controller'=>'links','action'=>'view_gallery',$top['Topic']['id']),array('escape' => false)).'</a></li>
                               </ul>
                               ';
                       }

@@ -308,3 +308,37 @@
 .sub-menu >li > a{
 	font-size: 13px;
 }
+.video-table{
+	display: table;
+	width: 100%;
+	height: 100%;
+	border-collapse: separate;
+	border-spacing: 0px;
+	margin: 0px;
+	padding: 0px;
+	border: 0px none;
+	font: 12px "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+}
+.video-table .video-row{
+	display: table-row;
+	vertical-align: top;
+}
+.video-table .video-link{
+	display: table-cell;
+	padding: 10px 5px;
+	background-color: #F9F9F9;
+	width: 300px;
+}
+.video-table .video-media{
+	display: table-cell;
+	border-left: 4px solid #E9E9E9;
+	background-color: #F9F9F9;
+	padding: 10px 15px 15px 15px;
+}
+.video-table .video-desc{
+	display: table-cell;
+	padding: 10px 5px;
+	border-left: 4px solid #E9E9E9;
+	background-color: #F9F9F9;
+	width: 300px;
+}
