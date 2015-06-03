@@ -1,9 +1,9 @@
 <?php
 	class QuestionBank extends AppModel{
 		public $belongsTo=array(
-			'Subject'=>array(
-				'className'=>'Subject',
-				'foreignKey'=>'subject_id',
+			'Topic'=>array(
+				'className'=>'Topic',
+				'foreignKey'=>'topic_id',
 				'dependent'=>true
 			));	
 	}

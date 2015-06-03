@@ -28,9 +28,50 @@
 
     <aside class="left-off-canvas-menu">
       <ul class="off-canvas-list">
+        <li><label>ઈ-વિદ્યાલય</label></li>
+        <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-home fa-fw')) . " પ્રવેશદ્વાર",array('controller'=>'pages','action'=>'home'),array('escape' => false)); ?></li>
+        <li class="has-submenu"><a href="#"><i class="fa fa-book fa-fw"></i>વિષય</a>
+            <ul class="left-submenu">
+            <li class="back"><a href="#">Back</a></li>
+              <li><?php echo $this->Html->link('વિડીયો લાઇબ્રેરી',array('controller'=>'pages','action'=>'index')); ?></li>
+            <li><?php echo $this->Html->link('ગણિત',array('controller'=>'pages','action'=>'index')); ?></li>
+            <li><?php echo $this->Html->link('ગુજરાતી',array('controller'=>'pages','action'=>'index')); ?></li>
+
+            </ul></li>
+        <li class="has-submenu"><a href="#"><i class="fa fa-file fa-fw"></i>કેળવણી</a>
+            <ul class="left-submenu">
+            <li class="back"><a href="#">Back</a></li>
+              <li><?php echo $this->Html->link('પ્રેરક જીવન ચરિત્રો',array('controller'=>'pages','action'=>'index')); ?></li>
+            <li><?php echo $this->Html->link('દેશભક્તિ',array('controller'=>'pages','action'=>'index')); ?></li>
+            </ul></li>
+        <li class="has-submenu"><a href="#"><i class="fa fa-edit fa-fw"></i>બાળ સાહિત્ય</a>
+            <ul class="left-submenu">
+            <li class="back"><a href="#">Back</a></li>
+              <li><?php echo $this->Html->link('પ્રેરક જીવન ચરિત્રો',array('controller'=>'pages','action'=>'index')); ?></li>
+            <li><?php echo $this->Html->link('દેશભક્તિ',array('controller'=>'pages','action'=>'index')); ?></li>
+            </ul></li>
+        <li class="has-submenu"><a href="#"><i class="fa fa-institution fa-fw"></i>જ્ઞાન સાથે ગમ્મત</a>
+            <ul class="left-submenu">
+            <li class="back"><a href="#">Back</a></li>
+              <li><?php echo $this->Html->link('પ્રેરક જીવન ચરિત્રો',array('controller'=>'pages','action'=>'index')); ?></li>
+            <li><?php echo $this->Html->link('દેશભક્તિ',array('controller'=>'pages','action'=>'index')); ?></li>
+            </ul></li>
+        <li class="has-submenu"><a href="#"><i class="fa fa-info fa-fw"></i>ઈ-વિદ્યાલય વિષે</a>
+            <ul class="left-submenu">
+            <li class="back"><a href="#">Back</a></li>
+              <li><?php echo $this->Html->link('પ્રેરક જીવન ચરિત્રો',array('controller'=>'pages','action'=>'index')); ?></li>
+            <li><?php echo $this->Html->link('દેશભક્તિ',array('controller'=>'pages','action'=>'index')); ?></li>
+            </ul></li>
+        <li class="has-submenu"><a href="#"><i class="fa fa-search-plus fa-fw"></i>ઇવિદ્યાલય++</a>
+            <ul class="left-submenu">
+            <li class="back"><a href="#">Back</a></li>
+              <li><?php echo $this->Html->link('પ્રેરક જીવન ચરિત્રો',array('controller'=>'pages','action'=>'index')); ?></li>
+            <li><?php echo $this->Html->link('દેશભક્તિ',array('controller'=>'pages','action'=>'index')); ?></li>
+            </ul></li>
+        <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-arrow-circle-right fa-fw')) . " નવું",array('controller'=>'pages','action'=>'home'),array('escape' => false)); ?></li>
         <li><label>Foundation</label></li>
-        <li><a href="#">The Psychohistorians</a></li>
-        <li><a href="#">...</a></li>
+        <li><a href="#" data-reveal-id="login"><i class="fa fa-lock fa-fw"></i>Login</a></li>
+        <li><a href="#" data-reveal-id="register"><i class="fa fa-pencil fa-fw"></i>Register</a></li>
       </ul>
     </aside>
 
@@ -55,14 +96,41 @@
         <span class="brand-name">ઈ-વિદ્યાલય</span>
         <ul class="right" id="top-menu">
           <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-home fa-fw')) . " પ્રવેશદ્વાર",array('controller'=>'pages','action'=>'home'),array('escape' => false)); ?></li>
-          <li><a data-dropdown="drop1" aria-controls="drop1" aria-expanded="false"><i class="fa fa-book fa-fw"></i>વિષય</a>
-            <ul id="drop1" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
-              <li><?php echo $this->Html->link('વિડીયો લાઇબ્રેરી',array('controller'=>'pages','action'=>'index')); ?></li>
-            <li><?php echo $this->Html->link('ગણિત',array('controller'=>'pages','action'=>'index')); ?></li>
-            <li><?php echo $this->Html->link('ગુજરાતી',array('controller'=>'pages','action'=>'index')); ?></li>
-
-            </ul></li>
-            <li><a data-dropdown="drop2" aria-controls="drop1" aria-expanded="false"><i class="fa fa-file fa-fw"></i>કેળવણી</a>
+          <li class="cs-dropdown"><a><i class="fa fa-book fa-fw"></i>વિષય</a>
+            <div class="course-menu">
+            <ul>
+              <?php
+              foreach ($subjects as $sub) {
+                echo '<li><a href="#" data-target="'.$sub['Subject']['id'].'">'.$sub['Subject']['name'].' </a>';
+                echo '<ul class="subject-menu" id="'.$sub['Subject']['id'].'">
+                  <h4>'.$sub['Subject']['name'].'</h4>
+                  <hr/>';
+                  foreach ($levels as $lev) {
+                    echo '<li><a href="#"> <b>'.$lev['Level']['level_name'].'</b> </a>';
+                    foreach ($topics as $top) {
+                      if($lev['Level']['id']==$top['Topic']['level_id'] && $sub['Subject']['id']==$top['Topic']['subject_id']){
+                        echo '<ul class="topic-menu">
+                                  <li><a href="#">'.$top['Topic']['name'].'</a></li>
+                              </ul>
+                              ';
+                      }
+                      else
+                      {
+                        echo '<ul class="topic-menu">
+                              </ul>';
+                      }
+                  }
+                  echo '</li>';
+                  }
+                  
+                  
+                echo '</ul>';
+                echo '</li>';  
+              }
+            ?>
+            </ul>
+            </div></li>
+          <li><a data-dropdown="drop2" aria-controls="drop1" aria-expanded="false"><i class="fa fa-file fa-fw"></i>કેળવણી</a>
             <ul id="drop2" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
             <li><?php echo $this->Html->link('પ્રેરક જીવન ચરિત્રો',array('controller'=>'pages','action'=>'index')); ?></li>
             <li><?php echo $this->Html->link('દેશભક્તિ',array('controller'=>'pages','action'=>'index')); ?></li>
@@ -88,6 +156,7 @@
             <li><?php echo $this->Html->link('દેશભક્તિ',array('controller'=>'pages','action'=>'index')); ?></li>
             </ul></li>
             <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-arrow-circle-right fa-fw')) . " નવું",array('controller'=>'pages','action'=>'home'),array('escape' => false)); ?></li>
+            
         </ul>
       </section>
     </div>

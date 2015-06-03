@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.7
+-- version 4.2.11
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 26, 2015 at 09:09 AM
--- Server version: 5.6.24
--- PHP Version: 5.5.20
+-- Generation Time: Jun 03, 2015 at 10:34 AM
+-- Server version: 5.6.21
+-- PHP Version: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -69,12 +69,32 @@ INSERT INTO `axi_articles` (`id`, `title`, `alias`, `keywords`, `meta_descriptio
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `axi_levels`
+--
+
+CREATE TABLE IF NOT EXISTS `axi_levels` (
+  `id` char(36) NOT NULL,
+  `level_name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `axi_levels`
+--
+
+INSERT INTO `axi_levels` (`id`, `level_name`) VALUES
+('5568340b-2a04-474b-9568-326f125f2f23', 'Primary');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `axi_links`
 --
 
 CREATE TABLE IF NOT EXISTS `axi_links` (
   `id` char(36) NOT NULL,
-  `subject_id` char(36) NOT NULL,
+  `topic_id` char(36) NOT NULL,
+  `sub_topic_id` char(36) DEFAULT NULL,
+  `link_title` varchar(100) NOT NULL,
   `link_url` varchar(500) NOT NULL,
   `tags` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -83,8 +103,8 @@ CREATE TABLE IF NOT EXISTS `axi_links` (
 -- Dumping data for table `axi_links`
 --
 
-INSERT INTO `axi_links` (`id`, `subject_id`, `link_url`, `tags`) VALUES
-('555daef6-6d8c-4289-9d69-058b125f2f23', '5550643a-e908-4862-88cb-0551125f2f23', 'sadfasd', 'sfasdfa');
+INSERT INTO `axi_links` (`id`, `topic_id`, `sub_topic_id`, `link_title`, `link_url`, `tags`) VALUES
+('556e9f8f-4fa0-4cde-88c7-17f0125f2f23', '556aa68d-0198-462b-9ddb-101e125f2f23', '556bd05e-859c-4ca1-ba72-02d9125f2f23', 'Angle', 'https://www.youtube.com/embed/8YRdEPvAQWA', 'sdf');
 
 -- --------------------------------------------------------
 
@@ -158,46 +178,30 @@ CREATE TABLE IF NOT EXISTS `axi_question_banks` (
   `correct_ans` varchar(200) NOT NULL,
   `path` varchar(100) DEFAULT NULL,
   `path_dir` varchar(200) DEFAULT NULL,
-  `subject_id` char(36) NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `topic_id` char(36) NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `sub_topic_id` char(36) DEFAULT NULL,
+  `description` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `axi_question_banks`
 --
 
-INSERT INTO `axi_question_banks` (`id`, `question`, `option1`, `option2`, `option3`, `option4`, `option5`, `correct_ans`, `path`, `path_dir`, `subject_id`, `updated_at`) VALUES
-('555daf20-2f74-49b4-a59e-06e8125f2f23', '<p>Wat are you upto</p>', '<p>asdfasd</p>', '<p>sadfasd</p>', '<p>dsfasd</p>', '<p>sadfasd</p>', '<p>sadfasdf</p>', 'option1,0,0,0,option5', NULL, NULL, '5550643a-e908-4862-88cb-0551125f2f23', '2015-05-21 10:10:40'),
-('555db49d-7754-49b9-b869-0785125f2f23', '<p>Good try</p>', '<p>dfgsd</p>', '<p>dsfgsd</p>', '<p>oiuoiu</p>', '<p>jlj</p>', '<p>rtye</p>', '0,0,0,option4,0', NULL, NULL, '5550643a-e908-4862-88cb-0551125f2f23', '2015-05-21 10:34:05'),
-('5561e3b7-0b14-4a79-a891-01bc125f2f23', '<p>Well done</p>', '<p>sdfas</p>', '<p>adas</p>', '<p>asdas</p>', '<p>asdas</p>', '<p>asdas</p>', 'option1,0,0,0,0', NULL, NULL, '5550643a-e908-4862-88cb-0551125f2f23', '2015-05-24 14:44:07'),
-('5561e4d5-d45c-485c-80b0-01a9125f2f23', '<p>Want some thing more?</p>', '<p>ya</p>', '<p>got</p>', '<p>nity</p>', '<p>stop it</p>', '<p>well</p>', '0,0,option3,option4,0', NULL, NULL, '5550643a-e908-4862-88cb-0551125f2f23', '2015-05-24 14:48:53'),
-('5561e632-03f4-4a88-9fc9-01a9125f2f23', '<p>Hey man sorry</p>', '<p>ok</p>', '<p>k</p>', '<p>wat the hell</p>', '<p>fine got it</p>', '<p>bye</p>', '0,0,0,option4,0', NULL, NULL, '5550643a-e908-4862-88cb-0551125f2f23', '2015-05-24 14:54:42'),
-('5561e6d7-b7b8-4db0-af60-01bf125f2f23', '<p>Is it required?</p>', '<p>no</p>', '<p>not at all</p>', '<p>ok fine</p>', '<p>thnx</p>', '<p>its ok</p>', 'option1,0,0,0,0', NULL, NULL, '5550643a-e908-4862-88cb-0551125f2f23', '2015-05-24 14:57:27'),
-('5561e7b9-0334-47ee-af47-01bb125f2f23', '<p>Well thnx this is not needed?</p>', '<p>o wow</p>', '<p>not required</p>', '<p>ok</p>', '<p>thxn</p>', '<p>word</p>', '0,0,0,0,option5', NULL, NULL, '5550643a-e908-4862-88cb-0551125f2f23', '2015-05-24 15:01:13'),
-('5561e832-2e6c-4c49-93f9-01a9125f2f23', '<p>Hey this is dummy entry</p>', '<p>oh</p>', '<p>now i got it</p>', '<p>well said</p>', '<p>funny it was</p>', '<p>no issues</p>', '0,0,0,option4,0', NULL, NULL, '5550643a-e908-4862-88cb-0551125f2f23', '2015-05-24 15:03:14'),
-('5561e85b-d260-4bdb-a558-01be125f2f23', '<p>Hack testing</p>', '<p>really hacking</p>', '<p>learning</p>', '<p>well not</p>', '<p>well said</p>', '<p>lore</p>', '0,option2,0,0,0', NULL, NULL, '5550643a-e908-4862-88cb-0551125f2f23', '2015-05-24 15:03:55'),
-('5561ea38-a220-4cdf-98c2-01bc125f2f23', '<p>Well hope full for what?</p>', '<p>nothing</p>', '<p>much</p>', '<p>better</p>', '<p>well</p>', '<p>nope</p>', '0,option2,0,0,0', NULL, NULL, '5550643a-e908-4862-88cb-0551125f2f23', '2015-05-24 15:11:52'),
-('5561ea8d-0ce4-4a19-a7ef-01bf125f2f23', '<p>Well last one to go?</p>', '<p>ok</p>', '<p>fine</p>', '<p>go</p>', '<p>bye</p>', '<p>knock</p>', 'option1,0,0,0,0', NULL, NULL, '5550643a-e908-4862-88cb-0551125f2f23', '2015-05-24 15:13:17');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `axi_standards`
---
-
-CREATE TABLE IF NOT EXISTS `axi_standards` (
-  `id` char(36) NOT NULL,
-  `section` varchar(16) NOT NULL,
-  `standard` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `axi_standards`
---
-
-INSERT INTO `axi_standards` (`id`, `section`, `standard`) VALUES
-('55503091-9644-44a9-a6d6-0430125f2f23', 'secondary', 10),
-('55503600-fa98-428e-8fc4-0488125f2f23', 'primary', 1);
+INSERT INTO `axi_question_banks` (`id`, `question`, `option1`, `option2`, `option3`, `option4`, `option5`, `correct_ans`, `path`, `path_dir`, `topic_id`, `updated_at`, `sub_topic_id`, `description`) VALUES
+('556c1734-e718-4f62-ae81-02de125f2f23', '<p>What is this?</p>', '<p>sdfasd</p>', '<p>sadfas</p>', '<p>sdfasd</p>', '<p>asdfas</p>', '<p>asdfasd</p>', '0,0,option3,0,0', NULL, NULL, '556aa68d-0198-462b-9ddb-101e125f2f23', '2015-06-01 08:26:28', '', 'this is by prof X'),
+('556c77f3-e5a8-45d5-8d89-05cc125f2f23', '<p>hey this is just for test-algebra!</p>', '<p>sdfas</p>', '<p>sdfas</p>', '<p>asdfas</p>', '<p>sdfasd</p>', '<p>sdfasd</p>', 'option1,0,0,0,0', NULL, NULL, '556c0340-6248-427e-83f8-0360125f2f23', '2015-06-01 15:19:15', '', 'By x'),
+('556c9d4f-4e94-40d6-9ac5-0360125f2f23', '<p>Helloo this just for test?</p>', '<p>ok</p>', '<p>by</p>', '<p>cya</p>', '<p>fine</p>', '<p>np</p>', 'option1,0,0,0,0', NULL, NULL, '556aa68d-0198-462b-9ddb-101e125f2f23', '2015-06-01 17:58:39', NULL, 'XYZ'),
+('556c9db5-b87c-4639-b4a8-0656125f2f23', '<p>Circle 1 test case?</p>', '<p>perimeter</p>', '<p>radius</p>', '<p>circumference</p>', '<p>height</p>', '<p>semi circle</p>', 'option1,0,0,0,0', NULL, NULL, '556aa68d-0198-462b-9ddb-101e125f2f23', '2015-06-01 18:00:21', NULL, 'this is by prof X'),
+('556c9ddc-bcd0-452f-a1f9-035d125f2f23', '<p>what is area</p>', '<p>2pir</p>', '<p>2p2</p>', '<p>2x2</p>', '<p>2rs</p>', '<p>2fc</p>', 'option1,0,0,0,0', NULL, NULL, '556aa68d-0198-462b-9ddb-101e125f2f23', '2015-06-01 18:01:00', NULL, 'Circle Test case 2'),
+('556c9e77-2e9c-4dee-abac-02d9125f2f23', '<p>Circle circumference</p>', '<p>2pir</p>', '<p>2pir2</p>', '<p>2x</p>', '<p>29</p>', '<p>26</p>', 'option1,0,0,0,0', NULL, NULL, '556aa68d-0198-462b-9ddb-101e125f2f23', '2015-06-01 18:03:35', NULL, 'geo'),
+('556ca0b9-5854-429a-91f4-02d9125f2f23', '<p>Hey gemoetry circle</p>', '<p>sdfas</p>', '<p>asdfas</p>', '<p>asdfas</p>', '<p>sdfasd</p>', '<p>sdfasd</p>', '0,option2,option3,0,0', NULL, NULL, '556aa68d-0198-462b-9ddb-101e125f2f23', '2015-06-01 18:13:13', NULL, 'this is by prof X'),
+('556ca11a-b244-4cda-9ef4-02df125f2f23', '<p>Tired of adding circle quest</p>', '<p>sdfasd</p>', '<p>asdfas</p>', '<p>sdfasd</p>', '<p>sadfas</p>', '<p>sdfasd</p>', 'option1,0,0,0,0', NULL, NULL, '556aa68d-0198-462b-9ddb-101e125f2f23', '2015-06-01 18:14:50', NULL, 'this is by prof X'),
+('556ca196-a2a4-4854-9ae0-0704125f2f23', '<p>asdasd</p>', '<p>asdasd</p>', '<p>adasd</p>', '<p>adas</p>', '<p>asda</p>', '<p>asda</p>', 'option1,0,0,0,0', NULL, NULL, '556aa68d-0198-462b-9ddb-101e125f2f23', '2015-06-01 18:16:54', '556bd05e-859c-4ca1-ba72-02d9125f2f23', 'asda'),
+('556ca1ab-cc70-401c-8682-0656125f2f23', '<p>sadasd</p>', '<p>asdsadfas</p>', '<p>sdfasd</p>', '<p>dfasdfa</p>', '<p>sadfasd</p>', '<p>sdfas</p>', '0,option2,0,0,0', NULL, NULL, '556aa68d-0198-462b-9ddb-101e125f2f23', '2015-06-01 18:17:15', NULL, 'asdas'),
+('556ca1be-d480-4088-9c51-035d125f2f23', '<p>sdfas</p>', '<p>sdfas</p>', '<p>sdfasd</p>', '<p>sdfsd</p>', '<p>kjsdfak</p>', '<p>kjsdfas</p>', 'option1,option2,0,0,0', NULL, NULL, '556aa68d-0198-462b-9ddb-101e125f2f23', '2015-06-01 18:17:34', NULL, 'asdf'),
+('556ca1da-5304-47ed-aa5b-02df125f2f23', '<p>dsfasdf</p>', '<p>sdfasdfa</p>', '<p>lkjlkjlj</p>', '<p>lkjlkj</p>', '<p>lkjlkj</p>', '<p>lkjlkj</p>', 'option1,0,0,0,0', NULL, NULL, '556aa68d-0198-462b-9ddb-101e125f2f23', '2015-06-01 18:18:02', NULL, 'this is by prof X'),
+('556ca5bc-0484-4dee-8da1-012c125f2f23', '<p>hey sub-test</p>', '<p>sdfas</p>', '<p>asdfasd</p>', '<p>sdfas</p>', '<p>sdfasd</p>', '<p>sdfas</p>', 'option1,0,0,0,0', NULL, NULL, '556aa68d-0198-462b-9ddb-101e125f2f23', '2015-06-01 18:34:36', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -217,7 +221,8 @@ CREATE TABLE IF NOT EXISTS `axi_students` (
 
 INSERT INTO `axi_students` (`id`, `school`, `user_id`) VALUES
 ('5561c76e-ee1c-44bf-af4e-01bf125f2f23', NULL, '5561c5af-8890-4d1d-b708-01be125f2f23'),
-('556348ba-c124-4fb2-b7c8-01f6125f2f23', NULL, '556348ba-76c4-488b-a3e8-01f6125f2f23');
+('556348ba-c124-4fb2-b7c8-01f6125f2f23', NULL, '556348ba-76c4-488b-a3e8-01f6125f2f23'),
+('5568802f-2e80-4ebb-a026-326d125f2f23', NULL, '5568802f-cd70-4325-b47a-326d125f2f23');
 
 -- --------------------------------------------------------
 
@@ -228,7 +233,7 @@ INSERT INTO `axi_students` (`id`, `school`, `user_id`) VALUES
 CREATE TABLE IF NOT EXISTS `axi_student_subject_mappings` (
   `id` char(36) NOT NULL,
   `student_id` char(36) NOT NULL,
-  `subject_id` char(36) NOT NULL,
+  `topic_id` char(36) NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_by` char(36) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -242,9 +247,7 @@ CREATE TABLE IF NOT EXISTS `axi_student_subject_mappings` (
 CREATE TABLE IF NOT EXISTS `axi_subjects` (
   `id` char(36) NOT NULL,
   `name` varchar(100) NOT NULL,
-  `standard_id` char(36) NOT NULL,
-  `display_name` varchar(100) DEFAULT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_by` char(36) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -252,8 +255,29 @@ CREATE TABLE IF NOT EXISTS `axi_subjects` (
 -- Dumping data for table `axi_subjects`
 --
 
-INSERT INTO `axi_subjects` (`id`, `name`, `standard_id`, `display_name`, `updated_at`, `updated_by`) VALUES
-('5550643a-e908-4862-88cb-0551125f2f23', 'English', '55503091-9644-44a9-a6d6-0430125f2f23', '10th English', '2015-05-11 08:11:38', '53196213-e8c0-4b42-a3e3-19ecf1301e8a');
+INSERT INTO `axi_subjects` (`id`, `name`, `updated_at`, `updated_by`) VALUES
+('55682636-b5d4-4804-adc4-326d125f2f23', 'Mathematics', '2015-05-31 06:29:24', '53196213-e8c0-4b42-a3e3-19ecf1301e8a'),
+('556aaa3b-8de4-4597-9181-0f2a125f2f23', 'English', '2015-05-31 06:29:15', '53196213-e8c0-4b42-a3e3-19ecf1301e8a');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `axi_sub_topics`
+--
+
+CREATE TABLE IF NOT EXISTS `axi_sub_topics` (
+  `id` char(36) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `topic_id` char(36) NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `axi_sub_topics`
+--
+
+INSERT INTO `axi_sub_topics` (`id`, `name`, `topic_id`, `updated_at`) VALUES
+('556bd05e-859c-4ca1-ba72-02d9125f2f23', 'Circle', '556aa68d-0198-462b-9ddb-101e125f2f23', '2015-06-01 03:24:14');
 
 -- --------------------------------------------------------
 
@@ -275,16 +299,18 @@ CREATE TABLE IF NOT EXISTS `axi_teachers` (
 CREATE TABLE IF NOT EXISTS `axi_test_applications` (
   `id` char(36) NOT NULL,
   `student_id` char(36) NOT NULL,
-  `subject_id` char(36) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `topic_id` char(36) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `sub_topic_id` char(36) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `axi_test_applications`
 --
 
-INSERT INTO `axi_test_applications` (`id`, `student_id`, `subject_id`, `date`) VALUES
-('55622005-be20-4074-ad80-01ba125f2f23', '5561c76e-ee1c-44bf-af4e-01bf125f2f23', '5550643a-e908-4862-88cb-0551125f2f23', '2015-05-24 20:37:23');
+INSERT INTO `axi_test_applications` (`id`, `student_id`, `topic_id`, `date`, `sub_topic_id`) VALUES
+('556ca23c-859c-47d5-b29e-0704125f2f23', '5561c76e-ee1c-44bf-af4e-01bf125f2f23', '556aa68d-0198-462b-9ddb-101e125f2f23', '2015-06-01 18:19:40', '556bd05e-859c-4ca1-ba72-02d9125f2f23'),
+('556d2fb0-88fc-4168-82d6-035d125f2f23', '5561c76e-ee1c-44bf-af4e-01bf125f2f23', '556aa68d-0198-462b-9ddb-101e125f2f23', '2015-06-02 04:23:12', '');
 
 -- --------------------------------------------------------
 
@@ -304,16 +330,50 @@ CREATE TABLE IF NOT EXISTS `axi_test_results` (
 --
 
 INSERT INTO `axi_test_results` (`id`, `test_id`, `question_id`, `result`) VALUES
-('55622bf5-204c-4c1d-8305-01b7125f2f23', '55622005-be20-4074-ad80-01ba125f2f23', '5561e3b7-0b14-4a79-a891-01bc125f2f23', 0),
-('55622bf5-22ac-4ce9-86b3-01b7125f2f23', '55622005-be20-4074-ad80-01ba125f2f23', '5561e832-2e6c-4c49-93f9-01a9125f2f23', -1),
-('55622bf5-3dbc-4b13-8eb8-01b7125f2f23', '55622005-be20-4074-ad80-01ba125f2f23', '5561e6d7-b7b8-4db0-af60-01bf125f2f23', 0),
-('55622bf5-48fc-4906-95a7-01b7125f2f23', '55622005-be20-4074-ad80-01ba125f2f23', '555db49d-7754-49b9-b869-0785125f2f23', -1),
-('55622bf5-4e48-436a-b071-01b7125f2f23', '55622005-be20-4074-ad80-01ba125f2f23', '5561e632-03f4-4a88-9fc9-01a9125f2f23', -1),
-('55622bf5-5dd4-4fb9-9e39-01b7125f2f23', '55622005-be20-4074-ad80-01ba125f2f23', '5561e85b-d260-4bdb-a558-01be125f2f23', -1),
-('55622bf5-b030-4e33-91b2-01b7125f2f23', '55622005-be20-4074-ad80-01ba125f2f23', '5561ea38-a220-4cdf-98c2-01bc125f2f23', -1),
-('55622bf5-c56c-413f-ad5f-01b7125f2f23', '55622005-be20-4074-ad80-01ba125f2f23', '5561e7b9-0334-47ee-af47-01bb125f2f23', -1),
-('55622bf5-d33c-4205-802c-01b7125f2f23', '55622005-be20-4074-ad80-01ba125f2f23', '5561ea8d-0ce4-4a19-a7ef-01bf125f2f23', -1),
-('55622bf5-f5a4-46b7-8e5e-01b7125f2f23', '55622005-be20-4074-ad80-01ba125f2f23', '5561e4d5-d45c-485c-80b0-01a9125f2f23', -1);
+('556ca268-3b38-445e-ae72-0360125f2f23', '556ca23c-859c-47d5-b29e-0704125f2f23', '556c9db5-b87c-4639-b4a8-0656125f2f23', 1),
+('556ca268-5338-41d4-b6a8-0360125f2f23', '556ca23c-859c-47d5-b29e-0704125f2f23', '556ca1be-d480-4088-9c51-035d125f2f23', -1),
+('556ca268-57c4-42d4-a1b8-0360125f2f23', '556ca23c-859c-47d5-b29e-0704125f2f23', '556c1734-e718-4f62-ae81-02de125f2f23', -1),
+('556ca268-57e0-4321-bdee-0360125f2f23', '556ca23c-859c-47d5-b29e-0704125f2f23', '556ca1ab-cc70-401c-8682-0656125f2f23', -1),
+('556ca268-b374-4821-bf5a-0360125f2f23', '556ca23c-859c-47d5-b29e-0704125f2f23', '556c9e77-2e9c-4dee-abac-02d9125f2f23', 1),
+('556ca268-b7d4-409b-aa8a-0360125f2f23', '556ca23c-859c-47d5-b29e-0704125f2f23', '556c9d4f-4e94-40d6-9ac5-0360125f2f23', -1),
+('556ca268-cab8-4028-b5e8-0360125f2f23', '556ca23c-859c-47d5-b29e-0704125f2f23', '556ca0b9-5854-429a-91f4-02d9125f2f23', -1),
+('556ca268-dcd4-4556-8e04-0360125f2f23', '556ca23c-859c-47d5-b29e-0704125f2f23', '556ca11a-b244-4cda-9ef4-02df125f2f23', 1),
+('556ca268-e408-40e0-82e7-0360125f2f23', '556ca23c-859c-47d5-b29e-0704125f2f23', '556ca196-a2a4-4854-9ae0-0704125f2f23', 1),
+('556ca268-ec98-4f10-8fc9-0360125f2f23', '556ca23c-859c-47d5-b29e-0704125f2f23', '556ca1da-5304-47ed-aa5b-02df125f2f23', -1),
+('556d3176-5650-49fc-b959-012c125f2f23', '556d2fb0-88fc-4168-82d6-035d125f2f23', '556ca1da-5304-47ed-aa5b-02df125f2f23', -1),
+('556d3176-675c-474f-903a-012c125f2f23', '556d2fb0-88fc-4168-82d6-035d125f2f23', '556c9e77-2e9c-4dee-abac-02d9125f2f23', 1),
+('556d3176-6ce0-437c-8e06-012c125f2f23', '556d2fb0-88fc-4168-82d6-035d125f2f23', '556ca196-a2a4-4854-9ae0-0704125f2f23', -1),
+('556d3176-7024-471b-bd04-012c125f2f23', '556d2fb0-88fc-4168-82d6-035d125f2f23', '556ca1be-d480-4088-9c51-035d125f2f23', -1),
+('556d3176-b408-4070-baea-012c125f2f23', '556d2fb0-88fc-4168-82d6-035d125f2f23', '556ca5bc-0484-4dee-8da1-012c125f2f23', 0),
+('556d3176-cb9c-4290-a3ef-012c125f2f23', '556d2fb0-88fc-4168-82d6-035d125f2f23', '556ca11a-b244-4cda-9ef4-02df125f2f23', 0),
+('556d3176-e5e4-4cf0-9d19-012c125f2f23', '556d2fb0-88fc-4168-82d6-035d125f2f23', '556c9d4f-4e94-40d6-9ac5-0360125f2f23', -1),
+('556d3176-f1dc-4446-87cb-012c125f2f23', '556d2fb0-88fc-4168-82d6-035d125f2f23', '556ca0b9-5854-429a-91f4-02d9125f2f23', -1),
+('556d3176-fbcc-4ab0-99b2-012c125f2f23', '556d2fb0-88fc-4168-82d6-035d125f2f23', '556c9db5-b87c-4639-b4a8-0656125f2f23', 1),
+('556d3176-ff00-43b6-bbc5-012c125f2f23', '556d2fb0-88fc-4168-82d6-035d125f2f23', '556c1734-e718-4f62-ae81-02de125f2f23', -1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `axi_topics`
+--
+
+CREATE TABLE IF NOT EXISTS `axi_topics` (
+  `id` char(36) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_by` char(36) NOT NULL,
+  `subject_id` char(36) NOT NULL,
+  `level_id` char(36) NOT NULL,
+  `display_name` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `axi_topics`
+--
+
+INSERT INTO `axi_topics` (`id`, `name`, `updated_at`, `updated_by`, `subject_id`, `level_id`, `display_name`) VALUES
+('556aa68d-0198-462b-9ddb-101e125f2f23', 'Geometry', '2015-05-31 06:13:33', '53196213-e8c0-4b42-a3e3-19ecf1301e8a', '55682636-b5d4-4804-adc4-326d125f2f23', '5568340b-2a04-474b-9568-326f125f2f23', 'Primary - Mathematics - Geometry'),
+('556c0340-6248-427e-83f8-0360125f2f23', 'Algebra', '2015-06-01 07:01:20', '53196213-e8c0-4b42-a3e3-19ecf1301e8a', '55682636-b5d4-4804-adc4-326d125f2f23', '5568340b-2a04-474b-9568-326f125f2f23', 'Primary - Mathematics - Algebra');
 
 -- --------------------------------------------------------
 
@@ -340,7 +400,8 @@ CREATE TABLE IF NOT EXISTS `axi_users` (
 
 INSERT INTO `axi_users` (`id`, `name`, `username`, `password`, `fb_token`, `google_token`, `created`, `user_type`, `path`, `path_dir`) VALUES
 ('5561c5af-8890-4d1d-b708-01be125f2f23', 'Lakhan Samani', 'lakhan.m.samani@gmail.com', '39dea93b8f5e606c5fa3a62859d5af337561905d', NULL, NULL, '2015-05-24 07:05:59', 'cb6f8154-fbbc-11e4-b148-01f8d649e9b6', 'p_2.jpg', '5561c5af-8890-4d1d-b708-01be125f2f23'),
-('556348ba-76c4-488b-a3e8-01f6125f2f23', 'Lakhan Samani', 'lakhan.samani@actonate.com', '39dea93b8f5e606c5fa3a62859d5af337561905d', NULL, NULL, '2015-05-25 10:37:22', 'cb6f8154-fbbc-11e4-b148-01f8d649e9b6', NULL, NULL);
+('556348ba-76c4-488b-a3e8-01f6125f2f23', 'Lakhan Samani', 'lakhan.samani@actonate.com', '39dea93b8f5e606c5fa3a62859d5af337561905d', NULL, NULL, '2015-05-25 10:37:22', 'cb6f8154-fbbc-11e4-b148-01f8d649e9b6', NULL, NULL),
+('5568802f-cd70-4325-b47a-326d125f2f23', 'Kashyap', 'kashyap@gmail.com', '39dea93b8f5e606c5fa3a62859d5af337561905d', NULL, NULL, '2015-05-29 09:35:19', 'cb6f8154-fbbc-11e4-b148-01f8d649e9b6', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -370,115 +431,109 @@ INSERT INTO `axi_user_types` (`id`, `name`) VALUES
 -- Indexes for table `axi_admins`
 --
 ALTER TABLE `axi_admins`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `axi_articles`
 --
 ALTER TABLE `axi_articles`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `axi_levels`
+--
+ALTER TABLE `axi_levels`
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `axi_links`
 --
 ALTER TABLE `axi_links`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `subtopic_id` (`subject_id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `subtopic_id` (`topic_id`);
 
 --
 -- Indexes for table `axi_markingschemes`
 --
 ALTER TABLE `axi_markingschemes`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `updated_by` (`updated_by`);
+ ADD PRIMARY KEY (`id`), ADD KEY `updated_by` (`updated_by`);
 
 --
 -- Indexes for table `axi_news_letters`
 --
 ALTER TABLE `axi_news_letters`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `axi_parents`
 --
 ALTER TABLE `axi_parents`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `axi_question_banks`
 --
 ALTER TABLE `axi_question_banks`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `subject_id` (`subject_id`);
-
---
--- Indexes for table `axi_standards`
---
-ALTER TABLE `axi_standards`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `subject_id` (`topic_id`), ADD KEY `sub_topic_id` (`sub_topic_id`);
 
 --
 -- Indexes for table `axi_students`
 --
 ALTER TABLE `axi_students`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `user_id_2` (`user_id`),
-  ADD KEY `user_id` (`user_id`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `user_id_2` (`user_id`), ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `axi_student_subject_mappings`
 --
 ALTER TABLE `axi_student_subject_mappings`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `updated_by` (`updated_by`),
-  ADD KEY `subject_id` (`subject_id`),
-  ADD KEY `student_id` (`student_id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `updated_by` (`updated_by`), ADD KEY `subject_id` (`topic_id`), ADD KEY `student_id` (`student_id`);
 
 --
 -- Indexes for table `axi_subjects`
 --
 ALTER TABLE `axi_subjects`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `updated_by` (`updated_by`),
-  ADD KEY `standard` (`standard_id`);
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `axi_sub_topics`
+--
+ALTER TABLE `axi_sub_topics`
+ ADD PRIMARY KEY (`id`), ADD KEY `topic_id` (`topic_id`);
 
 --
 -- Indexes for table `axi_teachers`
 --
 ALTER TABLE `axi_teachers`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `axi_test_applications`
 --
 ALTER TABLE `axi_test_applications`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `student_id` (`student_id`),
-  ADD KEY `subject_id` (`subject_id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `student_id` (`student_id`), ADD KEY `subject_id` (`topic_id`), ADD KEY `sub_topic_id` (`sub_topic_id`);
 
 --
 -- Indexes for table `axi_test_results`
 --
 ALTER TABLE `axi_test_results`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `test_id` (`test_id`),
-  ADD KEY `question_id` (`question_id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `test_id` (`test_id`), ADD KEY `question_id` (`question_id`);
+
+--
+-- Indexes for table `axi_topics`
+--
+ALTER TABLE `axi_topics`
+ ADD PRIMARY KEY (`id`), ADD KEY `updated_by` (`updated_by`), ADD KEY `subject_id` (`subject_id`), ADD KEY `level_id` (`level_id`);
 
 --
 -- Indexes for table `axi_users`
 --
 ALTER TABLE `axi_users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `google_token` (`google_token`),
-  ADD KEY `user_type` (`user_type`),
-  ADD KEY `user_type_2` (`user_type`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `google_token` (`google_token`), ADD KEY `user_type` (`user_type`), ADD KEY `user_type_2` (`user_type`);
 
 --
 -- Indexes for table `axi_user_types`
 --
 ALTER TABLE `axi_user_types`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Constraints for dumped tables
@@ -488,66 +543,66 @@ ALTER TABLE `axi_user_types`
 -- Constraints for table `axi_links`
 --
 ALTER TABLE `axi_links`
-  ADD CONSTRAINT `axi_links_ibfk_1` FOREIGN KEY (`subject_id`) REFERENCES `axi_subjects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `axi_links_ibfk_1` FOREIGN KEY (`topic_id`) REFERENCES `axi_topics` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `axi_markingschemes`
 --
 ALTER TABLE `axi_markingschemes`
-  ADD CONSTRAINT `axi_markingschemes_ibfk_1` FOREIGN KEY (`updated_by`) REFERENCES `axi_admins` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `axi_markingschemes_ibfk_1` FOREIGN KEY (`updated_by`) REFERENCES `axi_admins` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `axi_news_letters`
 --
 ALTER TABLE `axi_news_letters`
-  ADD CONSTRAINT `axi_news_letters_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `axi_admins` (`id`);
+ADD CONSTRAINT `axi_news_letters_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `axi_admins` (`id`);
 
 --
 -- Constraints for table `axi_question_banks`
 --
 ALTER TABLE `axi_question_banks`
-  ADD CONSTRAINT `axi_question_banks_ibfk_1` FOREIGN KEY (`subject_id`) REFERENCES `axi_subjects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `axi_question_banks_ibfk_1` FOREIGN KEY (`topic_id`) REFERENCES `axi_topics` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `axi_students`
 --
 ALTER TABLE `axi_students`
-  ADD CONSTRAINT `axi_students_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `axi_users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `axi_students_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `axi_users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `axi_student_subject_mappings`
 --
 ALTER TABLE `axi_student_subject_mappings`
-  ADD CONSTRAINT `axi_student_subject_mappings_ibfk_1` FOREIGN KEY (`updated_by`) REFERENCES `axi_admins` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `axi_student_subject_mappings_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `axi_students` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `axi_student_subject_mappings_ibfk_3` FOREIGN KEY (`subject_id`) REFERENCES `axi_subjects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `axi_student_subject_mappings_ibfk_1` FOREIGN KEY (`updated_by`) REFERENCES `axi_admins` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `axi_student_subject_mappings_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `axi_students` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `axi_student_subject_mappings_ibfk_3` FOREIGN KEY (`topic_id`) REFERENCES `axi_topics` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `axi_subjects`
+-- Constraints for table `axi_sub_topics`
 --
-ALTER TABLE `axi_subjects`
-  ADD CONSTRAINT `axi_subjects_ibfk_1` FOREIGN KEY (`updated_by`) REFERENCES `axi_admins` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `axi_subjects_ibfk_2` FOREIGN KEY (`standard_id`) REFERENCES `axi_standards` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `axi_sub_topics`
+ADD CONSTRAINT `axi_sub_topics_ibfk_1` FOREIGN KEY (`topic_id`) REFERENCES `axi_topics` (`id`);
 
 --
 -- Constraints for table `axi_test_applications`
 --
 ALTER TABLE `axi_test_applications`
-  ADD CONSTRAINT `axi_test_applications_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `axi_students` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `axi_test_applications_ibfk_2` FOREIGN KEY (`subject_id`) REFERENCES `axi_subjects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `axi_test_applications_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `axi_students` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `axi_test_applications_ibfk_2` FOREIGN KEY (`topic_id`) REFERENCES `axi_topics` (`id`);
 
 --
--- Constraints for table `axi_test_results`
+-- Constraints for table `axi_topics`
 --
-ALTER TABLE `axi_test_results`
-  ADD CONSTRAINT `axi_test_results_ibfk_1` FOREIGN KEY (`test_id`) REFERENCES `axi_test_applications` (`id`),
-  ADD CONSTRAINT `axi_test_results_ibfk_2` FOREIGN KEY (`question_id`) REFERENCES `axi_question_banks` (`id`);
+ALTER TABLE `axi_topics`
+ADD CONSTRAINT `axi_topics_ibfk_1` FOREIGN KEY (`updated_by`) REFERENCES `axi_admins` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `axi_topics_ibfk_2` FOREIGN KEY (`subject_id`) REFERENCES `axi_subjects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `axi_topics_ibfk_3` FOREIGN KEY (`level_id`) REFERENCES `axi_levels` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `axi_users`
 --
 ALTER TABLE `axi_users`
-  ADD CONSTRAINT `axi_users_ibfk_1` FOREIGN KEY (`user_type`) REFERENCES `axi_user_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `axi_users_ibfk_1` FOREIGN KEY (`user_type`) REFERENCES `axi_user_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
