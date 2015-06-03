@@ -25,14 +25,12 @@
 			$this->set('test_id',$id);
 			$test=$this->TestApplication->findById($id);
 			$questions=array();
-			if($test['TestApplication']['sub_topic_id']!=NULL ||$test['TestApplication']['sub_topic_id']!=="" || !isset($test['TestApplication']['sub_topic_id']) || !empty($test['TestApplication']['sub_topic_id'])){
-				pr("here in f");
+			if($test['TestApplication']['sub_topic_id']!=""){
 				$questions=$this->QuestionBank->find('all',array('conditions'=>array('QuestionBank.topic_id'=>$test['TestApplication']['topic_id'],'QuestionBank.sub_topic_id'=>$test['TestApplication']['sub_topic_id'])));
 			}
 			else{
 				$questions=$this->QuestionBank->find('all',array('conditions'=>array('QuestionBank.topic_id'=>$test['TestApplication']['topic_id'])));
 			}
-			
 			$c=count($questions);
 			if($c>=10){
 				$random_key=array_rand($questions,10);
