@@ -1,7 +1,8 @@
 <div class="row">
 
 	<div class="large-6 columns large-offset-3" style="background:#fff">
-	<h3>You reports for quiz on <?php echo $test_meta['Subject']['display_name'];?></h3>
+	<br/>
+	<b>You reports for quiz on <?php echo $test_meta['Topic']['display_name'];?></b>
 	<hr/>
 	<table width="100%">
 		<tr>
