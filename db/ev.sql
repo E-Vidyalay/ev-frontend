@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 03, 2015 at 10:34 AM
+-- Generation Time: Jun 04, 2015 at 01:34 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -104,7 +104,8 @@ CREATE TABLE IF NOT EXISTS `axi_links` (
 --
 
 INSERT INTO `axi_links` (`id`, `topic_id`, `sub_topic_id`, `link_title`, `link_url`, `tags`) VALUES
-('556e9f8f-4fa0-4cde-88c7-17f0125f2f23', '556aa68d-0198-462b-9ddb-101e125f2f23', '556bd05e-859c-4ca1-ba72-02d9125f2f23', 'Angle', 'https://www.youtube.com/embed/8YRdEPvAQWA', 'sdf');
+('556e9f8f-4fa0-4cde-88c7-17f0125f2f23', '556aa68d-0198-462b-9ddb-101e125f2f23', '', 'Angle', 'https://www.youtube.com/embed/8YRdEPvAQWA', 'sdf'),
+('5570241e-0b58-42fb-9c2f-444c125f2f23', '556aa68d-0198-462b-9ddb-101e125f2f23', '', 'Radius', 'https://www.youtube.com/embed/dJS3m8cZ-CY', 'What is Radius?\r\nHow to measure the Radius?\r\nIs described in this Video');
 
 -- --------------------------------------------------------
 
@@ -272,13 +273,6 @@ CREATE TABLE IF NOT EXISTS `axi_sub_topics` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `axi_sub_topics`
---
-
-INSERT INTO `axi_sub_topics` (`id`, `name`, `topic_id`, `updated_at`) VALUES
-('556bd05e-859c-4ca1-ba72-02d9125f2f23', 'Circle', '556aa68d-0198-462b-9ddb-101e125f2f23', '2015-06-01 03:24:14');
-
 -- --------------------------------------------------------
 
 --
@@ -310,7 +304,8 @@ CREATE TABLE IF NOT EXISTS `axi_test_applications` (
 
 INSERT INTO `axi_test_applications` (`id`, `student_id`, `topic_id`, `date`, `sub_topic_id`) VALUES
 ('556ca23c-859c-47d5-b29e-0704125f2f23', '5561c76e-ee1c-44bf-af4e-01bf125f2f23', '556aa68d-0198-462b-9ddb-101e125f2f23', '2015-06-01 18:19:40', '556bd05e-859c-4ca1-ba72-02d9125f2f23'),
-('556d2fb0-88fc-4168-82d6-035d125f2f23', '5561c76e-ee1c-44bf-af4e-01bf125f2f23', '556aa68d-0198-462b-9ddb-101e125f2f23', '2015-06-02 04:23:12', '');
+('556d2fb0-88fc-4168-82d6-035d125f2f23', '5561c76e-ee1c-44bf-af4e-01bf125f2f23', '556aa68d-0198-462b-9ddb-101e125f2f23', '2015-06-02 04:23:12', ''),
+('556ebfd8-db34-4278-b60a-0ebf125f2f23', '5568802f-2e80-4ebb-a026-326d125f2f23', '556aa68d-0198-462b-9ddb-101e125f2f23', '2015-06-03 08:50:32', '');
 
 -- --------------------------------------------------------
 
@@ -349,7 +344,17 @@ INSERT INTO `axi_test_results` (`id`, `test_id`, `question_id`, `result`) VALUES
 ('556d3176-e5e4-4cf0-9d19-012c125f2f23', '556d2fb0-88fc-4168-82d6-035d125f2f23', '556c9d4f-4e94-40d6-9ac5-0360125f2f23', -1),
 ('556d3176-f1dc-4446-87cb-012c125f2f23', '556d2fb0-88fc-4168-82d6-035d125f2f23', '556ca0b9-5854-429a-91f4-02d9125f2f23', -1),
 ('556d3176-fbcc-4ab0-99b2-012c125f2f23', '556d2fb0-88fc-4168-82d6-035d125f2f23', '556c9db5-b87c-4639-b4a8-0656125f2f23', 1),
-('556d3176-ff00-43b6-bbc5-012c125f2f23', '556d2fb0-88fc-4168-82d6-035d125f2f23', '556c1734-e718-4f62-ae81-02de125f2f23', -1);
+('556d3176-ff00-43b6-bbc5-012c125f2f23', '556d2fb0-88fc-4168-82d6-035d125f2f23', '556c1734-e718-4f62-ae81-02de125f2f23', -1),
+('556ebfdc-208c-4679-9bec-0ebf125f2f23', '556ebfd8-db34-4278-b60a-0ebf125f2f23', '556c9db5-b87c-4639-b4a8-0656125f2f23', 0),
+('556ebfdc-210c-4aac-b567-0ebf125f2f23', '556ebfd8-db34-4278-b60a-0ebf125f2f23', '556c1734-e718-4f62-ae81-02de125f2f23', 0),
+('556ebfdc-3d6c-431a-9568-0ebf125f2f23', '556ebfd8-db34-4278-b60a-0ebf125f2f23', '556ca1ab-cc70-401c-8682-0656125f2f23', 0),
+('556ebfdc-52c4-4717-9af2-0ebf125f2f23', '556ebfd8-db34-4278-b60a-0ebf125f2f23', '556ca11a-b244-4cda-9ef4-02df125f2f23', 0),
+('556ebfdc-6e90-4374-aeb3-0ebf125f2f23', '556ebfd8-db34-4278-b60a-0ebf125f2f23', '556ca1da-5304-47ed-aa5b-02df125f2f23', 0),
+('556ebfdc-6f50-4bde-872c-0ebf125f2f23', '556ebfd8-db34-4278-b60a-0ebf125f2f23', '556c9d4f-4e94-40d6-9ac5-0360125f2f23', 0),
+('556ebfdc-78f8-4e76-bc2c-0ebf125f2f23', '556ebfd8-db34-4278-b60a-0ebf125f2f23', '556ca1be-d480-4088-9c51-035d125f2f23', 0),
+('556ebfdc-b0cc-4fca-a9c5-0ebf125f2f23', '556ebfd8-db34-4278-b60a-0ebf125f2f23', '556ca196-a2a4-4854-9ae0-0704125f2f23', 0),
+('556ebfdc-ba10-450e-9f6c-0ebf125f2f23', '556ebfd8-db34-4278-b60a-0ebf125f2f23', '556c9e77-2e9c-4dee-abac-02d9125f2f23', 0),
+('556ebfdc-ca70-4919-b5e2-0ebf125f2f23', '556ebfd8-db34-4278-b60a-0ebf125f2f23', '556c9ddc-bcd0-452f-a1f9-035d125f2f23', 0);
 
 -- --------------------------------------------------------
 
