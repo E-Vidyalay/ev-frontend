@@ -325,20 +325,36 @@
 }
 .video-table .video-link{
 	display: table-cell;
-	padding: 10px 5px;
-	background-color: #F9F9F9;
-	width: 300px;
+	background-color: #3B92D2;
+	min-width: 250px;
+	max-width: auto;
+	min-height: 50px;
 }
 .video-table .video-media{
 	display: table-cell;
 	border-left: 4px solid #E9E9E9;
 	background-color: #F9F9F9;
-	padding: 10px 15px 15px 15px;
+	padding: 5px 30px 25px 30px;
+  	max-width: 780px;
+
 }
 .video-table .video-desc{
 	display: table-cell;
-	padding: 10px 5px;
+	padding: 10px 15px;
 	border-left: 4px solid #E9E9E9;
 	background-color: #F9F9F9;
-	width: 300px;
+	position: relative;
+	min-width: 300px;
+	
+}
+.video-link >ul{
+	list-style-type: none;
+	margin-left: 0.1rem;
+}
+.video-link >ul >h5{
+	color: white;
+	margin-top: -20px;
+}
+.video-link >ul >li:last-child{
+	padding-bottom: 35px;
 }
