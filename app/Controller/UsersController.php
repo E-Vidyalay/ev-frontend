@@ -181,7 +181,7 @@
     public function custom_login(){
             if($this->Session->check('Auth.User')){
                 //pr($this->Auth->user());
-                if(empty($this->Auth->user('user_type'))){
+                if(empty($activeUser['User']['user_type'])){
                         $this->redirect(array('controller'=>'users','action'=>'set_user_type',$this->Auth->user('id')));
                 }
                 else{

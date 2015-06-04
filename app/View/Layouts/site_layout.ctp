@@ -160,7 +160,7 @@
         </ul>
       </section>
     </div>
-    <section class="main-section" style="margin-top: -50px; overflow-x: scroll;">
+    <section class="main-section" style="margin-top: -30px;">
       <!-- content goes here -->
         <div class="ev-alert">
             <?php

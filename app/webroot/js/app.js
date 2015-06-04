@@ -16,9 +16,11 @@ $(".cs-dropdown").mouseover(function(){
 })
 $(".has-sub-menu").mouseover(function(){
 	$(this).children(".sub-menu").show();
+	$(this).children("a").addClass('usr-active');
 });
 $(".has-sub-menu").mouseout(function(){
 	$(this).children(".sub-menu").hide();
+	$(this).children("a").removeClass('usr-active');
 })
 $(document).ready(function(){
 	$(".accordion-navigation > div").removeClass("active");

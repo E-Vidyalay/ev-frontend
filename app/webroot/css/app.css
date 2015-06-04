@@ -254,6 +254,11 @@
 	background-color: #4787d0;
 	border-radius: 3px;
 }
+.usr-active{
+	color: #fff;
+	background-color: #4787d0;
+	border-radius: 3px;
+}
 .ev-alert-pro{
 	top:100px;
 	right:20px;
