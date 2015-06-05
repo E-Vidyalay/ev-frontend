@@ -22,12 +22,12 @@
 			</ul></div>
 <div id="video-file" class"large-10 columns" >
 			<?php if($links!=NULL){?>
-  <div class="video-media show-for-large-up" style="margin-left:225px; width: 860px;">
+  <div class="video-media show-for-large-up" style="margin-left:280px; width: 860px;">
   <?php echo '<h4 align="center">'.$links[0]['Link']['link_title'].'</h4>';
 		echo '<iframe id="video1" width="830" height="480" src="'.$links[0]['Link']['link_url'].'" frameborder="1" allowfullscreen align="center"></iframe>';
 		echo '<div class="video-desc"><h6>Video Description</h6><br/>'.$links[0]['Link']['tags'].'</div></div>';}
   		else{
-  		echo '<div id="video-file" class"large-10 columns"><div  class="video-media show-for-large-up" style="margin-left:225px;"><h2>Content Not Available</h2><div class="video-desc"><h6>Video Description</h6><br/>No Description are there.</div></div>
+  		echo '<div id="video-file" class"large-10 columns"><div  class="video-media show-for-large-up" style="margin-left:280px;"><h2>Content Not Available</h2><div class="video-desc"><h6>Video Description</h6><br/>No Description are there.</div></div>
 </div>	';
   	}?>
   	<div id="video-file" class"large-10 columns">
