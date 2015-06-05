@@ -1,8 +1,5 @@
-
-	<div class="video-table">
-		<div class="video-row">
-		<div class="video-link">
-			<ul class="accordion" role="navigation">
+<div class="row video-row">
+  <div class="large-2 video-link hide-for-small hide-for-medium"><ul class="accordion" role="navigation">
 			<h5 align="center">Sub Topics</h5>
 			<?php
 			if($subs!=NULL){
@@ -14,7 +11,7 @@
 					<ul  class="side-nav">';
 					foreach ($links as $link) {
 						if($link['Link']['sub_topic_id']==$sub['SubTopic']['id']){
-							echo '<li><a>'.$link['Link']['link_title'].'</a></li>';
+							echo '<li id="'.$link['Link']['id'].'"><a>'.$link['Link']['link_title'].'</a></li>';
 						}
 					}
 					echo '</ul>
@@ -22,29 +19,25 @@
 				</li>
 				';
 			}}?>
-			</ul>
-			</div>
-		<?php 
-		if($links!=NULL){
-		echo '
-			<div class="video-media">
-			<h4>'.$links[0]['Link']['link_title'].'</h4>';
-		echo '<br/>';
-		echo '
-			<iframe id="video1" width="725" height="433" src="'.$links[0]['Link']['link_url'].'" frameborder="1" allowfullscreen></iframe>
-			</div>';
-		echo '<div id="video_desc" class="video-desc"><h6>Video Description</h6><br/>'.$links[0]['Link']['tags'];
-		}
-		else{
-			echo'
-			<div class="video-media"><h4>Content Not Available</h4></div>
-			<div id="video_desc" class="video-desc"><h6>Video Description</h6><br/>';
-		}
-		?>
-		<?php	
-			
-
-		?>
-		</div>
+			</ul></div>
+<div id="video-file" class"large-10 columns" >
+			<?php if($links!=NULL){?>
+  <div class="video-media show-for-large-up" style="margin-left:225px; width: 860px;">
+  <?php echo '<h4 align="center">'.$links[0]['Link']['link_title'].'</h4>';
+		echo '<iframe id="video1" width="830" height="480" src="'.$links[0]['Link']['link_url'].'" frameborder="1" allowfullscreen align="center"></iframe>';
+		echo '<div class="video-desc"><h6>Video Description</h6><br/>'.$links[0]['Link']['tags'].'</div></div>';}
+  		else{
+  		echo '<div id="video-file" class"large-10 columns"><div  class="video-media show-for-large-up" style="margin-left:225px;"><h2>Content Not Available</h2><div class="video-desc"><h6>Video Description</h6><br/>No Description are there.</div></div>
+</div>	';
+  	}?>
+  	<div id="video-file" class"large-10 columns">
+			<?php if($links!=NULL){?>
+  <div class="video-media hide-for-large-up">
+  <?php echo '<h4 align="center">'.$links[0]['Link']['link_title'].'</h4>';
+		echo '<iframe id="video1" width="830" height="480" src="'.$links[0]['Link']['link_url'].'" frameborder="1" allowfullscreen align="center"></iframe>';
+		echo '<div class="video-desc"><h6>Video Description</h6><br/>'.$links[0]['Link']['tags'].'</div></div>';}
+  		else{
+  		echo '<div id="video-file" class"large-10 columns"><div  class="video-media hide-for-large-up"><h2>Content Not Available</h2><div class="video-desc"><h6>Video Description</h6><br/>No Description are there.</div></div>
+</div>	';
+  	}?>
 </div>
-		

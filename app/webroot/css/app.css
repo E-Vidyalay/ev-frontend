@@ -300,6 +300,7 @@
 	font-size: 12px;
 }
 .sub-menu{
+	position: absolute;
 	z-index: 2000;
 	box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.35);
 	padding:0px 10px;
@@ -324,33 +325,41 @@
 	border: 0px none;
 	font: 12px "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
 }
-.video-table .video-row{
-	display: table-row;
-	vertical-align: top;
+.video-row{
+	height: 100%;
 }
-.video-table .video-link{
-	display: table-cell;
-	background-color: #3B92D2;
-	min-width: 250px;
-	max-width: auto;
-	min-height: 50px;
+.video-link{
+	background-color: #008CBA;
+	margin-left: -47px;
+	margin-top: -40px;
+	width: 258px;
+	position: fixed;
+	height: 100%;
+	border-right: 10px solid #008CBA;
 }
-.video-table .video-media{
-	display: table-cell;
-	border-left: 4px solid #E9E9E9;
+.video-link::-webkit-scrollbar { 
+    display: none; 
+}
+.video-media{
+	padding: 10px 15px;
 	background-color: #F9F9F9;
-	padding: 5px 30px 25px 30px;
-  	max-width: 780px;
+  	position: relative;
+  	margin-top: -20px;
+}
+.video-media >h4{
+	background-color: #EFEFEF;
+	
+	margin-left: -15px;
+	margin-right: -15px;
+	margin-top: -10px;
+	color: #008CBA;
 
 }
-.video-table .video-desc{
-	display: table-cell;
+.video-desc{
 	padding: 10px 15px;
-	border-left: 4px solid #E9E9E9;
 	background-color: #F9F9F9;
 	position: relative;
-	min-width: 300px;
-	
+	margin-top: 10px;
 }
 .video-link >ul{
 	list-style-type: none;
@@ -358,8 +367,12 @@
 }
 .video-link >ul >h5{
 	color: white;
-	margin-top: -20px;
+	margin-top: 20px; 
 }
 .video-link >ul >li:last-child{
 	padding-bottom: 35px;
+}
+.li-active{
+	background: #e3e3e3;
+    color: #1cc7ff;
 }
