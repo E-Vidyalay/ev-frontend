@@ -1,45 +1,7 @@
-<script>(function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));</script>
-<div id="login" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-<br/>
- <div class="login_dialouge_heading">Login to access more features of the system</div>
- <br/>
- <div class="row">
- <div class="columns large-6 panel">
-    <?php
-      echo $this->Form->create('User',array('controller'=>'users','action'=>'custom_login'));
-      echo $this->Form->input('username',array('type'=>'email','required','placeholder'=>'username','label'=>'Username'));
-      echo $this->Form->input('password',array('type'=>'password','required','placeholder'=>'Password','label'=>'Password'));
-      echo $this->Form->input('Login',array('type'=>'submit','label'=>false,'div'=>false,'class'=>'button button tiny radius'));
-      echo $this->Form->end();
-    ?>
-</div>
- <div class="columns large-6">
-     <div class=""><h4>Or Login with social Apps</h4></div>
-     <hr/>
-    <?php 
-    echo '<div class="facebook_button">'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-facebook-square fa-fw')).' Sign in with Facebook',array('controller'=>'auth','action'=>'facebook'),array('escape'=>false)).'</div>';
-    echo '<br/>';
-    echo '<br/>';
-    echo '<div id="GoogleBtn">'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-google-plus fa-fw')) .'  Sign in with Google',array('controller'=>'auth','action'=>'google'),array('escape'=>false,'class'=>'buttonText')).'</div>'; ?>
-</div>
-</div>
-<a class="close-reveal-modal" aria-label="Close">&#215;</a>
-</div>
 
-
-<div id="register" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
- 
-        <br />
-        <div class="login_dialouge_heading">Register and become member of our community</div>
-        <div class="row">
-            <br/>
-            <div class="columns large-6 panel">
+<div class="row">
+            <h4 align="center">Register</h4>
+            <div class="columns large-6 panel medium-8 small-offset-2 small-8 medium-offset-2">
             <?php echo $this->Form->create('User', array('controller'=>'users','action'=>'signup','class' => 'main-form')); ?>
             <?php
                 echo $this->Form->label('first_name', 'Full Name',array('div'=>false,'class'=>'address_label'));
@@ -84,20 +46,12 @@
                 <?php echo $this->Form->input('Sign Up',array('type'=>'submit','div'=>false,'class'=>'button tiny radius','id'=>'register-submit','label'=>false)); ?>
                 <div class="clear"></div>
                 </form>
-            </div>
-
-
-       <div class="columns large-6">
-             <div class=""><h4>Or Login with social Apps</h4></div>
+                 <div><h4>Or Login with Social Apps</h4></div>
              <hr/>
             <?php 
             echo '<div class="facebook_button">'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-facebook-square fa-fw')).' Sign in with Facebook',array('controller'=>'auth','action'=>'facebook'),array('escape'=>false)).'</div>';
             echo '<br/>';
             echo '<br/>';
             echo '<div id="GoogleBtn">'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-google-plus fa-fw')) .'  Sign in with Google',array('controller'=>'auth','action'=>'google'),array('escape'=>false,'class'=>'buttonText')).'</div>'; ?>
-               </div>
-        </div>
-        
-       
-    <a class="close-reveal-modal" aria-label="Close">&#215;</a> </div>
-</div>
+       </div>
+            </div>

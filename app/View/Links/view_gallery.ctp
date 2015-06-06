@@ -19,8 +19,6 @@
 				</li>
 				';
 			}}?>
-        <li><a href="#">Hari Seldon</a></li>
-        <li><a href="#">...</a></li>
       </ul>
     </aside>
 <div class="row video-row">

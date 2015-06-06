@@ -18,7 +18,7 @@
         <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
       </section>
       <section class="right-small">
-        <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
+        <a id="video-btn" class="right-off-canvas-toggle menu-icon" href="#"><i class="fa fa-video-camera fa-fw">Videos</i></a>
       </section>
 
       <section class="middle tab-bar-section">
@@ -99,9 +99,13 @@
             <li><?php echo $this->Html->link('દેશભક્તિ',array('controller'=>'pages','action'=>'index')); ?></li>
             </ul></li>
         <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-arrow-circle-right fa-fw')) . " નવું",array('controller'=>'pages','action'=>'home'),array('escape' => false)); ?></li>
-        <li><label>Foundation</label></li>
-        <li><a href="#" data-reveal-id="login"><i class="fa fa-lock fa-fw"></i>Login</a></li>
-        <li><a href="#" data-reveal-id="register"><i class="fa fa-pencil fa-fw"></i>Register</a></li>
+        <li><label>User's Action</label></li>
+        <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-lock fa-fw')) . "Login",array('controller'=>'users','action'=>'login'),array('escape' => false)); ?></li>
+        <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-pencil fa-fw')) . "Register",array('controller'=>'users','action'=>'register'),array('escape' => false)); ?></li>
+         <li>
+        <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-newspaper-o fa-fw')) . " News letter",array('controller'=>'NewsLetters','action'=>'index'),array('escape' => false)); ?></li>
+            <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-eye fa-fw')) . " Vision",array('controller'=>'pages','action'=>'vision'),array('escape' => false)); ?></li>
+            <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-bookmark-o fa-fw')) . " About EVidyalay",array('controller'=>'pages','action'=>'about_us'),array('escape' => false)); ?></li>
       </ul>
     </aside>
 

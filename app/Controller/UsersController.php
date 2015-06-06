@@ -1,9 +1,10 @@
 <?php
     class UsersController extends AppController{
         public $uses=array('User','Student');
-
+        public function register(){
+            $this->layout="site_layout";
+        }
         public function signup(){
-
             if($this->request->is('post')){
                 $user = $this->request->data;
 

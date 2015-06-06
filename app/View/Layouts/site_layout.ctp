@@ -9,6 +9,7 @@
     echo $this->Html->css('app');
     echo $this->fetch('css');
   ?>
+   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div class="off-canvas-wrap" data-offcanvas>
@@ -96,9 +97,13 @@
             <li><?php echo $this->Html->link('દેશભક્તિ',array('controller'=>'pages','action'=>'index')); ?></li>
             </ul></li>
         <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-arrow-circle-right fa-fw')) . " નવું",array('controller'=>'pages','action'=>'home'),array('escape' => false)); ?></li>
-        <li><label>Foundation</label></li>
-        <li><a href="#" data-reveal-id="login"><i class="fa fa-lock fa-fw"></i>Login</a></li>
-        <li><a href="#" data-reveal-id="register"><i class="fa fa-pencil fa-fw"></i>Register</a></li>
+        <li><label>Users's action</label></li>
+        <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-lock fa-fw')) . "Login",array('controller'=>'users','action'=>'login'),array('escape' => false)); ?></li>
+        <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-pencil fa-fw')) . "Register",array('controller'=>'users','action'=>'register'),array('escape' => false)); ?></li>
+        <li>
+        <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-newspaper-o fa-fw')) . " News letter",array('controller'=>'NewsLetters','action'=>'index'),array('escape' => false)); ?></li>
+            <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-eye fa-fw')) . " Vision",array('controller'=>'pages','action'=>'vision'),array('escape' => false)); ?></li>
+            <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-bookmark-o fa-fw')) . " About EVidyalay",array('controller'=>'pages','action'=>'about_us'),array('escape' => false)); ?></li>
       </ul>
     </aside>
 

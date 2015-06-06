@@ -49,8 +49,18 @@
 
     <aside class="left-off-canvas-menu">
       <ul class="off-canvas-list">
-        <li><label>Foundation</label></li>
-        <li><a href="#">The Psychohistorians</a></li>
+        <li><label><?php 
+                if(empty($activeUser['User']['path'])){
+                    echo $this->Html->image('user_avatar.png',array('class'=>'usr-img'));
+                }
+                else{
+                  echo '<img src="'.$this->webroot.'files/user/path/'.$activeUser['User']['id'].'/small_'.$activeUser['User']['path'].'" class="usr-img"/ > ';
+                }
+                    ?> &nbsp;&nbsp;<?php echo $activeUser['User']['name']; ?></label></li>
+        <li><?php echo $this->Html->link('Dashboard',array('controller'=>'students','action'=>'home'));?></li>
+        <li><a href="#">Courses</a></li>
+        <li><?php echo $this->Html->link('Apply for quiz !',array('controller'=>'students','action'=>'test_application',$activeUser['User']['id']));?></li>
+        <li> <a href="#">Edit profile</a></li>
         <li><?php echo $this->Html->link('Logout',array('controller'=>'users','action'=>'logout')); ?></li>
       </ul>
     </aside>

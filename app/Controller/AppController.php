@@ -58,7 +58,7 @@ class AppController extends Controller {
         $this->Auth->authenticate = array(
             'Form' => array('userModel' => 'User')
         );
-        $this->Auth->allow('login','signup','callback','custom_login');
+        $this->Auth->allow('login','signup','callback','custom_login','register');
         $this->activeUser = $this->Session->read('Auth');
         $this->isLoggedIn = $this->Auth->loggedIn();
         $this->set('typeList',$this->UserType->find('list'));

@@ -1,6 +1,6 @@
  
  <div class="row">
- <div class="columns large-4 large-offset-4" style="background:#fff;padding:20px">
+ <div class="columns large-4 large-offset-4 medium-8 medium-offset-2 small-8 small-offset-3" style="background:#fff;padding:20px">
     <h3> Login </h3>
     <hr/>
     <?php
@@ -13,8 +13,12 @@
     ?>
 
      <hr/>
+  <div id="gSignInWrapper">
+    
     <?php 
-    echo $this->Html->link('<div class="log_in_box_with_social">'.$this->Html->image('facebook_log_in.png').'</div>',array('controller'=>'auth','action'=>'facebook'),array('escape'=>false));
-    echo $this->Html->link('<div class="log_in_box_with_social">'.$this->Html->image('google_plus.png').'</div>',array('controller'=>'auth','action'=>'google'),array('escape'=>false)); ?>
+    echo '<div class="facebook_button">'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-facebook-square fa-fw')).' Sign in with Facebook',array('controller'=>'auth','action'=>'facebook'),array('escape'=>false)).'</div>';
+    echo '<br/><br/>';
+    echo '<div id="GoogleBtn">'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-google-plus fa-fw')) .'  Sign in with Google',array('controller'=>'auth','action'=>'google'),array('escape'=>false,'class'=>'buttonText')).'</div>'; ?>
 </div>
 </div>
+  </div>
