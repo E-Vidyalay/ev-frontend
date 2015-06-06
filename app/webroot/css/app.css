@@ -337,9 +337,6 @@
 	height: 100%;
 	border-right: 10px solid #008CBA;
 }
-.video-link::-webkit-scrollbar { 
-    display: none; 
-}
 .video-media{
 	padding: 10px 15px;
 	background-color: #F9F9F9;
@@ -374,5 +371,5 @@
 }
 .li-active{
 	background: #e3e3e3;
-    color: #1cc7ff;
+    color: #1cc7ff;  
 }

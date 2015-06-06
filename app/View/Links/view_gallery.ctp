@@ -1,3 +1,28 @@
+<aside class="right-off-canvas-menu">
+      <ul class="off-canvas-list">
+        <li><label>Sub Topics</label></li>
+        <?php
+        if($subs!=NULL){
+			foreach ($subs as $sub) {
+
+				echo '
+				<li class="has-submenu"><a>'.$sub['SubTopic']['name'].'</a>
+					<ul  class="right-submenu">
+					<li class="back"><a href="#">Back</a></li>
+					<li><label>'.$sub['SubTopic']['name'].'</label></li>';
+					foreach ($links as $link) {
+						if($link['Link']['sub_topic_id']==$sub['SubTopic']['id']){
+							echo '<li id="'.$link['Link']['id'].'"><a>'.$link['Link']['link_title'].'</a></li>';
+						}
+					}
+					echo '</ul>
+				</li>
+				';
+			}}?>
+        <li><a href="#">Hari Seldon</a></li>
+        <li><a href="#">...</a></li>
+      </ul>
+    </aside>
 <div class="row video-row">
   <div class="large-2 video-link hide-for-small hide-for-medium"><ul class="accordion" role="navigation">
 			<h5 align="center">Sub Topics</h5>
@@ -11,7 +36,7 @@
 					<ul  class="side-nav">';
 					foreach ($links as $link) {
 						if($link['Link']['sub_topic_id']==$sub['SubTopic']['id']){
-							echo '<li id="'.$link['Link']['id'].'"><a>'.$link['Link']['link_title'].'</a></li>';
+							echo '<li id="'.$link['Link']['id'].'"><a><i class="fa fa-arrow-right fa-fw"></i>'.$link['Link']['link_title'].'</a></li>';
 						}
 					}
 					echo '</ul>

@@ -36,7 +36,6 @@ $(".accordion-navigation").on('click',function(){
 	$(".accordion-navigation > div").removeClass("active");
 		$(this).children("div").addClass("active");
 });
-
 $(".side-nav > li").on('click',function(event){
 	$(".side-nav > li").removeClass("li-active");
 	$(this).addClass("li-active");
@@ -47,6 +46,21 @@ $(".side-nav > li").on('click',function(event){
     	url:u,
     	success:function(data){
     		$("html,body").animate({scrollTop: 0},500);
+    		$("#video-file").html(data);
+    	},
+    	error:function(e){
+    		alert("Sorry there was error :"+e);
+    	}
+    })
+});
+$(".right-submenu > li").on('click',function(event){
+	var baseUrl = location.origin;
+    var u=baseUrl+'/ev-frontend/links/get_video/'+$(this).attr('id');
+    console.log(u);
+    $.ajax({
+    	url:u,
+    	success:function(data){
+    		$(".off-canvas-wrap").removeClass("move-left");
     		$("#video-file").html(data);
     	},
     	error:function(e){

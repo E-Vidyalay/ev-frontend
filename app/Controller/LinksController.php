@@ -10,7 +10,7 @@ class LinksController extends AppController {
 
 	function view_gallery($id=NULL)
 	{
-		$this->layout="site_layout";
+		$this->layout="video_layout";
 		$l=$this->Link->find('all',array('conditions'=>array('Link.topic_id'=>$id)));
 		$sub=$this->SubTopic->find('all',array('conditions'=>array('SubTopic.topic_id'=>$id)));
 		$this->set('links',$l);
