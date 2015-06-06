@@ -53,9 +53,10 @@ $(".side-nav > li").on('click',function(event){
     	}
     })
 });
-$(".right-submenu > li").on('click',function(event){
+$(".right-submenu > li > a ").on('click',function(event){
 	var baseUrl = location.origin;
-    var u=baseUrl+'/ev-frontend/links/get_video/'+$(this).attr('id');
+	if ($(this).attr('id')!=null) { 
+	var u=baseUrl+'/ev-frontend/links/get_video/'+$(this).attr('id');
     console.log(u);
     $.ajax({
     	url:u,
@@ -66,5 +67,5 @@ $(".right-submenu > li").on('click',function(event){
     	error:function(e){
     		alert("Sorry there was error :"+e);
     	}
-    })
+    })};
 });

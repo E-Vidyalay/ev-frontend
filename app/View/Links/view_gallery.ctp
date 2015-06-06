@@ -8,11 +8,11 @@
 				echo '
 				<li class="has-submenu"><a>'.$sub['SubTopic']['name'].'</a>
 					<ul  class="right-submenu">
-					<li class="back"><a href="#">Back</a></li>
+					<li class="back"><a>Back</a></li>
 					<li><label>'.$sub['SubTopic']['name'].'</label></li>';
 					foreach ($links as $link) {
 						if($link['Link']['sub_topic_id']==$sub['SubTopic']['id']){
-							echo '<li id="'.$link['Link']['id'].'"><a>'.$link['Link']['link_title'].'</a></li>';
+							echo '<li><a id="'.$link['Link']['id'].'">'.$link['Link']['link_title'].'</a></li>';
 						}
 					}
 					echo '</ul>
