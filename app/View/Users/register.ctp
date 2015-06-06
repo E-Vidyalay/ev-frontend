@@ -1,6 +1,6 @@
 
 <div class="row">
-            <h4 align="center">Register</h4>
+            <h4 align="center">Sign up</h4>
             <div class="columns large-6 panel medium-8 small-offset-2 small-8 medium-offset-2">
             <?php echo $this->Form->create('User', array('controller'=>'users','action'=>'signup','class' => 'main-form')); ?>
             <?php
@@ -46,7 +46,7 @@
                 <?php echo $this->Form->input('Sign Up',array('type'=>'submit','div'=>false,'class'=>'button tiny radius','id'=>'register-submit','label'=>false)); ?>
                 <div class="clear"></div>
                 </form>
-                 <div><h4>Or Login with Social Apps</h4></div>
+                 <div><h4>Or Sign up with Social Apps</h4></div>
              <hr/>
             <?php 
             echo '<div class="facebook_button">'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-facebook-square fa-fw')).' Sign in with Facebook',array('controller'=>'auth','action'=>'facebook'),array('escape'=>false)).'</div>';

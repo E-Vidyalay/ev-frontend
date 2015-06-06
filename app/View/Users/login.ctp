@@ -1,7 +1,7 @@
  
  <div class="row">
  <div class="columns large-4 large-offset-4 medium-8 medium-offset-2 small-8 small-offset-3" style="background:#fff;padding:20px">
-    <h3> Login </h3>
+    <h3> Log in </h3>
     <hr/>
     <?php
       echo $this->Form->create('User',array('controller'=>'users','action'=>'custom_login'));
@@ -11,14 +11,14 @@
       echo $this->Form->end();
 
     ?>
-
+    <div><h4>Or Log in with</h4></div>
      <hr/>
   <div id="gSignInWrapper">
     
     <?php 
-    echo '<div class="facebook_button">'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-facebook-square fa-fw')).' Sign in with Facebook',array('controller'=>'auth','action'=>'facebook'),array('escape'=>false)).'</div>';
+    echo '<div class="facebook_button">'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-facebook-square fa-fw')).' Log in with Facebook',array('controller'=>'auth','action'=>'facebook'),array('escape'=>false)).'</div>';
     echo '<br/><br/>';
-    echo '<div id="GoogleBtn">'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-google-plus fa-fw')) .'  Sign in with Google',array('controller'=>'auth','action'=>'google'),array('escape'=>false,'class'=>'buttonText')).'</div>'; ?>
+    echo '<div id="GoogleBtn">'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-google-plus fa-fw')) .'  Log in with Google',array('controller'=>'auth','action'=>'google'),array('escape'=>false,'class'=>'buttonText')).'</div>'; ?>
 </div>
 </div>
   </div>

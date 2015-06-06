@@ -7,7 +7,7 @@
    }(document, 'script', 'facebook-jssdk'));</script>
 <div id="login" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 <br/>
- <div class="login_dialouge_heading">Login to access more features of the system</div>
+ <div class="login_dialouge_heading">Log in to Access more</div>
  <br/>
  <div class="row">
  <div class="columns large-6 panel">
@@ -20,13 +20,13 @@
     ?>
 </div>
  <div class="columns large-6">
-     <div class=""><h4>Or Login with social Apps</h4></div>
+     <div class=""><h4>Or Log in with Social Apps</h4></div>
      <hr/>
     <?php 
-    echo '<div class="facebook_button">'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-facebook-square fa-fw')).' Sign in with Facebook',array('controller'=>'auth','action'=>'facebook'),array('escape'=>false)).'</div>';
+    echo '<div class="facebook_button">'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-facebook-square fa-fw')).' Log in with Facebook',array('controller'=>'auth','action'=>'facebook'),array('escape'=>false)).'</div>';
     echo '<br/>';
     echo '<br/>';
-    echo '<div id="GoogleBtn">'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-google-plus fa-fw')) .'  Sign in with Google',array('controller'=>'auth','action'=>'google'),array('escape'=>false,'class'=>'buttonText')).'</div>'; ?>
+    echo '<div id="GoogleBtn">'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-google-plus fa-fw')) .'  Log in with Google',array('controller'=>'auth','action'=>'google'),array('escape'=>false,'class'=>'buttonText')).'</div>'; ?>
 </div>
 </div>
 <a class="close-reveal-modal" aria-label="Close">&#215;</a>
@@ -36,7 +36,7 @@
 <div id="register" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
  
         <br />
-        <div class="login_dialouge_heading">Register and become member of our community</div>
+        <div class="login_dialouge_heading">Sign up and become member of our community</div>
         <div class="row">
             <br/>
             <div class="columns large-6 panel">
@@ -88,7 +88,7 @@
 
 
        <div class="columns large-6">
-             <div class=""><h4>Or Login with social Apps</h4></div>
+             <div class=""><h4>Or Log in with</h4></div>
              <hr/>
             <?php 
             echo '<div class="facebook_button">'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-facebook-square fa-fw')).' Sign in with Facebook',array('controller'=>'auth','action'=>'facebook'),array('escape'=>false)).'</div>';
