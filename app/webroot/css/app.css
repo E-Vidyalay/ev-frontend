@@ -421,7 +421,7 @@
       font-family: 'Roboto',arial,sans-serif;
       color: white;
     }
-.facebook_button {
+.facebookButton {
     display: inline-block;
     background: #627aac left no-repeat;
 
@@ -446,7 +446,7 @@
 
     cursor: pointer;
 }
-.facebook_button >a{
+.facebookButton >a{
 	color: white;
 }
 

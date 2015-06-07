@@ -23,10 +23,10 @@
      <div class=""><h4>Or Log in with</h4></div>
      <hr/>
     <?php 
-    echo '<div class="facebook_button">'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-facebook-square fa-fw')).' Log in with Facebook',array('controller'=>'auth','action'=>'facebook'),array('escape'=>false)).'</div>';
+    echo '<div class="facebookButton">'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-facebok fa-fw')).' Log in with Facebook',array('controller'=>'auth','action'=>'facebook'),array('escape'=>false)).'</div>';
     echo '<br/>';
     echo '<br/>';
-    echo '<div id="GoogleBtn">'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-google-plus fa-fw')) .'  Log in with Google',array('controller'=>'auth','action'=>'google'),array('escape'=>false,'class'=>'buttonText')).'</div>'; ?>
+    echo '<div id="GoogleBtn">'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-googlePlus fa-fw')) .'  Log in with Google',array('controller'=>'auth','action'=>'google'),array('escape'=>false,'class'=>'buttonText')).'</div>'; ?>
 </div>
 </div>
 <a class="close-reveal-modal" aria-label="Close">&#215;</a>
@@ -91,10 +91,10 @@
              <div class=""><h4>Or Sign up with</h4></div>
              <hr/>
             <?php 
-            echo '<div class="facebook_button">'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-facebook-square fa-fw')).' Sign up with Facebook',array('controller'=>'auth','action'=>'facebook'),array('escape'=>false)).'</div>';
+            echo '<div class="facebookButton">'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-facebok fa-fw')).' Sign up with Facebook',array('controller'=>'auth','action'=>'facebook'),array('escape'=>false)).'</div>';
             echo '<br/>';
             echo '<br/>';
-            echo '<div id="GoogleBtn">'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-google-plus fa-fw')) .'  Sign up with Google',array('controller'=>'auth','action'=>'google'),array('escape'=>false,'class'=>'buttonText')).'</div>'; ?>
+            echo '<div id="GoogleBtn">'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-googlePlus fa-fw')) .'  Sign up with Google',array('controller'=>'auth','action'=>'google'),array('escape'=>false,'class'=>'buttonText')).'</div>'; ?>
                </div>
         </div>
         
