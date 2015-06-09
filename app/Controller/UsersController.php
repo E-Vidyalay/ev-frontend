@@ -270,19 +270,24 @@
     public function edit_profile($id){
         // if($this->request->is('post')){
             $data=$this->Auth->user();
+            $u=$this->Auth->user();
             $data['id']=$this->data['User']['id'];
             $data['name']=$this->data['User']['name'];
             if($this->data['User']['newpassword']!=NULL){
                 $data['password']=$this->data['User']['newpassword'];
             }
+            $u=$data;
             if($this->data['User']['path']['name']!=NULL){
-                $data['path']=$this->data['User']['path']['name'];
+                $data['path']=$this->data['User']['path'];
+                $u['path']=$this->data['User']['path']['name'];
             }
             if($this->data['User']['newusername']!=NULL){
-                $data['username']=$this->data['User']['newusername'];    
+                $data['username']=$this->data['User']['newusername'];
+                $u['username']=$this->data['User']['newusername'];    
             }
+            //pr($u);
             if($this->User->save($data)){
-                $this->Session->write('Auth.User', $data);
+                $this->Session->write('Auth.User', $u);
                 if($this->Auth->user('user_type')=='cb6f8154-fbbc-11e4-b148-01f8d649e9b6'){    
                     $this->Session->setFlash('Profile Updated','default',array('class'=>'alert-box radius success'),'success');
                     $this->redirect(array('controller'=>'students','action'=>'home'));
