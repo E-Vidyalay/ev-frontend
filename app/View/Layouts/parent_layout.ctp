@@ -28,9 +28,16 @@
 
     <aside class="left-off-canvas-menu">
       <ul class="off-canvas-list">
-        <li><label>Foundation</label></li>
-        <li><a href="#">The Psychohistorians</a></li>
-        <li><a href="#">...</a></li>
+        <li><label><?php 
+                if(empty($activeUser['User']['path'])){
+                    echo $this->Html->image('user_avatar.png',array('class'=>'usr-img'));
+                }
+                else{
+                  echo '<img src="'.$this->webroot.'files/user/path/'.$activeUser['User']['id'].'/small_'.$activeUser['User']['path'].'" class="usr-img"/ > ';
+                }
+                    ?> &nbsp;&nbsp;<?php echo $activeUser['User']['name']; ?></label></li>
+        <li><?php echo $this->Html->link('Edit Profile',array('controller'=>'parents','action'=>'edit_profile',$activeUser['User']['id'])); ?></li>
+        <li><?php echo $this->Html->link('Logout',array('controller'=>'users','action'=>'logout')); ?></li>
       </ul>
     </aside>
 
@@ -46,13 +53,22 @@
           </div>
           <div class="columns large-4">
             <ul class="right" id="pro-menu">
-            <li>
-              <a data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" id='usr-a'><?php echo $this->Html->image('user_avatar.png',array('class'=>'usr-img'))?> &nbsp;&nbsp;<?php echo $activeUser['User']['name']; ?></a>
-              <ul id="drop1" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+            <li class='has-sub-menu'>
+              <a id='usr-a'><?php 
+                if(empty($activeUser['User']['path'])){
+                    echo $this->Html->image('user_avatar.png',array('class'=>'usr-img'));
+                }
+                else{
+                  echo '<img src="'.$this->webroot.'files/user/path/'.$activeUser['User']['id'].'/small_'.$activeUser['User']['path'].'" class="usr-img"/ > ';
+                }
+                    ?> &nbsp;&nbsp;<?php echo $activeUser['User']['name']; ?>
+              </a>
+              <ul class='sub-menu'>
+                <li><?php echo $this->Html->link('Edit Profile',array('controller'=>'parents','action'=>'edit_profile',$activeUser['User']['id'])); ?></li>
                 <li><?php echo $this->Html->link('Logout',array('controller'=>'users','action'=>'logout')); ?></li>
 
               </ul>
-              </li>
+            </li>
             </ul>
           </div>
         </div>

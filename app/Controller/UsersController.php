@@ -298,7 +298,8 @@
                     $this->redirect(array('controller'=>'teachers','action'=>'home'));
                 }
                 if($this->Auth->user('user_type')=='d0cf96fc-fbbc-11e4-b148-01f8d649e9b6'){
-                    $this->Session->setFlash('Profile Updated','default',array('class'=>'alert-box radius success'),'success');                            $this->redirect(array('controller'=>'parents','action'=>'home'));
+                    $this->Session->setFlash('Profile Updated','default',array('class'=>'alert-box radius success'),'success');
+                    $this->redirect(array('controller'=>'parents','action'=>'home'));
                 }
             }
             else{

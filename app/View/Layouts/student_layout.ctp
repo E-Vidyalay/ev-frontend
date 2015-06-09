@@ -60,7 +60,7 @@
         <li><?php echo $this->Html->link('Dashboard',array('controller'=>'students','action'=>'home'));?></li>
         <li><a href="#">Courses</a></li>
         <li><?php echo $this->Html->link('Apply for quiz !',array('controller'=>'students','action'=>'test_application',$activeUser['User']['id']));?></li>
-        <li> <a href="#">Edit profile</a></li>
+        <li><?php echo $this->Html->link('Edit Profile',array('controller'=>'students','action'=>'edit_profile',$activeUser['User']['id'])); ?></li>
         <li><?php echo $this->Html->link('Logout',array('controller'=>'users','action'=>'logout')); ?></li>
       </ul>
     </aside>
