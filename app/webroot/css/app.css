@@ -401,7 +401,6 @@
       font-weight: bold;
     }
     a > img {
-      background: url('../img/btn_red_32.png') transparent 5px 50% no-repeat;
       display: inline-block;
       vertical-align: middle;
       width: 35px;

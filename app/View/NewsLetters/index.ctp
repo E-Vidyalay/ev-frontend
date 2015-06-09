@@ -11,21 +11,24 @@
 			<hr/>
 			<?php echo $this->Html->image('user_avatar.png',array('class'=>'usr-img')); ?>
 			<?php echo "<i style='font-size:13px'>".$n['Admin']['username'].", at-".$n['NewsLetter']['date']."</i>"; 
+			echo '<div class="right" style="background:#fff;padding:10px" align="right">';
 			$link=$this->base."/NewsLetters/sharenews/".$n['NewsLetter']['id'];
+			echo '&nbsp;&nbsp;';
+			echo 'Share on: ';
 			echo $this->SocialShare->fa(
 				'facebook',
 				$link
 				);
+			echo '&nbsp;&nbsp;';
 			echo $this->SocialShare->fa(
 				'twitter',
 				$link
 				);
-			// echo $this->SocialShare->href('facebook',$url=null, array('options'=>array('controller'=>'NewsLetters','action'=>'sharenews',$n['NewsLetter']['id'],'text'=>'Share')));
-
 			?>
 		</div>
-	<?php
+		<?php
 		}
 	?>
-	
 </div>
+	
+	
