@@ -453,6 +453,10 @@
 	width: 150px;
 	cursor: pointer;
 }
+.usr-img-preview:hover{
+	opacity: 0.6;
+    filter: alpha(opacity=60);
+}
 #imgInp{
 	display: none;
 }
