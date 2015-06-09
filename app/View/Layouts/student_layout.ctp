@@ -88,7 +88,7 @@
                     ?> &nbsp;&nbsp;<?php echo $activeUser['User']['name']; ?>
               </a>
               <ul class='sub-menu'>
-                <li> <a href="#">Edit profile</a></li>
+                <li><?php echo $this->Html->link('Edit Profile',array('controller'=>'students','action'=>'edit_profile',$activeUser['User']['id'])); ?></li>
                 <li><?php echo $this->Html->link('Logout',array('controller'=>'users','action'=>'logout')); ?></li>
 
               </ul>
