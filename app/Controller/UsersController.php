@@ -13,7 +13,7 @@
                 $findUser = $this->User->findByusername($user['User']['username']);
 
                 if($findUser != null){
-                    $this->Session->setFlash('Looks like you are already registered.', 'default', array('class' => 'message error') , 'error');
+                    $this->Session->setFlash('Looks like you are already registered.', 'default', array('class' => 'alert alert-box radius') , 'error');
                     $this->redirect($this->referer()."#login-register");
                 }
 
@@ -277,6 +277,7 @@
                 $data['password']=$this->data['User']['newpassword'];
             }
             $u=$data;
+            //pr($u);die();
             if($this->data['User']['path']['name']!=NULL){
                 $data['path']=$this->data['User']['path'];
                 $u['path']=$this->data['User']['path']['name'];
@@ -305,6 +306,21 @@
                 $this->redirect(array('controller'=>'students','action'=>'edit_profile',$id));
             }
         // }
+    }
+    public function removeProfile_pic(){
+        $this->layout="ajax";
+        $a['User']=$this->Auth->user();
+        $a['User']['path']=NULL;
+        //pr($a);die();
+        if($this->User->save($a)){
+            $this->set('activeUser',$a);
+            $this->Session->write('Auth.User', $a['User']);
+        }
+        else{
+            $this->Session->setFlash('Unable to remove Profile Picture','default',array('class'=>'alert-box radius alert'),'error');
+        }
+
+
     }
 }
 ?>

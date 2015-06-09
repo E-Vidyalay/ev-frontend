@@ -11,10 +11,18 @@
       echo $this->Form->input('newusername', array('label' => 'Change Email','placeholder'=>'Email','type'=>'email'));
     ?>
           <hr/>
-          <h6> Upload your profile picture </h6>
+          <h6><b> Upload your profile picture </b></h6>
           <div class="row">
-            <div class="columns large-9">
-              <?php echo $this->Form->input('path',array('type'=>'file','label'=>false)); ?>
+          <?php echo $this->Form->input('path',array('type'=>'file','label'=>false,'id'=>'imgInp'));?>
+            <div id="profilePic" class="columns large-9">
+               <?php
+              if(empty($activeUser['User']['path'])){
+                    echo $this->Html->image('user_avatar.png',array('id'=>'blah','class'=>'usr-img-preview'));
+                }
+                else{
+                  echo '<img id="blah" src="'.$this->webroot.'files/user/path/'.$activeUser['User']['id'].'/'.$activeUser['User']['path'].'" class="usr-img-preview" />';
+                  echo '<a id="removeDp" class="button tiny alert radius">Remove Photo</a>';
+                }?>
             </div>
           </div>  
           <hr/>
