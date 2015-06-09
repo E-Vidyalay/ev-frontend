@@ -47,5 +47,15 @@
 						$this->redirect(array('controller'=>'students','action'=>'home'));
 			}
 		}
+		public function edit_profile($id){
+			$this->layout="student_layout";
+			$stu=$this->User->findById($id);
+			$uid=$stu['User']['id'];
+			$this->set('id',$uid);
+			if(empty($this->data))
+        	{
+            	$this->data=$this->User->findById($id);
+        	}
+		}	
 	}
 ?>
