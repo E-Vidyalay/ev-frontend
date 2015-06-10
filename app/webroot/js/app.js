@@ -86,6 +86,7 @@ $(".usr-img-preview").click(function(){
     
     $("#imgInp").change(function(){
         readURL(this);
+        $("#removeDp").hide();
     });
 $("#removeDp").on('click',function(event){
 	var baseUrl = location.origin; 
