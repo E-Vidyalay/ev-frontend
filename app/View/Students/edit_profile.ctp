@@ -18,10 +18,12 @@
                <?php
               if(empty($activeUser['User']['path'])){
                     echo $this->Html->image('user_avatar.png',array('id'=>'blah','class'=>'usr-img-preview'));
+                    echo '<p>Click to change avtar</p>';
                 }
                 else{
                   echo '<img id="blah" src="'.$this->webroot.'files/user/path/'.$activeUser['User']['id'].'/'.$activeUser['User']['path'].'" class="usr-img-preview" />';
                   echo '<a id="removeDp" class="button tiny alert radius">Remove Photo</a>';
+                  echo '<p>Click to change avtar</p>';
                 }?>
             </div>
           </div>  

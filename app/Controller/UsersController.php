@@ -286,12 +286,14 @@
                 $data['username']=$this->data['User']['newusername'];
                 $u['username']=$this->data['User']['newusername'];    
             }
-            //pr($u);
+            // if($u['path']==NULL){
+            //     $file =new File(www_ROOT.'files/user/path'.$id.DR.)
+            // }
             if($this->User->save($data)){
                 $this->Session->write('Auth.User', $u);
                 if($this->Auth->user('user_type')=='cb6f8154-fbbc-11e4-b148-01f8d649e9b6'){    
                     $this->Session->setFlash('Profile Updated','default',array('class'=>'alert-box radius success'),'success');
-                    $this->redirect(array('controller'=>'students','action'=>'home'));
+                    $this->redirect(array('controller'=>'students','action'=>'edit_profile',$id));
                 }
                 if($this->Auth->user('user_type')=='cb6f95fe-fbbc-11e4-b148-01f8d649e9b6'){
                     $this->Session->setFlash('Profile Updated','default',array('class'=>'alert-box radius success'),'success');
@@ -312,10 +314,14 @@
         $this->layout="ajax";
         $a['User']=$this->Auth->user();
         $a['User']['path']=NULL;
-        //pr($a);die();
-        if($this->User->save($a)){
+        $file = new File(WWW_ROOT.'files/user/path'.DS.$this->Auth->user('id').DS.$this->Auth->user('path'),false,0777);
+        $file2 = new File(WWW_ROOT.'files/user/path'.DS.$this->Auth->user('id').DS.'small_'.$this->Auth->user('path'),false,0777);
+        //pr($file);die();
+        if($file->delete() && $file2->delete()){
+            if($this->User->save($a)){
             $this->set('activeUser',$a);
             $this->Session->write('Auth.User', $a['User']);
+        }    
         }
         else{
             $this->Session->setFlash('Unable to remove Profile Picture','default',array('class'=>'alert-box radius alert'),'error');
