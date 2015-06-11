@@ -194,7 +194,7 @@
         </ul>
       </section>
     </div>
-    <section class="main-section" style="margin-top: -30px;">
+    <section class="main-section">
       <!-- content goes here -->
         <div class="ev-alert">
             <?php

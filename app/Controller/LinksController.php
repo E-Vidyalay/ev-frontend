@@ -12,9 +12,25 @@ class LinksController extends AppController {
 	{
 		$this->layout="video_layout";
 		$l=$this->Link->find('all',array('conditions'=>array('Link.topic_id'=>$id)));
-		$sub=$this->SubTopic->find('all',array('conditions'=>array('SubTopic.topic_id'=>$id)));
-		$this->set('links',$l);
-		$this->set('subs',$sub);
+		$arr=array();
+		$i=0;
+		foreach($l as $li){
+			$arr[$i]=$li['Link']['sub_topic_id'];
+			$i++;
+		}
+		$fa=array_unique($arr);
+		$sba=array();
+		foreach($fa as $f){
+			$y=0;
+			foreach ($l as $li) {
+				if($li['Link']['sub_topic_id']==$f){
+					$sba[$f][$y]=$li;
+					$y++;
+				}
+			}
+		}
+		//pr($sba);die();
+		$this->set('links',$sba);
 	}
 	function get_video($id=NULL)
 	{
