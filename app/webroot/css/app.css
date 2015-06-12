@@ -58,6 +58,9 @@
 #main-content{
 	margin-top:160px;
 }
+#main-content2{
+	margin-top:80px;
+}
 #top-menu{
 
 }
@@ -398,4 +401,27 @@
 .facebookButton >a{
 	color: white;
 }
-
+.lit-top{
+	background-image:url('../img/a.jpg');
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	height:120px;
+}
+.lit-top-text{
+	color:#fff;
+	text-align: center;
+	font-size: 36px;
+}
+.ev-box{
+	height:220px;
+	text-align: center;
+	color: #fff;
+}
+.ev-box > h3{
+	color: #fff;
+	padding: 10px;
+}
