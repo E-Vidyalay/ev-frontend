@@ -31,7 +31,12 @@ $(".has-sub-menu").mouseout(function(){
 	$(this).children(".sub-menu").hide();
 	$(this).children("a").removeClass('usr-active');
 })
-
+$(".has-sub-menu-lit").mouseover(function(){
+	$(this).children(".sub-menu-lit").show();
+});
+$(".has-sub-menu-lit").mouseout(function(){
+	$(this).children(".sub-menu-lit").hide();
+})
 $(".accordion-navigation").on('click',function(){
 	$(".accordion-navigation > div").removeClass("active");
 		$(this).children("div").addClass("active");

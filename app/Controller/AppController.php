@@ -65,6 +65,7 @@ class AppController extends Controller {
         $this->set('subjects',$this->Subject->find('all',array('fields'=>array('id','name'))));
         $this->set('topics',$this->Topic->find('all'));
         $this->set('levels',$this->Level->find('all'));
+        $this->set('admin_url','/www/ev-admiral/admin');
     }
     public function isAuthorized($user) {
         // Here is where we should verify the role and give access based on role

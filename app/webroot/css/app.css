@@ -425,3 +425,102 @@
 	color: #fff;
 	padding: 10px;
 }
+.panel-head{
+	background: #fff;
+	border: #dfdfdf 1px solid;
+	text-align: center;
+	font-size: 18px;
+	padding:5px;
+}
+.lt-menu{
+	list-style: none;
+	margin-left: -0.09rem;
+}
+.lt-menu > li{
+	display: inline-block;
+	padding: 10px 15px;
+	margin-right: -8px;
+}
+.lit-cat{
+	list-style: none;
+	background: #14B3B9;
+	padding: 10px 15px;
+	margin-left: -3px;
+}
+.lit-cat >a {
+	color:#fff;
+}
+
+.sub-menu-lit{
+	position: absolute;
+	box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.35);
+	padding:0px 10px;
+	display: none;
+	background: #fff;
+	list-style: none;
+	left:63%;
+	top:43px;
+	right:3%;
+	z-index: 2000;
+}
+.sub-menu-lit >li {
+	padding:5px 5px;
+	text-align: center;
+}
+.sub-menu-lit >li > a{
+	font-size: 13px;
+}
+.slit-list{
+	list-style: none;
+}
+.slit-list > li{
+	display: inline-block;
+	border-right: 2px solid #415b98;
+	padding: 0px 10px;
+}
+.slit-list > li:last-child {
+  border-right: 0px solid #415b98;
+}
+.slit-list > li > a{
+	text-transform: capitalize;
+	font-size: 13px;
+
+}
+.book-link{
+	background: #4787d0;
+	color: #fff;
+	padding: 5px;
+	border-radius: 2px;
+	margin-right: 3px;
+	font-size: 12px;
+}
+.book-desc{
+	background: #F5C26B;
+	color: #fff;
+	padding: 5px;
+	border-radius: 2px;
+	font-size: 12px;
+
+}
+.book-link:hover{
+	color: #fff;
+}
+.book-desc:hover{
+	color:#fff;
+}
+.latest-pane{
+	background: #57C1E4;
+	color: #fff;
+	border:2px solid #fff;
+	padding: 2px;
+}
+.latest-pane > h6{
+	color: #fff;
+	padding-top: 10px;
+}
+.seperator{
+	border-top: 2px #fff dotted;
+}
+.latest-pane > ul li a{
+	color:#fff;
+}

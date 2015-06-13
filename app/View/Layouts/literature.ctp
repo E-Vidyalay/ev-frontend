@@ -7,12 +7,11 @@
     echo $this->Html->css('foundation');
     echo $this->Html->css('font-awesome');
     echo $this->Html->css('app');
+    echo $this->Html->css('jquery.dataTables');
     echo $this->fetch('css');
   ?>
 </head>
 <body>
-<!-- <div class="lit-top">
-</div> -->
 <div class="off-canvas-wrap" data-offcanvas>
   <div class="inner-wrap">
     <nav class="tab-bar hide-for-large hide-for-xlarge hide-for-xxlarge">
@@ -28,6 +27,12 @@
       </section>
     </nav>
 
+    <aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+
+      </ul>
+    </aside>
+
     <div class="user-nav"> 
       <section class="user-head hide-for-small hide-for-medium">
         <div class="row">
@@ -35,8 +40,12 @@
             <?php echo $this->Html->image('ev-logo2.png',array('class'=>'brand-logo'));?>
             <div class='pro-brand'>ઈ-વિદ્યાલય</div>
           </div>
+          <div class="columns large-3 large-offset-1">
+              <!-- <input type="text" id="search-bar" placeholder="Search" /> -->
+          </div>
           <div class="columns large-4">
             <ul class="right" id="pro-menu">
+            
             </ul>
           </div>
         </div>
@@ -65,8 +74,23 @@
     echo $this->Html->script('vendor/modernizr');
     echo $this->Html->script('vendor/jquery');
     echo $this->Html->script('foundation.min');
-    echo $this->Html->script('app');
+    echo $this->Html->script('app');   
+    echo $this->Html->script('jquery.dataTables');    
     echo $this->fetch('script');
   ?>
+  <script type="text/javascript">
+    $(document).foundation();
+    $(document).ready(function() {
+        $('#example').DataTable({
+          "oLanguage": {
+              "sLengthMenu": "<span class='lengthLabel'>Entries per page:</span> _MENU_",
+              "sSearch":""
+          },
+        });
+        $('.dataTables_filter input').attr("placeholder", "Search ebooks");
+    });
+
+  </script>
+
 </body>
 </html>
