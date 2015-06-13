@@ -74,3 +74,36 @@ $(".right-submenu > li > a ").on('click',function(event){
     	}
     })};
 });
+$(".usr-img-preview").click(function(){
+    	$("#imgInp").click();
+});
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                $('#blah').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#imgInp").change(function(){
+        readURL(this);
+        $("#removeDp").hide();
+    });
+$("#removeDp").on('click',function(event){
+	var baseUrl = location.origin; 
+	var u=baseUrl+'/ev-frontend/users/removeProfile_pic/';
+    console.log(u);
+    $.ajax({
+    	url:u,
+    	success:function(data){
+    		$("#profilePic").html(data);
+    	},
+    	error:function(e){
+    		alert("Sorry there was error :"+e);
+    	}
+    })
+});

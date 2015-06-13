@@ -353,7 +353,6 @@
       font-weight: bold;
     }
     a > img {
-      background: url('../img/btn_red_32.png') transparent 5px 50% no-repeat;
       display: inline-block;
       vertical-align: middle;
       width: 35px;
@@ -523,4 +522,16 @@
 }
 .latest-pane > ul li a{
 	color:#fff;
+}
+.usr-img-preview{
+	height:150px;
+	width: 150px;
+	cursor: pointer;
+}
+.usr-img-preview:hover{
+	opacity: 0.6;
+    filter: alpha(opacity=60);
+}
+#imgInp{
+	display: none;
 }

@@ -5,7 +5,7 @@
     <hr/>
     <?php
       echo $this->Form->create('User',array('controller'=>'users','action'=>'custom_login'));
-      echo $this->Form->input('username',array('type'=>'email','required','placeholder'=>'username','label'=>'Username'));
+      echo $this->Form->input('username',array('type'=>'email','required','placeholder'=>'Username','label'=>'Username'));
       echo $this->Form->input('password',array('type'=>'password','required','placeholder'=>'Password','label'=>'Password'));
       echo $this->Form->input('Login',array('type'=>'submit','label'=>false,'div'=>false,'class'=>'button button tiny radius'));
       echo $this->Form->end();
@@ -16,7 +16,7 @@
   <div id="gSignInWrapper">
     
     <?php 
-    echo '<div class="facebookButton">'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-facebok fa-fw')).' Log in with Facebook',array('controller'=>'auth','action'=>'facebook'),array('escape'=>false)).'</div>';
+    echo '<div class="facebookButton">'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-facebok-square fa-fw')).' Log in with Facebook',array('controller'=>'auth','action'=>'facebook'),array('escape'=>false)).'</div>';
     echo '<br/><br/>';
     echo '<div id="GoogleBtn">'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-googlePlus fa-fw')) .'  Log in with Google',array('controller'=>'auth','action'=>'google'),array('escape'=>false,'class'=>'buttonText')).'</div>'; ?>
 </div>
