@@ -108,11 +108,7 @@ $("#removeDp").on('click',function(event){
     })
 });
 $(".lt-menu > li >a").click(function(){
-    $(".lt-menu > li >a").removeClass('active');
-    $("#slit-list > li >a").removeClass('active');
-    $(this).addClass('active');
-    var baseUrl = location.origin; 
-    var u=baseUrl+'/ev-frontend/Literatures/get_level_book/'+$(this).attr('id');
+    var u=baseUrl+'/Literatures/get_level_book/'+$(this).attr('id');
     console.log(u);
     $.ajax({
         url:u,
@@ -125,11 +121,7 @@ $(".lt-menu > li >a").click(function(){
     })
 });
 $("#slit-list > li >a").click(function(){
-   $("#slit-list > li >a").removeClass('active');
-   $(".lt-menu > li >a").removeClass('active');
-   $(this).addClass('active');
-   var baseUrl = location.origin; 
-    var u=baseUrl+'/ev-frontend/Literatures/get_sublit_book/'+$(this).attr('id');
+    var u=baseUrl+'/Literatures/get_sublit_book/'+$(this).attr('id');
     console.log(u);
     $.ajax({
         url:u,
@@ -142,8 +134,7 @@ $("#slit-list > li >a").click(function(){
     })
 });
 $(".sub-menu-lit > li > a").click(function(){
-    var baseUrl = location.origin; 
-    var u=baseUrl+'/ev-frontend/Literatures/get_lit_book/'+$(this).attr('id');
+    var u=baseUrl+'/Literatures/get_lit_book/'+$(this).attr('id');
     console.log(u);
     $.ajax({
         url:u,

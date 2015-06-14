@@ -9,6 +9,7 @@
     echo $this->Html->css('app');
     echo $this->fetch('css');
   ?>
+   <script type="text/javascript">var baseUrl = '<?php echo $this->base; ?>';</script>
    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
 </head>
 <body>

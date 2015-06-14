@@ -16,6 +16,7 @@
 			$slt=$this->SubLiterature->find('all');
 			$this->set('slit',$slt);
 			$this->set('books',$this->Ebook->find('all'));
+			$this->set('levels',$this->Level->find('all',array('order'=>array('Level.updated_at'=>'asc'))));
 		}
 		public function get_level_book($lid=NULL){
 			$this->layout="ajax";

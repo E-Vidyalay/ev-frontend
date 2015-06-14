@@ -10,6 +10,7 @@
     echo $this->Html->css('jquery.dataTables');
     echo $this->fetch('css');
   ?>
+   <script type="text/javascript">var baseUrl = location.origin+'<?php echo $this->base; ?>';</script>
 </head>
 <body>
 <div class="off-canvas-wrap" data-offcanvas>

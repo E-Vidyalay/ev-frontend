@@ -1,4 +1,4 @@
-
+			
 		    <thead>
 		        <tr>
 		            <th>Book Name</th>
@@ -10,6 +10,7 @@
 		    </thead>
 			<tbody>
 				<?php
+					if(count($books)>0){
 					foreach ($books as $key => $value) {
 						echo "<tr>";
 							echo "<td>".$value['Ebook']['name']."</td>";
@@ -31,6 +32,10 @@
 									</div>';
 							echo "</td>";
 						echo "</tr>";
+					}
+					}
+					else{
+						echo'<tr class="odd"><td class="dataTables_empty" colspan="5" valign="top">No books found</td></tr>';
 					}
 					
 				?> 
