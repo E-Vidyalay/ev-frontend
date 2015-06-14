@@ -1,9 +1,9 @@
 <?php
-	class TeacherssController extends AppController{
+	class TeachersController extends AppController{
 		public $uses=array('User','Student','Teacher');
 
 		public function home(){
-			$this->layout='teachers_layout';
+			$this->layout='teacher_layout';
 		}
 	}
 ?>

@@ -25,7 +25,8 @@
 					<h6> Upload your profile picture </h6>
 					<div class="row">
 						<div class="columns large-9">
-							<?php echo $this->Form->input('path',array('type'=>'file','label'=>false)); ?>
+							<?php echo $this->Form->input('path',array('type'=>'file','label'=>false,'id'=>'imgInp')); 
+							echo $this->Html->image('user_avatar.png',array('id'=>'blah','class'=>'usr-img-preview'));?>
 						</div>
 					</div>
 					<hr/>

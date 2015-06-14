@@ -540,7 +540,7 @@
 .fa-twitter-square:before {
   content: "\f081";
 }
-.fa-facebook-square:before {
+.fa-facebok-square:before {
   content: "\f082";
 }
 .fa-camera-retro:before {
@@ -743,10 +743,10 @@
 .fa-pinterest-square:before {
   content: "\f0d3";
 }
-.fa-google-plus-square:before {
+.fa-googlePlus-square:before {
   content: "\f0d4";
 }
-.fa-google-plus:before {
+.fa-googlePlus:before {
   content: "\f0d5";
 }
 .fa-money:before {

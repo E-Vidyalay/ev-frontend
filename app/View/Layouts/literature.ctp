@@ -7,8 +7,10 @@
     echo $this->Html->css('foundation');
     echo $this->Html->css('font-awesome');
     echo $this->Html->css('app');
+    echo $this->Html->css('jquery.dataTables');
     echo $this->fetch('css');
   ?>
+   <script type="text/javascript">var baseUrl = location.origin+'<?php echo $this->base; ?>';</script>
 </head>
 <body>
 <div class="off-canvas-wrap" data-offcanvas>
@@ -28,16 +30,7 @@
 
     <aside class="left-off-canvas-menu">
       <ul class="off-canvas-list">
-        <li><label><?php 
-                if(empty($activeUser['User']['path'])){
-                    echo $this->Html->image('user_avatar.png',array('class'=>'usr-img'));
-                }
-                else{
-                  echo '<img src="'.$this->webroot.'files/user/path/'.$activeUser['User']['id'].'/small_'.$activeUser['User']['path'].'" class="usr-img"/ > ';
-                }
-                    ?> &nbsp;&nbsp;<?php echo $activeUser['User']['name']; ?></label></li>
-        <li><?php echo $this->Html->link('Edit Profile',array('controller'=>'parents','action'=>'edit_profile',$activeUser['User']['id'])); ?></li>
-        <li><?php echo $this->Html->link('Logout',array('controller'=>'users','action'=>'logout')); ?></li>
+
       </ul>
     </aside>
 
@@ -49,26 +42,11 @@
             <div class='pro-brand'>ઈ-વિદ્યાલય</div>
           </div>
           <div class="columns large-3 large-offset-1">
-              <input type="text" id="search-bar" placeholder="Search" />
+              <!-- <input type="text" id="search-bar" placeholder="Search" /> -->
           </div>
           <div class="columns large-4">
             <ul class="right" id="pro-menu">
-            <li class='has-sub-menu'>
-              <a id='usr-a'><?php 
-                if(empty($activeUser['User']['path'])){
-                    echo $this->Html->image('user_avatar.png',array('class'=>'usr-img'));
-                }
-                else{
-                  echo '<img src="'.$this->webroot.'files/user/path/'.$activeUser['User']['id'].'/small_'.$activeUser['User']['path'].'" class="usr-img"/ > ';
-                }
-                    ?> &nbsp;&nbsp;<?php echo $activeUser['User']['name']; ?>
-              </a>
-              <ul class='sub-menu'>
-                <li><?php echo $this->Html->link('Edit Profile',array('controller'=>'parents','action'=>'edit_profile',$activeUser['User']['id'])); ?></li>
-                <li><?php echo $this->Html->link('Logout',array('controller'=>'users','action'=>'logout')); ?></li>
-
-              </ul>
-            </li>
+            
             </ul>
           </div>
         </div>
@@ -80,10 +58,10 @@
             <?php
                 echo $this->Session->flash('success');
                 echo $this->Session->flash('error');
-                echo $this->Session->flash('auth', array('params'=>array('class'=>'alert alert-danger')));
+                echo $this->Session->flash('auth', array('params'=>array('class'=>'alert-box radius alert')));
             ?>
         </div>
-        <div clas="row" id="main-content">
+        <div clas="row" id="main-content2">
             <?php echo $content_for_layout; ?>
         </div>
     </section>
@@ -97,11 +75,23 @@
     echo $this->Html->script('vendor/modernizr');
     echo $this->Html->script('vendor/jquery');
     echo $this->Html->script('foundation.min');
-    echo $this->Html->script('app');
+    echo $this->Html->script('app');   
+    echo $this->Html->script('jquery.dataTables');    
     echo $this->fetch('script');
   ?>
   <script type="text/javascript">
-      $(document).foundation();
+    $(document).foundation();
+    $(document).ready(function() {
+        $('#example').DataTable({
+          "oLanguage": {
+              "sLengthMenu": "<span class='lengthLabel'>Entries per page:</span> _MENU_",
+              "sSearch":""
+          },
+        });
+        $('.dataTables_filter input').attr("placeholder", "Search ebooks");
+    });
+
   </script>
+
 </body>
 </html>

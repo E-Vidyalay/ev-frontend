@@ -9,6 +9,7 @@
     echo $this->Html->css('app');
     echo $this->fetch('css');
   ?>
+   <script type="text/javascript">var baseUrl = '<?php echo $this->base; ?>';</script>
 </head>
 <body>
 <div class="off-canvas-wrap" data-offcanvas>

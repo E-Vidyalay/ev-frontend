@@ -4698,8 +4698,9 @@ blockquote p {
   position: absolute;
   top: 0;
   width: 2.8125rem;
-  border-left: solid 1px #1a1a1a;
-  right: 0; }
+  right: 0;
+  visibility: visible;
+}
 
 .tab-bar-section {
   height: 2.8125rem;
