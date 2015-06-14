@@ -431,15 +431,36 @@
 	font-size: 18px;
 	padding:5px;
 }
-.lt-menu{
-	list-style: none;
-	margin-left: -0.09rem;
-}
+
 .lt-menu > li{
 	display: inline-block;
-	padding: 10px 15px;
-	margin-right: -8px;
+	padding-top:10px;
+    padding-bottom:10px;
+    padding-right:8px;
+    margin-right:5px;
+    margin-left:-10px;
 }
+.lt-menu >li >a{
+	text-decoration:none;
+    color:#fff;
+    padding: 8px 12px;
+	margin-right: -10px;
+}
+.lt-menu >li >a:hover{
+	text-decoration:underline;
+	background-color:white;
+	color: black;
+}
+.lt-menu>li>a.active{
+	text-decoration:underline;
+	background-color:white;
+	color: black;
+}
+.lt-menu>li:nth-child(1){ background-color: #619919; }
+.lt-menu>li:nth-child(2){ background-color: #dc6800; }
+.lt-menu>li:nth-child(3){ background-color: #008BBB; }
+.lt-menu>li:nth-child(4){ background-color: #FBA714; }
+.lt-menu>li:nth-child(5){ background-color: #8A61BE; }
 .lit-cat{
 	list-style: none;
 	background: #14B3B9;
@@ -469,21 +490,37 @@
 .sub-menu-lit >li > a{
 	font-size: 13px;
 }
-.slit-list{
+
+#slit-list{
 	list-style: none;
 }
-.slit-list > li{
+#slit-list > li{
 	display: inline-block;
 	border-right: 2px solid #415b98;
 	padding: 0px 10px;
 }
-.slit-list > li:last-child {
+#slit-list > li:last-child {
   border-right: 0px solid #415b98;
 }
-.slit-list > li > a{
+#slit-list > li > a{
 	text-transform: capitalize;
 	font-size: 13px;
-
+	padding-right: 5px;
+	padding-left: 5px;
+}
+#slit-list > li > a.active{
+	background-color: #008CBA;
+	color: white;
+	text-decoration: none;
+	padding-bottom: 8px;
+	padding-top: 8px;
+}
+#slit-list > li > a:hover{
+	background-color: #008CBA;
+	color: white;
+	text-decoration: none;
+	padding-bottom: 8px;
+	padding-top: 8px;
 }
 .book-link{
 	background: #4787d0;

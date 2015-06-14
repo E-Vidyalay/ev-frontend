@@ -21,34 +21,36 @@
 	</div>
 	<div class="columns large-10" style="background: #fff;">
 		<div class="row">
-			<div class="columns large-6">
+			<div class="columns large-7">
 				<ul class="lt-menu">
-					<li style="color:#fff;background:#619919;border-radius:1px;"><i class="fa fa-female"></i>&nbsp;&nbsp;બાલમંદિર</li>
-					<li style="color:#fff;background:#dc6800;border-radius:1px;"><i class="fa fa-user"></i>&nbsp;&nbsp;પ્રાથમિક</li>
-					<li style="color:#fff;background:#008BBB;border-radius:1px;"><i class="fa fa-users"></i>&nbsp;&nbsp;માધ્યમિક</li>
-					<li style="color:#fff;background:#FBA714;border-radius:1px;"><i class="fa fa-user-md"></i>&nbsp;&nbsp;ઉચ્ચ માધ્યમિક</li>
+					<li><a id="5568340b-2a04-474b-9568-326f125f2f23"><i class="fa fa-female"></i>&nbsp;&nbsp;બાલમંદિર</a></li>
+					<li><a id="557c7cd0-0570-435d-8768-3fed125f2f23"><i class="fa fa-user"></i>&nbsp;&nbsp;પ્રાથમિક</a></li>
+					<li><a><i class="fa fa-users"></i>&nbsp;&nbsp;માધ્યમિક</a></li>
+					<li><a><i class="fa fa-user-md"></i>&nbsp;&nbsp;ઉચ્ચ માધ્યમિક</a></li>
+					<li><a class="active"><i class="fa fa-user-md"></i>&nbsp;&nbsp;All</a></li>
 				</ul>
 			</div>
-			<div class="columns large-6">
+			<div class="columns large-4">
 				<li class='has-sub-menu-lit right lit-cat'>
 	              <a style="font-size:14px">Select category &nbsp;<i class='fa fa-angle-down'> </i></a>
 	              <ul class='sub-menu-lit'>
 	               	<?php
 	               		foreach($lit as $l){
-	               			echo "<li><a>".$l['Literature']['name']."</a></li>";
+	               			echo "<li><a id='".$l['Literature']['id']."'>".$l['Literature']['name']."</a></li>";
 	               		}
 	               	?>
 	              </ul>
 	            </li>
 			</div>
 		</div>
+		<div id="sub_lit">
 		<div class="row cat-content">
 			<div class="columns large-12">
-				<div class="panel callout" style="padding:0.25rem">
-					<ul class='slit-list'>
+				<div id="sub_cat_list" class="panel callout" style="padding:0.25rem">
+					<ul id='slit-list'>
 						<?php
 							foreach ($slit as $key => $value) {
-								echo "<li><a>".$value['SubLiterature']['name']."</a></li>";
+								echo "<li><a id='".$value['SubLiterature']['id']."'>".$value['SubLiterature']['name']."</a></li>";
 							}
 						?>
 					</ul>
@@ -96,6 +98,7 @@
 			</tbody>
 			</table>			
 			</div>
+		</div>
 		</div>
 	</div>
 </div>
