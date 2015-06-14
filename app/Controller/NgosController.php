@@ -5,7 +5,10 @@
 			$this->Auth->allow('index','register');
 		}
 		public function index(){
-			$this->layout='site_layout';
+			//$this->layout='site_layout';
+			$this->layout='literature';
+			$ngos= $this->Ngo->find('all');
+			$this->set('ngos',$ngos);
 		}
 
 		public function register(){
