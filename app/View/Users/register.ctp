@@ -1,7 +1,9 @@
 
-<div class="row">
-            <h4 align="center">Sign up</h4>
-            <div class="columns large-6 panel medium-8 small-offset-2 small-8 medium-offset-2">
+<div class="row" >
+            
+            <div class="columns large-6 panel large-offset-3 medium-8 small-offset-2 small-8 medium-offset-2" style="background:#fff;padding:20px">
+                <h4 align="center">Sign up</h4>
+                <hr/>
             <?php echo $this->Form->create('User', array('controller'=>'users','action'=>'signup','class' => 'main-form')); ?>
             <?php
                 echo $this->Form->label('first_name', 'Full Name',array('div'=>false,'class'=>'address_label'));
