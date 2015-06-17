@@ -146,3 +146,36 @@ $(".sub-menu-lit > li > a").click(function(){
         }
     })
 });
+$(".vi > li >a").click(function(){
+    var u=baseUrl+'/Links/get_subject/'+$(this).attr('id');
+    console.log(u);
+    $('.loading').show();
+    $.ajax({
+        url:u,
+        success:function(data){
+            $("#vi-cont").html(data);
+            $('.loading').hide();
+        },
+        error:function(e){
+            alert("Sorry there was error :"+u);
+            $('.loading').hide();
+        }
+    })
+});
+
+$(document).on('click','#subs >li >a',function(event){
+    var u=baseUrl+'/Links/get_topics/'+$(this).attr('id');
+    console.log(u);
+    $('.loading').show();
+    $.ajax({
+        url:u,
+        success:function(data){
+            $("#vi-cont").html(data);
+            $('.loading').hide();
+        },
+        error:function(e){
+            alert("Sorry there was error :"+u);
+            $('.loading').hide();
+        }
+    })
+});

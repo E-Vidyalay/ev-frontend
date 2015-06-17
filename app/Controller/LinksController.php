@@ -1,13 +1,63 @@
 <?php 
 class LinksController extends AppController {
 
-	var $uses = array('Link','Topic','SubTopic');
+	var $uses = array('Link','Topic','SubTopic','Level','Subject');
 
-		public function beforeFilter(){
-			parent::beforeFilter();
-			$this->Auth->allow('view_gallery','get_video');
+	public function beforeFilter(){
+		parent::beforeFilter();
+		$this->Auth->allow('view_gallery','get_video','index','get_subject','get_topics');
+	}
+	public function index(){
+		$date = new DateTime('15 days ago');
+		$cdate=$date->format('Y-m-d');
+		// $lt=$this->Ebook->find('all',array('conditions'=>array('DATE(Ebook.updated_at) >'=>$cdate)));
+		// $this->set('latest',$lt);
+
+		$this->layout='video_layout';
+		$lt=$this->Topic->find('all');
+		$this->set('lit',$lt);
+		$slt=$this->SubTopic->find('all');
+		$this->set('slit',$slt);
+		$this->set('subjects',$this->Subject->find('all'));
+		$this->set('videos',$this->Link->find('all'));
+		$this->set('levels',$this->Level->find('all',array('order'=>array('Level.updated_at'=>'asc'))));
+	}
+	public function get_subject($id=null){
+		$this->layout='ajax';
+		$topics=$this->Topic->find('all',array('conditions'=>array('level_id'=>$id)));
+		if(count($topics)>0){
+			$subjects_array=array();
+			$i=0;
+			foreach($topics as $t){
+				$subjects_array[$i]=$t['Subject']['id'];
+			}
+			$fa=array_unique($subjects_array);
+			$sba=array();
+			$subs=$this->Subject->find('all');
+			foreach($fa as $f){
+				$y=0;
+				foreach ($subs as $s) {
+					if($s['Subject']['id']==$f){
+						$sba[$y]=$s;
+						$sba[$y]['level_id']=$id;
+						$y++;
+					}
+				}
+			}
+			$this->set('subjects',$sba);
 		}
-
+		else{
+			$this->set('err','Sorry, no subjects found for this level');
+		}
+		
+	}
+	function get_topics($sub_id=null, $level_id=null){
+		$this->set('subject',$this->Subject->findById($sub_id));
+		$topics=$this->Topic->find('all',array('conditions'=>array('Topic.level_id'=>$level_id,'Topic.subject_id'=>$sub_id)));
+		$this->layout='ajax';
+		$this->set('topics',$topics);
+		$this->set('subs',$this->SubTopic->find('all'));
+	}
 	function view_gallery($id=NULL)
 	{
 		$this->layout="video_layout";
@@ -29,7 +79,7 @@ class LinksController extends AppController {
 				}
 			}
 		}
-		//pr($sba);die();
+		pr($sba);
 		$this->set('links',$sba);
 	}
 	function get_video($id=NULL)

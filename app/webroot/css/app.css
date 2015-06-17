@@ -417,12 +417,13 @@
 }
 .ev-box{
 	height:220px;
-	text-align: center;
-	color: #fff;
+	border:1px solid #dfdfdf;
+	margin-bottom: 10px;
 }
-.ev-box > h3{
-	color: #fff;
+.ev-box-head{
+	background: #f2f2f2;
 	padding: 10px;
+	text-align: center;
 }
 .panel-head{
 	background: #fff;
@@ -439,6 +440,17 @@
 	padding: 10px 15px;
 }
 .lt-menu >li >a{
+	text-decoration:none;
+    color:#fff;
+}
+.vi-menu{
+	margin-left: -1px;
+}
+.vi-menu > li{
+	display: inline-block;
+	padding: 10px 15px;
+}
+.vi-menu >li >a{
 	text-decoration:none;
     color:#fff;
 }
@@ -484,6 +496,23 @@
   border-right: 0px solid #415b98;
 }
 #slit-list > li > a{
+	text-transform: capitalize;
+	font-size: 13px;
+	padding-right: 5px;
+	padding-left: 5px;
+}
+.sb{
+	list-style: none;
+}
+.sb > li{
+	display: inline-block;
+	border-right: 2px solid #3D8490;
+	padding: 0px 10px;
+}
+.sb > li:last-child {
+  border-right: 0px solid #415b98;
+}
+.sb > li > a{
 	text-transform: capitalize;
 	font-size: 13px;
 	padding-right: 5px;
@@ -538,4 +567,17 @@
 }
 #imgInp{
 	display: none;
+}
+.loading{
+	display: none;
+	text-align: center;
+	height: 1.6;
+}
+#subl-vi{
+	list-style: none;
+	font-size: 13px;
+	margin-top: 10px;
+}
+#sub-vi > li > a{
+	font-size: 13px;
 }

@@ -62,9 +62,6 @@ class AppController extends Controller {
         $this->activeUser = $this->Session->read('Auth');
         $this->isLoggedIn = $this->Auth->loggedIn();
         $this->set('typeList',$this->UserType->find('list'));
-        $this->set('subjects',$this->Subject->find('all',array('fields'=>array('id','name'))));
-        $this->set('topics',$this->Topic->find('all'));
-        $this->set('levels',$this->Level->find('all'));
         $this->set('admin_url','/www/ev-admiral/admin');
     }
     public function isAuthorized($user) {

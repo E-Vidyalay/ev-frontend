@@ -105,40 +105,41 @@
         <span class="brand-name">ઈ-વિદ્યાલય</span>
         <ul class="right" id="top-menu">
           <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-home fa-fw')) . " પ્રવેશદ્વાર",array('controller'=>'pages','action'=>'home'),array('escape' => false)); ?></li>
-          <li class="cs-dropdown"><a><i class="fa fa-book fa-fw"></i>વિષય</a>
+          <!--<li class="cs-dropdown"><a><i class="fa fa-book fa-fw"></i>વિષય</a>
             <div class="course-menu">
-            <ul>
+            <ul>-->
               <?php
-              foreach ($subjects as $sub) {
-                echo '<li><a href="#" data-target="'.$sub['Subject']['id'].'">'.$sub['Subject']['name'].' </a>';
-                echo '<ul class="subject-menu" id="'.$sub['Subject']['id'].'">
-                  <h4>'.$sub['Subject']['name'].'</h4>
-                  <hr/>';
-                  foreach ($levels as $lev) {
-                    echo '<li><a href="#"> <b>'.$lev['Level']['level_name'].'</b> </a>';
-                    foreach ($topics as $top) {
-                      if($lev['Level']['id']==$top['Topic']['level_id'] && $sub['Subject']['id']==$top['Topic']['subject_id']){
-                        echo '<ul class="topic-menu">
-                                  <li>'.$this->Html->link($top['Topic']['name'],array('controller'=>'links','action'=>'view_gallery',$top['Topic']['id']),array('escape' => false)).'</a></li>
-                              </ul>
-                              ';
-                      }
-                      else
-                      {
-                        echo '<ul class="topic-menu">
-                              </ul>';
-                      }
-                  }
-                  echo '</li>';
-                  }
+              // foreach ($subjects as $sub) {
+              //   echo '<li><a href="#" data-target="'.$sub['Subject']['id'].'">'.$sub['Subject']['name'].' </a>';
+              //   echo '<ul class="subject-menu" id="'.$sub['Subject']['id'].'">
+              //     <h4>'.$sub['Subject']['name'].'</h4>
+              //     <hr/>';
+              //     foreach ($levels as $lev) {
+              //       echo '<li><a href="#"> <b>'.$lev['Level']['level_name'].'</b> </a>';
+              //       foreach ($topics as $top) {
+              //         if($lev['Level']['id']==$top['Topic']['level_id'] && $sub['Subject']['id']==$top['Topic']['subject_id']){
+              //           echo '<ul class="topic-menu">
+              //                     <li>'.$this->Html->link($top['Topic']['name'],array('controller'=>'links','action'=>'view_gallery',$top['Topic']['id']),array('escape' => false)).'</a></li>
+              //                 </ul>
+              //                 ';
+              //         }
+              //         else
+              //         {
+              //           echo '<ul class="topic-menu">
+              //                 </ul>';
+              //         }
+              //     }
+              //     echo '</li>';
+              //     }
                   
                   
-                echo '</ul>';
-                echo '</li>';  
-              }
+              //   echo '</ul>';
+              //   echo '</li>';  
+              // }
             ?>
-            </ul>
-            </div></li>
+            <!--</ul>
+            </div></li>-->
+          <li class='has-sub-menu'><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-play-circle-o fa-fw')) . " વિડીયો લાઇબ્રેરી",array('controller'=>'Links','action'=>'index'),array('escape' => false)); ?></li>
           <li class='has-sub-menu'><a><i class="fa fa-file fa-fw"></i>કેળવણી</a>
             <ul class='sub-menu'>
             <li><?php echo $this->Html->link('પ્રેરક જીવન ચરિત્રો',array('controller'=>'pages','action'=>'index')); ?></li>
