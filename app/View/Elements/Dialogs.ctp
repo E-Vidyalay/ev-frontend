@@ -106,14 +106,14 @@
 
 <div id="forgot_password" class="reveal-modal center" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog" align="center">
 <br/>
- <div class="login_dialouge_heading">Forgot Password</div>
+ <div class="login_dialouge_heading" align="left">Forgot Password</div>
  <br/>
  <div class="large-6 panel">
     <?php
       echo $this->Form->create('User',array('controller'=>'users','action'=>'forgot_password'));
       echo $this->Form->label('username', 'Email',array('div'=>false,'class'=>'address_label'));
       echo $this->Form->input('username',array(
-        'placeholder'=>'Email',
+        'placeholder'=>'Enter Your Email',
         'label'=>false,
         'type'=>'email',
         'required'
