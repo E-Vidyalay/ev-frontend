@@ -9,8 +9,9 @@
       echo $this->Form->input('password',array('type'=>'password','required','placeholder'=>'Password','label'=>'Password'));
       echo $this->Form->input('Login',array('type'=>'submit','label'=>false,'div'=>false,'class'=>'button button tiny radius'));
       echo $this->Form->end();
-
+      echo $this->Html->link('Forgot Password ?',array('controller'=>'users','action'=>'forgot_password'));
     ?>
+      <hr/>
     <div><h4>Or Log in with</h4></div>
      <hr/>
   <div id="gSignInWrapper">

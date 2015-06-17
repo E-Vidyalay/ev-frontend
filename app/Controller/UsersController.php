@@ -1,4 +1,5 @@
 <?php
+    App::uses('CakeEmail', 'Network/Email');
     class UsersController extends AppController{
         public $uses=array('User','Student');
         public function register(){
@@ -329,5 +330,32 @@
 
 
     }
+    public function forgot_password(){
+            $this->layout='site_layout';
+            if($this->request->is('post')){
+                $data=$this->request->data;
+                $result=$this->User->find('first',array('conditions'=>array('username'=>$data['User']['username'])));
+                if(!empty($result)){
+                    $pass=substr(str_shuffle(str_repeat('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',5)),0,6);
+                    $result['User']['password']=$pass;
+                    if($this->User->save($result)){
+                        $body="<h1>Forgot password</h1>";
+                        $body.="Your new password is:".$pass;
+                        $Email = new CakeEmail();
+                        $Email->from(array('noreply@ev.learnlabs.in' => 'ઈ-વિદ્યાલય Team'))
+                             ->to($data['User']['username'])
+                             ->subject('Forgot password')
+                             ->viewVars(array('value' => $data['User']))
+                             ->emailFormat('html')
+                             ->send($body);
+                        $this->Session->setFlash('Thank you, new password is sent to your email address','default',array('class'=>'alert-box success radius'),'success');
+                        $this->redirect(array('controller'=>'users','action'=>'login'));
+                    }
+                }
+                else{
+                    $this->Session->setFlash('Sorry, email not found','default',array('class'=>'alert-box alert radius'),'error');
+                }
+            }
+        }
 }
 ?>
