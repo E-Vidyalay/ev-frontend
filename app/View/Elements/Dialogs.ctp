@@ -17,6 +17,8 @@
       echo $this->Form->input('password',array('type'=>'password','required','placeholder'=>'Password','label'=>'Password'));
       echo $this->Form->input('Login',array('type'=>'submit','label'=>false,'div'=>false,'class'=>'button button tiny radius'));
       echo $this->Form->end();
+      echo '<a href="#" data-reveal-id="forgot_password">Forgot Password ?</a>';
+      // echo $this->Html->link('Forgot Password ?',array('controller'=>'users','action'=>'forgot_password'))
     ?>
 </div>
  <div class="columns large-6">
@@ -100,4 +102,31 @@
         
        
     <a class="close-reveal-modal" aria-label="Close">&#215;</a> </div>
+</div>
+
+<div id="forgot_password" class="reveal-modal center" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog" align="center">
+<br/>
+ <div class="login_dialouge_heading" align="left">Forgot Password</div>
+ <br/>
+ <div class="large-6 panel">
+    <?php
+      echo $this->Form->create('User',array('controller'=>'users','action'=>'forgot_password'));
+      echo $this->Form->label('username', 'Email',array('div'=>false,'class'=>'address_label'));
+      echo $this->Form->input('username',array(
+        'placeholder'=>'Enter Your Email',
+        'label'=>false,
+        'type'=>'email',
+        'required'
+      ));
+      echo $this->Form->input('Submit',array(
+        'type'=>'submit',
+        'div'=>false,
+        'label'=>false,
+        'class'=>'button expand small radius',
+        'onclick' => '$("submit").disabled = true;'
+      ));
+      echo $this->Form->end();
+    ?>
+</div>
+<a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
