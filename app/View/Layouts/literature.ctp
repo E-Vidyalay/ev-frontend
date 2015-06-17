@@ -10,6 +10,25 @@
     echo $this->Html->css('jquery.dataTables');
     echo $this->fetch('css');
   ?>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      // Load the Google Transliterate API
+      google.load("elements", "1", {
+            packages: "transliteration"
+          });
+      function onLoad() {     
+  var options = {
+          sourceLanguage: 'en',
+          destinationLanguage: ['gu'],        
+          transliterationEnabled: true
+        };  
+     
+var control = new google.elements.transliteration.TransliterationControl(options);  
+var ids = [ "books", "last_name" ];  
+  control.makeTransliteratable(ids);
+      }
+      google.setOnLoadCallback(onLoad);
+    </script>
    <script type="text/javascript">var baseUrl = '<?php echo $this->base; ?>';</script>
 </head>
 <body>
@@ -88,7 +107,8 @@
               "sSearch":""
           },
         });
-        $('.dataTables_filter input').attr("placeholder", "Search ebooks");
+        $('.dataTables_filter input').attr("placeholder", "Search");
+        $('.dataTables_filter input').attr("id", "books");
     });
 
   </script>
