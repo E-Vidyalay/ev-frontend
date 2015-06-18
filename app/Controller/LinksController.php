@@ -5,7 +5,7 @@ class LinksController extends AppController {
 
 	public function beforeFilter(){
 		parent::beforeFilter();
-		$this->Auth->allow('view_gallery','test','get_video','index','get_subject','get_topics','get_links');
+		$this->Auth->allow('view_gallery','test','get_video','index','get_sub_topics','get_subject','get_topics','get_links');
 	}
 	public function index(){
 		$date = new DateTime('15 days ago');
@@ -61,6 +61,11 @@ class LinksController extends AppController {
 		$this->set('topics',$topics);
 		$this->set('subs',$this->SubTopic->find('all'));
 	}
+	function get_sub_topics($tid=null){
+		$this->layout='ajax';
+		$this->set('subject',$this->Topic->findById($tid));
+		$this->set('subs',$this->SubTopic->find('all',array('conditions'=>array('topic_id'=>$tid))));
+	}
 	function get_links($id){
 		$this->layout='ajax';
 		$sb=$this->SubTopic->findById($id);
@@ -69,7 +74,9 @@ class LinksController extends AppController {
 		$this->set('tps',$sub);
 		$links=$this->Link->find('all',array('conditions'=>array('Link.sub_topic_id'=>$id)));
 		$this->set('links',$links);
+		if(count($links)>0){
 		$this->set('comments',$this->VideoComment->find('all',array('conditions'=>array('video_id'=>$links[0]['Link']['id']))));
+		}
 	}
 	function view_gallery($id=NULL)
 	{
@@ -95,7 +102,7 @@ class LinksController extends AppController {
 		pr($sba);
 		$this->set('links',$sba);
 	}
-	
+
 	function get_video($id=NULL)
 	{
 		$this->layout='ajax';
