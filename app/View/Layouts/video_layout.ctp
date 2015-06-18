@@ -8,8 +8,45 @@
     echo $this->Html->css('font-awesome');
     echo $this->Html->css('app');
     echo $this->Html->css('jquery.dataTables');
+    echo $this->Html->css('pramukhtypepad.css');
     echo $this->fetch('css');
+    echo $this->Html->script('pramukhime.js');
+    echo $this->Html->script('pramukhindic.js');
+    echo $this->Html->script('pramukhime-common.js');
+
   ?>
+  <script language="javascript" type="text/javascript">
+        pramukhIME.addLanguage(PramukhIndic);
+
+      pramukhIME.enable();
+      pramukhIME.onLanguageChange(scriptChangeCallback);
+      var lang = (getCookie('pramukhime_language',':english')).split(':');
+      pramukhIME.setLanguage(lang[1], lang[0]);
+      var ul = document.getElementById('pi_tips');
+
+      var elem, len = ul.childNodes.length, i;
+      for (i = 0; i < len; i++) {
+          elem = ul.childNodes[i];
+          if (elem.tagName && elem.tagName.toLowerCase() == 'li') {
+              tips.push(elem.innerHTML);
+          }
+      }
+      for (i = len - 1; i > 1; i--) {
+          ul.removeChild(ul.childNodes[i]);
+      }
+      ul.childNodes[i].className = 'tip'; // replace small tip text with large
+
+      showNextTip(); // call for first time
+      setTimeout('turnOffTip()', 90000); // show tips for 1.5 minutes
+            document.getElementById('typingarea').focus();
+
+            // set width and height of dialog
+            var w = window, d = document, e = d.documentElement, g = d.getElementsByTagName('body')[0], x = w.innerWidth || e.clientWidth || g.clientWidth, y = w.innerHeight || e.clientHeight || g.clientHeight;
+            var elem = document.getElementById('dialog');
+            elem.style.top = ((y - 550) / 2) + 'px';
+            elem.style.left = ((x - 700) / 2) + 'px';
+            
+    </script>
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
       // Load the Google Transliterate API
@@ -24,11 +61,12 @@
         };  
      
 var control = new google.elements.transliteration.TransliterationControl(options);  
-var ids = [ "books"];  
+var ids = [ "guj" ];  
   control.makeTransliteratable(ids);
       }
       google.setOnLoadCallback(onLoad);
     </script>
+    
    <script type="text/javascript">var baseUrl = '<?php echo $this->base; ?>';</script>
 </head>
 <body>
@@ -108,7 +146,7 @@ var ids = [ "books"];
           },
         });
         $('.dataTables_filter input').attr("placeholder", "Search");
-        $('.dataTables_filter input').attr("id", "books");
+        $('.dataTables_filter input').attr("id", "guj");
     });
 
   </script>

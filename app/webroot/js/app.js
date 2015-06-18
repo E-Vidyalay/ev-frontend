@@ -179,3 +179,35 @@ $(document).on('click','#subs >li >a',function(event){
         }
     })
 });
+$(document).on('click','#subl-vi >li >a',function(event){
+    var u=baseUrl+'/Links/get_links/'+$(this).attr('id');
+    console.log(u);
+    $('.loading').show();
+    $.ajax({
+        url:u,
+        success:function(data){
+            $("#vi-cont").html(data);
+            $('.loading').hide();
+        },
+        error:function(e){
+            alert("Sorry there was error :"+u);
+            $('.loading').hide();
+        }
+    })
+});
+$(document).on('click','#videos >li >a',function(event){
+    var u=baseUrl+'/Links/get_video/'+$(this).attr('id');
+    console.log(u);
+    $('.loading').show();
+    $.ajax({
+        url:u,
+        success:function(data){
+            $(".urls-embed").html(data);
+            $('.loading').hide();
+        },
+        error:function(e){
+            alert("Sorry there was error :"+u);
+            $('.loading').hide();
+        }
+    })
+});

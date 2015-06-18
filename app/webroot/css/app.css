@@ -421,8 +421,11 @@
 	margin-bottom: 10px;
 }
 .ev-box-head{
-	background: #f2f2f2;
+	background: #4794ca;
 	padding: 10px;
+	font-size: 13px;
+	font-weight: bold;
+	color:#fff;
 	text-align: center;
 }
 .panel-head{
@@ -453,6 +456,7 @@
 .vi-menu >li >a{
 	text-decoration:none;
     color:#fff;
+    font-size: 14px;
 }
 .lit-cat{
 	list-style: none;
@@ -580,4 +584,20 @@
 }
 #sub-vi > li > a{
 	font-size: 13px;
+}
+.vis{
+	list-style: none;
+}
+.vis > li > a{
+	font-size: 13px;
+}
+.ev-pane{
+	border-style: solid;
+	border-width: 1px;
+	border-color: #d8d8d8;
+	background: #ecfaff;
+	margin-bottom: 10px;
+}
+#drpLanguage{
+	width: 100%;
 }

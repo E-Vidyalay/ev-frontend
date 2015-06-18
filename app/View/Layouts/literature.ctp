@@ -24,7 +24,7 @@
         };  
      
 var control = new google.elements.transliteration.TransliterationControl(options);  
-var ids = [ "books", "last_name" ];  
+var ids = [ "guj-in" ];  
   control.makeTransliteratable(ids);
       }
       google.setOnLoadCallback(onLoad);
@@ -108,7 +108,7 @@ var ids = [ "books", "last_name" ];
           },
         });
         $('.dataTables_filter input').attr("placeholder", "Search");
-        $('.dataTables_filter input').attr("id", "books");
+        $('.dataTables_filter input').attr("id", "guj-in");
     });
 
   </script>

@@ -16,8 +16,11 @@
 					foreach ($subs as $st) {
 						if($st['SubTopic']['topic_id']==$value['Topic']['id']){
 							$count++;
-							echo "<li><a href='#'><i class='fa fa-arrow-circle-right'></i>&nbsp;&nbsp;&nbsp;".$st['SubTopic']['name']."</a></li>";
+							echo "<li><a href='#' id='".$st['SubTopic']['id']."'><i class='fa fa-arrow-circle-right'></i>&nbsp;&nbsp;&nbsp;".$st['SubTopic']['name']."</a></li>";
 						}
+					}
+					if($count==0){
+						echo "<div style='text-ailgn:center'>Click <a class='no-sb' id='".$value['Topic']['id']."' href='#'>here</a> to watch videos on ".$value['Topic']['name']."</div>";	
 					}
 				?>
 
