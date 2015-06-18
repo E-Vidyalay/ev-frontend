@@ -273,11 +273,24 @@ $(document).on('click','.watch_v',function(event){
         }
     });
 })
+$(document).on('click','.cmt-toggle',function(event){
+    $("#cmt-bx").slideToggle("slow");
+
+    if ($("#cmt-bx").is(':visible')) {
+     $("html, body").animate({scrollTop: $("#cmt-bx").offset().top});
+    }
+});
+$(document).on('click','.reply-toggle',function(event){
+    var id=$(this).attr('id');
+    $("#rep-"+id).slideToggle("slow");
+
+    if ($("#rep-"+id).is(':visible')) {
+     $("html, body").animate({scrollTop: $("#rep-"+id).offset().top});
+    }
+});
 $(document).on('click','#btn',function(event){
     form = $("#VideoCommentGetVideoForm").serialize();
-    console.log(form);
-    var hdata="<div class='panel'><p>"+$('#typingarea').val()+"</p><hr/><b>"+$('#VideoCommentName').val()+"</b>, "+$('#VideoCommentEmail').val()+"<span class='right'>"+Date()+"</span></div> ";
-    console.log(hdata);
+    var hdata="<div class='cmnt'>"+$('#VideoCommentGetVideoForm #typingarea').val()+"<br/><b>"+$('#VideoCommentName').val()+"</b>, "+$('#VideoCommentEmail').val()+"<span class='right'>"+Date()+"</span></div> ";
     var u=baseUrl+'/VideoComments/index';
      $.ajax({
        type: "POST",
@@ -294,4 +307,28 @@ $(document).on('click','#btn',function(event){
      return false;  //stop the actual form post !important!
 
   });
+$(document).on('click','.btn-rply',function(event){
+    var id=($(this).attr('id'));
+    var a=id.split('_');
+    var fid=a[1];
+    form = $("#replyForm_"+fid).serialize();
+    var frmid="#replyForm_"+fid;
+    var name="#name_"+fid;
+    var hdata="<div class='res'>Reply from - <b>"+$(frmid+' '+name).val()+"</b>, "+$('#email_'+fid).val()+"<br/> "+$(frmid+' #typingarea').val()+"<span class='right'>"+Date()+"</span></div> ";
+    var u=baseUrl+'/VideoReplies/index';
+     $.ajax({
+       type: "POST",
+       url: u,
+       data: form,
 
+       success: function(data){
+            $('#replies_'+fid).append(hdata);
+             $("#replyForm_"+fid)[0].reset();
+             console.log(data);
+       }
+
+     });
+     event.preventDefault();
+     return false;  //stop the actual form post !important!
+
+  });

@@ -602,3 +602,17 @@
 #drpLanguage{
 	width: 100%;
 }
+.comment-box{
+	display: none;
+}
+.cmnt{
+	border: 1px solid #dfdfdf;
+	margin: 5px 0px;
+	padding: 5px;
+}
+.res{
+	border: 1px solid #dfdfdf;
+	margin: 5px 0px;
+	padding: 5px;
+	background: #f0f0f0;
+}

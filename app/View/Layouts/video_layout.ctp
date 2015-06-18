@@ -133,6 +133,7 @@ var ids = [ "guj" ];
     echo $this->Html->script('vendor/jquery');
     echo $this->Html->script('foundation.min');
     echo $this->Html->script('app');   
+     echo $this->Html->script('jquery-scroll');   
     echo $this->Html->script('jquery.dataTables');    
     echo $this->fetch('script');
   ?>

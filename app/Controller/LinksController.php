@@ -1,7 +1,7 @@
 <?php 
 class LinksController extends AppController {
 
-	var $uses = array('Link','Topic','SubTopic','Level','Subject','VideoComment');
+	var $uses = array('Link','Topic','SubTopic','Level','Subject','VideoComment','VideoReply');
 
 	public function beforeFilter(){
 		parent::beforeFilter();
@@ -66,6 +66,7 @@ class LinksController extends AppController {
 		$this->set('links',$l);
 		$c=$this->VideoComment->find('all',array('conditions'=>array('video_id'=>$id)));
 		$this->set('comments',$c);
+		$this->set('replies',$this->VideoReply->find('all'));
 	}
 	function get_topics($sub_id=null, $level_id=null){
 		$this->set('subject',$this->Subject->findById($sub_id));
@@ -89,6 +90,7 @@ class LinksController extends AppController {
 		$this->set('links',$links);
 		if(count($links)>0){
 		$this->set('comments',$this->VideoComment->find('all',array('conditions'=>array('video_id'=>$links[0]['Link']['id']))));
+		$this->set('replies',$this->VideoReply->find('all'));
 		}
 	}
 	function view_gallery($id=NULL)
@@ -123,6 +125,7 @@ class LinksController extends AppController {
 		$this->set('links',$l);
 		$c=$this->VideoComment->find('all',array('conditions'=>array('video_id'=>$id)));
 		$this->set('comments',$c);
+		$this->set('replies',$this->VideoReply->find('all'));
 	}
 }
 ?>
