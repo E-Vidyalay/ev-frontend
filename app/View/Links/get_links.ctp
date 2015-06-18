@@ -1,6 +1,6 @@
 
 <div id="sub_cat_list" class="panel callout" style="padding:0.25rem">
-	<?php echo "<a href='#' style='font-size:13px;padding:2px'>".$tps['Subject']['name']."</a> / <a href='#' style='font-size:13px'>".$tps['Topic']['name']."</a> / <a href='#' style='font-size:13px;'>".$subTopic['SubTopic']['name']."</a>";
+	<?php echo "<a href='#' style='font-size:13px;padding:2px' class='topic_fetch' id='".$tps['Subject']['id']."/".$tps['Topic']['level_id']."'>".$tps['Subject']['name']."</a> / <a href='#' style='font-size:13px'>".$tps['Topic']['name']."</a> / <a href='#' style='font-size:13px;'>".$subTopic['SubTopic']['name']."</a>";
 	 ?>
 </div>
 <?php

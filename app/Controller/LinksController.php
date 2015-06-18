@@ -95,6 +95,7 @@ class LinksController extends AppController {
 		pr($sba);
 		$this->set('links',$sba);
 	}
+	
 	function get_video($id=NULL)
 	{
 		$this->layout='ajax';

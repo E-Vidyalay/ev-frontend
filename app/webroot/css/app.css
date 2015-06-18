@@ -507,6 +507,7 @@
 }
 .sb{
 	list-style: none;
+	margin-left: -10px;
 }
 .sb > li{
 	display: inline-block;
