@@ -69,6 +69,7 @@ class LinksController extends AppController {
 		$this->set('tps',$sub);
 		$links=$this->Link->find('all',array('conditions'=>array('Link.sub_topic_id'=>$id)));
 		$this->set('links',$links);
+		$this->set('comments',$this->VideoComment->find('all',array('conditions'=>array('video_id'=>$links[0]['Link']['id']))));
 	}
 	function view_gallery($id=NULL)
 	{

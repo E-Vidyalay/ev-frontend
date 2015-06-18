@@ -32,7 +32,11 @@
 			?>
 			<br/>
 			 <div class="comments">
-
+			 	<?php
+				  	foreach ($comments as $key => $value) {
+				  		echo "<div class='panel'><p>".$value['VideoComment']['comment']."</p><hr/><b>".$value['VideoComment']['name']."</b>, ".$value['VideoComment']['email']."<span class='right'>".$value['VideoComment']['updated_at']."</span></div> ";
+				  	}
+				  ?>
 			</div>
 
 			<div class="row">
