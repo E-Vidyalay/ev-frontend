@@ -70,7 +70,7 @@
 							}
 							echo "<td>".$sb."</td>";
 							echo "<td>";
-								echo "<a target='_blank' href='#' class='book-link'>View video</a>";
+								echo "<a href='#' class='book-link watch_v' id='".$value['Link']['id']."' >View video</a>";
 									echo '<a href="#" class="book-desc" data-reveal-id="md-'.$value['Link']['id'].'">Read video description</a>
 
 									<div id="md-'.$value['Link']['id'].'" class="reveal-modal small" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">

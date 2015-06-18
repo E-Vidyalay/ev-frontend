@@ -5,7 +5,7 @@ class LinksController extends AppController {
 
 	public function beforeFilter(){
 		parent::beforeFilter();
-		$this->Auth->allow('view_gallery','test','get_video','index','get_no_sub','get_sub_topics','get_subject','get_topics','get_links');
+		$this->Auth->allow('view_gallery','view_video','test','get_video','index','get_no_sub','get_sub_topics','get_subject','get_topics','get_links');
 	}
 	public function index(){
 		$date = new DateTime('15 days ago');
@@ -59,6 +59,13 @@ class LinksController extends AppController {
 			$this->set('err','Sorry, no subjects found for this level');
 		}
 		
+	}
+	function view_video($id){
+		$l=$this->Link->findById($id);
+		$this->layout='ajax';
+		$this->set('links',$l);
+		$c=$this->VideoComment->find('all',array('conditions'=>array('video_id'=>$id)));
+		$this->set('comments',$c);
 	}
 	function get_topics($sub_id=null, $level_id=null){
 		$this->set('subject',$this->Subject->findById($sub_id));

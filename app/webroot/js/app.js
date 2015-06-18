@@ -258,6 +258,21 @@ $(document).on('click','.no-sb',function(event){
         }
     });
 });
+$(document).on('click','.watch_v',function(event){
+    var u=baseUrl+'/Links/view_video/'+$(this).attr('id');
+    $('.loading').show();
+    $.ajax({
+        url:u,
+        success:function(data){
+            $("#vi-cont").html(data);
+            $('.loading').hide();
+        },
+        error:function(e){
+            alert("Sorry there was error :"+u);
+            $('.loading').hide();
+        }
+    });
+})
 $(document).on('click','#btn',function(event){
     form = $("#VideoCommentGetVideoForm").serialize();
     console.log(form);
