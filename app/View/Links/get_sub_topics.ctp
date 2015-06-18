@@ -17,9 +17,8 @@
 							echo "<li><a href='#' id='".$st['SubTopic']['id']."'><i class='fa fa-arrow-circle-right'></i>&nbsp;&nbsp;&nbsp;".$st['SubTopic']['name']."</a></li>";
 						
 					}
-					}
-					else{
-						echo "<div style='text-ailgn:center'>Click <a class='no-sb' id='".$value['Topic']['id']."' href='#'>here</a> to watch videos on ".$subject['Topic']['name']."</div>";	
+					echo "<br/>";
+					echo "<div style='text-ailgn:center'>Click <a class='no-sb' id='".$subject['Topic']['id']."' href='#'>here</a> to watch videos on ".$subject['Topic']['name']."</div>";
 					}
 				?>
 
