@@ -29,6 +29,8 @@ class LinksController extends AppController {
 		$this->set('links',$links);
 		if(count($links)>0){
 		$this->set('comments',$this->VideoComment->find('all',array('conditions'=>array('video_id'=>$links[0]['Link']['id']))));
+		$this->set('replies',$this->VideoReply->find('all'));
+		
 		}
 	}
 	public function get_subject($id=null){
