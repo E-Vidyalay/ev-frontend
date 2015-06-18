@@ -211,3 +211,25 @@ $(document).on('click','#videos >li >a',function(event){
         }
     })
 });
+$(document).on('click','#btn',function(event){
+    form = $("#VideoCommentGetVideoForm").serialize();
+    console.log(form);
+    var hdata="<div class='panel'><p>"+$('#typingarea').val()+"</p><hr/><b>"+$('#VideoCommentName').val()+"</b>, "+$('#VideoCommentEmail').val()+"<span class='right'>"+Date()+"</span></div> ";
+    console.log(hdata);
+    var u=baseUrl+'/VideoComments/index';
+     $.ajax({
+       type: "POST",
+       url: u,
+       data: form,
+
+       success: function(data){
+            $('.comments').append(hdata);
+             $("#VideoCommentGetVideoForm")[0].reset();
+       }
+
+     });
+     event.preventDefault();
+     return false;  //stop the actual form post !important!
+
+  });
+

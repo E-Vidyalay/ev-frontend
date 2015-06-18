@@ -3,7 +3,9 @@
 	<?php echo "<a href='#' style='font-size:13px;padding:2px'>".$tps['Subject']['name']."</a> / <a href='#' style='font-size:13px'>".$tps['Topic']['name']."</a> / <a href='#' style='font-size:13px;'>".$subTopic['SubTopic']['name']."</a>";
 	 ?>
 </div>
-
+<?php
+	if(count($links)>0){
+?>
 <div class="row">
 	<div class="columns large-3">
 		<div class="ev-box-head">
@@ -29,38 +31,61 @@
 				echo '<iframe width="100%" height="415" src="'.$links[0]['Link']['link_url'].'" frameborder="0" allowfullscreen style="padding:15px;"></iframe>';
 			?>
 			<br/>
+			 <div class="comments">
 
+			</div>
 
 			<div class="row">
 				<div class="columns large-12" >
 					<div class="panel callout" style="padding:15px">
 					<h5> Leave Comment</h5>
 					<hr/>
-					<form method="post">
-						<input type="text" placeholder="Name" name="Name" required />
-						<input type="email" placeholder="Email" name="Email" required />
-						<?php echo "<input type='hidden' value='".$links[0]['Link']['id']."'/>"; ?>
-						<table cellpadding="3" cellspacing="0" border="1" class="editor">
-	            		<tr class="editortoolbar" >
-	                	<td ><div class="iconflex"> <select id="drpLanguage"
-							onchange="javascript:changeLanguage(this.options[this.selectedIndex].value);" 
-							name="drpLanguage" title="Choose Language" class="big" style="width:100%">
-							<option value='pramukhindic:gujarati'>Gujarati</option>
-							<option value='pramukhindic:hindi'>Hindi</option>
+					   <?php echo $this->Html->script('jquery', FALSE); ?> 
+<?php echo $this->Html->script('validation', FALSE); ?>
+		
+  <div id="ev-success"></div>
+			<?php 
+			echo $this->Form->create('VideoComment',array('id'=>'VideoCommentGetVideoForm'));
+			echo $this->Form->input('name',array('required'=>'required','placeholder'=>'Name','type'=>'text'));
+			echo $this->Form->input('email',array('required'=>'required','placeholder'=>'Email','type'=>'email'));
+			echo $this->Form->input('video_id',array('type'=>'hidden','value'=>$links[0]['Link']['id']));
+		?>
+		<table cellpadding="3" cellspacing="0" border="1" class="editor">
+    		<tr class="editortoolbar" >
+        	<td ><div style="width:30% !important;" class="iconflex"> <select id="drpLanguage"
+				onchange="javascript:changeLanguage(this.options[this.selectedIndex].value);" 
+				name="drpLanguage" title="Choose Language" class="big" style="width:100%">
+				<option value='pramukhindic:gujarati'>Gujarati</option>
+				<option value='pramukhindic:hindi'>Hindi</option>
 
-							<option value=":english" selected="selected">English (F9)</option>
-							</select></div>
-			               
-	                	</td>
-	            		</tr>
-			            <tr>
-			                <td><textarea id="typingarea" name="typingarea" rows="5" cols="64" class="bigger" spellcheck="false"></textarea></td>
-			            </tr>
-			        	</table>
-					</form>
+				<option value=":english" selected="selected">English (F9)</option>
+				</select></div>
+               
+        	</td>
+    		</tr>
+            <tr>
+                <td>
+                <?php echo $this->Form->input('comment',array('type'=>'textarea','id'=>'typingarea','class'=>'bigger','cols'=>'64','rows'=>'5'));?>
+                <!-- <textarea id="typingarea" name="typingarea" rows="5" cols="64" class="bigger" spellcheck="false"></textarea> --></td>
+            </tr>
+        </table>
+
+		<?
+			  echo $this->Js->submit('Post', array(
+				
+				'update'=>'#success','id'=>'btn','class'=>'button tiny radius'
+				 ));
+			echo $this->Form->end();
+		?>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+<?php
+}
+else{
+	echo "<h5> Sorry there are no videos available currently</h5>";
+}
+?>

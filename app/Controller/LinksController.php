@@ -1,7 +1,7 @@
 <?php 
 class LinksController extends AppController {
 
-	var $uses = array('Link','Topic','SubTopic','Level','Subject');
+	var $uses = array('Link','Topic','SubTopic','Level','Subject','VideoComment');
 
 	public function beforeFilter(){
 		parent::beforeFilter();
@@ -23,7 +23,7 @@ class LinksController extends AppController {
 		$this->set('levels',$this->Level->find('all',array('order'=>array('Level.updated_at'=>'asc'))));
 	}
 	public function test(){
-		$this->layout='ajax';
+		$this->layout='video_layout';
 	}
 	public function get_subject($id=null){
 		$this->layout='ajax';
@@ -99,7 +99,8 @@ class LinksController extends AppController {
 		$this->layout='ajax';
 		$l=$this->Link->findById($id);
 		$this->set('links',$l);
-
+		$c=$this->VideoComment->find('all',array('conditions'=>array('video_id'=>$id)));
+		$this->set('comments',$c);
 	}
 }
 ?>
