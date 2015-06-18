@@ -242,7 +242,22 @@ $(document).on('click','.sub_topic_fetch',function(event){
             $('.loading').hide();
         }
     })
-})
+});
+$(document).on('click','.no-sb',function(event){
+    var u=baseUrl+'/Links/get_no_sub/'+$(this).attr('id');
+    $('.loading').show();
+    $.ajax({
+        url:u,
+        success:function(data){
+            $("#vi-cont").html(data);
+            $('.loading').hide();
+        },
+        error:function(e){
+            alert("Sorry there was error :"+u);
+            $('.loading').hide();
+        }
+    });
+});
 $(document).on('click','#btn',function(event){
     form = $("#VideoCommentGetVideoForm").serialize();
     console.log(form);
