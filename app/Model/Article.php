@@ -1,7 +1,5 @@
-<?php
-
-class Article extends AppModel
-{
+<?php 
+class Article extends AppModel{
+	
 }
-
 ?>
