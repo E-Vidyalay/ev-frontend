@@ -32,41 +32,43 @@
       <ul class="off-canvas-list">
         <li><label>ઈ-વિદ્યાલય</label></li>
         <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-home fa-fw')) . " પ્રવેશદ્વાર",array('controller'=>'pages','action'=>'home'),array('escape' => false)); ?></li>
-        <li class="has-submenu"><a href="#"><i class="fa fa-book fa-fw"></i>વિષય</a>
+        <li class='has-sub-menu'><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-play-circle-o fa-fw')) . " વિડીયો લાઇબ્રેરી",array('controller'=>'Links','action'=>'index'),array('escape' => false)); ?></li>
+        <li class='has-sub-menu'><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-smile-o fa-fw')) . " હોબીલોબી",array('controller'=>'HobbylobbyPosts','action'=>'index'),array('escape' => false)); ?></li>
+        <!-- <li class="has-submenu"><a href="#"><i class="fa fa-book fa-fw"></i>વિષય</a>
             <ul class="left-submenu">
-            <li class="back"><a href="#">Back</a></li>
+            <li class="back"><a href="#">Back</a></li> -->
             <?php
-              foreach ($subjects as $sub) {
-                echo '<li class="has-submenu"><a href="#">'.$sub['Subject']['name'].' </a>';
-                echo '<ul class="left-submenu">
-                      <li class="back"><a href="#">Back</a></li>';
-                  foreach ($levels as $lev) {
-                    echo '<li><label>'.$lev['Level']['level_name'].'</label>';
-                    foreach ($topics as $top) {
-                      if($lev['Level']['id']==$top['Topic']['level_id'] && $sub['Subject']['id']==$top['Topic']['subject_id']){
-                        echo '
-                                  <li>'.$this->Html->link($top['Topic']['name'],array('controller'=>'links','action'=>'view_gallery',$top['Topic']['id']),array('escape' => false)).'</a></li>
-                              ';
-                      }
-                      else
-                      {
-                        echo '<ul class="left-submenu">
-                              </ul>';
-                      }
-                  }
-                  echo '</li>';
-                  }
+              // foreach ($subjects as $sub) {
+              //   echo '<li class="has-submenu"><a href="#">'.$sub['Subject']['name'].' </a>';
+              //   echo '<ul class="left-submenu">
+              //         <li class="back"><a href="#">Back</a></li>';
+              //     foreach ($levels as $lev) {
+              //       echo '<li><label>'.$lev['Level']['level_name'].'</label>';
+              //       foreach ($topics as $top) {
+              //         if($lev['Level']['id']==$top['Topic']['level_id'] && $sub['Subject']['id']==$top['Topic']['subject_id']){
+              //           echo '
+              //                     <li>'.$this->Html->link($top['Topic']['name'],array('controller'=>'links','action'=>'view_gallery',$top['Topic']['id']),array('escape' => false)).'</a></li>
+              //                 ';
+              //         }
+              //         else
+              //         {
+              //           echo '<ul class="left-submenu">
+              //                 </ul>';
+              //         }
+              //     }
+              //     echo '</li>';
+              //     }
                   
                   
-                echo '</ul>';
-                echo '</li>';  
-              }
+              //   echo '</ul>';
+              //   echo '</li>';  
+              // }
             ?>
               <!-- <li><?php echo $this->Html->link('વિડીયો લાઇબ્રેરી',array('controller'=>'pages','action'=>'index')); ?></li>
             <li><?php echo $this->Html->link('ગણિત',array('controller'=>'pages','action'=>'index')); ?></li>
             <li><?php echo $this->Html->link('ગુજરાતી',array('controller'=>'pages','action'=>'index')); ?></li> -->
 
-            </ul></li>
+            <!-- </ul></li> -->
         <li class="has-submenu"><a href="#"><i class="fa fa-file fa-fw"></i>કેળવણી</a>
             <ul class="left-submenu">
             <li class="back"><a href="#">Back</a></li>
@@ -140,6 +142,7 @@
             <!--</ul>
             </div></li>-->
           <li class='has-sub-menu'><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-play-circle-o fa-fw')) . " વિડીયો લાઇબ્રેરી",array('controller'=>'Links','action'=>'index'),array('escape' => false)); ?></li>
+          <li class='has-sub-menu'><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-smile-o fa-fw')) . " હોબીલોબી",array('controller'=>'HobbylobbyPosts','action'=>'index'),array('escape' => false)); ?></li>
           <li class='has-sub-menu'><a><i class="fa fa-file fa-fw"></i>કેળવણી</a>
             <ul class='sub-menu'>
             <li><?php echo $this->Html->link('પ્રેરક જીવન ચરિત્રો',array('controller'=>'pages','action'=>'index')); ?></li>

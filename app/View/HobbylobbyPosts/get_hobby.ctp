@@ -8,10 +8,10 @@
 				}
 				else{
 			?>
-			<ul id='subs' class='sb'>
+			<ul id='hobs' class='sb'>
 				<?php
-					foreach ($subjects as $key => $value) {
-						echo "<li><a id='".$value['Subject']['id']."/".$value['level_id']."'>".$value['Subject']['name']."</a></li>";
+					foreach ($hobbys as $key => $value) {
+						echo "<li><a id='".$value['Hobby']['id']."'>".$value['Hobby']['name']."</a></li>";
 					}
 				?>
 			</ul>

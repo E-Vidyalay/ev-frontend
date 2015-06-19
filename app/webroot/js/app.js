@@ -6,6 +6,20 @@ $(document).ready(function(){
 	$(".accordion-navigation > div").removeClass("active");
 	$(".accordion-navigation > div").first().addClass("active");
 	$(".side-nav > li").first().addClass("li-active");
+    var showChar = 30;
+    var ellipsestext = "...";
+    $('.more').each(function() {
+        var content = $(this).html();
+
+        if(content.length > showChar) {
+
+            var c = content.substr(0, showChar);
+            var h = content.substr(showChar-1, content.length - showChar);
+
+            var html = c + '<span class="moreelipses">'+ellipsestext+'</span>&nbsp;';
+
+            $(this).html(html);
+        }});
 });
 $(".course-menu > ul > li > a").mouseover(function(){
 	var a=$(this).attr('data-target');
@@ -299,10 +313,12 @@ $(document).on('click','#btn',function(event){
 
        success: function(data){
             $('.comments').append(hdata);
+            console.log(hdata);
              $("#VideoCommentGetVideoForm")[0].reset();
        }
 
      });
+console.log(u);
      event.preventDefault();
      return false;  //stop the actual form post !important!
 
@@ -332,3 +348,151 @@ $(document).on('click','.btn-rply',function(event){
      return false;  //stop the actual form post !important!
 
   });
+
+//Hobby lobby all ajax function
+$(".hl > li >a").click(function(){
+    var u=baseUrl+'/HobbylobbyPosts/get_hobby/'+$(this).attr('id');
+    console.log(u);
+    $('.loading').show();
+    $.ajax({
+        url:u,
+        success:function(data){
+            $("#vi-cont").html(data);
+            $('.loading').hide();
+        },
+        error:function(e){
+            alert("Sorry there was error :"+u);
+            $('.loading').hide();
+        }
+    })
+});
+
+$(document).on('click','#hobs >li >a',function(event){
+    var u=baseUrl+'/HobbylobbyPosts/get_sub_hobby/'+$(this).attr('id');
+    console.log(u);
+    $('.loading').show();
+    $.ajax({
+        url:u,
+        success:function(data){
+            $("#vi-cont").html(data);
+            $('.loading').hide();
+        },
+        error:function(e){
+            alert("Sorry there was error :"+u);
+            $('.loading').hide();
+        }
+    })
+});
+
+
+$(document).on('click','#subl-subhb >li >a',function(event){
+    var u=baseUrl+'/HobbylobbyPosts/get_posts/'+$(this).attr('id');
+    console.log(u);
+    $('.loading').show();
+    $.ajax({
+        url:u,
+        success:function(data){
+            $("#vi-cont").html(data);
+            $('.loading').hide();
+        },
+        error:function(e){
+            alert("Sorry there was error :"+u);
+            $('.loading').hide();
+        }
+    })
+});
+
+$(document).on('click','#posts >li >a',function(event){
+    var u=baseUrl+'/HobbylobbyPosts/get_post/'+$(this).attr('id');
+    console.log(u);
+    $('.loading').show();
+    $.ajax({
+        url:u,
+        success:function(data){
+            $(".urls-embed").html(data);
+            $('.loading').hide();
+        },
+        error:function(e){
+            alert("Sorry there was error :"+u);
+            $('.loading').hide();
+        }
+    })
+});
+$(document).on('click','.watch_p',function(event){
+    var u=baseUrl+'/HobbylobbyPosts/view_post/'+$(this).attr('id');
+    $('.loading').show();
+    $.ajax({
+        url:u,
+        success:function(data){
+            $("#vi-cont").html(data);
+            $('.loading').hide();
+        },
+        error:function(e){
+            alert("Sorry there was error :"+u);
+            $('.loading').hide();
+        }
+    });
+})
+$(document).on('click','#btn1',function(event){
+    form = $("#HobbylobbyCommentGetForm").serialize();
+    var hdata="<div class='cmnt'>"+$('#HobbylobbyCommentGetForm #typingarea').val()+"<br/><b>"+$('#HobbylobbyCommentName').val()+"</b>, "+$('#HobbylobbyCommentEmail').val()+"<span class='right'>"+Date()+"</span></div> ";
+    var u=baseUrl+'/HobbylobbyComments/index';
+     $.ajax({
+       type: "POST",
+       url: u,
+       data: form,
+
+       success: function(data){
+            $('.comments').append(hdata);
+            console.log(hdata);
+             $("#HobbylobbyCommentGetForm")[0].reset();
+       }
+
+     });
+console.log(u);
+     event.preventDefault();
+     return false;  //stop the actual form post !important!
+
+  });
+
+$(document).on('click','.btn-rply-comment',function(event){
+    var id=($(this).attr('id'));
+    var a=id.split('_');
+    var fid=a[1];
+    form = $("#replyForm_"+fid).serialize();
+    var frmid="#replyForm_"+fid;
+    var name="#name_"+fid;
+    var hdata="<div class='res'>Reply from - <b>"+$(frmid+' '+name).val()+"</b>, "+$('#email_'+fid).val()+"<br/> "+$(frmid+' #typingarea').val()+"<span class='right'>"+Date()+"</span></div> ";
+    var u=baseUrl+'/VideoReplies/index';
+     $.ajax({
+       type: "POST",
+       url: u,
+       data: form,
+
+       success: function(data){
+            $('#replies_'+fid).append(hdata);
+             $("#replyForm_"+fid)[0].reset();
+             console.log(data);
+       }
+
+     });
+     event.preventDefault();
+     return false;  //stop the actual form post !important!
+
+  });
+$(document).on('click','.hobby_fetch',function(event){
+    var u=baseUrl+'/HobbylobbyPosts/get_sub_hobby/'+$(this).attr('id');
+    console.log(u);
+    $('.loading').show();
+    $.ajax({
+        url:u,
+        success:function(data){
+            $("#vi-cont").html(data);
+            $('.loading').hide();
+        },
+        error:function(e){
+            alert("Sorry there was error :"+u);
+            $('.loading').hide();
+        }
+    })
+});

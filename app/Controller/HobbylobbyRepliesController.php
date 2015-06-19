@@ -1,5 +1,5 @@
 <?php
-	class VideoRepliesController extends AppController{
+	class HobbylobbyRepliesController extends AppController{
 		public $helpers = array('Js');
 		public $components = array('RequestHandler');
 		public function beforeFilter(){
@@ -12,7 +12,7 @@
 		public function index(){
 			if(!empty($this->data)){
 				pr($this->data);
-				if($this->VideoReply->save($this->request->data)){
+				if($this->HobbylobbyReply->save($this->request->data)){
 					if($this->request->isAjax()){
 			             $this->render('success','ajax');
 			          }else{
