@@ -63,7 +63,7 @@
 					if(count($posts)>0){
 						foreach ($posts as $key => $value) {
 							echo "<div class='post-pane'>";
-								echo "<div class'post-pane-heading'>";
+								echo "<div class='post-pane-heading'>";
 									echo $value['LiteraturePost']['title'];
 								echo "</div>";
 								echo "<div class='post-pane-body'>";
@@ -71,7 +71,7 @@
 								echo "</div>";
 								echo "<div class='post-pane-heading'>";
 									echo "<b>For </b>".$value['Level']['level_name'].", <b>By</b> ".$value['Admin']['name'];
-									echo "<span class='right'><a href='' class='button success tiny radius'>Read more</a></span>"
+									echo "<span class='right'><a href='' class='read-link'>Read more</a></span>";
 								echo "</div>";
 							echo "</div>";	
 						}
