@@ -463,7 +463,7 @@ $(document).on('click','.btn-rply-comment',function(event){
     var frmid="#replyForm_"+fid;
     var name="#name_"+fid;
     var hdata="<div class='res'>Reply from - <b>"+$(frmid+' '+name).val()+"</b>, "+$('#email_'+fid).val()+"<br/> "+$(frmid+' #typingarea').val()+"<span class='right'>"+Date()+"</span></div> ";
-    var u=baseUrl+'/VideoReplies/index';
+    var u=baseUrl+'/HobbylobbyReplies/index';
      $.ajax({
        type: "POST",
        url: u,

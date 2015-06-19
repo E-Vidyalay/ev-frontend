@@ -24,25 +24,7 @@ class HobbylobbyPostsController extends AppController {
 		$this->layout='ajax';
 		$topics=$this->Hobby->find('all',array('conditions'=>array('level_id'=>$id)));
 		if(count($topics)>0){
-			$subjects_array=array();
-			$i=0;
-			foreach($topics as $t){
-				$hobbys_array[$i]=$t['Hobby']['id'];
-			}
-			$fa=array_unique($hobbys_array);
-			$hba=array();
-			$hbs=$this->Hobby->find('all');
-			foreach($fa as $f){
-				$y=0;
-				foreach ($hbs as $s) {
-					if($s['Hobby']['id']==$f){
-						$hba[$y]=$s;
-						$hba[$y]['level_id']=$id;
-						$y++;
-					}
-				}
-			}
-			$this->set('hobbys',$hba);
+			$this->set('hobbys',$topics);
 		}
 		else{
 			$this->set('err','Sorry, no Hobbies found for this level');
