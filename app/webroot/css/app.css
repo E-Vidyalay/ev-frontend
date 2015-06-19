@@ -616,3 +616,14 @@
 	padding: 5px;
 	background: #f0f0f0;
 }
+#subl-subhb{
+	list-style: none;
+	font-size: 13px;
+	margin-top: 10px;
+}
+#subl-subhb > li > a{
+	font-size: 13px;
+}
+#post_title{
+	color: #008CBA;
+}
