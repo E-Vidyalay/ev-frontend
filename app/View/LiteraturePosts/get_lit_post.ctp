@@ -10,7 +10,7 @@
 				echo "</div>";
 					echo "<div class='post-pane-heading'>";
 							echo "<b>For </b>".$value['Level']['level_name'].", <b>By</b> ".$value['Admin']['name'];
-							echo "<span class='right'><a href='#' class='read-link get-lit-post' id='".$value['LiteraturePost']['id']."'>Read more</a></span>";
+							echo "<span class='right'><a class='read-link get-lit-post' id='".$value['LiteraturePost']['id']."'>Read more</a></span>";
 					echo "</div>";
 				echo "</div>";	
 		}
