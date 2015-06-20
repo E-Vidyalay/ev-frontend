@@ -34,6 +34,18 @@
         <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-home fa-fw')) . " પ્રવેશદ્વાર",array('controller'=>'pages','action'=>'home'),array('escape' => false)); ?></li>
         <li class='has-sub-menu'><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-play-circle-o fa-fw')) . " વિડીયો લાઇબ્રેરી",array('controller'=>'Links','action'=>'index'),array('escape' => false)); ?></li>
         <li class='has-sub-menu'><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-smile-o fa-fw')) . " હોબીલોબી",array('controller'=>'HobbylobbyPosts','action'=>'index'),array('escape' => false)); ?></li>
+        <li class="has-submenu"><a href="#"><i class="fa fa-file fa-fw"></i>ન્જીઓ</a>
+            <ul class="left-submenu">
+            <li class="back"><a href="#">Back</a></li>
+               <li><?php echo $this->Html->link('નવુ',array('controller'=>'ngos','action'=>'register')); ?></li>
+                  <li><?php echo $this->Html->link('ન્જીઓ',array('controller'=>'ngos','action'=>'index')); ?></li>
+            </ul></li>
+            <li class="has-submenu"><a href="#"><i class="fa fa-arrow-right fa-fw"></i>સાહિત્ય</a>
+            <ul class="left-submenu">
+            <li class="back"><a href="#">Back</a></li>
+              <li><?php echo $this->Html->link('ઈ-બૂક',array('controller'=>'Literatures','action'=>'index')); ?></li>
+              <li><?php echo $this->Html->link('લેખ',array('controller'=>'LiteraturePosts','action'=>'index')); ?></li>
+            </ul></li>
         <!-- <li class="has-submenu"><a href="#"><i class="fa fa-book fa-fw"></i>વિષય</a>
             <ul class="left-submenu">
             <li class="back"><a href="#">Back</a></li> -->
@@ -69,13 +81,6 @@
             <li><?php echo $this->Html->link('ગુજરાતી',array('controller'=>'pages','action'=>'index')); ?></li> -->
 
             <!-- </ul></li> -->
-        <li class="has-submenu"><a href="#"><i class="fa fa-file fa-fw"></i>કેળવણી</a>
-            <ul class="left-submenu">
-            <li class="back"><a href="#">Back</a></li>
-              <li><?php echo $this->Html->link('પ્રેરક જીવન ચરિત્રો',array('controller'=>'pages','action'=>'index')); ?></li>
-            <li><?php echo $this->Html->link('દેશભક્તિ',array('controller'=>'pages','action'=>'index')); ?></li>
-            </ul></li>
-        <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-arrow-circle-right fa-fw')) . " સાહિત્યં",array('controller'=>'Literatures','action'=>'index'),array('escape' => false)); ?></li>
         <li><label>Users's action</label></li>
         <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-lock fa-fw')) . "Login",array('controller'=>'users','action'=>'login'),array('escape' => false)); ?></li>
         <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-pencil fa-fw')) . "Register",array('controller'=>'users','action'=>'register'),array('escape' => false)); ?></li>
@@ -83,18 +88,6 @@
         <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-newspaper-o fa-fw')) . " News letter",array('controller'=>'NewsLetters','action'=>'index'),array('escape' => false)); ?></li>
             <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-eye fa-fw')) . " Vision",array('controller'=>'pages','action'=>'vision'),array('escape' => false)); ?></li>
             <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-bookmark-o fa-fw')) . " About EVidyalay",array('controller'=>'pages','action'=>'about_us'),array('escape' => false)); ?></li>
-             <li class="has-submenu"><a href="#"><i class="fa fa-file fa-fw"></i>ન્જીઓ</a>
-            <ul class="left-submenu">
-            <li class="back"><a href="#">Back</a></li>
-               <li><?php echo $this->Html->link('નવુ',array('controller'=>'ngos','action'=>'register')); ?></li>
-                  <li><?php echo $this->Html->link('ન્જીઓ',array('controller'=>'ngos','action'=>'index')); ?></li>
-            </ul></li>
-            <li class="has-submenu"><a href="#"><i class="fa fa-arrow-right fa-fw"></i>સાહિત્ય</a>
-            <ul class="left-submenu">
-            <li class="back"><a href="#">Back</a></li>
-              <li><?php echo $this->Html->link('ઈ-બૂક',array('controller'=>'Literatures','action'=>'index')); ?></li>
-              <li><?php echo $this->Html->link('લેખ',array('controller'=>'LiteraturePosts','action'=>'index')); ?></li>
-            </ul></li>
       </ul>
     </aside>
 
