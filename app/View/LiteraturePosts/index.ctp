@@ -57,8 +57,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="columns large-8 large-offset-2" id="li-LiteraturePosts">
+		<div class="row ">
+			<div class="columns large-8 large-offset-2 post-content" id="li-LiteraturePosts">
 				<?php
 					if(count($posts)>0){
 						foreach ($posts as $key => $value) {
@@ -71,7 +71,7 @@
 								echo "</div>";
 								echo "<div class='post-pane-heading'>";
 									echo "<b>For </b>".$value['Level']['level_name'].", <b>By</b> ".$value['Admin']['name'];
-									echo "<span class='right'><a href='' class='read-link'>Read more</a></span>";
+									echo "<span class='right'><a href='#' class='read-link get-lit-post' id='".$value['LiteraturePost']['id']."'>Read more</a></span>";
 								echo "</div>";
 							echo "</div>";	
 						}
@@ -80,6 +80,11 @@
 				?>
 			</div>
 		</div>
+		</div>
+		<div class="loading">
+			<?php
+				echo $this->Html->image('loader.gif');
+			?>
 		</div>
 	</div>
 </div>
