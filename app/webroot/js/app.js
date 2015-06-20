@@ -109,7 +109,7 @@ $("#removeDp").on('click',function(event){
     	}
     })
 });
-$(".lt-menu > li >a").click(function(){
+$("#level_menu > li >a").click(function(){
     var u=baseUrl+'/Literatures/get_level_book/'+$(this).attr('id');
     console.log(u);
     $.ajax({
@@ -135,7 +135,7 @@ $("#slit-list > li >a").click(function(){
         }
     })
 });
-$(".sub-menu-lit > li > a").click(function(){
+$("#lit_menu > li > a").click(function(){
     var u=baseUrl+'/Literatures/get_lit_book/'+$(this).attr('id');
     console.log(u);
     $.ajax({

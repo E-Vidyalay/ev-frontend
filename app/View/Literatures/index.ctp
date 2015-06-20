@@ -22,7 +22,7 @@
 	<div class="columns large-10" style="background: #fff;">
 		<div class="row">
 			<div class="columns large-9">
-				<ul class="lt-menu">
+				<ul class="lt-menu" id="level_menu">
 					<?php
 						foreach($levels as $l){
 							echo "<li style='background:".$l['Level']['color']."'><a id='".$l['Level']['id']."'>".$l['Level']['level_name']."</a></li>";
@@ -33,7 +33,7 @@
 			<div class="columns large-3">
 				<li class='has-sub-menu-lit right lit-cat'>
 	              <a style="font-size:14px">Select category &nbsp;<i class='fa fa-angle-down'> </i></a>
-	              <ul class='sub-menu-lit'>
+	              <ul class='sub-menu-lit' id="lit_menu">
 	               	<?php
 	               		foreach($lit as $l){
 	               			echo "<li><a id='".$l['Literature']['id']."'>".$l['Literature']['name']."</a></li>";

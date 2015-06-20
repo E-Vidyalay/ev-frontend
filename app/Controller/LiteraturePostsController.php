@@ -5,7 +5,7 @@
 
 		public function beforeFilter(){
 			parent::beforeFilter();
-			$this->Auth->allow('index','get_post');
+			$this->Auth->allow('index','get_post','get_lit_post','get_sublit_post','get_level_post');
 		}
 		public function index(){
 			$this->layout='literature';
