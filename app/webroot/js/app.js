@@ -290,7 +290,6 @@ $(document).on('click','.reply-toggle',function(event){
 });
 $(document).on('click','#btn',function(event){
     form = $("#VideoCommentGetVideoForm").serialize();
-    var hdata="<div class='cmnt'>"+$('#VideoCommentGetVideoForm #typingarea').val()+"<br/><b>"+$('#VideoCommentName').val()+"</b>, "+$('#VideoCommentEmail').val()+"<span class='right'>"+Date()+"</span></div> ";
     var u=baseUrl+'/VideoComments/index';
      $.ajax({
        type: "POST",
@@ -298,8 +297,8 @@ $(document).on('click','#btn',function(event){
        data: form,
 
        success: function(data){
-            $('.comments').append(hdata);
-            console.log(hdata);
+            $('.comments').append(data);
+            console.log(data);
              $("#VideoCommentGetVideoForm")[0].reset();
        }
 
@@ -316,7 +315,6 @@ $(document).on('click','.btn-rply',function(event){
     form = $("#replyForm_"+fid).serialize();
     var frmid="#replyForm_"+fid;
     var name="#name_"+fid;
-    var hdata="<div class='res'>Reply from - <b>"+$(frmid+' '+name).val()+"</b>, "+$('#email_'+fid).val()+"<br/> "+$(frmid+' #typingarea').val()+"<span class='right'>"+Date()+"</span></div> ";
     var u=baseUrl+'/VideoReplies/index';
      $.ajax({
        type: "POST",
@@ -324,7 +322,7 @@ $(document).on('click','.btn-rply',function(event){
        data: form,
 
        success: function(data){
-            $('#replies_'+fid).append(hdata);
+            $('#replies_'+fid).append(data);
              $("#replyForm_"+fid)[0].reset();
              console.log(data);
        }
@@ -482,3 +480,66 @@ $(document).on('click','.hobby_fetch',function(event){
         }
     })
 });
+$(document).on('click','.get-lit-post',function(event){
+    var u=baseUrl+'/LiteraturePosts/get_post/'+$(this).attr('id');
+    $('.loading').show();
+    console.log(u);
+    $.ajax({
+        url:u,
+        success:function(data){
+            $(".post-content").html(data);
+            $('.loading').hide();
+        },
+        error:function(e){
+            alert("Sorry there was error :"+u);
+            $('.loading').hide();
+        }
+    })
+});
+$(document).on('click','#btn-lit-post',function(event){
+    form = $("#VideoCommentGetVideoForm").serialize();
+    var u=baseUrl+'/LiteratureComments/index';
+     $.ajax({
+       type: "POST",
+       url: u,
+       data: form,
+
+       success: function(data){
+            console.log(data);
+            $('.comments').append(data);
+             $("#VideoCommentGetVideoForm")[0].reset();
+       },
+       error:function(data){
+        console.log(data);
+       }
+
+     });
+console.log(u);
+     event.preventDefault();
+     return false;  //stop the actual form post !important!
+
+  });
+$(document).on('click','.btn-rply-lit',function(event){
+    var id=($(this).attr('id'));
+    var a=id.split('_');
+    var fid=a[1];
+    form = $("#replyForm_"+fid).serialize();
+    var frmid="#replyForm_"+fid;
+    var name="#name_"+fid;
+    var u=baseUrl+'/LiteratureReplies/index';
+     $.ajax({
+       type: "POST",
+       url: u,
+       data: form,
+
+       success: function(data){
+            $('#replies_'+fid).append(data);
+             $("#replyForm_"+fid)[0].reset();
+             console.log(data);
+       }
+
+     });
+     event.preventDefault();
+     return false;  //stop the actual form post !important!
+
+  });

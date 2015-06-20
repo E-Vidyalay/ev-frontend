@@ -15,6 +15,9 @@
 				if($this->HobbylobbyReply->save($this->request->data)){
 					if($this->request->isAjax()){
 			             $this->render('success','ajax');
+			             $id=$this->HobbylobbyReplies->getInsertID();
+						 $r=$this->HobbylobbyReplies->findById($id);
+			             echo "<div class='res'> Reply from - <b>".$r['HobbylobbyReplies']['name']."</b>, ".$r['HobbylobbyReplies']['email']."<br/>".$r['HobbylobbyReplies']['reply']."<span class='right'>".$r['HobbylobbyReplies']['updated_at']."</span></div> ";
 			          }else{
 
 

@@ -11,10 +11,13 @@
 		}
 		public function index(){
 			if(!empty($this->data)){
-				pr($this->data);
+				//pr($this->data);
 				if($this->VideoComment->save($this->request->data)){
 					if($this->request->isAjax()){
 			             $this->render('success','ajax');
+			             $id=$this->VideoComment->getInsertID();
+						$value=$this->VideoComment->findById($id);
+						echo "<div class='cmnt'>".$value['VideoComment']['comment']."<br/><b>".$value['VideoComment']['name']."</b>, ".$value['VideoComment']['email']."<span class='right'>".$value['VideoComment']['updated_at']." </span>";
 			          }else{
 
 
