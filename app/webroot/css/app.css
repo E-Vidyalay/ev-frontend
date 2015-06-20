@@ -317,7 +317,23 @@
 .sub-menu >li > a{
 	font-size: 13px;
 }
-
+.sub-menu-2{
+	position: absolute;
+	z-index: 2000;
+	box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.35);
+	padding:0px 10px;
+	display: none;
+	background: #fff;
+	width: inherit !important;
+	margin-left: 13px;
+	list-style: none;
+}
+.sub-menu-2 >li {
+	padding:5px 5px;
+}
+.sub-menu-2 >li > a{
+	font-size: 13px;
+}
 .video-media{
 	padding: 10px 15px;
 	background-color: #F9F9F9;

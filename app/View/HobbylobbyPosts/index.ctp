@@ -46,6 +46,7 @@
 		
 		<div class="row">
 			<div class="columns large-12" id="vi-cont">
+				<div class="row"><div class="columns large-8 large-offset-2">
 				<?php
 					foreach ($posts as $key => $value) {
 						// echo "<tr>";
@@ -88,6 +89,7 @@
 					}
 					
 				?> 
+				</div></div>
 			</div>
 		</div>
 		<div class="loading">

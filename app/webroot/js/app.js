@@ -25,10 +25,12 @@ $(".cs-dropdown").mouseover(function(){
 })
 $(".has-sub-menu").mouseover(function(){
 	$(this).children(".sub-menu").show();
+    $(this).children(".sub-menu-2").show();
 	$(this).children("a").addClass('usr-active');
 });
 $(".has-sub-menu").mouseout(function(){
 	$(this).children(".sub-menu").hide();
+    $(this).children(".sub-menu-2").hide();
 	$(this).children("a").removeClass('usr-active');
 })
 $(".has-sub-menu-lit").mouseover(function(){
