@@ -20,7 +20,7 @@
 			             //$this->render('success','ajax');
 						$id=$this->LiteratureComment->getInsertID();
 						$value=$this->LiteratureComment->findById($id);
-						echo "<div class='cmnt'>".$value['LiteratureComment']['comment']."<br/><b>".$value['LiteratureComment']['name']."</b>, ".$value['LiteratureComment']['email']."<span class='right'>".$value['LiteratureComment']['updated_at']." </span>";
+						echo "<div class='cmnt'>".$value['LiteratureComment']['text']."<br/><b>".$value['LiteratureComment']['name']."</b>, ".$value['LiteratureComment']['email']."<span class='right'>".$value['LiteratureComment']['updated_at']." </span>";
 			          }else{
 
 

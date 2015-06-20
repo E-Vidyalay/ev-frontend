@@ -22,5 +22,18 @@
 			$this->set('comments',$this->LiteratureComment->find('all',array('conditions'=>array('post_id'=>$id))));
 			$this->set('replies',$this->LiteratureReply->find('all'));
 		}
+		public function get_lit_post($id=null){
+			$this->layout="ajax";
+			$this->set('values',$this->LiteraturePost->find('all',array('conditions'=>array('LiteraturePost.literature_id'=>$id))));
+
+		}
+		public function get_sublit_post($id=null){
+			$this->layout="ajax";
+			$this->set('values',$this->LiteraturePost->find('all',array('conditions'=>array('LiteraturePost.sub_literature_id'=>$id))));
+		}
+		public function get_level_post($id=null){
+			$this->layout="ajax";
+			$this->set('values',$this->LiteraturePost->find('all',array('conditions'=>array('LiteraturePost.level_id'=>$id))));
+		}
 	}
 ?>

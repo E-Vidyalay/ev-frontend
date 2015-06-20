@@ -16,12 +16,12 @@
   	<div class="comments">
 			 	<?php
 				  	foreach ($comments as $key => $value) {
-				  		echo "<div class='cmnt'>".$value['LiteratureComment']['comment']."<br/><b>".$value['LiteratureComment']['name']."</b>, ".$value['LiteratureComment']['email']."<span class='right'>".$value['LiteratureComment']['updated_at']." </span> ";
+				  		echo "<div class='cmnt'>".$value['LiteratureComment']['text']."<br/><b>".$value['LiteratureComment']['name']."</b>, ".$value['LiteratureComment']['email']."<span class='right'>".$value['LiteratureComment']['updated_at']." </span> ";
 						echo "<div id='replies_".$value['LiteratureComment']['id']."'>";
 						if(count($replies)>0){
 				  		foreach ($replies as $r) {
 				  			if($r['LiteratureReply']['comment_id']==$value['LiteratureComment']['id']){
-				  				echo "<div class='res'> Reply from - <b>".$r['LiteratureReply']['name']."</b>, ".$r['LiteratureReply']['email']."<br/>".$r['LiteratureReply']['reply']."<span class='right'>".$r['LiteratureReply']['updated_at']."</span></div> ";
+				  				echo "<div class='res'> Reply from - <b>".$r['LiteratureReply']['name']."</b>, ".$r['LiteratureReply']['email']."<br/>".$r['LiteratureReply']['text']."<span class='right'>".$r['LiteratureReply']['updated_at']."</span></div> ";
 				  			}
 				  		}
 				  		}
@@ -61,7 +61,7 @@
 				    		</tr>
 				            <tr>
 				                <td>
-				                <?php echo $this->Form->input('reply',array('type'=>'textarea','id'=>'typingarea','class'=>'bigger','cols'=>'64','rows'=>'5'));?>
+				                <?php echo $this->Form->input('text',array('type'=>'textarea','id'=>'typingarea','class'=>'bigger','cols'=>'64','rows'=>'5'));?>
 				                <!-- <textarea id="typingarea" name="typingarea" rows="5" cols="64" class="bigger" spellcheck="false"></textarea> --></td>
 				            </tr>
 				        </table>
@@ -111,7 +111,7 @@
     		</tr>
             <tr>
                 <td>
-                <?php echo $this->Form->input('comment',array('type'=>'textarea','id'=>'typingarea','class'=>'bigger','cols'=>'64','rows'=>'5'));?>
+                <?php echo $this->Form->input('text',array('type'=>'textarea','id'=>'typingarea','class'=>'bigger','cols'=>'64','rows'=>'5'));?>
                 <!-- <textarea id="typingarea" name="typingarea" rows="5" cols="64" class="bigger" spellcheck="false"></textarea> --></td>
             </tr>
         </table>
