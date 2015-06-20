@@ -62,8 +62,20 @@
 						// 	echo "<td>";
 						// 		echo "<a href='#' class='book-link watch_p' id='".$value['HobbylobbyPost']['id']."' >View post</a>";
 						// 	echo "</td>";
-						// echo "</tr>";?>
-						<div class="row">
+						// echo "</tr>";
+						echo "<div class='post-pane'>";
+								echo "<div class='post-pane-heading'>";
+									echo $value['HobbylobbyPost']['title'];
+								echo "</div>";
+								echo "<div class='post-pane-body'>";
+									echo $value['HobbylobbyPost']['meta_description'];
+								echo "</div>";
+								echo "<div class='post-pane-heading'>";
+									echo "<b>For </b>".$value['Level']['level_name'].", <b>By</b> ".$value['Admin']['name'];
+									echo "<span class='right'><a href='#' class='watch_p read-link' id='".$value['HobbylobbyPost']['id']."'>Read more</a></span>";
+								echo "</div>";
+							echo "</div>";?>
+						<!-- <div class="row">
 					<div class="columns large-12 large-offset-0" style="background:#fff;padding:10px">
 						<a class="watch_p" id="<?php echo $value['HobbylobbyPost']['id']; ?>"><h3 id="post_title"><?php echo $value['HobbylobbyPost']['title']; ?></h3></a>
 						<hr/>
@@ -71,7 +83,7 @@
 							<?php echo $value['HobbylobbyPost']['meta_description']; ?>
 						</div>
 					</div>
-			</div>
+			</div> -->
 						<?php
 					}
 					

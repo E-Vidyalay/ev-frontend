@@ -1,15 +1,16 @@
-<div class="row">
-					<div class="columns large-12 large-offset-0" style="background:#fff;padding:10px">
-						<h3><?php echo $post['HobbylobbyPost']['title']; ?></h3>
-						<hr/>
-						<p style="text-align:justify">
-							<?php echo $post['HobbylobbyPost']['meta_description']; ?>
-						</p>
-						<hr/>
-						<?php echo "<i style='font-size:13px'>".$post['Admin']['username'].", at-".$post['HobbylobbyPost']['updated_at']."</i>";
-						?>
-					</div>
-			</div>
+<?php
+				echo "<div class='post-pane'>";
+								echo "<div class='post-pane-heading'>";
+									echo $post['HobbylobbyPost']['title'];
+								echo "</div>";
+								echo "<div class='post-pane-body'>";
+									echo $post['HobbylobbyPost']['meta_description'];
+								echo "</div>";
+								echo "<div class='post-pane-heading'>";
+									echo "<b>For </b>".$post['Level']['level_name'].", <b>By</b> ".$post['Admin']['name'];
+								echo "</div>";
+							echo "</div>";
+			?>
 			<br/>
 			 <div class="comments">
 			 	<?php

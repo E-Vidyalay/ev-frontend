@@ -6,20 +6,6 @@ $(document).ready(function(){
 	$(".accordion-navigation > div").removeClass("active");
 	$(".accordion-navigation > div").first().addClass("active");
 	$(".side-nav > li").first().addClass("li-active");
-    var showChar = 30;
-    var ellipsestext = "...";
-    $('.more').each(function() {
-        var content = $(this).html();
-
-        if(content.length > showChar) {
-
-            var c = content.substr(0, showChar);
-            var h = content.substr(showChar-1, content.length - showChar);
-
-            var html = c + '<span class="moreelipses">'+ellipsestext+'</span>&nbsp;';
-
-            $(this).html(html);
-        }});
 });
 $(".course-menu > ul > li > a").mouseover(function(){
 	var a=$(this).attr('data-target');

@@ -24,18 +24,19 @@
 	</div>
 	<div class="columns large-9">
 		<div class='urls-embed'>
-				<div class="row">
-					<div class="columns large-12 large-offset-0" style="background:#fff;padding:10px">
-						<h3><?php echo $posts[0]['HobbylobbyPost']['title']; ?></h3>
-						<hr/>
-						<p style="text-align:justify">
-							<?php echo $posts[0]['HobbylobbyPost']['meta_description']; ?>
-						</p>
-						<hr/>
-						<?php echo "<i style='font-size:13px'>".$posts[0]['Admin']['username'].", at-".$posts[0]['HobbylobbyPost']['updated_at']."</i>";
-						?>
-					</div>
-			</div>
+			<?php
+				echo "<div class='post-pane'>";
+								echo "<div class='post-pane-heading'>";
+									echo $posts[0]['HobbylobbyPost']['title'];
+								echo "</div>";
+								echo "<div class='post-pane-body'>";
+									echo $posts[0]['HobbylobbyPost']['meta_description'];
+								echo "</div>";
+								echo "<div class='post-pane-heading'>";
+									echo "<b>For </b>".$posts[0]['Level']['level_name'].", <b>By</b> ".$posts[0]['Admin']['name'];
+								echo "</div>";
+							echo "</div>";
+							?>
 			<br/>
 			 <div class="comments">
 			 	<?php
