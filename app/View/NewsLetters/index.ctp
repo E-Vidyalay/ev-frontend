@@ -1,5 +1,5 @@
 <div class="row">
-<div class="columns large-8 large-offset-2" style="background:#F0F0F0;padding:10px">
+<div class="columns large-8 large-offset-2" style="background:#F0F0F0;">
 	<?php 
 		foreach ($news as $n) {
 	?>
