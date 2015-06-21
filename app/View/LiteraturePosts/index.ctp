@@ -1,6 +1,6 @@
 <br/>
 <div class="row radius">
-	<div class="columns large-2 latest-pane">
+	<div class="columns large-2 latest-pane hide-for-small hide-for-medium">
 		<h6 style="text-align:center"> <i class="fa fa-book"></i>&nbsp;&nbsp;નવું</h6>
 		<div class="seperator"></div>
 		<ul style="list-style:square;font-size:13px;">
@@ -21,7 +21,7 @@
 	</div>
 	<div class="columns large-10" style="background: #fff;">
 		<div class="row">
-			<div class="columns large-9">
+			<div class="columns large-9 hide-for-small hide-for-medium">
 				<ul class="lt-menu">
 					<?php
 						foreach($levels as $l){
@@ -30,7 +30,7 @@
 					?>
 				</ul>
 			</div>
-			<div class="columns large-3">
+			<div class="columns large-3 hide-for-small hide-for-medium">
 				<li class='has-sub-menu-lit right lit-cat'>
 	              <a style="font-size:14px">Select category &nbsp;<i class='fa fa-angle-down'> </i></a>
 	              <ul class='sub-menu-lit'>
@@ -41,6 +41,25 @@
 	               	?>
 	              </ul>
 	            </li>
+			</div>
+			<div class="columns large-9 hide-for-large-up">
+				<ul class="lt-menu">
+					<?php
+						foreach($levels as $l){
+							echo "<li style='background:".$l['Level']['color']."'><a id='".$l['Level']['id']."'>".$l['Level']['level_name']."</a></li>";
+						}
+					?>
+					<li class='has-sub-menu-lit right lit-cat'>
+	              <a style="font-size:14px">Select category &nbsp;<i class='fa fa-angle-down'> </i></a>
+	              <ul class='sub-menu-lit'>
+	               	<?php
+	               		foreach($lit as $l){
+	               			echo "<li><a id='".$l['Literature']['id']."'>".$l['Literature']['name']."</a></li>";
+	               		}
+	               	?>
+	              </ul>
+	            </li>
+				</ul>
 			</div>
 		</div>
 		<div id="sub_lit">
