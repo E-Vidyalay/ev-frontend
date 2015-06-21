@@ -1,3 +1,7 @@
+function isEmailAddress(str) {
+   var pattern =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+   return pattern.test(str);  // returns a boolean 
+}
 $(document).ready(function(){
 	setTimeout(function(){
 		$('.alert-box').fadeOut(800);
@@ -290,22 +294,30 @@ $(document).on('click','.reply-toggle',function(event){
      $("html, body").animate({scrollTop: $("#rep-"+id).offset().top});
     }
 });
+
 $(document).on('click','#btn',function(event){
     form = $("#VideoCommentGetVideoForm").serialize();
     var u=baseUrl+'/VideoComments/index';
-     $.ajax({
-       type: "POST",
-       url: u,
-       data: form,
+    var name=$("#VideoCommentGetVideoForm #VideoCommentName").val();
+    var email=$("#VideoCommentGetVideoForm #VideoCommentEmail").val();
+    var comment=$("#VideoCommentGetVideoForm #typingarea").val();
+    if(name=="" || typeof name==='undefined' || name==null || email=="" || typeof email==='undefined' || email==null || !isEmailAddress(email) || comment=="" || typeof comment==='undefined' || comment==null){
+        alert("Sorry there was error while submitting your form ! bellow is the list of possible error, please check it\n * Name field should not be empty \n * Email address should not be empty and a valid email address \n * Comment cannot be empty ");
+    }
+    else{
+        $.ajax({
+        type: "POST",
+        url: u,
+        data: form,
 
-       success: function(data){
+        success: function(data){
             $('.comments').append(data);
             console.log(data);
              $("#VideoCommentGetVideoForm")[0].reset();
-       }
+        }
 
-     });
-console.log(u);
+        });
+    }
      event.preventDefault();
      return false;  //stop the actual form post !important!
 
@@ -315,9 +327,15 @@ $(document).on('click','.btn-rply',function(event){
     var a=id.split('_');
     var fid=a[1];
     form = $("#replyForm_"+fid).serialize();
-    var frmid="#replyForm_"+fid;
-    var name="#name_"+fid;
     var u=baseUrl+'/VideoReplies/index';
+    var name=$('#name_'+fid).val();
+    var email=$('#email_'+fid).val();
+    var comment=$("#replyForm_"+fid+" #typingarea").val();
+    var u=baseUrl+'/HobbylobbyReplies/index';
+     if(name=="" || typeof name==='undefined' || name==null || email=="" || typeof email==='undefined' || email==null || !isEmailAddress(email) || comment=="" || typeof comment==='undefined' || comment==null){
+        alert("Sorry there was error while submitting your form ! bellow is the list of possible error, please check it\n * Name field should not be empty \n * Email address should not be empty and a valid email address \n * Comment cannot be empty ");
+    }
+    else{
      $.ajax({
        type: "POST",
        url: u,
@@ -330,6 +348,7 @@ $(document).on('click','.btn-rply',function(event){
        }
 
      });
+    }
      event.preventDefault();
      return false;  //stop the actual form post !important!
 
@@ -421,21 +440,26 @@ $(document).on('click','.watch_p',function(event){
 })
 $(document).on('click','#btn1',function(event){
     form = $("#HobbylobbyCommentGetForm").serialize();
-    var hdata="<div class='cmnt'>"+$('#HobbylobbyCommentGetForm #typingarea').val()+"<br/><b>"+$('#HobbylobbyCommentName').val()+"</b>, "+$('#HobbylobbyCommentEmail').val()+"<span class='right'>"+Date()+"</span></div> ";
     var u=baseUrl+'/HobbylobbyComments/index';
+    var name=$("#HobbylobbyCommentGetForm #HobbylobbyCommentName").val();
+    var email=$("#HobbylobbyCommentGetForm #HobbylobbyCommentEmail").val();
+    var comment=$("#HobbylobbyCommentGetForm #typingarea").val();
+    if(name=="" || typeof name==='undefined' || name==null || email=="" || typeof email==='undefined' || email==null || !isEmailAddress(email) || comment=="" || typeof comment==='undefined' || comment==null){
+        alert("Sorry there was error while submitting your form ! bellow is the list of possible error, please check it\n * Name field should not be empty \n * Email address should not be empty and a valid email address \n * Comment cannot be empty ");
+    }
+    else{
      $.ajax({
        type: "POST",
        url: u,
        data: form,
 
        success: function(data){
-            $('.comments').append(hdata);
-            console.log(hdata);
+            $('.comments').append(data);
              $("#HobbylobbyCommentGetForm")[0].reset();
        }
 
-     });
-console.log(u);
+     });   
+    }
      event.preventDefault();
      return false;  //stop the actual form post !important!
 
@@ -446,22 +470,28 @@ $(document).on('click','.btn-rply-comment',function(event){
     var a=id.split('_');
     var fid=a[1];
     form = $("#replyForm_"+fid).serialize();
-    var frmid="#replyForm_"+fid;
-    var name="#name_"+fid;
-    var hdata="<div class='res'>Reply from - <b>"+$(frmid+' '+name).val()+"</b>, "+$('#email_'+fid).val()+"<br/> "+$(frmid+' #typingarea').val()+"<span class='right'>"+Date()+"</span></div> ";
+    var name=$('#name_'+fid).val();
+    var email=$('#email_'+fid).val();
+    var comment=$("#replyForm_"+fid+" #typingarea").val();
     var u=baseUrl+'/HobbylobbyReplies/index';
-     $.ajax({
+     if(name=="" || typeof name==='undefined' || name==null || email=="" || typeof email==='undefined' || email==null || !isEmailAddress(email) || comment=="" || typeof comment==='undefined' || comment==null){
+        alert("Sorry there was error while submitting your form ! bellow is the list of possible error, please check it\n * Name field should not be empty \n * Email address should not be empty and a valid email address \n * Comment cannot be empty ");
+    }
+    else{
+      $.ajax({
        type: "POST",
        url: u,
        data: form,
 
        success: function(data){
-            $('#replies_'+fid).append(hdata);
+            $('#replies_'+fid).append(data);
              $("#replyForm_"+fid)[0].reset();
              console.log(data);
        }
 
-     });
+     });  
+    }
+     
      event.preventDefault();
      return false;  //stop the actual form post !important!
 
@@ -502,7 +532,14 @@ $(document).on('click','.get-lit-post',function(event){
 $(document).on('click','#btn-lit-post',function(event){
     form = $("#VideoCommentGetVideoForm").serialize();
     var u=baseUrl+'/LiteratureComments/index';
-     $.ajax({
+    var name=$("#VideoCommentGetVideoForm #LiteratureCommentName").val();
+    var email=$("#VideoCommentGetVideoForm #LiteratureCommentEmail").val();
+    var comment=$("#VideoCommentGetVideoForm #typingarea").val();
+    if(name=="" || typeof name==='undefined' || name==null || email=="" || typeof email==='undefined' || email==null || !isEmailAddress(email) || comment=="" || typeof comment==='undefined' || comment==null){
+        alert("Sorry there was error while submitting your form ! bellow is the list of possible error, please check it\n * Name field should not be empty \n * Email address should not be empty and a valid email address \n * Comment cannot be empty ");
+    }
+    else{
+       $.ajax({
        type: "POST",
        url: u,
        data: form,
@@ -516,8 +553,9 @@ $(document).on('click','#btn-lit-post',function(event){
         console.log(data);
        }
 
-     });
-console.log(u);
+     }); 
+    }
+     
      event.preventDefault();
      return false;  //stop the actual form post !important!
 
@@ -527,9 +565,15 @@ $(document).on('click','.btn-rply-lit',function(event){
     var a=id.split('_');
     var fid=a[1];
     form = $("#replyForm_"+fid).serialize();
-    var frmid="#replyForm_"+fid;
-    var name="#name_"+fid;
+     var name=$('#name_'+fid).val();
+    var email=$('#email_'+fid).val();
+    var comment=$("#replyForm_"+fid+" #typingarea").val();
     var u=baseUrl+'/LiteratureReplies/index';
+     if(name=="" || typeof name==='undefined' || name==null || email=="" || typeof email==='undefined' || email==null || !isEmailAddress(email) || comment=="" || typeof comment==='undefined' || comment==null){
+        alert("Sorry there was error while submitting your form ! bellow is the list of possible error, please check it\n * Name field should not be empty \n * Email address should not be empty and a valid email address \n * Comment cannot be empty ");
+    }
+    else{
+    
      $.ajax({
        type: "POST",
        url: u,
@@ -542,6 +586,7 @@ $(document).on('click','.btn-rply-lit',function(event){
        }
 
      });
+    }
      event.preventDefault();
      return false;  //stop the actual form post !important!
 

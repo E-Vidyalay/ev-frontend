@@ -11,13 +11,12 @@
 		}
 		public function index(){
 			if(!empty($this->data)){
-				pr($this->data);
 				if($this->HobbylobbyComment->save($this->request->data)){
 					if($this->request->isAjax()){
 			             $this->render('success','ajax');
 			              $id=$this->HobbylobbyComment->getInsertID();
 						$value=$this->HobbylobbyComment->findById($id);
-						echo "<div class='cmnt'>".$value['HobbylobbyComment']['comment']."<br/><b>".$value['HobbylobbyComment']['name']."</b>, ".$value['HobbylobbyComment']['email']."<span class='right'>".$value['HobbylobbyComment']['updated_at']." </span>";
+						echo "<div class='cmnt'>".$value['HobbylobbyComment']['text']."<br/><b>".$value['HobbylobbyComment']['name']."</b>, ".$value['HobbylobbyComment']['email']."<span class='right'>".$value['HobbylobbyComment']['updated_at']." </span>";
 			          }else{
 
 

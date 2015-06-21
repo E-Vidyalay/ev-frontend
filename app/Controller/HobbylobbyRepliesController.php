@@ -11,13 +11,13 @@
 		}
 		public function index(){
 			if(!empty($this->data)){
-				pr($this->data);
+				//pr($this->data);
 				if($this->HobbylobbyReply->save($this->request->data)){
 					if($this->request->isAjax()){
 			             $this->render('success','ajax');
-			             $id=$this->HobbylobbyReplies->getInsertID();
-						 $r=$this->HobbylobbyReplies->findById($id);
-			             echo "<div class='res'> Reply from - <b>".$r['HobbylobbyReplies']['name']."</b>, ".$r['HobbylobbyReplies']['email']."<br/>".$r['HobbylobbyReplies']['reply']."<span class='right'>".$r['HobbylobbyReplies']['updated_at']."</span></div> ";
+			             $id=$this->HobbylobbyReply->getInsertID();
+						 $r=$this->HobbylobbyReply->findById($id);
+			             echo "<div class='res'> Reply from - <b>".$r['HobbylobbyReply']['name']."</b>, ".$r['HobbylobbyReply']['email']."<br/>".$r['HobbylobbyReply']['text']."<span class='right'>".$r['HobbylobbyReply']['updated_at']."</span></div> ";
 			          }else{
 
 
