@@ -331,7 +331,6 @@ $(document).on('click','.btn-rply',function(event){
     var name=$('#name_'+fid).val();
     var email=$('#email_'+fid).val();
     var comment=$("#replyForm_"+fid+" #typingarea").val();
-    var u=baseUrl+'/HobbylobbyReplies/index';
      if(name=="" || typeof name==='undefined' || name==null || email=="" || typeof email==='undefined' || email==null || !isEmailAddress(email) || comment=="" || typeof comment==='undefined' || comment==null){
         alert("Sorry there was error while submitting your form ! bellow is the list of possible error, please check it\n * Name field should not be empty \n * Email address should not be empty and a valid email address \n * Reply cannot be empty ");
     }
@@ -345,6 +344,7 @@ $(document).on('click','.btn-rply',function(event){
             $('#replies_'+fid).append(data);
              $("#replyForm_"+fid)[0].reset();
              console.log(data);
+             console.log(u, fid);
        }
 
      });
