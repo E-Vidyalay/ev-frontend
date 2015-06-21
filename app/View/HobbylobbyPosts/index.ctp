@@ -6,16 +6,16 @@
 		<div class="seperator"></div>
 		<ul style="list-style:square;font-size:13px;">
 			<?php
-				// if(count($latest)>0){
-				// 	foreach ($latest as $key => $value) {
-				// 		echo "<li style='padding-top:5px;'><a target='_blank' href='".$admin_url."/files/ebook/path/".$value['Ebook']['id']."/".$value['Ebook']['path']."'>".$value['Ebook']['name']." : ".$value['Literature']['name']." - ".$value['SubLiterature']['name']." ( ".$value['Level']['level_name'].")</a></li> ";
-				// 	}	
-				// }
-				// else{
-				// 	for($i=0;$i<2;$i++){
-				// 		echo "<li style='padding-top:5px;'><a target='_blank' href='".$admin_url."/files/ebook/path/".$latest[$i]['Ebook']['id']."/".$latest[$i]['Ebook']['path']."'>".$latest[$i]['Ebook']['name']." : ".$latest[$i]['Literature']['name']." - ".$latest[$i]['SubLiterature']['name']." ( ".$latest[$i]['Level']['level_name'].")</a></li> ";
-				// 	}
-				// }
+				if(count($latest)>0){
+					foreach ($latest as $key => $value) {
+						echo "<li style='padding-top:5px;'><a class='watch_p' id='".$value['HobbylobbyPost']['id']."'>".$value['HobbylobbyPost']['title']." : ".$value['Hobby']['name']." - ".$value['SubHobby']['name']." ( ".$value['Level']['level_name'].")</a></li> ";
+					}	
+				}
+				else{
+					for($i=0;$i<2;$i++){
+						echo "<li style='padding-top:5px;'><a class='watch_p' id='".$latest[$i]['LiteraturePost']['id']."'>".$latest[$i]['LiteraturePost']['title']." : ".$latest[$i]['Literature']['name']." - ".$latest[$i]['SubLiterature']['name']." ( ".$latest[$i]['Level']['level_name'].")</a></li> ";
+					}
+				}
 				
 			?>	
 		</ul>
@@ -49,21 +49,6 @@
 				<div class="row"><div class="columns large-8 large-offset-2">
 				<?php
 					foreach ($posts as $key => $value) {
-						// echo "<tr>";
-						// 	echo "<td>".$value['HobbylobbyPost']['title']."</td>";
-						// 	echo "<td>".$value['Hobby']['name']."</td>";
-						// 	$sb="";
-						// 	if($value['SubHobby']['name']!="" || $value['SubHobby']['name']!=NULL){
-						// 		$sb=$value['SubHobby']['name'];
-						// 	}
-						// 	else{
-						// 		$sb="Not applicable";
-						// 	}
-						// 	echo "<td>".$sb."</td>";
-						// 	echo "<td>";
-						// 		echo "<a href='#' class='book-link watch_p' id='".$value['HobbylobbyPost']['id']."' >View post</a>";
-						// 	echo "</td>";
-						// echo "</tr>";
 						echo "<div class='post-pane'>";
 								echo "<div class='post-pane-heading'>";
 									echo $value['HobbylobbyPost']['title'];
@@ -76,15 +61,6 @@
 									echo "<span class='right'><a class='watch_p read-link' id='".$value['HobbylobbyPost']['id']."'>Read more</a></span>";
 								echo "</div>";
 							echo "</div>";?>
-						<!-- <div class="row">
-					<div class="columns large-12 large-offset-0" style="background:#fff;padding:10px">
-						<a class="watch_p" id="<?php echo $value['HobbylobbyPost']['id']; ?>"><h3 id="post_title"><?php echo $value['HobbylobbyPost']['title']; ?></h3></a>
-						<hr/>
-						<div style="text-align:justify" class="more">
-							<?php echo $value['HobbylobbyPost']['meta_description']; ?>
-						</div>
-					</div>
-			</div> -->
 						<?php
 					}
 					

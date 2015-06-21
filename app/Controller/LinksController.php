@@ -10,9 +10,8 @@ class LinksController extends AppController {
 	public function index(){
 		$date = new DateTime('15 days ago');
 		$cdate=$date->format('Y-m-d');
-		// $lt=$this->Ebook->find('all',array('conditions'=>array('DATE(Ebook.updated_at) >'=>$cdate)));
-		// $this->set('latest',$lt);
-
+		$lt=$this->Link->find('all',array('conditions'=>array('DATE(Link.updated_at) >'=>$cdate)));
+		$this->set('latest',$lt);
 		$this->layout='video_layout';
 		$lt=$this->Topic->find('all');
 		$this->set('lit',$lt);

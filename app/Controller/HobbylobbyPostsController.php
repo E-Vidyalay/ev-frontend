@@ -10,8 +10,8 @@ class HobbylobbyPostsController extends AppController {
 	public function index(){
 		$date = new DateTime('15 days ago');
 		$cdate=$date->format('Y-m-d');
-		// $lt=$this->Ebook->find('all',array('conditions'=>array('DATE(Ebook.updated_at) >'=>$cdate)));
-		// $this->set('latest',$lt);
+		$lt=$this->HobbylobbyPost->find('all',array('conditions'=>array('DATE(HobbylobbyPost.updated_at) >'=>$cdate)));
+		$this->set('latest',$lt);
 		$this->layout='literature';
 		$hb=$this->Hobby->find('all');
 		$this->set('hb',$hb);

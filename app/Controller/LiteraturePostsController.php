@@ -8,6 +8,10 @@
 			$this->Auth->allow('index','get_post','get_lit_post','get_sublit_post','get_level_post');
 		}
 		public function index(){
+			$date = new DateTime('15 days ago');
+			$cdate=$date->format('Y-m-d');
+			$lt=$this->LiteraturePost->find('all',array('conditions'=>array('DATE(LiteraturePost.updated_at) >'=>$cdate)));
+			$this->set('latest',$lt);
 			$this->layout='literature';
 			$lt=$this->Literature->find('all');
 			$this->set('lit',$lt);

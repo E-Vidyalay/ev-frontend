@@ -18,9 +18,7 @@
 						$value=$this->HobbylobbyComment->findById($id);
 						echo "<div class='cmnt'>".$value['HobbylobbyComment']['text']."<br/><b>".$value['HobbylobbyComment']['name']."</b>, ".$value['HobbylobbyComment']['email']."<span class='right'>".$value['HobbylobbyComment']['updated_at']." </span>";
 			          }else{
-
-
-			         $this->Session->setFlash('Message sent');
+			         $this->Session->setFlash('Comment Posted', 'default', array('class' => 'alert-box success radius') , 'success');
 			         $this->redirect(array('action'=>'index'));
 			      }
 					

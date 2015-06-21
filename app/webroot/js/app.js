@@ -333,7 +333,7 @@ $(document).on('click','.btn-rply',function(event){
     var comment=$("#replyForm_"+fid+" #typingarea").val();
     var u=baseUrl+'/HobbylobbyReplies/index';
      if(name=="" || typeof name==='undefined' || name==null || email=="" || typeof email==='undefined' || email==null || !isEmailAddress(email) || comment=="" || typeof comment==='undefined' || comment==null){
-        alert("Sorry there was error while submitting your form ! bellow is the list of possible error, please check it\n * Name field should not be empty \n * Email address should not be empty and a valid email address \n * Comment cannot be empty ");
+        alert("Sorry there was error while submitting your form ! bellow is the list of possible error, please check it\n * Name field should not be empty \n * Email address should not be empty and a valid email address \n * Reply cannot be empty ");
     }
     else{
      $.ajax({
@@ -475,7 +475,7 @@ $(document).on('click','.btn-rply-comment',function(event){
     var comment=$("#replyForm_"+fid+" #typingarea").val();
     var u=baseUrl+'/HobbylobbyReplies/index';
      if(name=="" || typeof name==='undefined' || name==null || email=="" || typeof email==='undefined' || email==null || !isEmailAddress(email) || comment=="" || typeof comment==='undefined' || comment==null){
-        alert("Sorry there was error while submitting your form ! bellow is the list of possible error, please check it\n * Name field should not be empty \n * Email address should not be empty and a valid email address \n * Comment cannot be empty ");
+        alert("Sorry there was error while submitting your form ! bellow is the list of possible error, please check it\n * Name field should not be empty \n * Email address should not be empty and a valid email address \n * Reply cannot be empty ");
     }
     else{
       $.ajax({
@@ -570,7 +570,7 @@ $(document).on('click','.btn-rply-lit',function(event){
     var comment=$("#replyForm_"+fid+" #typingarea").val();
     var u=baseUrl+'/LiteratureReplies/index';
      if(name=="" || typeof name==='undefined' || name==null || email=="" || typeof email==='undefined' || email==null || !isEmailAddress(email) || comment=="" || typeof comment==='undefined' || comment==null){
-        alert("Sorry there was error while submitting your form ! bellow is the list of possible error, please check it\n * Name field should not be empty \n * Email address should not be empty and a valid email address \n * Comment cannot be empty ");
+        alert("Sorry there was error while submitting your form ! bellow is the list of possible error, please check it\n * Name field should not be empty \n * Email address should not be empty and a valid email address \n * Reply cannot be empty ");
     }
     else{
     

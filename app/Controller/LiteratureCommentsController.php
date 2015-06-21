@@ -10,21 +10,20 @@
 			}
 		}
 		public function success(){
-
+			
 		}
 		public function index(){
 			if(!empty($this->data)){
 				//pr($this->data);
 				if($this->LiteratureComment->save($this->request->data)){
 					if($this->request->isAjax()){
-			             //$this->render('success','ajax');
+			            $this->render('success','ajax');
 						$id=$this->LiteratureComment->getInsertID();
 						$value=$this->LiteratureComment->findById($id);
 						echo "<div class='cmnt'>".$value['LiteratureComment']['text']."<br/><b>".$value['LiteratureComment']['name']."</b>, ".$value['LiteratureComment']['email']."<span class='right'>".$value['LiteratureComment']['updated_at']." </span>";
+						
 			          }else{
-
-
-			         $this->Session->setFlash('Message sent');
+			         $this->Session->setFlash('Comment Posted', 'default', array('class' => 'alert-box success radius') , 'success');
 			         $this->redirect(array('action'=>'index'));
 			      }
 					

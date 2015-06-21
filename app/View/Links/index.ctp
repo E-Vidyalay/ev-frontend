@@ -6,16 +6,24 @@
 		<div class="seperator"></div>
 		<ul style="list-style:square;font-size:13px;">
 			<?php
-				// if(count($latest)>0){
-				// 	foreach ($latest as $key => $value) {
-				// 		echo "<li style='padding-top:5px;'><a target='_blank' href='".$admin_url."/files/ebook/path/".$value['Ebook']['id']."/".$value['Ebook']['path']."'>".$value['Ebook']['name']." : ".$value['Literature']['name']." - ".$value['SubLiterature']['name']." ( ".$value['Level']['level_name'].")</a></li> ";
-				// 	}	
-				// }
-				// else{
-				// 	for($i=0;$i<2;$i++){
-				// 		echo "<li style='padding-top:5px;'><a target='_blank' href='".$admin_url."/files/ebook/path/".$latest[$i]['Ebook']['id']."/".$latest[$i]['Ebook']['path']."'>".$latest[$i]['Ebook']['name']." : ".$latest[$i]['Literature']['name']." - ".$latest[$i]['SubLiterature']['name']." ( ".$latest[$i]['Level']['level_name'].")</a></li> ";
-				// 	}
-				// }
+				if(count($latest)>0){
+					foreach ($latest as $key => $value) {
+						if($value['SubTopic']['id']!=NULL){
+						echo "<li style='padding-top:5px;'><a class='watch_v' id='".$value['Link']['id']."'>".$value['Link']['link_title']." : ".$value['Topic']['display_name']." - ".$value['SubTopic']['name']."</a></li> ";
+						}else{
+							echo "<li style='padding-top:5px;'><a class='watch_v' id='".$value['Link']['id']."'>".$value['Link']['link_title']." : ".$value['Topic']['display_name']."</a></li> ";
+						}
+					}	
+				}
+				else{
+					for($i=0;$i<2;$i++){
+						if($value['SubTopic']['id']!=NULL){
+						echo "<li style='padding-top:5px;'><a class='watch_v' id='".$latest[$i]['Link']['id']."'>".$latest[$i]['Link']['link_title']." : ".$latest[$i]['Topic']['display_name']." - ".$latest[$i]['SubTopic']['name']."</a></li> ";
+						}else{
+							echo "<li style='padding-top:5px;'><a class='watch_v' id='".$latest[$i]['Link']['id']."'>".$latest[$i]['Link']['link_title']." : ".$latest[$i]['Topic']['display_name']."</a></li> ";
+						}
+					}
+				}
 				
 			?>	
 		</ul>

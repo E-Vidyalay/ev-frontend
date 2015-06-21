@@ -18,13 +18,11 @@
 			             $id=$this->HobbylobbyReply->getInsertID();
 						 $r=$this->HobbylobbyReply->findById($id);
 			             echo "<div class='res'> Reply from - <b>".$r['HobbylobbyReply']['name']."</b>, ".$r['HobbylobbyReply']['email']."<br/>".$r['HobbylobbyReply']['text']."<span class='right'>".$r['HobbylobbyReply']['updated_at']."</span></div> ";
-			          }else{
-
-
-			         $this->Session->setFlash('Message sent');
+			          }
+			          else{
+			         $this->Session->setFlash('Reply Posted', 'default', array('class' => 'alert-box success radius') , 'success');
 			         $this->redirect(array('action'=>'index'));
-			      }
-					
+			      }	
 				}
 			}
 		}
