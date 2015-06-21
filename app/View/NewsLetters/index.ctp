@@ -1,8 +1,10 @@
 <div class="row">
+<div class="columns large-8 large-offset-2" style="background:#F0F0F0;padding:10px">
 	<?php 
 		foreach ($news as $n) {
 	?>
-		<div class="columns large-8 large-offset-2" style="background:#fff;padding:10px">
+		<div class="row">
+		<div class="columns" style="background:#fff;padding:10px">
 			<h3><?php echo $n['NewsLetter']['title']; ?></h3>
 			<hr/>
 			<p style="text-align:justify">
@@ -24,11 +26,19 @@
 				'twitter',
 				$link
 				);
+			echo '</div>';
 			?>
+		
+		</div>
+		</div>
+		<div class="row">
+		<div class="columns" style="background:#F0F0F0;padding:10px">
+		</div>
 		</div>
 		<?php
 		}
 	?>
+	</div>
 </div>
 	
 	
