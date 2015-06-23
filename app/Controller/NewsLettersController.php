@@ -13,8 +13,14 @@
 
 		public function sharenews($id = NULL)
 		{
-				$this->layout='site_layout';
+			$this->layout='site_layout';
+			if($id==NULL){
+				$this->set('news',NULL);
+			}
+			else{
+				//pr($this->NewsLetter->findById($id));die();
 				$this->set('news',$this->NewsLetter->findById($id));
+			}
 
 		}
 	}

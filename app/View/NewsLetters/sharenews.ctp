@@ -1,3 +1,4 @@
+<?php if($news!=NULL){?>
 <div class="row">
 		<div class="columns large-8 large-offset-2" style="background:#fff;padding:10px">
 			<h3><?php echo $news['NewsLetter']['title']; ?></h3>
@@ -22,9 +23,14 @@
 				$link
 				);
 			?>
-		</div>
-	
-	
-
-	
+		</div>	
 </div>
+<?php }
+else{?>
+<div class="row">
+		<div class="columns large-8 large-offset-2" style="background:#fff;padding:10px">
+			<h3>Sorry The Post Must be Deleted</h3>
+		</div>	
+</div>
+
+<?php }?>
