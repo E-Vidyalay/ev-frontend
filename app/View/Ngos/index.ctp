@@ -24,7 +24,7 @@
 							echo "<td>".$value['Ngo']['email']."</td>";
 							echo "<td><a href='".$value['Ngo']['site_url']."'>".$value['Ngo']['site_url']."</a></td>";
 							echo "<td>";
-								echo "<a target='_blank' href='".$admin_url."/files/ngo/path/".$value['Ngo']['id']."/".$value['Ngo']['path']."' class='book-link'>Read Prospectus</a>";
+								echo "<a target='_blank' href='".$this->webroot."files/ngo/path/".$value['Ngo']['id']."/".$value['Ngo']['path']."' class='book-link'>Read Prospectus</a>";
 									/*echo'<div id="md-'.$value['Ngo']['id'].'" class="reveal-modal small" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 									 <br/>
 									</div>';*/
