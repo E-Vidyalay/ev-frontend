@@ -639,3 +639,78 @@ $(".lt-menu > li >a").click(function(){
         }
     })
 });
+//for information view posts
+$(document).on('click','.watch_i',function(event){
+    var u=baseUrl+'/InformationPosts/view_post/'+$(this).attr('id');
+    $('.loading').show();
+    $.ajax({
+        url:u,
+        success:function(data){
+            $("#vi-cont").html(data);
+            $('.loading').hide();
+        },
+        error:function(e){
+            alert("Sorry there was error :"+e);
+            $('.loading').hide();
+        }
+    });
+})
+//for information comments
+$(document).on('click','#btn2',function(event){
+    form = $("#InformationCommentGetForm").serialize();
+    var u=baseUrl+'/InformationComments/index';
+    var name=$("#InformationCommentGetForm #InformationCommentName").val();
+    var email=$("#InformationCommentGetForm #InformationCommentEmail").val();
+    var comment=$("#InformationCommentGetForm #typingarea").val();
+    if(name=="" || typeof name==='undefined' || name==null || email=="" || typeof email==='undefined' || email==null || !isEmailAddress(email) || comment=="" || typeof comment==='undefined' || comment==null){
+        alert("Sorry there was error while submitting your form ! bellow is the list of possible error, please check it\n * Name field should not be empty \n * Email address should not be empty and a valid email address \n * Comment cannot be empty ");
+    }
+    else{
+     $.ajax({
+       type: "POST",
+       url: u,
+       data: form,
+
+       success: function(data){
+            $('.comments').append(data);
+             $("#InformationCommentGetForm")[0].reset();
+       }
+
+     });   
+    }
+     event.preventDefault();
+     return false;  //stop the actual form post !important!
+
+  });
+//for information replies
+$(document).on('click','.btn-rply-comment',function(event){
+    var id=($(this).attr('id'));
+    var a=id.split('_');
+    var fid=a[1];
+    form = $("#replyForm_"+fid).serialize();
+    var name=$('#name_'+fid).val();
+    var email=$('#email_'+fid).val();
+    var comment=$("#replyForm_"+fid+" #typingarea").val();
+    var u=baseUrl+'/InformationReplies/index';
+     if(name=="" || typeof name==='undefined' || name==null || email=="" || typeof email==='undefined' || email==null || !isEmailAddress(email) || comment=="" || typeof comment==='undefined' || comment==null){
+        alert("Sorry there was error while submitting your form ! bellow is the list of possible error, please check it\n * Name field should not be empty \n * Email address should not be empty and a valid email address \n * Reply cannot be empty ");
+    }
+    else{
+      $.ajax({
+       type: "POST",
+       url: u,
+       data: form,
+
+       success: function(data){
+            $('#replies_'+fid).append(data);
+             $("#replyForm_"+fid)[0].reset();
+             console.log(data);
+       }
+
+     });  
+    }
+     
+     event.preventDefault();
+     return false;  //stop the actual form post !important!
+
+  });
