@@ -153,11 +153,12 @@
                   <li><?php echo $this->Html->link('નવુ',array('controller'=>'ngos','action'=>'register')); ?></li>
                   <li><?php echo $this->Html->link('ન્જીઓ',array('controller'=>'ngos','action'=>'index')); ?></li>
                   </ul></li>
-                  <li class='has-sub-menu'><a><i class="fa fa-arrow-right fa-fw"></i>સાહિત્ય</a>
+            <li class='has-sub-menu'><a><i class="fa fa-arrow-right fa-fw"></i>સાહિત્ય</a>
                   <ul class='sub-menu-2'>
                   <li><?php echo $this->Html->link('ઈ-બૂક',array('controller'=>'Literatures','action'=>'index')); ?></li>
                   <li><?php echo $this->Html->link('લેખ',array('controller'=>'LiteraturePosts','action'=>'index')); ?></li>
                   </ul></li>
+            <li class='has-sub-menu'><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-info fa-fw')) . " માહિતિ મિત્ર",array('controller'=>'InformationPosts','action'=>'index'),array('escape' => false)); ?></li>
             
         </ul>
       </section>

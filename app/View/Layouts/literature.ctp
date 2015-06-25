@@ -101,21 +101,22 @@ var ids = [ "guj-in" ];
               <li><?php echo $this->Html->link('ઈ-બૂક',array('controller'=>'Literatures','action'=>'index')); ?></li>
               <li><?php echo $this->Html->link('લેખ',array('controller'=>'LiteraturePosts','action'=>'index')); ?></li>
             </ul></li>
+            <li class='has-sub-menu'><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-info fa-fw')) . " માહિતિ મિત્ર",array('controller'=>'InformationPosts','action'=>'index'),array('escape' => false)); ?></li>
       </ul>
     </aside>
 
     <div class="user-nav"> 
       <section class="user-head hide-for-small hide-for-medium">
         <div class="row">
-          <div class="columns large-3">
+          <div class="columns small-3">
             <?php echo $this->Html->image('ev-logo2.png',array('class'=>'brand-logo'));?>
             <div class='pro-brand'>ઈ-વિદ્યાલય</div>
 
           </div>
-          <div class="columns large-3 large-offset-1">
-              <!-- <input type="text" id="search-bar" placeholder="Search" /> -->
+          <div class="columns small-2 small-pull-1">
+               <!-- <input type="text" id="search-bar" placeholder="Search" />  -->
           </div>
-          <div class="columns large-6">
+          <div class="columns large-8">
            <ul class="right" id="top-menu">
                 <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-home fa-fw')) . " પ્રવેશદ્વાર",array('controller'=>'pages','action'=>'home'),array('escape' => false)); ?></li>
                 <li class='has-sub-menu'><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-play-circle-o fa-fw')) . " વિડીયો લાઇબ્રેરી",array('controller'=>'Links','action'=>'index'),array('escape' => false)); ?></li>
@@ -130,6 +131,7 @@ var ids = [ "guj-in" ];
                   <li><?php echo $this->Html->link('ઈ-બૂક',array('controller'=>'Literatures','action'=>'index')); ?></li>
                   <li><?php echo $this->Html->link('લેખ',array('controller'=>'LiteraturePosts','action'=>'index')); ?></li>
                   </ul></li>
+                  <li class='has-sub-menu'><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-info fa-fw')) . " માહિતિ મિત્ર",array('controller'=>'InformationPosts','action'=>'index'),array('escape' => false)); ?></li>
                 
             </ul>
           </div>
