@@ -20,7 +20,7 @@
 			            $this->render('success','ajax');
 						$id=$this->InformationComment->getInsertID();
 						$value=$this->InformationComment->findById($id);
-						echo "<div class='cmnt'>".$value['InformationComment']['text']."<br/><b>".$value['InformationComment']['name']."</b>, ".$value['InformationComment']['email']."<span class='right'>".$value['InformationComment']['updated_at']." </span>";
+						echo "<div class='cmnt'>"."<span class='right'>".$value['InformationComment']['updated_at']." </span>".$value['InformationComment']['text']."<br/><b>".$value['InformationComment']['name']."</b>, ".$value['InformationComment']['email'];
 						
 			          }else{
 			         $this->Session->setFlash('Comment Posted', 'default', array('class' => 'alert-box success radius') , 'success');

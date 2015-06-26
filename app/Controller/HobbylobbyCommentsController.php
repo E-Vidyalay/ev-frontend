@@ -16,7 +16,7 @@
 			             $this->render('success','ajax');
 			              $id=$this->HobbylobbyComment->getInsertID();
 						$value=$this->HobbylobbyComment->findById($id);
-						echo "<div class='cmnt'>".$value['HobbylobbyComment']['text']."<br/><b>".$value['HobbylobbyComment']['name']."</b>, ".$value['HobbylobbyComment']['email']."<span class='right'>".$value['HobbylobbyComment']['updated_at']." </span>";
+						echo "<div class='cmnt'>"."<span class='right'>".$value['HobbylobbyComment']['updated_at']."</span>".$value['HobbylobbyComment']['text']."<br/><b>".$value['HobbylobbyComment']['name']."</b>, ".$value['HobbylobbyComment']['email'];
 			          }else{
 			         $this->Session->setFlash('Comment Posted', 'default', array('class' => 'alert-box success radius') , 'success');
 			         $this->redirect(array('action'=>'index'));

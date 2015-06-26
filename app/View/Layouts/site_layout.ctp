@@ -47,6 +47,7 @@
               <li><?php echo $this->Html->link('ઈ-બૂક',array('controller'=>'Literatures','action'=>'index')); ?></li>
               <li><?php echo $this->Html->link('લેખ',array('controller'=>'LiteraturePosts','action'=>'index')); ?></li>
             </ul></li>
+            <li class='has-sub-menu'><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-info fa-fw')) . " માહિતિ મિત્ર",array('controller'=>'InformationPosts','action'=>'index'),array('escape' => false)); ?></li>
         <!-- <li class="has-submenu"><a href="#"><i class="fa fa-book fa-fw"></i>વિષય</a>
             <ul class="left-submenu">
             <li class="back"><a href="#">Back</a></li> -->

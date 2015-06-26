@@ -16,7 +16,7 @@
 			 <div class="comments">
 			 	<?php
 				  	foreach ($comments as $key => $value) {
-				  		echo "<div class='cmnt'>".$value['InformationComment']['text']."<br/><b>".$value['InformationComment']['name']."</b>, ".$value['InformationComment']['email']."<span class='right'>".$value['InformationComment']['updated_at']." </span> ";
+				  		echo "<div class='cmnt'>"."<span class='right'>".$value['InformationComment']['updated_at']."</span>".$value['InformationComment']['text']."<br/><b>".$value['InformationComment']['name']."</b>, ".$value['InformationComment']['email'];
 						echo "<div id='replies_".$value['InformationComment']['id']."'>";
 						if(count($replies)>0){
 				  		foreach ($replies as $r) {

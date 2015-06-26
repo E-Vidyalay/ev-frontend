@@ -9,7 +9,7 @@
   	<div class="comments">
 			 	<?php
 				  	foreach ($comments as $key => $value) {
-				  		echo "<div class='cmnt'>".$value['VideoComment']['comment']."<br/><b>".$value['VideoComment']['name']."</b>, ".$value['VideoComment']['email']."<span class='right'>".$value['VideoComment']['updated_at']." </span> ";
+				  		echo "<div class='cmnt'>"."<span class='right'>".$value['VideoComment']['updated_at']." </span> ".$value['VideoComment']['comment']."<br/><b>".$value['VideoComment']['name']."</b>, ".$value['VideoComment']['email'];
 						echo "<div id='replies_".$value['VideoComment']['id']."'>";
 						if(count($replies)>0){
 				  		foreach ($replies as $r) {
