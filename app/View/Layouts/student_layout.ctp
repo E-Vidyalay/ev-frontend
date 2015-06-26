@@ -9,7 +9,8 @@
     echo $this->Html->css('app');
     echo $this->fetch('css');
   ?>
-   <script type="text/javascript">var baseUrl = '<?php echo $this->base; ?>';</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <script type="text/javascript">var baseUrl = '<?php echo $this->base; ?>';</script>
   <script type="text/javascript" language="javascript">  
     function disableBackButton()
     {

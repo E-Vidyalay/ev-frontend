@@ -14,6 +14,7 @@
     echo $this->Html->script('pramukhindic.js');
     echo $this->Html->script('pramukhime-common.js');
   ?>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <script language="javascript" type="text/javascript">
         pramukhIME.addLanguage(PramukhIndic);

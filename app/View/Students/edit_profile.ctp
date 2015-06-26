@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="columns large-4 large-offset-4 medium-8 medium-offset-2 small-8 small-offset-3" style="background:#fff;padding:20px">
+  <div class="columns large-4 large-offset-4 medium-8 medium-offset-2 small-10 small-offset-1" style="background:#fff;padding:20px">
     <h3> Edit Profile </h3>
     <hr/>
     <?php
