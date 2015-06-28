@@ -13,19 +13,21 @@
 						}else{
 							echo "<li style='padding-top:5px;'><a class='watch_v' id='".$value['Link']['id']."'>".$value['Link']['link_title']." : ".$value['Topic']['display_name']."</a></li> ";
 						}
-					}	
+					}
 				}
 				else{
-					for($i=0;$i<2;$i++){
-						if($value['SubTopic']['id']!=NULL){
-						echo "<li style='padding-top:5px;'><a class='watch_v' id='".$latest[$i]['Link']['id']."'>".$latest[$i]['Link']['link_title']." : ".$latest[$i]['Topic']['display_name']." - ".$latest[$i]['SubTopic']['name']."</a></li> ";
+					for($i=0;$i<sizeof($videos);$i++){
+						if($i<2){
+						if($videos[$i]['SubTopic']['id']!=NULL){
+						echo "<li style='padding-top:5px;'><a class='watch_v' id='".$videos[$i]['Link']['id']."'>".$videos[$i]['Link']['link_title']." : ".$videos[$i]['Topic']['display_name']." - ".$videos[$i]['SubTopic']['name']."</a></li> ";
 						}else{
-							echo "<li style='padding-top:5px;'><a class='watch_v' id='".$latest[$i]['Link']['id']."'>".$latest[$i]['Link']['link_title']." : ".$latest[$i]['Topic']['display_name']."</a></li> ";
+							echo "<li style='padding-top:5px;'><a class='watch_v' id='".$videos[$i]['Link']['id']."'>".$videos[$i]['Link']['link_title']." : ".$videos[$i]['Topic']['display_name']."</a></li> ";
+						}
 						}
 					}
 				}
-				
-			?>	
+
+			?>
 		</ul>
 	</div>
 	<div class="columns large-10" style="background: #fff;">
@@ -44,8 +46,8 @@
 				  <?php
 				  	echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa')) . " View all",array('controller'=>'Links','action'=>'index'),array('escape' => false));
 				  ?>
-	   
-	              
+
+
 	            </li>
 			</div>
 			<div class="columns large-9 hide-for-large-up">
@@ -59,18 +61,18 @@
 				  <?php
 				  	echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa')) . " View all",array('controller'=>'Links','action'=>'index'),array('escape' => false));
 				  ?>
-	   
-	              
+
+
 	            </li>
 				</ul>
 			</div>
 		</div>
-		
+
 		<div id="sub_lit">
-		
+
 		<div class="row">
 			<div class="columns large-12" id="vi-cont">
-			<table id="example" class="display" cellspacing="0" width="100%">
+			<table id="example" class="display responsive" cellspacing="0" width="100%">
 		    <thead>
 		        <tr>
 		            <th>Video Name</th>
@@ -109,8 +111,8 @@
 							echo "</td>";
 						echo "</tr>";
 					}
-					
-				?> 
+
+				?>
 			</tbody>
 			</table>
 			</div>

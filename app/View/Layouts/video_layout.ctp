@@ -8,6 +8,7 @@
     echo $this->Html->css('font-awesome');
     echo $this->Html->css('app');
     echo $this->Html->css('jquery.dataTables');
+    echo $this->Html->css('responsive-tables');
     echo $this->Html->css('pramukhtypepad.css');
     echo $this->fetch('css');
     echo $this->Html->script('pramukhime.js');
@@ -162,6 +163,8 @@ var ids = [ "guj" ];
     echo $this->Html->script('foundation.min');
     echo $this->Html->script('app');   
      echo $this->Html->script('jquery-scroll');   
+     echo $this->Html->script('jquery-min'); 
+    echo $this->Html->script('responsive-tables');
     echo $this->Html->script('jquery.dataTables');    
     echo $this->fetch('script');
   ?>

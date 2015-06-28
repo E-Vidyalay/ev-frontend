@@ -8,15 +8,16 @@
 				if(count($latest)>0){
 					foreach ($latest as $key => $value) {
 						echo "<li style='padding-top:5px;'><a class='get-lit-post' id='".$value['LiteraturePost']['id']."'>".$value['LiteraturePost']['title']." : ".$value['Literature']['name']." - ".$value['SubLiterature']['name']." ( ".$value['Level']['level_name'].")</a></li> ";
-					}	
-				}
-				else{
-					for($i=0;$i<2;$i++){
-						echo "<li style='padding-top:5px;'><a class='get-lit-post' id='".$latest[$i]['LiteraturePost']['id']."'>".$latest[$i]['LiteraturePost']['title']." : ".$latest[$i]['Literature']['name']." - ".$latest[$i]['SubLiterature']['name']." ( ".$latest[$i]['Level']['level_name'].")</a></li> ";
 					}
 				}
-				
-			?>	
+				else{
+					for($i=0;$i<sizeof($posts);$i++){
+						if($i<2)
+						echo "<li style='padding-top:5px;'><a class='get-lit-post' id='".$posts[$i]['LiteraturePost']['id']."'>".$posts[$i]['LiteraturePost']['title']." : ".$posts[$i]['Literature']['name']." - ".$posts[$i]['SubLiterature']['name']." ( ".$posts[$i]['Level']['level_name'].")</a></li> ";
+					}
+				}
+
+			?>
 		</ul>
 	</div>
 	<div class="columns large-10" style="background: #fff;">
@@ -92,10 +93,10 @@
 									echo "<b>For </b>".$value['Level']['level_name'].", <b>By</b> ".$value['Admin']['name'];
 									echo "<span class='right'><a class='read-link get-lit-post' id='".$value['LiteraturePost']['id']."'>Read more</a></span>";
 								echo "</div>";
-							echo "</div>";	
+							echo "</div>";
 						}
 					}
-					
+
 				?>
 			</div>
 		</div>

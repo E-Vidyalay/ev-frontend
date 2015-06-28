@@ -22,7 +22,7 @@
 			$this->layout="ajax";
 			//pr($lid);die();
 			if($lid=='undefined'){
-				$this->set('books',$this->Ebook->find('all'));		
+				$this->set('books',$this->Ebook->find('all'));
 			}
 			else{
 			$this->set('books',$this->Ebook->find('all',array('conditions'=>array('level_id'=>$lid))));

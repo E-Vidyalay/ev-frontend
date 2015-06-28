@@ -1,7 +1,7 @@
 <div class="row radius">
 	<div class="row" style="background:#fff;padding:20px">
 			<div class="columns large-12" id="li-ebooks">
-			<table id="example" class="display" cellspacing="0" width="100%">
+			<table id="example" class=" display responsive" cellspacing="0" width="100%">
 		    <thead>
 		        <tr>
 		            <th>Name</th>
