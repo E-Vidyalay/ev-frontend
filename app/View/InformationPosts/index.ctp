@@ -12,8 +12,10 @@
 					}	
 				}
 				else{
-					for($i=0;$i<2;$i++){
-						echo "<li style='padding-top:5px;'><a class='watch_i' id='".$latest[$i]['InformationPost']['id']."'>".$latest[$i]['InformationPost']['title']."</a></li> ";
+					for($i=0;$i<sizeof($posts);$i++){
+						if($i<2){
+						echo "<li style='padding-top:5px;'><a class='watch_i' id='".$posts[$i]['InformationPost']['id']."'>".$posts[$i]['InformationPost']['title']."</a></li> ";
+						}
 					}
 				}
 				
