@@ -669,3 +669,9 @@
 .post-pane-body{
 	padding: 10px;
 }
+#canvasmenu>li>a{
+	font-size: 15px;
+}
+#canvasmenu>li>ul>li>a{
+	font-size: 15px;
+}

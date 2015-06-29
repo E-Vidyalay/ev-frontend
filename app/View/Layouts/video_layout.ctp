@@ -88,7 +88,7 @@ var ids = [ "guj" ];
     </nav>
 
     <aside class="left-off-canvas-menu">
-      <ul class="off-canvas-list">
+      <ul class="off-canvas-list" id="canvasmenu">
           <li><label>ઈ-વિદ્યાલય</label></li>
         <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-home fa-fw')) . " પ્રવેશદ્વાર",array('controller'=>'pages','action'=>'home'),array('escape' => false)); ?></li>
         <li class='has-sub-menu'><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-play-circle-o fa-fw')) . " વિડીયો લાઇબ્રેરી",array('controller'=>'Links','action'=>'index'),array('escape' => false)); ?></li>
