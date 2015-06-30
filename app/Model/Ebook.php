@@ -17,6 +17,6 @@
 				'foreignKey'=>'category_id',
 				'dependent'=>false
 			)
-			);	
+			);
 	}
 ?>
