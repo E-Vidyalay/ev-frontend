@@ -101,7 +101,7 @@ $(".usr-img-preview").click(function(){
     });
 $("#removeDp").on('click',function(event){
 	var baseUrl = location.origin; 
-	var u=baseUrl+'/ev-frontend/users/removeProfile_pic/';
+	var u=baseUrl+'/Users/removeProfile_pic/';
     console.log(u);
     $.ajax({
     	url:u,
