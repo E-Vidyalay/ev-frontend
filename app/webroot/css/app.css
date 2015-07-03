@@ -676,3 +676,8 @@
 #canvasmenu>li>ul>li>a{
 	font-size: 15px;
 }
+#post-head{
+	background-color: rgb(87, 193, 228);
+  	color: white;
+  	text-align: center;
+}
