@@ -172,7 +172,7 @@ var ids = [ "guj" ];
 
   </div>
 </div>
-
+  <?php echo $this->Element('Dialogs');?>
   <?php
     echo $this->Html->script('vendor/modernizr');
     echo $this->Html->script('vendor/jquery');
