@@ -1,7 +1,7 @@
 <?php
     App::uses('CakeEmail', 'Network/Email');
     class UsersController extends AppController{
-        public $uses=array('User','Student');
+        public $uses=array('User','Student','Contributor','Teacher');
         public function register(){
             $this->layout="site_layout";
         }
@@ -72,7 +72,10 @@
                             $this->redirect(array('controller'=>'parents','action'=>'home'));
                         }
                         if($user['User']['user_type']=='ddd4e9c3-1ef4-11e5-a1e8-543530b4dd8d'){
-                            $this->redirect(array('contorller'=>'contributors','action'=>'index'));
+                            $contri=array();
+                            $contri['user_id']=$this->User->getInsertID();
+                            $this->Contributor->save($contri);
+                            $this->redirect(array('controller'=>'contributors','action'=>'index'));
                         }
                     }
 
@@ -281,6 +284,9 @@
                     $this->redirect(array('controller'=>'parents','action'=>'home'));
                 }
                 if($user['User']['user_type']=='ddd4e9c3-1ef4-11e5-a1e8-543530b4dd8d'){
+                    $contri=array();
+                    $contri['user_id']=$this->data['User']['id'];
+                    $this->Contributor->save($contri);
                     $this->redirect(array('controller'=>'contributors','action'=>'index'));
                 }
             }
