@@ -8,7 +8,7 @@
 			<?php
 				if(count($latest)>0){
 					foreach ($latest as $key => $value) {
-						if($value['Ebook']['contributor']==0){
+						if($value['Ebook']['contributed']==0){
 							echo "<li style='padding-top:5px;'><a target='_blank' href='".$admin_url."/files/ebook/path/".$value['Ebook']['id']."/".$value['Ebook']['path']."'>".$value['Ebook']['name']." : ".$value['Literature']['name']." - ".$value['SubLiterature']['name']." ( ".$value['Level']['level_name'].")</a></li> ";
 						}
 						else{
@@ -18,7 +18,7 @@
 				}
 				else if(count($books)>2){
 					for($i=0;$i<2;$i++){
-						if($book[$i]['Ebook']['contributor']==0){
+						if($book[$i]['Ebook']['contributed']==0){
 							echo "<li style='padding-top:5px;'><a target='_blank' href='".$admin_url."/files/ebook/path/".$books[$i]['Ebook']['id']."/".$books[$i]['Ebook']['path']."'>".$books[$i]['Ebook']['name']." : ".$books[$i]['Literature']['name']." - ".$books[$i]['SubLiterature']['name']." ( ".$books[$i]['Level']['level_name'].")</a></li> ";
 						}
 						else{
@@ -109,7 +109,13 @@
 							echo "<td>".$value['SubLiterature']['name']."</td>";
 							echo "<td>".$value['Level']['level_name']."</td>";
 							echo "<td>";
-								echo "<a target='_blank' href='".$admin_url."/files/ebook/path/".$value['Ebook']['id']."/".$value['Ebook']['path']."' class='book-link'>Read book</a>";
+								if($value['Ebook']['contributed']==0){
+									echo "<a target='_blank' href='".$admin_url."/files/ebook/path/".$value['Ebook']['id']."/".$value['Ebook']['path']."' class='book-link'>Read book</a>";
+								}
+								else{
+									echo "<a target='_blank' href='".$this->webroot."files/ebook/path/".$value['Ebook']['id']."/".$value['Ebook']['path']."' class='book-link'>Read book</a>";
+								}
+
 									echo '<a href="#" class="book-desc" data-reveal-id="md-'.$value['Ebook']['id'].'">Read book description</a>
 
 									<div id="md-'.$value['Ebook']['id'].'" class="reveal-modal small" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">

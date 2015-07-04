@@ -18,7 +18,12 @@
 							echo "<td>".$value['SubLiterature']['name']."</td>";
 							echo "<td>".$value['Level']['level_name']."</td>";
 							echo "<td>";
+							if($value['Ebook']['contributed']==0){
 								echo "<a target='_blank' href='".$admin_url."/files/ebook/path/".$value['Ebook']['id']."/".$value['Ebook']['path']."' class='book-link'>Read book</a>";
+							}
+							else{
+								echo "<a target='_blank' href='".$this->webroot."files/ebook/path/".$value['Ebook']['id']."/".$value['Ebook']['path']."' class='book-link'>Read book</a>";
+							}
 									echo '<a href="#" class="book-desc" data-reveal-id="md-'.$value['Ebook']['id'].'">Read book description</a>
 
 									<div id="md-'.$value['Ebook']['id'].'" class="reveal-modal small" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
@@ -37,6 +42,6 @@
 					else{
 						echo'<tr class="odd"><td class="dataTables_empty" colspan="5" valign="top">No books found</td></tr>';
 					}
-				?> 
+				?>
 			</tbody>
-</table>		
+</table>
