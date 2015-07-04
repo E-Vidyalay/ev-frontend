@@ -8,13 +8,21 @@
 			<?php
 				if(count($latest)>0){
 					foreach ($latest as $key => $value) {
-						echo "<li style='padding-top:5px;'><a target='_blank' href='".$admin_url."/files/ebook/path/".$value['Ebook']['id']."/".$value['Ebook']['path']."'>".$value['Ebook']['name']." : ".$value['Literature']['name']." - ".$value['SubLiterature']['name']." ( ".$value['Level']['level_name'].")</a></li> ";
+						if($value['Ebook']['contributor']==0){
+							echo "<li style='padding-top:5px;'><a target='_blank' href='".$admin_url."/files/ebook/path/".$value['Ebook']['id']."/".$value['Ebook']['path']."'>".$value['Ebook']['name']." : ".$value['Literature']['name']." - ".$value['SubLiterature']['name']." ( ".$value['Level']['level_name'].")</a></li> ";
+						}
+						else{
+							echo "<li style='padding-top:5px;'><a target='_blank' href='".$this->webroot."files/ebook/path/".$value['Ebook']['id']."/".$value['Ebook']['path']."'>".$value['Ebook']['name']." : ".$value['Literature']['name']." - ".$value['SubLiterature']['name']." ( ".$value['Level']['level_name'].")</a></li> ";
+						}
 					}
 				}
-				else{
-					for($i=0;$i<sizeof($books);$i++){
-						if($i<2){
-						echo "<li style='padding-top:5px;'><a target='_blank' href='".$admin_url."/files/ebook/path/".$books[$i]['Ebook']['id']."/".$books[$i]['Ebook']['path']."'>".$books[$i]['Ebook']['name']." : ".$books[$i]['Literature']['name']." - ".$books[$i]['SubLiterature']['name']." ( ".$books[$i]['Level']['level_name'].")</a></li> ";
+				else if(count($books)>2){
+					for($i=0;$i<2;$i++){
+						if($book[$i]['Ebook']['contributor']==0){
+							echo "<li style='padding-top:5px;'><a target='_blank' href='".$admin_url."/files/ebook/path/".$books[$i]['Ebook']['id']."/".$books[$i]['Ebook']['path']."'>".$books[$i]['Ebook']['name']." : ".$books[$i]['Literature']['name']." - ".$books[$i]['SubLiterature']['name']." ( ".$books[$i]['Level']['level_name'].")</a></li> ";
+						}
+						else{
+							echo "<li style='padding-top:5px;'><a target='_blank' href='".$this->webroot."files/ebook/path/".$books[$i]['Ebook']['id']."/".$books[$i]['Ebook']['path']."'>".$books[$i]['Ebook']['name']." : ".$books[$i]['Literature']['name']." - ".$books[$i]['SubLiterature']['name']." ( ".$books[$i]['Level']['level_name'].")</a></li> ";
 						}
 					}
 				}

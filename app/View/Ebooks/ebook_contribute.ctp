@@ -21,6 +21,7 @@
                     'label'=>'Please upload your contribution',
                     'style'=>'text-align:left;width:50%'
                     ));
+                    echo $this->Form->input('contributed',array('type'=>'hidden','value'=>1));
                 ?>
                 <div class="clear"></div>
                 <?php echo $this->Form->input('Contribute',array('type'=>'submit','div'=>false,'class'=>'button tiny radius','id'=>'register-submit','label'=>false)); ?>

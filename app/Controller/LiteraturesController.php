@@ -15,7 +15,7 @@
 			$this->set('lit',$lt);
 			$slt=$this->SubLiterature->find('all');
 			$this->set('slit',$slt);
-			$this->set('books',$this->Ebook->find('all'));
+			$this->set('books',$this->Ebook->find('all',array('conditions'=>array('allow'=>1))));
 			$this->set('levels',$this->Level->find('all',array('order'=>array('Level.updated_at'=>'asc'))));
 		}
 		public function get_level_book($lid=NULL){
