@@ -25,18 +25,18 @@
 				$this->set('books',$this->Ebook->find('all'));
 			}
 			else{
-			$this->set('books',$this->Ebook->find('all',array('conditions'=>array('level_id'=>$lid))));
+			$this->set('books',$this->Ebook->find('all',array('conditions'=>array('level_id'=>$lid,'allow'=>1))));
 			}
 		}
 		public function get_sublit_book($lid=NULL){
 			$this->layout="ajax";
 			//pr($lid);die();
-			$this->set('books',$this->Ebook->find('all',array('conditions'=>array('sub_category_id'=>$lid))));
+			$this->set('books',$this->Ebook->find('all',array('conditions'=>array('sub_category_id'=>$lid,'allow'=>1))));
 		}
 		public function get_lit_book($sid=NULL){
 			$this->layout="ajax";
 			//pr($lid);die();
-			$this->set('books',$this->Ebook->find('all',array('conditions'=>array('category_id'=>$sid))));
+			$this->set('books',$this->Ebook->find('all',array('conditions'=>array('category_id'=>$sid,'allow'=>1))));
 		}
 	}
 ?>
