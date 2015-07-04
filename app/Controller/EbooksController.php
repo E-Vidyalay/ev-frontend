@@ -30,7 +30,7 @@ class EbooksController extends AppController{
 					->emailFormat('html')
 					->send($body);
 
-			$body1="There is new contribution request for ebooks kindly verify and approve it.<br/><b> Link to the approval page</b> ".$this->viewVars['admin_url']."/contribute_ebook";
+			$body1="There is new contribution request for ebooks kindly verify and approve it.<br/><b> Link to the approval page</b> ".$this->viewVars['admin_url']."/admins/contribute_ebook";
 
 			$Email = new CakeEmail();
 			$Email->from(array('noreply@ev.learnlabs.in' => 'ઈ-વિદ્યાલય Team'))
