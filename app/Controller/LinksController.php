@@ -1,4 +1,5 @@
-<?php 
+<?php
+App::uses('CakeEmail', 'Network/Email');
 class LinksController extends AppController {
 
 	var $uses = array('Link','Topic','SubTopic','Level','Subject','VideoComment','VideoReply');
@@ -21,6 +22,53 @@ class LinksController extends AppController {
 		$this->set('videos',$this->Link->find('all'));
 		$this->set('levels',$this->Level->find('all',array('order'=>array('Level.updated_at'=>'asc'))));
 	}
+	public function link_contribute(){
+		$this->layout='profile_layout';
+		$this->set('user_id',$this->Auth->user('id'));
+		$sb=$this->Topic->find('list',array('fields'=>array('id','display_name')));
+		$this->set('topic',$sb);
+		if($this->request->is('post')){
+			$data=$this->data;
+			if($this->Link->save($data))
+			{
+				$body="Thank you for  your valuable contribuation,<br/> We are approving this content it may take 24 hrs to approve and display this content. If there are any queries or if the content is not as per the direction we may reject the content and will also ask for the further improvement.";
+				$body.="<br/><br/> <b> Regards,<br/>evidyalay team </b>";
+				$Email = new CakeEmail();
+				$Email->from(array('noreply@ev.learnlabs.in' => 'ઈ-વિદ્યાલય Team'))
+						->to($this->Auth->user('username'))
+						->subject('Contribution request')
+						->emailFormat('html')
+						->send($body);
+
+				$body1="There is new contribution request for ebooks kindly verify and approve it.<br/><b> Link to the approval page</b> ".$this->viewVars['admin_url']."/admins/contribute_link";
+
+				$Email = new CakeEmail();
+				$Email->from(array('noreply@ev.learnlabs.in' => 'ઈ-વિદ્યાલય Team'))
+						->to('lakhan.m.samani@gmail.com')
+						->subject('Contribution request')
+						->emailFormat('html')
+						->send($body1);
+				$this->Session->setFlash('Thank you for your valueable contribution','default',array('class'=>'alert-box success radius'),'success');
+				$this->redirect(array('controller'=>'contributors','action'=>'index'));
+
+			}
+			else{
+				$this->Session->setFlash('Sorry there was error','default',array('class'=>'alert-box alert radius'),'error');
+				$this->redirect(array('controller'=>'contributors','action'=>'index'));
+			}
+		}
+	}
+	public function get_sub_topic($id=null){
+		$this->layout='ajax';
+		if(isset($id)){
+			$this->set('if_data',true);
+			$sub_topic=$this->SubTopic->find('list',array('fields'=>array('id','name'),'conditions'=>array('topic_id'=>$id)));
+			$this->set('sub_topics',$sub_topic);
+		}
+		else{
+			$this->set('if_data',false);
+		}
+	}
 	public function get_no_sub($id=null){
 		$this->layout='ajax';
 		$this->set('tps',$this->Topic->findById($id));
@@ -29,7 +77,7 @@ class LinksController extends AppController {
 		if(count($links)>0){
 		$this->set('comments',$this->VideoComment->find('all',array('conditions'=>array('video_id'=>$links[0]['Link']['id']))));
 		$this->set('replies',$this->VideoReply->find('all'));
-		
+
 		}
 	}
 	public function get_subject($id=null){
@@ -59,7 +107,7 @@ class LinksController extends AppController {
 		else{
 			$this->set('err','Sorry, no subjects found for this level');
 		}
-		
+
 	}
 	function view_video($id){
 		$l=$this->Link->findById($id);

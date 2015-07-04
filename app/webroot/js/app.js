@@ -1,6 +1,6 @@
 function isEmailAddress(str) {
    var pattern =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-   return pattern.test(str);  // returns a boolean 
+   return pattern.test(str);  // returns a boolean
 }
 $(document).ready(function(){
 	setTimeout(function(){
@@ -23,7 +23,7 @@ $(".course-menu").mouseout(function(){
 	$(".cs-dropdown").removeClass("usr-active");
 });
 $(".cs-dropdown").mouseover(function(){
-	
+
 	$(".course-menu > ul > .active").children(".subject-menu").show();
 	$(".course-menu > ul >").removeClass("active");
 })
@@ -64,9 +64,22 @@ $(".side-nav > li").on('click',function(event){
     	}
     })
 });
+$("#topics").on('change',function(event){
+    var u=baseUrl+"/Links/get_sub_topic/"+$(this).val();
+    console.log(u);
+    $.ajax({
+        url:u,
+        success:function(data){
+            $("#sub-div-id").html(data);
+        },
+        error:function(e){
+            alert("Sorry there was error"+u);
+        }
+    })
+});
 $(".right-submenu > li > a ").on('click',function(event){
 	var baseUrl = location.origin;
-	if ($(this).attr('id')!=null) { 
+	if ($(this).attr('id')!=null) {
 	var u=baseUrl+'/ev-frontend/links/get_video/'+$(this).attr('id');
     console.log(u);
     $.ajax({
@@ -86,21 +99,21 @@ $(".usr-img-preview").click(function(){
     function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
-            
+
             reader.onload = function (e) {
                 $('#blah').attr('src', e.target.result);
             }
-            
+
             reader.readAsDataURL(input.files[0]);
         }
     }
-    
+
     $("#imgInp").change(function(){
         readURL(this);
         $("#removeDp").hide();
     });
 $("#removeDp").on('click',function(event){
-	var baseUrl = location.origin; 
+	var baseUrl = location.origin;
 	var u=baseUrl+'/Users/removeProfile_pic/';
     console.log(u);
     $.ajax({
@@ -458,7 +471,7 @@ $(document).on('click','#btn1',function(event){
              $("#HobbylobbyCommentGetForm")[0].reset();
        }
 
-     });   
+     });
     }
      event.preventDefault();
      return false;  //stop the actual form post !important!
@@ -489,9 +502,9 @@ $(document).on('click','.btn-rply-comment',function(event){
              console.log(data);
        }
 
-     });  
+     });
     }
-     
+
      event.preventDefault();
      return false;  //stop the actual form post !important!
 
@@ -512,7 +525,7 @@ $(document).on('click','.hobby_fetch',function(event){
         }
     })
 });
-//Literature post ajax 
+//Literature post ajax
 $(document).on('click','.get-lit-post',function(event){
     var u=baseUrl+'/LiteraturePosts/get_post/'+$(this).attr('id');
     $('.loading').show();
@@ -553,9 +566,9 @@ $(document).on('click','#btn-lit-post',function(event){
         console.log(data);
        }
 
-     }); 
+     });
     }
-     
+
      event.preventDefault();
      return false;  //stop the actual form post !important!
 
@@ -573,7 +586,7 @@ $(document).on('click','.btn-rply-lit',function(event){
         alert("Sorry there was error while submitting your form ! bellow is the list of possible error, please check it\n * Name field should not be empty \n * Email address should not be empty and a valid email address \n * Reply cannot be empty ");
     }
     else{
-    
+
      $.ajax({
        type: "POST",
        url: u,
@@ -598,7 +611,7 @@ $(".sub-menu-lit > li > a").click(function(){
     $.ajax({
         url:u,
         success:function(data){
-            $(".post-content").html(data); 
+            $(".post-content").html(data);
             $('.loading').hide();
         },
         error:function(e){
@@ -614,7 +627,7 @@ $("#slit-list > li >a").click(function(){
     $.ajax({
         url:u,
         success:function(data){
-            $(".post-content").html(data); 
+            $(".post-content").html(data);
             $('.loading').hide();
         },
         error:function(e){
@@ -630,7 +643,7 @@ $(".lt-menu > li >a").click(function(){
     $.ajax({
         url:u,
         success:function(data){
-            $(".post-content").html(data); 
+            $(".post-content").html(data);
             $('.loading').hide();
         },
         error:function(e){
@@ -676,7 +689,7 @@ $(document).on('click','#btn2',function(event){
              $("#InformationCommentGetForm")[0].reset();
        }
 
-     });   
+     });
     }
      event.preventDefault();
      return false;  //stop the actual form post !important!
@@ -707,9 +720,9 @@ $(document).on('click','.btn-rply-comment',function(event){
              console.log(data);
        }
 
-     });  
+     });
     }
-     
+
      event.preventDefault();
      return false;  //stop the actual form post !important!
 
