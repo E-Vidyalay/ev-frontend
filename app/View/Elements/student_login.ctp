@@ -60,7 +60,7 @@
           <div class="columns large-7">
             <ul class="right" id="pro-menu">
             <li><?php echo $this->Html->link('Dashboard',array('controller'=>'students','action'=>'home'),array('class'=>'np-menu'));?></li>
-            <li class='has-sub-menu'><?php echo $this->Html->link('Apply for quiz !',array('controller'=>'students','action'=>'test_application',$activeUser['User']['id']),array('class'=>'np-menu'));?></li>
+            <li class='has-sub-menu'><?php echo $this->Html->link('Apply for quiz',array('controller'=>'students','action'=>'test_application',$activeUser['User']['id']),array('class'=>'np-menu'));?></li>
             <li class='has-sub-menu'>
               <a id='usr-a'><?php
                 if(empty($activeUser['User']['path'])){
