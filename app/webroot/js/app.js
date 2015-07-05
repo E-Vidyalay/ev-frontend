@@ -128,7 +128,7 @@ $("#removeDp").on('click',function(event){
     		$("#profilePic").html(data);
     	},
     	error:function(e){
-    		alert("Sorry there was error :"+e);
+    		alert("Sorry there was error :"+baseUrl);
     	}
     })
 });

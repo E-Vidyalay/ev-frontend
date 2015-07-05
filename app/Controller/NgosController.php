@@ -6,7 +6,7 @@
 		}
 		public function index(){
 			//$this->layout='site_layout';
-			$this->layout='literature';
+			$this->layout='site_layout';
 			$ngos= $this->Ngo->find('all');
 			$this->set('ngos',$ngos);
 		}

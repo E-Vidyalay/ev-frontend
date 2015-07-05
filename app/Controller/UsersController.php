@@ -259,7 +259,7 @@
     }
 
     public function set_user_type($id=NULL){
-        $this->layout='profile_layout';
+        $this->layout='site_layout';
         $this->set('uid',$id);
         if($this->request->is('post')){
 
@@ -291,6 +291,60 @@
                 }
             }
         }
+    }
+    public function edit_pro($id){
+        $this->layout="site_layout";
+            $stu=$this->User->findById($id);
+            $uid=$stu['User']['id'];
+            $this->set('id',$uid);
+            if(empty($this->data))
+            {
+                $this->data=$this->User->findById($id);
+            }
+        if($this->request->is('post')){
+            $data=$this->Auth->user();
+            $u=$this->Auth->user();
+            $data['id']=$this->data['User']['id'];
+            $data['name']=$this->data['User']['name'];
+            if($this->data['User']['newpassword']!=NULL){
+                $data['password']=$this->data['User']['newpassword'];
+            }
+            $u=$data;
+            //pr($u);die();
+            if($this->data['User']['path']['name']!=NULL){
+                $data['path']=$this->data['User']['path'];
+                $u['path']=$this->data['User']['path']['name'];
+            }
+            if($this->data['User']['newusername']!=NULL){
+                $data['username']=$this->data['User']['newusername'];
+                $u['username']=$this->data['User']['newusername'];
+            }
+            // if($u['path']==NULL){
+            //     $file =new File(www_ROOT.'files/user/path'.$id.DR.)
+            // }
+            if($this->User->save($data)){
+                $this->Session->write('Auth.User', $u);
+                if($this->Auth->user('user_type')=='cb6f8154-fbbc-11e4-b148-01f8d649e9b6'){
+                    $this->Session->setFlash('Profile Updated','default',array('class'=>'alert-box radius success'),'success');
+                    $this->redirect(array('controller'=>'students','action'=>'edit_profile',$id));
+                }
+                if($this->Auth->user('user_type')=='cb6f95fe-fbbc-11e4-b148-01f8d649e9b6'){
+                    $this->Session->setFlash('Profile Updated','default',array('class'=>'alert-box radius success'),'success');
+                    $this->redirect(array('controller'=>'teachers','action'=>'home'));
+                }
+                if($this->Auth->user('user_type')=='d0cf96fc-fbbc-11e4-b148-01f8d649e9b6'){
+                    $this->Session->setFlash('Profile Updated','default',array('class'=>'alert-box radius success'),'success');
+                    $this->redirect(array('controller'=>'parents','action'=>'home'));
+                }
+                if($this->Auth->user('user_type')=='ddd4e9c3-1ef4-11e5-a1e8-543530b4dd8d'){
+                    $this->redirect(array('controller'=>'contributors','action'=>'index'));
+                }
+            }
+            else{
+                $this->Session->setFlash('Email id already exist','default',array('class'=>'alert-box radius alert'),'error');
+                $this->redirect(array('controller'=>'students','action'=>'edit_profile',$id));
+            }
+         }
     }
     public function edit_profile($id){
         // if($this->request->is('post')){

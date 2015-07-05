@@ -30,6 +30,7 @@
               <li><?php echo $this->Html->link('લેખ',array('controller'=>'LiteraturePosts','action'=>'index')); ?></li>
             </ul></li>
             <li class='has-sub-menu'><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-info fa-fw')) . " માહિતિ મિત્ર",array('controller'=>'InformationPosts','action'=>'index'),array('escape' => false)); ?></li>
+            <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-lightbulb-o fa-fw')) . " યોગદાન",array('controller'=>'Contributors','action'=>'index'),array('escape' => false));?></li>
         <li><label>Users's action</label></li>
         <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-lock fa-fw')) . "Login",array('controller'=>'users','action'=>'login'),array('escape' => false)); ?></li>
         <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-pencil fa-fw')) . "Register",array('controller'=>'users','action'=>'register'),array('escape' => false)); ?></li>
@@ -74,6 +75,7 @@
                   <li><?php echo $this->Html->link('લેખ',array('controller'=>'LiteraturePosts','action'=>'index')); ?></li>
                   </ul></li>
             <li class='has-sub-menu'><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-info fa-fw')) . " માહિતિ મિત્ર",array('controller'=>'InformationPosts','action'=>'index'),array('escape' => false)); ?></li>
+            <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-lightbulb-o fa-fw')) . " યોગદાન",array('controller'=>'Contributors','action'=>'index'),array('escape' => false));?></li>
             
         </ul>
       </section>

@@ -54,7 +54,7 @@
 		
 		<div class="row">
 			<div class="columns large-12" id="vi-cont">
-				<div class="row"><div class="columns large-8 large-offset-2">
+				<div class="row"><div class="columns large-8">
 				<?php
 					foreach ($posts as $key => $value) {
 						echo "<div class='post-pane'>";

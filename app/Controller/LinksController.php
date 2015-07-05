@@ -23,7 +23,7 @@ class LinksController extends AppController {
 		$this->set('levels',$this->Level->find('all',array('order'=>array('Level.updated_at'=>'asc'))));
 	}
 	public function link_contribute(){
-		$this->layout='profile_layout';
+		$this->layout='site_layout';
 		$this->set('user_id',$this->Auth->user('id'));
 		$sb=$this->Topic->find('list',array('fields'=>array('id','display_name')));
 		$this->set('topic',$sb);

@@ -1,4 +1,4 @@
-<div class="row"><div class="columns large-8 large-offset-2">
+<div class="row"><div class="columns large-8">
 <?php
 				echo "<div class='post-pane'>";
 								echo "<div class='post-pane-heading'>";

@@ -77,7 +77,7 @@
 			</div>
 		</div>
 		<div class="row ">
-			<div class="columns large-8 large-offset-2 post-content" id="li-LiteraturePosts">
+			<div class="columns large-8 post-content" id="li-LiteraturePosts">
 				<?php
 					if(count($posts)>0){
 						foreach ($posts as $key => $value) {

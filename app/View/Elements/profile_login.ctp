@@ -1,24 +1,3 @@
-<script type="text/javascript" language="javascript">
-    function disableBackButton()
-    {
-    window.history.forward()
-    }
-    disableBackButton();
-    window.onload=disableBackButton();
-    window.onpageshow=function(evt) { if(evt.persisted) disableBackButton() }
-    window.onunload=function() { void(0) }
-
-    function my_onkeydown_handler() {
-        switch (event.keyCode) {
-            case 116 : // 'F5'
-                event.preventDefault();
-                event.keyCode = 0;
-                window.status = "F5 disabled";
-                break;
-        }
-    }
-    document.addEventListener("keydown", my_onkeydown_handler);
-  </script>
 <nav class="tab-bar hide-for-large hide-for-xlarge hide-for-xxlarge">
       <section class="left-small">
         <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
@@ -42,10 +21,7 @@
                   echo '<img src="'.$this->webroot.'files/user/path/'.$activeUser['User']['id'].'/small_'.$activeUser['User']['path'].'" class="usr-img"/ > ';
                 }
                     ?> &nbsp;&nbsp;<?php echo $activeUser['User']['name']; ?></label></li>
-        <li><?php echo $this->Html->link('Dashboard',array('controller'=>'students','action'=>'home'));?></li>
-        <li><a href="#">Courses</a></li>
-        <li><?php echo $this->Html->link('Apply for quiz',array('controller'=>'students','action'=>'test_application',$activeUser['User']['id']));?></li>
-        <li><?php echo $this->Html->link('Edit Profile',array('controller'=>'students','action'=>'edit_profile',$activeUser['User']['id'])); ?></li>
+        <li><?php echo $this->Html->link('Edit Profile',array('controller'=>'users','action'=>'edit_pro',$activeUser['User']['id'])); ?></li>
         <li><?php echo $this->Html->link('Logout',array('controller'=>'users','action'=>'logout')); ?></li>
         <li><label>ઈ-વિદ્યાલય</label></li>
         <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-home fa-fw')) . " પ્રવેશદ્વાર",array('controller'=>'pages','action'=>'home'),array('escape' => false)); ?></li>
@@ -75,10 +51,8 @@
             <?php echo $this->Html->image('ev-logo2.png',array('class'=>'brand-logo'));?>
             <div class='pro-brand'>ઈ-વિદ્યાલય</div>
           </div>
-          <div class="columns large-7">
+          <div class="columns large-4">
             <ul class="right" id="pro-menu">
-            <li><?php echo $this->Html->link('Dashboard',array('controller'=>'students','action'=>'home'),array('class'=>'np-menu'));?></li>
-            <li class='has-sub-menu'><?php echo $this->Html->link('Apply for quiz',array('controller'=>'students','action'=>'test_application',$activeUser['User']['id']),array('class'=>'np-menu'));?></li>
             <li class='has-sub-menu'>
               <a id='usr-a'><?php
                 if(empty($activeUser['User']['path'])){
@@ -90,7 +64,7 @@
                     ?> &nbsp;&nbsp;<?php echo $activeUser['User']['name']; ?>
               </a>
               <ul class='sub-menu'>
-                <li><?php echo $this->Html->link('Edit Profile',array('controller'=>'students','action'=>'edit_profile',$activeUser['User']['id'])); ?></li>
+                <li><?php echo $this->Html->link('Edit Profile',array('controller'=>'users','action'=>'edit_pro',$activeUser['User']['id'])); ?></li>
                 <li><?php echo $this->Html->link('Logout',array('controller'=>'users','action'=>'logout')); ?></li>
 
               </ul>

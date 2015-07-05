@@ -7,7 +7,7 @@ class EbooksController extends AppController{
 		$this->Auth->allow('ebook_contribute');
 	}
 	public function ebook_contribute(){
-		$this->layout="profile_layout";
+		$this->layout="site_layout";
 		$sb=$this->SubLiterature->find('all');
 		$sl=array();
 		foreach ($sb as $key => $value) {
