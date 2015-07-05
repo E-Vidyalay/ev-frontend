@@ -1,8 +1,5 @@
 <div class="row radius">
-<br class="hide-for-small hide-for-medium" />
-<br class="hide-for-small hide-for-medium" />
 	<div class="row" style="background:#fff;padding:20px">
-	<h3 id="post-head">ન્જીઓ</h3>
 			<div class="columns large-12" id="li-ebooks">
 			<table id="example" class=" display responsive" cellspacing="0" width="100%">
 		    <thead>

@@ -1,6 +1,4 @@
 <div class="row radius">
-<br class="hide-for-small hide-for-medium" />
-<br class="hide-for-small hide-for-medium" />
 	<div class="columns large-2 latest-pane hide-for-small hide-for-medium" style="position: fixed;width: 200px;">
 		<h6 style="text-align:center"> <i class="fa fa-book"></i>&nbsp;&nbsp;નવું</h6>
 		<div class="seperator"></div>
@@ -31,7 +29,6 @@
 		</ul>
 	</div>
 	<div class="columns large-10" style="background: #fff;">
-	<h3 id="post-head">વિડીયો લાઇબ્રેરી</h3>
 		<div class="row">
 			<div class="columns large-9 hide-for-small hide-for-medium">
 				<ul class="vi-menu vi">
