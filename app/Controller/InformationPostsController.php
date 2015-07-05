@@ -12,7 +12,7 @@
 			$cdate=$date->format('Y-m-d');
 			$info=$this->InformationPost->find('all',array('conditions'=>array('DATE(InformationPost.updated_at) >'=>$cdate)));
 			$this->set('latest',$info);
-			$this->layout='literature';
+			$this->layout='site_layout';
 			
 			$this->set('posts',$this->InformationPost->find('all'));
 			

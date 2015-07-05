@@ -3,7 +3,7 @@
 		public $uses=array('User','Student','Subject','TestApplication','QuestionBank','Topic');
 
 		public function home(){
-			$this->layout='student_layout';
+			$this->layout='site_layout';
 			$student=$this->Student->find('first',array('conditions'=>array('Student.user_id'=>$this->Auth->user('id'))));
 			$th=$this->TestApplication->find('all',array('conditions'=>array('TestApplication.student_id'=>$student['Student']['id'])));
 			$this->set('test_history',$th);
@@ -11,7 +11,7 @@
 		}
 
 		public function test_application($id=null){
-			$this->layout='student_layout';
+			$this->layout='site_layout';
 			$student=$this->Student->find('first',array('conditions'=>array('Student.user_id'=>$id)));
 			$this->set('student_id',$student['Student']['id']);
 			$subjects=$this->Topic->find('list',array('fields'=>array('id','display_name')));
@@ -21,7 +21,7 @@
 		}
 
 		public function give_test($id){
-			$this->layout='student_layout';
+			$this->layout='site_layout';
 			$this->set('test_id',$id);
 			$test=$this->TestApplication->findById($id);
 			$questions=array();
@@ -48,7 +48,7 @@
 			}
 		}
 		public function edit_profile($id){
-			$this->layout="student_layout";
+			$this->layout="site_layout";
 			$stu=$this->User->findById($id);
 			$uid=$stu['User']['id'];
 			$this->set('id',$uid);

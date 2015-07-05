@@ -12,7 +12,7 @@ class HobbylobbyPostsController extends AppController {
 		$cdate=$date->format('Y-m-d');
 		$lt=$this->HobbylobbyPost->find('all',array('conditions'=>array('DATE(HobbylobbyPost.updated_at) >'=>$cdate)));
 		$this->set('latest',$lt);
-		$this->layout='literature';
+		$this->layout='site_layout';
 		$hb=$this->Hobby->find('all');
 		$this->set('hb',$hb);
 		$shb=$this->SubHobby->find('all');

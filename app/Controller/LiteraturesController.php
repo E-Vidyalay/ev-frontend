@@ -10,7 +10,7 @@
 			$cdate=$date->format('Y-m-d');
 			$lt=$this->Ebook->find('all',array('conditions'=>array('DATE(Ebook.updated_at) >'=>$cdate)));
 			$this->set('latest',$lt);
-			$this->layout='literature';
+			$this->layout='site_layout';
 			$lt=$this->Literature->find('all');
 			$this->set('lit',$lt);
 			$slt=$this->SubLiterature->find('all');

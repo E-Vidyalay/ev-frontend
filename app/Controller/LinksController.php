@@ -13,7 +13,7 @@ class LinksController extends AppController {
 		$cdate=$date->format('Y-m-d');
 		$lt=$this->Link->find('all',array('conditions'=>array('DATE(Link.updated_at) >'=>$cdate)));
 		$this->set('latest',$lt);
-		$this->layout='video_layout';
+		$this->layout='site_layout';
 		$lt=$this->Topic->find('all');
 		$this->set('lit',$lt);
 		$slt=$this->SubTopic->find('all');

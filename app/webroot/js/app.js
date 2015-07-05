@@ -11,6 +11,12 @@ $(document).ready(function(){
 	$(".accordion-navigation > div").first().addClass("active");
 	$(".side-nav > li").first().addClass("li-active");
 });
+$(".has-option").mouseover(function(){
+    $(this).children(".option-1").show();
+});
+$(".has-option").mouseout(function(){
+    $(this).children(".option-1").hide();
+});
 $(".course-menu > ul > li > a").mouseover(function(){
 	var a=$(this).attr('data-target');
 	$(".subject-menu").hide();
