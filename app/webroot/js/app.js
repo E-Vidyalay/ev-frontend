@@ -11,12 +11,6 @@ $(document).ready(function(){
 	$(".accordion-navigation > div").first().addClass("active");
 	$(".side-nav > li").first().addClass("li-active");
 });
-$(".has-option").mouseover(function(){
-    $(this).children(".option-1").show();
-});
-$(".has-option").mouseout(function(){
-    $(this).children(".option-1").hide();
-});
 $(".course-menu > ul > li > a").mouseover(function(){
 	var a=$(this).attr('data-target');
 	$(".subject-menu").hide();
@@ -42,6 +36,12 @@ $(".has-sub-menu").mouseout(function(){
 	$(this).children(".sub-menu").hide();
     $(this).children(".sub-menu-2").hide();
 	$(this).children("a").removeClass('usr-active');
+})
+$(".has-sub-menu-login").mouseover(function(){
+    $(this).children(".sub-menu-log").show();
+});
+$(".has-sub-menu-login").mouseout(function(){
+    $(this).children(".sub-menu-log").hide();
 })
 $(".has-sub-menu-lit").mouseover(function(){
 	$(this).children(".sub-menu-lit").show();
