@@ -5,8 +5,10 @@
 		<ul style="list-style:square;font-size:13px;">
 			<?php
 				if(count($latest)>0){
-					foreach ($latest as $key => $value) {
-						echo "<li style='padding-top:5px;'><a class='watch_i' id='".$value['InformationPost']['id']."'>".$value['InformationPost']['title']."</a></li> ";
+					for ($i=0;$i<sizeof($latest);$i++) {
+						if($i<7){
+						echo "<li style='padding-top:5px;'><a class='watch_i' id='".$latest[$i]['InformationPost']['id']."'>".$latest[$i]['InformationPost']['title']."</a></li> ";
+						}
 					}	
 				}
 				else{

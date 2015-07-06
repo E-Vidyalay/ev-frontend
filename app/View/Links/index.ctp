@@ -5,11 +5,13 @@
 		<ul style="list-style:square;font-size:13px;">
 			<?php
 				if(count($latest)>0){
-					foreach ($latest as $key => $value) {
-						if($value['SubTopic']['id']!=NULL){
-						echo "<li style='padding-top:5px;'><a class='watch_v' id='".$value['Link']['id']."'>".$value['Link']['link_title']." : ".$value['Topic']['display_name']." - ".$value['SubTopic']['name']."</a></li> ";
+					for ($i=0;$i<sizeof($latest);$i++) {
+						if($i<7){
+						if($latest[$i]['SubTopic']['id']!=NULL){
+						echo "<li style='padding-top:5px;'><a class='watch_v' id='".$latest[$i]['Link']['id']."'>".$latest[$i]['Link']['link_title']." : ".$latest[$i]['Topic']['display_name']." - ".$latest[$i]['SubTopic']['name']."</a></li> ";
 						}else{
-							echo "<li style='padding-top:5px;'><a class='watch_v' id='".$value['Link']['id']."'>".$value['Link']['link_title']." : ".$value['Topic']['display_name']."</a></li> ";
+							echo "<li style='padding-top:5px;'><a class='watch_v' id='".$latest[$i]['Link']['id']."'>".$latest[$i]['Link']['link_title']." : ".$latest[$i]['Topic']['display_name']."</a></li> ";
+						}
 						}
 					}
 				}
@@ -32,6 +34,7 @@
 		<div class="row">
 			<div class="columns large-9 hide-for-small hide-for-medium">
 				<ul class="vi-menu vi">
+
 					<?php
 						foreach($levels as $l){
 							echo "<li style='background:".$l['Level']['color']."'><a id='".$l['Level']['id']."'>".$l['Level']['level_name']."</a></li>";
