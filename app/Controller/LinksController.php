@@ -11,7 +11,7 @@ class LinksController extends AppController {
 	public function index(){
 		$date = new DateTime('15 days ago');
 		$cdate=$date->format('Y-m-d');
-		$lt=$this->Link->find('all',array('conditions'=>array('DATE(Link.updated_at) >'=>$cdate)));
+		$lt=$this->Link->find('all',array('conditions'=>array('DATE(Link.updated_at) >'=>$cdate,'allow'=>1),'order'=>array('Link.updated_at'=>'desc')));
 		$this->set('latest',$lt);
 		$this->layout='site_layout';
 		$lt=$this->Topic->find('all');
@@ -19,7 +19,7 @@ class LinksController extends AppController {
 		$slt=$this->SubTopic->find('all');
 		$this->set('slit',$slt);
 		$this->set('subjects',$this->Subject->find('all'));
-		$this->set('videos',$this->Link->find('all'));
+		$this->set('videos',$this->Link->find('all',array('conditions'=>array('allow'=>1),'order'=>array('Link.updated_at'=>'desc'))));
 		$this->set('levels',$this->Level->find('all',array('order'=>array('Level.updated_at'=>'asc'))));
 	}
 	public function link_contribute(){
@@ -72,7 +72,7 @@ class LinksController extends AppController {
 	public function get_no_sub($id=null){
 		$this->layout='ajax';
 		$this->set('tps',$this->Topic->findById($id));
-		$links=$this->Link->find('all',array('conditions'=>array('Link.topic_id'=>$id)));
+		$links=$this->Link->find('all',array('conditions'=>array('Link.topic_id'=>$id,'allow'=>1),'order'=>array('Link.updated_at'=>'desc')));
 		$this->set('links',$links);
 		if(count($links)>0){
 		$this->set('comments',$this->VideoComment->find('all',array('conditions'=>array('video_id'=>$links[0]['Link']['id']))));
@@ -135,7 +135,7 @@ class LinksController extends AppController {
 		$sub=$this->Topic->findById($sb['Topic']['id']);
 		$this->set('subTopic',$sb);
 		$this->set('tps',$sub);
-		$links=$this->Link->find('all',array('conditions'=>array('Link.sub_topic_id'=>$id)));
+		$links=$this->Link->find('all',array('conditions'=>array('Link.sub_topic_id'=>$id,'allow'=>1),'order'=>array('Link.updated_at'=>'desc')));
 		$this->set('links',$links);
 		if(count($links)>0){
 		$this->set('comments',$this->VideoComment->find('all',array('conditions'=>array('video_id'=>$links[0]['Link']['id']))));

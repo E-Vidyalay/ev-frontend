@@ -707,7 +707,12 @@
   	color: white;
   	text-align: center;
 }
-
-	color: #fff;
-	background-color: #4787d0;
-	border-radius: 3px;
+.postBylist{
+  margin-bottom: 0px;
+  margin-left: 0px;
+}
+.postBylist .listitem{
+	display: inline;
+	list-style: none;
+  	padding-right: 20px
+}

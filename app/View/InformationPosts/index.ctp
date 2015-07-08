@@ -59,6 +59,7 @@
 				<div class="row"><div class="columns large-8">
 				<?php
 					foreach ($posts as $key => $value) {
+						$date=date('M j Y',strtotime($value['InformationPost']['updated_at']));
 						echo "<div class='post-pane'>";
 								echo "<div class='post-pane-heading'>";
 									echo $value['InformationPost']['title'];
@@ -67,8 +68,11 @@
 									echo $value['InformationPost']['meta_description'];
 								echo "</div>";
 								echo "<div class='post-pane-heading'>";
-									echo " <b>By</b> ".$value['Admin']['name'];
+									echo '<ul class="postBylist">';
+									echo '<li class="listitem"><i class="fa fa-calendar fa-fw"></i>'.$date.'</li>';
+									echo "<li class='listitem'><b>By</b> ".$value['Admin']['name']."</li>";
 									echo "<span class='right'><a class='watch_i read-link ' id='".$value['InformationPost']['id']."'>Read more</a></span>";
+									echo '</ul>';
 								echo "</div>";
 							echo "</div>";?>
 						<?php

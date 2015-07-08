@@ -10,14 +10,14 @@ class HobbylobbyPostsController extends AppController {
 	public function index(){
 		$date = new DateTime('15 days ago');
 		$cdate=$date->format('Y-m-d');
-		$lt=$this->HobbylobbyPost->find('all',array('conditions'=>array('DATE(HobbylobbyPost.updated_at) >'=>$cdate)));
+		$lt=$this->HobbylobbyPost->find('all',array('conditions'=>array('DATE(HobbylobbyPost.updated_at) >'=>$cdate),'order'=>array('HobbylobbyPost.updated_at'=>'desc')));
 		$this->set('latest',$lt);
 		$this->layout='site_layout';
 		$hb=$this->Hobby->find('all');
 		$this->set('hb',$hb);
 		$shb=$this->SubHobby->find('all');
 		$this->set('shb',$shb);
-		$this->set('posts',$this->HobbylobbyPost->find('all'));
+		$this->set('posts',$this->HobbylobbyPost->find('all',array('order'=>array('HobbylobbyPost.updated_at'=>'desc'))));
 		$this->set('levels',$this->Level->find('all',array('order'=>array('Level.updated_at'=>'asc'))));
 	}
 	public function get_hobby($id=null){
@@ -36,7 +36,7 @@ class HobbylobbyPostsController extends AppController {
 		$hobbys=$this->SubHobby->find('all',array('conditions'=>array('SubHobby.hobby_id'=>$hb_id)));
 		$this->layout='ajax';
 		$this->set('subhobbys',$hobbys);
-		$this->set('hbps',$this->HobbylobbyPost->find('all'));
+		$this->set('hbps',$this->HobbylobbyPost->find('all',array('order'=>array('HobbylobbyPost.updated_at'=>'desc'))));
 	}
 	function get_posts($id){
 		$this->layout='ajax';
@@ -45,7 +45,7 @@ class HobbylobbyPostsController extends AppController {
 		$this->set('subHobby',$sub);
 		//pr($hob);die();
 		$this->set('tps',$hob);
-		$posts=$this->HobbylobbyPost->find('all',array('conditions'=>array('HobbylobbyPost.sub_hobby_id'=>$sub['SubHobby']['id'])));
+		$posts=$this->HobbylobbyPost->find('all',array('conditions'=>array('HobbylobbyPost.sub_hobby_id'=>$sub['SubHobby']['id']),'order'=>array('HobbylobbyPost.updated_at'=>'desc')));
 		//pr($posts);die();
 		$this->set('posts',$posts);
 		if(count($posts)>0){

@@ -26,6 +26,7 @@
 		<div class='urls-embed'>
 			<?php
 				echo "<div class='post-pane'>";
+								$date=date('M j Y',strtotime($posts[0]['HobbylobbyPost']['updated_at']));
 								echo "<div class='post-pane-heading'>";
 									echo $posts[0]['HobbylobbyPost']['title'];
 								echo "</div>";
@@ -33,7 +34,10 @@
 									echo $posts[0]['HobbylobbyPost']['meta_description'];
 								echo "</div>";
 								echo "<div class='post-pane-heading'>";
-									echo "<b>For </b>".$posts[0]['Level']['level_name'].", <b>By</b> ".$posts[0]['Admin']['name'];
+									echo '<ul class="postBylist">';
+									echo '<li class="listitem"><i class="fa fa-calendar fa-fw"></i>'.$date.'</li>';
+									echo "<li class='listitem'><b>For </b>".$posts[0]['Level']['level_name']."</li><li class='listitem'><b>By</b> ".$posts[0]['Admin']['name']."</li>";
+									echo '</ul>';
 								echo "</div>";
 							echo "</div>";
 							?>

@@ -83,6 +83,7 @@
 				<?php
 					if(count($posts)>0){
 						foreach ($posts as $key => $value) {
+							$date=date('M j Y',strtotime($value['LiteraturePost']['updated_at']));
 							echo "<div class='post-pane'>";
 								echo "<div class='post-pane-heading'>";
 									echo $value['LiteraturePost']['title'];
@@ -91,8 +92,11 @@
 									echo $value['LiteraturePost']['meta_description'];
 								echo "</div>";
 								echo "<div class='post-pane-heading'>";
-									echo "<b>For </b>".$value['Level']['level_name'].", <b>By</b> ".$value['Admin']['name'];
+									echo '<ul class="postBylist">';
+									echo '<li class="listitem"><i class="fa fa-calendar fa-fw"></i>'.$date.'</li>';
+									echo "<li class='listitem'><b>For </b>".$value['Level']['level_name']."</li><li class='listitem'><b>By</b> ".$value['Admin']['name']."</li>";
 									echo "<span class='right'><a class='read-link get-lit-post' id='".$value['LiteraturePost']['id']."'>Read more</a></span>";
+									echo '</ul>';
 								echo "</div>";
 							echo "</div>";
 						}

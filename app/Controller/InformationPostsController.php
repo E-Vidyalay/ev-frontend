@@ -10,11 +10,11 @@
 		public function index(){
 			$date = new DateTime('15 days ago');
 			$cdate=$date->format('Y-m-d');
-			$info=$this->InformationPost->find('all',array('conditions'=>array('DATE(InformationPost.updated_at) >'=>$cdate)));
+			$info=$this->InformationPost->find('all',array('conditions'=>array('DATE(InformationPost.updated_at) >'=>$cdate),'order'=>array('InformationPost.updated_at'=>'desc')));
 			$this->set('latest',$info);
 			$this->layout='site_layout';
 			
-			$this->set('posts',$this->InformationPost->find('all'));
+			$this->set('posts',$this->InformationPost->find('all',array('order'=>array('InformationPost.updated_at'=>'desc'))));
 			
 		}
 		public function view_post($id=null){
