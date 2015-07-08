@@ -341,7 +341,7 @@
 	padding:5px 5px;
 }
 .sub-menu-2 >li > a{
-	font-size: 13px;
+	font-size: 14px;
 }
 .sub-menu-log{
 	position: absolute;
@@ -488,6 +488,7 @@
 .lt-menu >li >a{
 	text-decoration:none;
     color:#fff;
+    font-size: 14px;
 }
 .vi-menu{
 	margin-left: -1px;
@@ -603,6 +604,7 @@
 }
 .latest-pane > ul li a{
 	color:#fff;
+	font-size: 14px;
 }
 .usr-img-preview{
 	height:150px;

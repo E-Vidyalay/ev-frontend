@@ -1,5 +1,5 @@
 <div id="sub_cat_list" class="panel callout" style="padding:0.25rem">
-	<?php echo "<a href='#' style='font-size:13px;padding:2px' class='topic_fetch' id='".$subject['Subject']['id']."/".$subject['Topic']['level_id']."'>".$subject['Subject']['name']."</a> / <a href='#' style='font-size:13px'>".$subject['Topic']['name']."</a>";
+	<?php echo "<a href='#' style='font-size:13px;padding:2px' class='topic_fetch' id='".$subject['Subject']['id']."/".$subject['Topic']['level_id']."'>".$subject['Subject']['name']."</a> / ".$subject['Topic']['name'];
 	 ?>
 </div>
 <div class="row">
