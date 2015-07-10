@@ -744,11 +744,15 @@
     left: 0;
     bottom: 0;
     opacity: 0.86;
-    background: #544360;
+    background: #A0B7DE;
     color: #fff;
     padding: 20px;
     right:0;
     text-align: center
+}
+.overlay ul{
+	list-style-type: none;
+	text-align: left;
 }
 #home-content:before{
 	width: 103px;
@@ -765,8 +769,9 @@
 	margin-top: 50px;
 	text-align: center;
 }
-.overlay-text h4{
+.overlay-text{
 	color: white;
+	font-size: 25px;
 }
 .overlay-text:hover{
 	color: white;
