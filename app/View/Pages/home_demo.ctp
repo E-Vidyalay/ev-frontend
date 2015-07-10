@@ -11,7 +11,7 @@
 		echo '<div class="columns large-3">';
 		echo '<div class="level-div" style="background-color:'.$value['Level']['color'].'">';
 		echo '<h2 align="center" style="color:white; margin-top:60px;">'.$value['Level']['level_name'].'</h2>';
-		echo '<div class="overlay">
+		echo '<div class="overlay" style="background-color:'.$value['Level']['color'].'">
 				<ul>
 				<li>'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-play-circle-o fa-fw')) . " વિડીયો લાઇબ્રેરી",array('controller'=>'Pages','action'=>'latest_video',$value['Level']['id']),array('escape' => false,'class'=>'overlay-text')).'</li>
 				<li>'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-smile-o fa-fw')) . " હોબીલોબી",array('controller'=>'Pages','action'=>'latest_post',$value['Level']['id']),array('escape' => false,'class'=>'overlay-text')).'</li>

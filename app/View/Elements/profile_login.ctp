@@ -24,7 +24,7 @@
         <li><?php echo $this->Html->link('Edit Profile',array('controller'=>'users','action'=>'edit_pro',$activeUser['User']['id'])); ?></li>
         <li><?php echo $this->Html->link('Logout',array('controller'=>'users','action'=>'logout')); ?></li>
         <li><label>ઈ-વિદ્યાલય</label></li>
-        <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-home fa-fw')) . " પ્રવેશદ્વાર",array('controller'=>'pages','action'=>'home'),array('escape' => false)); ?></li>
+        <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-home fa-fw')) . " પ્રવેશદ્વાર",array('controller'=>'Pages','action'=>'home_demo'),array('escape' => false)); ?></li>
         <li class='has-sub-menu'><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-play-circle-o fa-fw')) . " વિડીયો લાઇબ્રેરી",array('controller'=>'Links','action'=>'index'),array('escape' => false)); ?></li>
         <li class='has-sub-menu'><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-smile-o fa-fw')) . " હોબીલોબી",array('controller'=>'HobbylobbyPosts','action'=>'index'),array('escape' => false)); ?></li>
         <li class="has-submenu"><a href="#"><i class="fa fa-file fa-fw"></i>ન્જીઓ</a>
@@ -76,7 +76,7 @@
     </div>
     <section class="user-menu hide-for-small hide-for-medium">
       <ul>
-        <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-home fa-fw')) . " પ્રવેશદ્વાર",array('controller'=>'pages','action'=>'home'),array('escape' => false)); ?></li>
+        <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-home fa-fw')) . " પ્રવેશદ્વાર",array('controller'=>'Pages','action'=>'home_demo'),array('escape' => false)); ?></li>
         <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-play-circle-o fa-fw')) . " વિડીયો લાઇબ્રેરી",array('controller'=>'Links','action'=>'index'),array('escape' => false)); ?></li>
         <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-smile-o fa-fw')) . " હોબીલોબી",array('controller'=>'HobbylobbyPosts','action'=>'index'),array('escape' => false)); ?></li>
         <li class="has-sub-menu-login"><a><i class="fa fa-file fa-fw"></i>ન્જીઓ</a><ul class='sub-menu-log'>

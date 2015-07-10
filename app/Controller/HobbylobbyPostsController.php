@@ -22,7 +22,7 @@ class HobbylobbyPostsController extends AppController {
 	}
 	public function get_hobby($id=null){
 		$this->layout='ajax';
-		$topics=$this->HobbylobbyPost->find('all',array('conditions'=>array('level_id'=>$id)));
+		$topics=$this->Hobby->find('all');
 		if(count($topics)>0){
 			$this->set('hobbys',$topics);
 			$this->set('lid',$id);
