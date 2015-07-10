@@ -13,7 +13,7 @@
 			<ul id='subl-subhb'>
 			<?php
 			foreach ($subhobbys as $key => $value) {
-				echo "<li><a href='#' id='".$value['SubHobby']['id']."'><i class='fa fa-arrow-circle-right'></i>&nbsp;&nbsp;&nbsp;".$value['SubHobby']['name']."</a></li>";
+				echo "<li><a href='#' id='".$value['SubHobby']['id']."/".$lid."'><i class='fa fa-arrow-circle-right'></i>&nbsp;&nbsp;&nbsp;".$value['SubHobby']['name']."</a></li>";
 			}
 			?>
 			</ul>

@@ -22,30 +22,31 @@ class HobbylobbyPostsController extends AppController {
 	}
 	public function get_hobby($id=null){
 		$this->layout='ajax';
-		$topics=$this->Hobby->find('all',array('conditions'=>array('level_id'=>$id)));
+		$topics=$this->HobbylobbyPost->find('all',array('conditions'=>array('level_id'=>$id)));
 		if(count($topics)>0){
 			$this->set('hobbys',$topics);
+			$this->set('lid',$id);
 		}
 		else{
 			$this->set('err','Sorry, no Hobbies found for this level');
 		}
 		
 	}
-	function get_sub_hobby($hb_id=null){
+	function get_sub_hobby($hb_id=null,$lid=null){
 		$this->set('hobby',$this->Hobby->findById($hb_id));
 		$hobbys=$this->SubHobby->find('all',array('conditions'=>array('SubHobby.hobby_id'=>$hb_id)));
 		$this->layout='ajax';
 		$this->set('subhobbys',$hobbys);
-		$this->set('hbps',$this->HobbylobbyPost->find('all',array('order'=>array('HobbylobbyPost.updated_at'=>'desc'))));
+		$this->set('lid',$lid);
 	}
-	function get_posts($id){
+	function get_posts($id=null,$lid=null){
 		$this->layout='ajax';
 		$sub=$this->SubHobby->findById($id);
 		$hob=$this->Hobby->findById($sub['SubHobby']['hobby_id']);
 		$this->set('subHobby',$sub);
 		//pr($hob);die();
 		$this->set('tps',$hob);
-		$posts=$this->HobbylobbyPost->find('all',array('conditions'=>array('HobbylobbyPost.sub_hobby_id'=>$sub['SubHobby']['id']),'order'=>array('HobbylobbyPost.updated_at'=>'desc')));
+		$posts=$this->HobbylobbyPost->find('all',array('conditions'=>array('HobbylobbyPost.sub_hobby_id'=>$sub['SubHobby']['id'],'HobbylobbyPost.level_id'=>$lid),'order'=>array('HobbylobbyPost.updated_at'=>'desc')));
 		//pr($posts);die();
 		$this->set('posts',$posts);
 		if(count($posts)>0){
