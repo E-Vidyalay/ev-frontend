@@ -51,7 +51,7 @@ class PagesController extends AppController {
         //     'Form' => array('userModel' => 'User')
         // );
 
-         $this->Auth->allow('index','display');
+         $this->Auth->allow('index','display','home_demo');
     }
 
 	public function display() {
@@ -100,6 +100,9 @@ class PagesController extends AppController {
 		}
 
 
+	}
+	public function home_demo(){
+		$this->layout='site_layout';
 	}
 }
 
