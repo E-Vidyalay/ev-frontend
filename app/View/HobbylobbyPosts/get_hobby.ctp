@@ -11,7 +11,7 @@
 			<ul id='hobs' class='sb'>
 				<?php
 					foreach ($hobbys as $key => $value) {
-						echo "<li><a id='".$value['Hobby']['id']."'>".$value['Hobby']['name']."</a></li>";
+						echo "<li><a id='".$value['Hobby']['id']."/".$lid."'>".$value['Hobby']['name']."</a></li>";
 					}
 				?>
 			</ul>
