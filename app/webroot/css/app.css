@@ -743,7 +743,7 @@
     top: 0;
     left: 0;
     bottom: 0;
-    opacity: 0.86;
+    opacity: 0.75;
     background: #A0B7DE;
     color: #fff;
     padding: 20px;
@@ -772,8 +772,12 @@
 .overlay-text{
 	color: white;
 	font-size: 25px;
+	opacity: 1;
 }
 .overlay-text:hover{
 	color: white;
 	text-decoration: underline;
+}
+.link_video{
+	font-size: 25px;
 }

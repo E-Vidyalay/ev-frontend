@@ -733,3 +733,19 @@ $(document).on('click','.btn-rply-comment',function(event){
      return false;  //stop the actual form post !important!
 
   });
+
+//code for latest video view
+$(document).on('click','.link_video',function(event){  
+    alert($(this).attr('id'));
+    var u=baseUrl+'/Links/view_video/'+$(this).attr('id');
+    $.ajax({
+        url:u,
+        success:function(data){
+                $("#vi-cont").html(data);
+                alert(u);
+        }
+        error:function(e){
+            alert("Sorry there was error :"+u);
+        }
+    });
+})
