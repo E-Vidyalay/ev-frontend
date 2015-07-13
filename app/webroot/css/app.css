@@ -781,3 +781,31 @@
 .link_video{
 	font-size: 25px;
 }
+.kindergarden {
+    background-image: url("../img/baalmandir.png");
+    background-repeat: no-repeat;
+    background-size: 100px 100px;
+    display: block;
+}
+.primary-edu {
+    background-image: url("../img/primary.png");
+    background-repeat: no-repeat;
+    background-size: 100px 100px;
+    display: block;
+}
+.second-edu {
+    background-image: url("../img/secondary.png");
+    background-repeat: no-repeat;
+    background-size: 100px 100px;
+    display: block;
+}
+.high-second-edu {
+    background-image: url("../img/high-second.png");
+    background-repeat: no-repeat;
+    background-size: 100px 100px;
+    display: block;
+}
+.sprite-60659-200 {
+    width: 100px;
+    height: 100px;
+}
