@@ -14,7 +14,7 @@
 		echo '<br/>';
 		if($value['Level']['id']=="5568340b-2a04-474b-9568-326f125f2f23"){
 			echo '<div align="center">';
-			echo '<i class="center kindergarden sprite-60659-200 large-centered"></i></div>';
+			echo '<i class="center kindergarden sprite-60659-200"></i></div>';
 		}
 		else if($value['Level']['id']=="1308ef4a-1275-11e5-84c6-418bf323d4bd"){
 			echo '<div align="center">';
