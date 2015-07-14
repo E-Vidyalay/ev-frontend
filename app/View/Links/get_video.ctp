@@ -3,7 +3,8 @@
     <?php echo $links['Link']['link_title'];?>
   </div>
   <?php
-    echo '<iframe width="100%" height="415" src="'.$links['Link']['link_url'].'" frameborder="0" allowfullscreen style="padding:15px;border:1px solid #dfdfdf;"></iframe>';
+  	echo '<div class="flex-video">';
+    echo '<iframe width="100%" height="415" src="'.$links['Link']['link_url'].'" frameborder="0" allowfullscreen style="padding:15px;border:1px solid #dfdfdf;"></iframe></div>';
   ?>
 
   	<div class="comments">
