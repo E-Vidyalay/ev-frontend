@@ -12,6 +12,7 @@
 		echo '';
 		echo '<div class="level-div" style="background-color:'.$value['Level']['color'].'">';
 		echo '<br/>';
+		echo '<br/>';
 		if($value['Level']['id']=="5568340b-2a04-474b-9568-326f125f2f23"){
 			echo '<div align="center">';
 			echo '<i class="center kindergarden sprite-60659-200"></i></div>';
@@ -29,7 +30,7 @@
 			echo '<div align="center">';
 			echo '<i class="high-second-edu sprite-60659-200"></i></div>';
 		}
-		echo '<h2 align="center" style="color:white;">'.$value['Level']['level_name'].'</h2>';
+		echo '<h4 align="center" style="color:white;">'.$value['Level']['level_name'].'</h4>';
 		echo '<div class="overlay" style="background-color:'.$value['Level']['color'].'">
 				<ul>
 				<li>'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-play-circle-o fa-fw')) . " વિડીયો લાઇબ્રેરી",array('controller'=>'Pages','action'=>'latest_video',$value['Level']['id']),array('escape' => false,'class'=>'overlay-text')).'</li>

@@ -34,7 +34,7 @@ class PagesController extends AppController {
  *
  * @var array
  */
-	public $uses = array('Article','Level','HobbylobbyPost','Ebook','LiteraturePost');
+	public $uses = array('Article','Level','HobbylobbyPost','Ebook','LiteraturePost','VideoComment','VideoReply','HobbylobbyComment','HobbylobbyReply','LiteratureComment','LiteratureReply');
 
 
     public function beforeFilter()
@@ -51,7 +51,7 @@ class PagesController extends AppController {
         //     'Form' => array('userModel' => 'User')
         // );
 
-         $this->Auth->allow('index','display','home_demo','latest_video','latest_post','latest_ebook','latest_lekh');
+         $this->Auth->allow('index','display','home_demo','latest_video','latest_post','latest_ebook','latest_lekh','watch_video','watch_post','watch_lekh');
     }
 
 	public function display() {
@@ -108,21 +108,44 @@ class PagesController extends AppController {
 	public function latest_video($lid=NULL){
 		$this->layout='site_layout';
 		//pr($this->Link->find('all',array('conditions'=>array('Topic.level_id'=>$lid,'allow'=>1))));die();
-		$this->set('links',$this->Link->find('all',array('conditions'=>array('Topic.level_id'=>$lid,'allow'=>1))));
+		$this->set('links',$this->Link->find('all',array('conditions'=>array('Topic.level_id'=>$lid,'allow'=>1),'order'=>array('Link.updated_at'=>'desc'))));
 	}
 	public function latest_post($lid=NULL){
 		$this->layout='site_layout';
-		pr($this->HobbylobbyPost->find('all',array('conditions'=>array('HobbylobbyPost.level_id'=>$lid))));die();
-		$this->set('posts',$this->HobbylobbyPost->find('all',array('conditions'=>array('HobbylobbyPost.level_id'=>$lid))));	
+		//pr($this->HobbylobbyPost->find('all',array('conditions'=>array('HobbylobbyPost.level_id'=>$lid))));die();
+		$this->set('posts',$this->HobbylobbyPost->find('all',array('conditions'=>array('HobbylobbyPost.level_id'=>$lid),'order'=>array('HobbylobbyPost.updated_at'=>'desc'))));	
 	}
 	public function latest_ebook($lid=NULL){
 		$this->layout='site_layout';
-		pr($this->Ebook->find('all',array('conditions'=>array('Ebook.level_id'=>$lid,'allow'=>1))));die();	
+		//pr($this->Ebook->find('all',array('conditions'=>array('Ebook.level_id'=>$lid,'allow'=>1),'order'=>array('Ebook.updated_at'=>'desc'))));die();	
+		$this->set('books',$this->Ebook->find('all',array('conditions'=>array('Ebook.level_id'=>$lid,'allow'=>1),'order'=>array('Ebook.updated_at'=>'desc'))));
 	}
 	public function latest_lekh($lid=NULL){
 		$this->layout='site_layout';
-		pr($this->LiteraturePost->find('all',array('conditions'=>array('LiteraturePost.level_id'=>$lid))));die();	
+		//pr($this->LiteraturePost->find('all',array('conditions'=>array('LiteraturePost.level_id'=>$lid),'order'=>array('LiteraturePost.updated_at'=>'desc'))));die();	
+		$this->set('posts',$this->LiteraturePost->find('all',array('conditions'=>array('LiteraturePost.level_id'=>$lid),'order'=>array('LiteraturePost.updated_at'=>'desc'))));
 	}
+	public function watch_video($id=NULL){
+		$this->layout='ajax';
+		$this->set('links',$this->Link->findById($id));
+		$c=$this->VideoComment->find('all',array('conditions'=>array('video_id'=>$id)));
+		$this->set('comments',$c);
+		$this->set('replies',$this->VideoReply->find('all'));
+	}
+	public function watch_post($id=NULL){
+		$l=$this->HobbylobbyPost->findById($id);
+		$this->layout='ajax';
+		$this->set('post',$l);
+		$c=$this->HobbylobbyComment->find('all',array('conditions'=>array('post_id'=>$id)));
+		$this->set('comments',$c);
+		$this->set('replies',$this->HobbylobbyReply->find('all'));
+	}
+	public function watch_lekh($id=null){
+			$this->layout='ajax';
+			$this->set('value',$this->LiteraturePost->findById($id));
+			$this->set('comments',$this->LiteratureComment->find('all',array('conditions'=>array('post_id'=>$id))));
+			$this->set('replies',$this->LiteratureReply->find('all'));
+		}
 }
 
 

@@ -734,18 +734,55 @@ $(document).on('click','.btn-rply-comment',function(event){
 
   });
 
-//code for latest video view
-$(document).on('click','.link_video',function(event){  
-    alert($(this).attr('id'));
-    var u=baseUrl+'/Links/view_video/'+$(this).attr('id');
-    // $.ajax({
-    //     url:u,
-    //     success:function(data){
-    //             $("#vi-cont").html(data);
-    //             alert(u);
-    //     }
-    //     error:function(e){
-    //         alert("Sorry there was error :"+u);
-    //     }
-    // });
+//code for latest video view in home latest
+$(document).on('click','.link_video',function(event){
+    var id=$(this).attr('id');
+    var u=baseUrl+'/Pages/watch_video/'+$(this).attr('id');
+    $('.loading').show();
+    $.ajax({
+        url:u,
+        success:function(data){
+            $("#watch_video").html(data);
+            $("#watch_video").slideDown();
+            $('.loading').hide();
+        },
+        error:function(e){
+            alert("Sorry there was error :"+u);
+            $('.loading').hide();
+        }
+    });
+})
+$(document).on('click','.link_post',function(event){
+    var id=$(this).attr('id');
+    var u=baseUrl+'/Pages/watch_post/'+$(this).attr('id');
+    $('.loading').show();
+    $.ajax({
+        url:u,
+        success:function(data){
+            $("#watch_post").html(data);
+            $("#watch_post").slideDown();
+            $('.loading').hide();
+        },
+        error:function(e){
+            alert("Sorry there was error :"+u);
+            $('.loading').hide();
+        }
+    });
+})
+$(document).on('click','.link_lekh',function(event){
+    var id=$(this).attr('id');
+    var u=baseUrl+'/Pages/watch_lekh/'+$(this).attr('id');
+    $('.loading').show();
+    $.ajax({
+        url:u,
+        success:function(data){
+            $("#watch_post").html(data);
+            $("#watch_post").slideDown();
+            $('.loading').hide();
+        },
+        error:function(e){
+            alert("Sorry there was error :"+u);
+            $('.loading').hide();
+        }
+    });
 })

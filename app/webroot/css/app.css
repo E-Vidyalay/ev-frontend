@@ -743,7 +743,7 @@
     top: 0;
     left: 0;
     bottom: 0;
-    opacity: 0.75;
+    opacity: 0.86;
     background: #A0B7DE;
     color: #fff;
     padding: 20px;
@@ -771,7 +771,7 @@
 }
 .overlay-text{
 	color: white;
-	font-size: 25px;
+	font-size: 22px;
 	opacity: 1;
 }
 .overlay-text:hover{
@@ -779,7 +779,16 @@
 	text-decoration: underline;
 }
 .link_video{
-	font-size: 25px;
+	font-size: 16px;
+}
+.link_post{
+	font-size: 16px;
+}
+.link_lekh{
+	font-size: 16px;
+}
+.link_book{
+	font-size: 16px;
 }
 .kindergarden {
     background-image: url("../img/baalmandir.png");
