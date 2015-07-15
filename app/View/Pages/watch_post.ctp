@@ -1,4 +1,3 @@
-<hr>
 <div class="row">
 <div class="columns large-12">
 <?php
