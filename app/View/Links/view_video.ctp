@@ -1,9 +1,11 @@
-
+<div class="row">
+<div class="columns large-8">
   <div class='ev-box-head'>
     <?php echo $links['Link']['link_title'];?>
   </div>
   <?php
-    echo '<iframe width="100%" height="415" src="'.$links['Link']['link_url'].'" frameborder="0" allowfullscreen style="padding:15px;border:1px solid #dfdfdf;"></iframe>';
+  echo '<div class="flex-video">';
+    echo '<iframe width="100%" height="415" src="'.$links['Link']['link_url'].'" frameborder="0" allowfullscreen style="padding:15px;border:1px solid #dfdfdf;"></iframe></div>';
   ?>
 
   	<div class="comments">
@@ -119,4 +121,24 @@
 		</div>
 	</div>
 </div>
+</div>
+<div class="columns large-4">
+<div style="padding:15px;border:1px solid #dfdfdf;">
+<h5>Links Details:</h5>
+<?php echo $links['Link']['tags'];?>
+<br/>
+<br/>
+<h7><b>Video Belongs to Category:</b></h7>
+<br/>
+
+<?php 
+if($links['SubTopic']['id']!=NULL){
+	echo $links['Topic']['display_name'].' - '.$links['SubTopic']['name'];	
+}
+else{
+	echo $links['Topic']['display_name'];	
+}
+?></div></div>
+</div>
+
 
