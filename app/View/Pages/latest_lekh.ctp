@@ -1,8 +1,7 @@
 <br/>
-<br/>
-<div class="content-card" id="home-content">
+<div class="content-card large-10 small-12 large-offset-1 small-offset-0" id="home-content">
 	<div class="row">
-	<h3 class="head-navu">નવા પોસ્ટ</h3>
+	<h3 class="head-navu">નવા સાહિત્ય લેખ</h3>
 	</div>
 	<div class="row">
 	<div class="columns large-12 large-offset-0">
@@ -11,7 +10,7 @@
 		  if(!empty($posts)){ 
 		  	for ($i=0;$i<sizeof($posts);$i++) {
 		  		if($i<10){
-				echo '<li aria-label="Thumbnail" class="th">'.$this->Html->tag('i', '', array('class' => 'fa fa-smile-o fa-fw')).'&nbsp;&nbsp;<a class="link_lekh" id="'.$posts[$i]['LiteraturePost']['id'].'">'.$posts[$i]['LiteraturePost']['title'].'</a></li>';
+				echo '<li>'.$this->Html->tag('i', '', array('class' => 'fa fa-smile-o fa-fw')).'&nbsp;&nbsp;<a class="link_lekh" id="'.$posts[$i]['LiteraturePost']['id'].'">'.$posts[$i]['LiteraturePost']['title'].'</a></li>';
 				}
 		  	}
 		  }

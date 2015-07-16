@@ -825,6 +825,9 @@
 #latest_ul >li{
 	padding: 10px;
 }
+#latest_ul >li:hover{
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+}
 #latest_ul >li>a:hover {
 	text-decoration: underline;
 }

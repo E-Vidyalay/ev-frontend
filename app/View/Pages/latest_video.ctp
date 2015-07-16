@@ -1,6 +1,5 @@
 <br/>
-<br/>
-<div class="content-card" id="home-content">
+<div class="content-card large-10 small-12 large-offset-1 small-offset-0" id="home-content">
 	<div class="row">
 	<h3 class="head-navu">નવા વિડીયો</h3>
 	</div>
@@ -11,7 +10,7 @@
 		  if(!empty($links)){ 
 		  	for ($i=0;$i<sizeof($links);$i++) {
 		  		if($i<10){
-				echo '<li aria-label="Thumbnail" class="th">'.$this->Html->tag('i', '', array('class' => 'fa fa-play-circle-o fa-1x')).'&nbsp;&nbsp;<a class="link_video" id="'.$links[$i]['Link']['id'].'" class="">'.$links[$i]['Link']['link_title'].'</a></li>';
+				echo '<li>'.$this->Html->tag('i', '', array('class' => 'fa fa-play-circle-o fa-1x')).'&nbsp;&nbsp;<a class="link_video" id="'.$links[$i]['Link']['id'].'" class="">'.$links[$i]['Link']['link_title'].'</a></li>';
 				}
 		  	}
 		  }

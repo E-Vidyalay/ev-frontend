@@ -1,6 +1,6 @@
 <br/>
 <br/>
-<div class="content-card" id="home-content">
+<div class="content-card large-10 small-12 large-offset-1 small-offset-0" id="home-content">
 	<div class="row">
 	<h3 class="head-navu">નવા ઇ-બુક</h3>
 	</div>
@@ -12,7 +12,7 @@
 		  	for ($i=0;$i<sizeof($books);$i++) {
 		  		if($i<10){
 		  			if($books[$i]['Ebook']['contributed']==0){
-					echo '<li aria-label="Thumbnail" class="th">'.$this->Html->tag('i', '', array('class' => 'fa fa-book fa-fw')).'&nbsp;&nbsp;<a target="_blank" href="'.$admin_url.'/files/ebook/path/'.$books[$i]['Ebook']['id']."/".$books[$i]['Ebook']['path'].'"  class="link_book">'.$books[$i]['Ebook']['name'].'</a></li>';
+					echo '<li>'.$this->Html->tag('i', '', array('class' => 'fa fa-book fa-fw')).'&nbsp;&nbsp;<a target="_blank" href="'.$admin_url.'/files/ebook/path/'.$books[$i]['Ebook']['id']."/".$books[$i]['Ebook']['path'].'"  class="link_book">'.$books[$i]['Ebook']['name'].'</a></li>';
 				}
 				else{
 					echo '<li>'.$this->Html->tag('i', '', array('class' => 'fa fa-book fa-fw')).'&nbsp;&nbsp;<a target="_blank" href="'.$this->webroot.'files/ebook/path/'.$books[$i]['Ebook']['id']."/".$books[$i]['Ebook']['path'].'"  class="link_book">'.$books[$i]['Ebook']['name'].'</a></li>';	

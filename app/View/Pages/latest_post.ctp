@@ -1,6 +1,5 @@
 <br/>
-<br/>
-<div class="content-card" id="home-content">
+<div class="content-card large-10 small-12 large-offset-1 small-offset-0" id="home-content">
 	<div class="row">
 	<h3 class="head-navu">નવા પોસ્ટ</h3>
 	</div>
@@ -11,7 +10,7 @@
 		  if(!empty($posts)){ 
 		  	for ($i=0;$i<sizeof($posts);$i++) {
 		  		if($i<10){
-				echo '<li aria-label="Thumbnail" class="th">'.$this->Html->tag('i', '', array('class' => 'fa fa-smile-o fa-fw')).'&nbsp;&nbsp;<a class="link_post" id="'.$posts[$i]['HobbylobbyPost']['id'].'">'.$posts[$i]['HobbylobbyPost']['title'].'</a></li>';
+				echo '<li>'.$this->Html->tag('i', '', array('class' => 'fa fa-smile-o fa-fw')).'&nbsp;&nbsp;<a class="link_post" id="'.$posts[$i]['HobbylobbyPost']['id'].'">'.$posts[$i]['HobbylobbyPost']['title'].'</a></li>';
 				}
 		  	}
 		  }
