@@ -8,7 +8,7 @@
 		}
 		public function index(){
 			$this->layout='site_layout';
-			$this->set('news',$this->NewsLetter->find('all'));
+			$this->set('news',$this->NewsLetter->find('all',array('order'=>array('NewsLetter.date'=>'desc'))));
 		}
 
 		public function sharenews($id = NULL)
