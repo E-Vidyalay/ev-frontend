@@ -818,3 +818,13 @@
     width: 100px;
     height: 100px;
 }
+#latest_ul{
+	border: 3px solid #ccc;
+	margin-bottom: 10px;
+}
+#latest_ul >li{
+	padding: 10px;
+}
+#latest_ul >li>a:hover {
+	text-decoration: underline;
+}
