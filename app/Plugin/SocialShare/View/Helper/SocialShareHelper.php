@@ -52,7 +52,7 @@ class SocialShareHelper extends AppHelper {
 		'delicious' => 'fa-delicious',
 		'digg' => 'fa-digg',
 		'email' => 'fa-envelope',
-		'facebook' => 'fa-facebook',
+		'facebook' => 'fa-facebok-square fa-2x',
 		'google' => 'fa-google',
 		'gplus' => 'fa-google-plus',
 		'linkedin' => 'fa-linkedin',
@@ -60,7 +60,7 @@ class SocialShareHelper extends AppHelper {
 		'reddit' => 'fa-reddit',
 		'stumbleupon' => 'fa-stumbleupon',
 		'tumblr' => 'fa-tumblr',
-		'twitter' => 'fa-twitter',
+		'twitter' => 'fa-twitter-square fa-2x',
 		'whatsapp' => 'fa-whatsapp'
 	);
 
