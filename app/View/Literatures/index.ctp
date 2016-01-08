@@ -26,9 +26,6 @@
 						}
 					}
 				}
-				else{
-					echo "<a style='font-size:15px;color:#fff;cursor: default;'>કઈ નવું ઉપલબ્ધ નથી</a> ";
-				}
 
 			?>
 		</ul>

@@ -61,7 +61,7 @@ class SocialShareHelper extends AppHelper {
 		'stumbleupon' => 'fa-stumbleupon',
 		'tumblr' => 'fa-tumblr',
 		'twitter' => 'fa-twitter-square fa-2x',
-		'whatsapp' => 'fa-whatsapp fa-2x'
+		'whatsapp' => 'fa-whatsapp'
 	);
 
 /**

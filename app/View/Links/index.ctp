@@ -114,11 +114,10 @@
 			</table>
 			</div>
 		</div>
-		<div class="loading" role="dialog">
-			<i class="fa fa-spinner fa-pulse fa-3x"></i>
-			<!--<?php
+		<div class="loading">
+			<?php
 				echo $this->Html->image('loader.gif');
-			?>-->
+			?>
 		</div>
 		</div>
 	</div>
