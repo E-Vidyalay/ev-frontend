@@ -10,6 +10,7 @@ $(document).ready(function(){
 	$(".accordion-navigation > div").removeClass("active");
 	$(".accordion-navigation > div").first().addClass("active");
 	$(".side-nav > li").first().addClass("li-active");
+    $('.english').hide();
 });
 $(".course-menu > ul > li > a").mouseover(function(){
 	var a=$(this).attr('data-target');
@@ -104,13 +105,19 @@ $(".usr-img-preview").click(function(){
 });
     function readURL(input) {
         if (input.files && input.files[0]) {
-            var reader = new FileReader();
+            if(window.File && window.FileReader && window.FileList && window.Blob){
+                var reader = new FileReader();
 
-            reader.onload = function (e) {
-                $('#blah').attr('src', e.target.result);
+                reader.onload = function (e) {
+                    $('#blah').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);    
             }
-
-            reader.readAsDataURL(input.files[0]);
+            else{
+                alert("Browser not suporting file Upload");
+            }
+            
         }
     }
 
@@ -786,3 +793,11 @@ $(document).on('click','.link_lekh',function(event){
         }
     });
 })
+$('.gu-btn').click(function(){
+        $('.english').hide();
+        $('.gujarati').show();
+});
+$('.eng-btn').click(function(){
+        $('.gujarati').hide(); 
+        $('.english').show();        
+});

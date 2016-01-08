@@ -35,7 +35,7 @@
 </div>
 
 
-<div id="register" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+<div id="register" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog" style="position: fixed;">
  
         <br />
         <div class="login_dialouge_heading">Sign up and become member of our community</div>

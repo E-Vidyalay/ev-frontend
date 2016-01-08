@@ -19,6 +19,11 @@
 			echo '&nbsp;&nbsp;';
 			echo 'Share on: ';
 			echo $this->SocialShare->fa(
+				'whatsapp',
+				$link
+				);
+			echo '&nbsp;&nbsp;';
+			echo $this->SocialShare->fa(
 				'facebook',
 				$link
 				);
