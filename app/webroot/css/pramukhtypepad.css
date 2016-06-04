@@ -12,7 +12,7 @@ img {border:0px;}
 .clear {clear:both;}
 .editor {width:100%; border:1px solid #bbb; border-collapse:collapse; }
 .editortoolbar {background:#EEEEEE; height:26px; width:100%;border:1px solid #bbb; padding:0px;}
-textarea { height:376px; padding:0px; border:0px; width:100%; overflow:auto;}
+/*textarea { height:376px; padding:0px; border:0px; width:100%; overflow:auto;}*/
 .bottom {border-top:2px solid #FF6600; padding-top:4px;}
 .copyright {text-align:center;}
 .big {font-size:14px;}

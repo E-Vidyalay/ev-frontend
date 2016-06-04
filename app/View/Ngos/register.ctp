@@ -2,7 +2,7 @@
 <div class="row" >
             
             <div class="columns large-6 panel large-offset-3 medium-8 small-offset-1 small-10 medium-offset-2" style="background:#fff;padding:20px">
-                <h4 align="center">Sign up</h4>
+                <h4 align="center">NGO Sign up</h4>
                 <hr/>
             <?php echo $this->Form->create('Ngo', array('type'=>'file','controller'=>'NGOs','action'=>'register','class' => 'main-form')); ?>
                 <?php

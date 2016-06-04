@@ -65,13 +65,13 @@
 				    		</tr>
 				            <tr>
 				                <td>
-				                <?php echo $this->Form->input('text',array('type'=>'textarea','id'=>'typingarea','class'=>'bigger','cols'=>'64','rows'=>'5'));?>
+				                <?php echo $this->Form->input('reply',array('type'=>'textarea','id'=>'typingarea','class'=>'bigger','cols'=>'64','rows'=>'5'));?>
 				                <!-- <textarea id="typingarea" name="typingarea" rows="5" cols="64" class="bigger" spellcheck="false"></textarea> --></td>
 				            </tr>
 				        </table>
 
 					<?php
-						  echo $this->Js->submit('Post', array(
+						  echo $this->Js->submit('Reply', array(
 							
 							'update'=>'#success','class'=>'button btn-rply-comment tiny radius','id'=>'btn_'.$value['InformationComment']['id']
 							 ));
@@ -121,7 +121,7 @@
         </table>
 
 		<?php
-			  echo $this->Js->submit('Post', array(
+			  echo $this->Js->submit('Comment', array(
 				
 				'update'=>'#success','id'=>'btn2','class'=>'button tiny radius'
 				 ));

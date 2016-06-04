@@ -81,7 +81,7 @@ else{
 				        </table>
 
 					<?php
-						  echo $this->Js->submit('Post', array(
+						  echo $this->Js->submit('Reply', array(
 							
 							'update'=>'#success','class'=>'button btn-rply tiny radius','id'=>'btn_'.$value['VideoComment']['id']
 							 ));
@@ -130,8 +130,8 @@ else{
             </tr>
         </table>
 
-		<?
-			  echo $this->Js->submit('Post', array(
+		<?php
+			  echo $this->Js->submit('Comment', array(
 				
 				'update'=>'#success','id'=>'btn','class'=>'button tiny radius'
 				 ));
