@@ -2,7 +2,7 @@
 <div class="columns large-8 large-offset-2" style="background:#F0F0F0;">
 	<?php 
 		foreach ($news as $n) {
-			$date=date('M j Y h:m:s',strtotime($n['NewsLetter']['date']));
+			$date=date('M j Y',strtotime($n['NewsLetter']['date']));
 	?>
 		<div class="row">
 		<div class="columns" style="background:#fff;padding:10px">

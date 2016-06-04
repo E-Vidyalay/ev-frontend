@@ -18,7 +18,9 @@
                     'type'=>'file',
                     'class'=>'button tiny radius',
                     'label'=>'Please upload your contribution',
-                    'style'=>'text-align:left;width:50%'
+                    'style'=>'text-align:left;width:50%',
+                    'accept'=>'image/*',
+                    'capture'=>'camera'
                     ));
                     echo $this->Form->input('contributed',array('type'=>'hidden','value'=>1));
                 ?>

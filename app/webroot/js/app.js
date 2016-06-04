@@ -10,6 +10,7 @@ $(document).ready(function(){
 	$(".accordion-navigation > div").removeClass("active");
 	$(".accordion-navigation > div").first().addClass("active");
 	$(".side-nav > li").first().addClass("li-active");
+        $('.english').hide();
 });
 $(".course-menu > ul > li > a").mouseover(function(){
 	var a=$(this).attr('data-target');
@@ -104,13 +105,15 @@ $(".usr-img-preview").click(function(){
 });
     function readURL(input) {
         if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                $('#blah').attr('src', e.target.result);
+        	if(window.File && window.FileReader && window.FileList && window.Blob){
+	            var reader = new FileReader();
+	
+	            reader.onload = function (e) {
+	                $('#blah').attr('src', e.target.result);
+	            }
+	
+	            reader.readAsDataURL(input.files[0]);
             }
-
-            reader.readAsDataURL(input.files[0]);
         }
     }
 
@@ -135,39 +138,48 @@ $("#removeDp").on('click',function(event){
 $("#level_menu > li >a").click(function(){
     var u=baseUrl+'/Literatures/get_level_book/'+$(this).attr('id');
     console.log(u);
+    $('.loading').show();
     $.ajax({
         url:u,
         success:function(data){
             $("#example").html(data);
+            $('.loading').hide();
         },
         error:function(e){
             alert("Sorry there was error :"+u);
+            $('.loading').hide();
         }
     })
 });
 $("#slit-list > li >a").click(function(){
     var u=baseUrl+'/Literatures/get_sublit_book/'+$(this).attr('id');
     console.log(u);
+    $('.loading').show();
     $.ajax({
         url:u,
         success:function(data){
             $("#example").html(data);
+            $('.loading').hide();
         },
         error:function(e){
             alert("Sorry there was error :"+e);
+            $('.loading').hide();
         }
     })
 });
 $("#lit_menu > li > a").click(function(){
     var u=baseUrl+'/Literatures/get_lit_book/'+$(this).attr('id');
     console.log(u);
+    $('.loading').show();
     $.ajax({
         url:u,
         success:function(data){
             $("#example").html(data);
+            $('.loading').hide();
         },
         error:function(e){
             alert("Sorry there was error :"+u);
+            $('.loading').hide();
         }
     })
 });
@@ -786,3 +798,11 @@ $(document).on('click','.link_lekh',function(event){
         }
     });
 })
+$(document).on('click','.eng-btn',function(){
+    $('.english').show();
+    $('.gujarati').hide();
+});
+$(document).on('click','.gu-btn',function(){
+    $('.english').hide();
+    $('.gujarati').show();
+});

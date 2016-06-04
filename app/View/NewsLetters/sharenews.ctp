@@ -1,6 +1,6 @@
 <?php if($news!=NULL){?>
 <div class="row">
-<?php $date=date('M j Y h:m:s',strtotime($news['NewsLetter']['date']));?>
+<?php $date=date('M j Y',strtotime($news['NewsLetter']['date']));?>
 		<div class="columns large-8 large-offset-2" style="background:#fff;padding:10px">
 			<h3><?php echo $news['NewsLetter']['title']; ?></h3>
 			<hr/>

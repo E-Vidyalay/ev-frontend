@@ -251,7 +251,7 @@
     public function logout(){
         if($this->Auth->logout()){
             $this->Session->setFlash('Logged out successfully','default',array('class'=>'alert-box radius success'),'success');
-            $this->redirect(array('controller'=>'pages','action'=>'home'));
+            $this->redirect(array('controller'=>'Pages','action'=>'home_demo'));
         }
         else{
             die("error");
@@ -267,6 +267,7 @@
                 $usr=$this->Auth->user();
                 $usr['path']=$this->data['User']['path']['name'];
                 $usr['path_dir']=$id;
+                $usr['user_type']=$this->data['User']['user_type'];
                 if(isset($this->data['User']['name'])){
                     $usr['name']=$this->data['User']['name'];
                 }

@@ -238,6 +238,7 @@
 	width: 40px;
 	border-radius: 50%;
 }
+
 #pro-menu > li{
 	color: #fff;
 	float: left;
@@ -727,7 +728,6 @@
 	box-sizing: border-box;
 	overflow: hidden;
 	position: relative;
-	z-index: 20;
 	float: left;
 	padding: 16px;
 	margin-top: 10px;
@@ -830,4 +830,25 @@
 }
 #latest_ul >li>a:hover {
 	text-decoration: underline;
+}
+.english{
+	display: none;
+}
+.footer{
+	position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #054b9a;
+    opacity: 0.9;
+    padding: 10px 30px;
+    color: #fff;
+}
+.app-link{
+	color:#fff;
+}
+.app-link:hover{
+	color:#fff;
+}
+.img-circle{
+border-radius:200px;
 }

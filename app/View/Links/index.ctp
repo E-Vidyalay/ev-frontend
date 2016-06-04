@@ -15,7 +15,7 @@
 						}
 					}
 				}
-				else{
+				else if(count($videos)>=2){
 					for($i=0;$i<sizeof($videos);$i++){
 						if($i<2){
 						if($videos[$i]['SubTopic']['id']!=NULL){
@@ -26,6 +26,11 @@
 						}
 					}
 				}
+				else{
+					echo "<a style='font-size:15px;color:#fff;cursor: default;'>કઈ નવું ઉપલબ્ધ નથી</a> ";
+				}
+
+
 
 			?>
 		</ul>
@@ -115,9 +120,7 @@
 			</div>
 		</div>
 		<div class="loading">
-			<?php
-				echo $this->Html->image('loader.gif');
-			?>
+			<i class="fa fa-spinner fa-spin fa-3x"></i>
 		</div>
 		</div>
 	</div>

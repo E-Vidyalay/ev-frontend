@@ -73,8 +73,8 @@ class DATABASE_CONFIG {
 		'persistent' => false,
 		'host' => 'localhost',
 		'login' => 'root',
-		'password' => 'root',
-		'database' => 'ev',
+		'password' => '',
+		'database' => 'ev2',
 		'prefix' => 'axi_',
 		//'encoding' => 'utf8',
 	);

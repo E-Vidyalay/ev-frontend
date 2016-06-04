@@ -14,6 +14,7 @@
     echo $this->Html->script('pramukhime.js');
     echo $this->Html->script('pramukhindic.js');
     echo $this->Html->script('pramukhime-common.js');
+    echo $this->Html->meta('icon',$this->Html->url('/favicon.ico'));
   ?>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
    <script type="text/javascript">var baseUrl = '<?php echo $this->base; ?>';</script>
@@ -72,7 +73,7 @@ var ids = [ "guj-in" ];
 </head>
 <body>
 <div class="off-canvas-wrap" data-offcanvas>
-  <div class="inner-wrap">
+  <div class="inner-wrap" style='position:relative;min-height:500px'>
     <?php
     //pr($activeUser);die();
       if(empty($activeUser['User'])){
@@ -98,10 +99,14 @@ var ids = [ "guj-in" ];
             <?php echo $content_for_layout; ?>
         </div>
     </section>
-
+    <br/>
+    <br/>
+    <br/>
   <a class="exit-off-canvas"></a>
-
   </div>
+  <?php
+	echo $this->Element('footer');
+	?>
 </div>
   <?php echo $this->Element('Dialogs');
   ?>

@@ -11,12 +11,15 @@
 						}
 					}
 				}
-				else{
+				else if(count($posts)>=2){
 					for($i=0;$i<sizeof($posts);$i++){
 						if($i<2){
 							echo "<li style='padding-top:5px;'><a class='watch_p' id='".$posts[$i]['HobbylobbyPost']['id']."'>".$posts[$i]['HobbylobbyPost']['title']." : ".$posts[$i]['Hobby']['name']." - ".$posts[$i]['SubHobby']['name']." ( ".$posts[$i]['Level']['level_name'].")</a></li> ";
 						}
 					}
+				}
+				else{
+					echo "<a style='font-size:15px;color:#fff;cursor: default;'>કઈ નવું ઉપલબ્ધ નથી</a> ";
 				}
 
 			?>
@@ -91,9 +94,7 @@
 			</div>
 		</div>
 		<div class="loading">
-			<?php
-				echo $this->Html->image('loader.gif');
-			?>
+			<i class="fa fa-spinner fa-spin fa-3x"></i>
 		</div>
 		</div>
 	</div>

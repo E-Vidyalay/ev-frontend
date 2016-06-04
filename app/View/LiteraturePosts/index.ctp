@@ -11,11 +11,14 @@
 						}
 					}
 				}
-				else{
+				else if(count($posts)>=2){
 					for($i=0;$i<sizeof($posts);$i++){
 						if($i<2)
 						echo "<li style='padding-top:5px;'><a class='get-lit-post' id='".$posts[$i]['LiteraturePost']['id']."'>".$posts[$i]['LiteraturePost']['title']." : ".$posts[$i]['Literature']['name']." - ".$posts[$i]['SubLiterature']['name']." ( ".$posts[$i]['Level']['level_name'].")</a></li> ";
 					}
+				}
+				else{
+					echo "<a style='font-size:15px;color:#fff;cursor: default;'>કઈ નવું ઉપલબ્ધ નથી</a> ";
 				}
 
 			?>
@@ -107,9 +110,7 @@
 		</div>
 		</div>
 		<div class="loading">
-			<?php
-				echo $this->Html->image('loader.gif');
-			?>
+			<i class="fa fa-spinner fa-spin fa-3x"></i>
 		</div>
 	</div>
 </div>

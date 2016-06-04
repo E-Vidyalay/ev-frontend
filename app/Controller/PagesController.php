@@ -51,7 +51,7 @@ class PagesController extends AppController {
         //     'Form' => array('userModel' => 'User')
         // );
 
-         $this->Auth->allow('index','display','home_demo','latest_video','latest_post','latest_ebook','latest_lekh','watch_video','watch_post','watch_lekh');
+         $this->Auth->allow('index','display','home','latest_video','latest_post','latest_ebook','latest_lekh','watch_video','watch_post','watch_lekh','developers');
     }
 
 	public function display() {
@@ -80,7 +80,7 @@ class PagesController extends AppController {
         $article = $this->Article->find('first',array('conditions'=>array('Article.alias'=>$page)));
 
         if($article==null){
-            $this -> redirect(array('controller' => 'home', 'action' => 'index'));
+            $this -> redirect(array('controller' => 'Pages', 'action' => 'home'));
         }
 
 
@@ -101,7 +101,7 @@ class PagesController extends AppController {
 
 
 	}
-	public function home_demo(){
+	public function home(){
 		$this->layout='site_layout';
 		$this->set('levels',$this->Level->find('all',array('order'=>array('Level.updated_at'=>'asc'))));
 	}
@@ -145,7 +145,10 @@ class PagesController extends AppController {
 			$this->set('value',$this->LiteraturePost->findById($id));
 			$this->set('comments',$this->LiteratureComment->find('all',array('conditions'=>array('post_id'=>$id))));
 			$this->set('replies',$this->LiteratureReply->find('all'));
-		}
+	}
+	public function developers(){
+		$this->layout='site_layout';
+	}
 }
 
 

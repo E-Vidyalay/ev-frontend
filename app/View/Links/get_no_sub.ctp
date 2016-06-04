@@ -1,4 +1,3 @@
-
 <div id="sub_cat_list" class="panel callout" style="padding:0.25rem">
 	<?php echo "<a href='#' style='font-size:13px;padding:2px' class='topic_fetch' id='".$tps['Subject']['id']."/".$tps['Topic']['level_id']."'>".$tps['Subject']['name']."</a> / <a href='#' style='font-size:13px' class='sub_topic_fetch' id='".$tps['Topic']['id']."'>".$tps['Topic']['name']."</a>";
 	 ?>
@@ -28,7 +27,8 @@
 				<?php echo $links[0]['Link']['link_title'];?>
 			</div>
 			<?php
-				echo '<iframe width="100%" height="415" src="'.$links[0]['Link']['link_url'].'" frameborder="0" allowfullscreen style="padding:15px;border:1px solid #dfdfdf;"></iframe>';
+				echo '<div class="flex-video">';
+				echo '<iframe width="100%" height="415" src="'.$links[0]['Link']['link_url'].'" frameborder="0" allowfullscreen style="padding:15px;border:1px solid #dfdfdf;"></iframe></div>';
 			?>
 			<br/>
 			 <div class="comments">

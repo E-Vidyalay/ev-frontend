@@ -16,7 +16,7 @@
 						}
 					}
 				}
-				else if(count($books)>2){
+				else if(count($books)>=2){
 					for($i=0;$i<2;$i++){
 						if($book[$i]['Ebook']['contributed']==0){
 							echo "<li style='padding-top:5px;'><a target='_blank' href='".$admin_url."/files/ebook/path/".$books[$i]['Ebook']['id']."/".$books[$i]['Ebook']['path']."'>".$books[$i]['Ebook']['name']." : ".$books[$i]['Literature']['name']." - ".$books[$i]['SubLiterature']['name']." ( ".$books[$i]['Level']['level_name'].")</a></li> ";
@@ -26,6 +26,10 @@
 						}
 					}
 				}
+				else{
+					echo "<a style='font-size:15px;color:#fff;cursor: default;'>કઈ નવું ઉપલબ્ધ નથી</a> ";
+				}
+
 
 			?>
 		</ul>
@@ -109,7 +113,7 @@
 							echo "<td>".$value['Level']['level_name']."</td>";
 							echo "<td>";
 								if($value['Ebook']['contributed']==0){
-									echo "<a target='_blank' href='".$admin_url."/files/ebook/path/".$value['Ebook']['id']."/".$value['Ebook']['path']."' class='book-link'>Read book</a>";
+									echo "<a target='_blank' href='".$admin_url."files/ebook/path/".$value['Ebook']['id']."/".$value['Ebook']['path']."' class='book-link'>Read book</a>";
 								}
 								else{
 									echo "<a target='_blank' href='".$this->webroot."files/ebook/path/".$value['Ebook']['id']."/".$value['Ebook']['path']."' class='book-link'>Read book</a>";
@@ -134,6 +138,9 @@
 			</tbody>
 			</table>
 			</div>
+		</div>
+		<div class="loading">
+		<i class="fa fa-spinner fa-spin fa-3x"></i>
 		</div>
 		</div>
 	</div>

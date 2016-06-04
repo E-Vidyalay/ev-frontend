@@ -83,9 +83,7 @@
 			</div>
 		</div>
 		<div class="loading">
-			<?php
-				echo $this->Html->image('loader.gif');
-			?>
+			<i class="fa fa-spinner fa-spin fa-3x"></i>
 		</div>
 		</div>
 	</div>

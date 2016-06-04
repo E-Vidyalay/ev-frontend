@@ -1,4 +1,3 @@
-
 		    <thead>
 		        <tr>
 		            <th>Book Name</th>
@@ -19,7 +18,7 @@
 							echo "<td>".$value['Level']['level_name']."</td>";
 							echo "<td>";
 							if($value['Ebook']['contributed']==0){
-								echo "<a target='_blank' href='".$admin_url."/files/ebook/path/".$value['Ebook']['id']."/".$value['Ebook']['path']."' class='book-link'>Read book</a>";
+								echo "<a target='_blank' href='".$admin_url."files/ebook/path/".$value['Ebook']['id']."/".$value['Ebook']['path']."' class='book-link'>Read book</a>";
 							}
 							else{
 								echo "<a target='_blank' href='".$this->webroot."files/ebook/path/".$value['Ebook']['id']."/".$value['Ebook']['path']."' class='book-link'>Read book</a>";
