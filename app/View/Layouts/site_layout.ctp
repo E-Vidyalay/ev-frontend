@@ -20,8 +20,7 @@
    <script type="text/javascript">var baseUrl = '<?php echo $this->base; ?>';</script>
    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <script language="javascript" type="text/javascript">
-        pramukhIME.addLanguage(PramukhIndic);
-
+      pramukhIME.addLanguage(PramukhIndic);
       pramukhIME.enable();
       pramukhIME.onLanguageChange(scriptChangeCallback);
       var lang = (getCookie('pramukhime_language',':english')).split(':');

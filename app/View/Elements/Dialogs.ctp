@@ -34,7 +34,6 @@
 <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 
-
 <div id="register" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
  
         <br />
