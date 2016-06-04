@@ -16,7 +16,7 @@
 			             $this->render('success','ajax');
 			             $id=$this->LiteratureReply->getInsertID();
 						 $r=$this->LiteratureReply->findById($id);
-			             echo "<div class='res'> Reply from - <b>".$r['LiteratureReply']['name']."</b>, ".$r['LiteratureReply']['email']."<br/>".$r['LiteratureReply']['text']."<span class='right'>".$r['LiteratureReply']['updated_at']."</span></div> ";
+			             echo "<div class='res'> Reply from - <b>".$r['LiteratureReply']['name']."</b>, ".$r['LiteratureReply']['email']."<br/>".$r['LiteratureReply']['reply']."<span class='right'>".$r['LiteratureReply']['updated_at']."</span></div> ";
 			          }else{
 
 

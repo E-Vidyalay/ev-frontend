@@ -64,13 +64,13 @@
 				    		</tr>
 				            <tr>
 				                <td>
-				                <?php echo $this->Form->input('text',array('type'=>'textarea','id'=>'typingarea','class'=>'bigger','cols'=>'64','rows'=>'5'));?>
+				                <?php echo $this->Form->input('reply',array('type'=>'textarea','id'=>'typingarea','class'=>'bigger','cols'=>'64','rows'=>'5'));?>
 				                <!-- <textarea id="typingarea" name="typingarea" rows="5" cols="64" class="bigger" spellcheck="false"></textarea> --></td>
 				            </tr>
 				        </table>
 
 					<?php
-						  echo $this->Js->submit('Post', array(
+						  echo $this->Js->submit('Reply', array(
 							
 							'update'=>'#success','class'=>'button btn-rply-lit tiny radius','id'=>'btn_'.$value['LiteratureComment']['id']
 							 ));
@@ -114,13 +114,13 @@
     		</tr>
             <tr>
                 <td>
-                <?php echo $this->Form->input('text',array('type'=>'textarea','id'=>'typingarea','class'=>'bigger','cols'=>'64','rows'=>'5'));?>
+                <?php echo $this->Form->input('comment',array('type'=>'textarea','id'=>'typingarea','class'=>'bigger','cols'=>'64','rows'=>'5'));?>
                 <!-- <textarea id="typingarea" name="typingarea" rows="5" cols="64" class="bigger" spellcheck="false"></textarea> --></td>
             </tr>
         </table>
 
-		<?
-			  echo $this->Js->submit('Post', array(
+		<?php
+			  echo $this->Js->submit('Comment', array(
 				
 				'update'=>'#success','id'=>'btn-lit-post','class'=>'button tiny radius'
 				 ));

@@ -251,7 +251,7 @@
     public function logout(){
         if($this->Auth->logout()){
             $this->Session->setFlash('Logged out successfully','default',array('class'=>'alert-box radius success'),'success');
-            $this->redirect(array('controller'=>'Pages','action'=>'home_demo'));
+            $this->redirect(array('controller'=>'Pages','action'=>'home'));
         }
         else{
             die("error");
