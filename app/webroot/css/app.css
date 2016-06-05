@@ -607,6 +607,11 @@
 	color:#fff;
 	font-size: 14px;
 }
+.latest-pane > ul li a:hover{
+	color:#fff;
+	font-size: 14px;
+	text-decoration: underline;
+}
 .usr-img-preview{
 	height:150px;
 	width: 150px;
@@ -756,6 +761,10 @@
 }
 .vis > li > a{
 	font-size: 13px;
+}
+.vis > li > a:hover{
+	font-size: 13px;
+	text-decoration: underline;
 }
 .ev-pane{
 	border-style: solid;

@@ -2,7 +2,7 @@
 <div class="columns large-8 large-offset-2" style="background:#F0F0F0;">
 	<?php 
 		foreach ($news as $n) {
-			$date=date('M j Y',strtotime($n['NewsLetter']['date']));
+			$date=date('M j Y g:i a',strtotime($n['NewsLetter']['date']));
 	?>
 		<div class="row">
 		<div class="columns" style="background:#fff;padding:10px">
@@ -13,7 +13,7 @@
 			</p>
 			<hr/>
 			<?php echo $this->Html->image('user_avatar.png',array('class'=>'usr-img')); ?>
-			<?php echo "<i style='font-size:13px'>".$n['Admin']['username'].", <i class='fa fa-clock-o fa-fw'></i>".$date."</i>"; 
+			<?php echo "<i style='font-size:13px'>".$n['Admin']['firstname']." ".$n['Admin']['lastname'].", <i class='fa fa-clock-o fa-fw'></i>".$date."</i>"; 
 			echo '<div class="right" style="background:#fff;padding:10px" align="right">';
 			$link=$this->base."/NewsLetters/sharenews/".$n['NewsLetter']['id'];
 			echo '&nbsp;&nbsp;';

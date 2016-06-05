@@ -1,6 +1,6 @@
 <div class="row"><div class="columns large-8">
 <?php
-				$date=date('M j Y',strtotime($post['HobbylobbyPost']['updated_at']));
+				$date=date('M j Y, g:i a',strtotime($post['HobbylobbyPost']['updated_at']));
 				echo "<div class='post-pane'>";
 								echo "<div class='post-pane-heading'>";
 									echo $post['HobbylobbyPost']['title'];
@@ -10,8 +10,8 @@
 								echo "</div>";
 								echo "<div class='post-pane-heading'>";
 									echo '<ul class="postBylist">';
-									echo '<li class="listitem"><i class="fa fa-calendar fa-fw"></i>'.$date.'</li>';
-									echo "<li class='listitem'><b>For </b>".$post['Level']['level_name']."</li><li class='listitem'><b>By</b> ".$post['Admin']['name']."</li>";
+									echo '<li class="listitem"><i class="fa fa-clock-o fa-fw"></i>'.$date.'</li>';
+									echo "<li class='listitem'><b>For </b>".$post['Level']['level_name']."</li><li class='listitem'><b>By</b> ".$post['Admin']['firstname']." ".$post['Admin']['lastname']."</li>";
 									echo '</ul>';
 								echo "</div>";
 							echo "</div>";
