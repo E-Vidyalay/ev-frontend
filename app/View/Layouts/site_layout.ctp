@@ -14,7 +14,7 @@
     echo $this->Html->script('pramukhime.js');
     echo $this->Html->script('pramukhindic.js');
     echo $this->Html->script('pramukhime-common.js');
-    echo $this->Html->meta('icon',$this->Html->url('/favicon.ico'));
+    echo $this->Html->meta('favicon.ico','/favicon.ico',array('type'=>'icon'));
   ?>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
    <script type="text/javascript">var baseUrl = '<?php echo $this->base; ?>';</script>
