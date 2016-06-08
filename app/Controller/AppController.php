@@ -58,11 +58,16 @@ class AppController extends Controller {
         $this->Auth->authenticate = array(
             'Form' => array('userModel' => 'User')
         );
-        $this->Auth->allow('login','signup','callback','custom_login','register','forgot_password');
+        $this->Auth->allow('login','signup','callback','custom_login','register','forgot_password','home');
         $this->activeUser = $this->Session->read('Auth');
         $this->isLoggedIn = $this->Auth->loggedIn();
         $this->set('typeList',$this->UserType->find('list'));
         $this->set('admin_url','http://ev-admin.learnlabs.in/');
+    }
+    public function beforeRender() {
+        if($this->name == 'CakeError') {
+            $this->layout = 'site_layout';
+        }
     }
     public function isAuthorized($user) {
         // Here is where we should verify the role and give access based on role

@@ -244,7 +244,7 @@
             }
             else{
                 $this->Session->setFlash('Sorry invalid username or password','default',array('class'=>'alert-box radius alert'),'error');
-                $this->redirect(array('controller'=>'pages','action'=>'home'));
+                $this->redirect(array('controller'=>'Pages','action'=>'home'));
             }
         }
     }

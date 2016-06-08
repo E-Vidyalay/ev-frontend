@@ -3,7 +3,7 @@
 		public $uses=array('TestResult','TestApplication','Student','User','QuestionBank');
 
 		public function generate_result(){
-			$this->layout='student_layout';
+			$this->layout='site_layout';
 			if($this->request->is('post')){
 				$data=$this->data['Question'];
 				for($i=0;$i<count($data);$i++){
@@ -28,7 +28,7 @@
 		}
 
 		public function get_result($id){
-			$this->layout='student_layout';
+			$this->layout='site_layout';
 			$test_data=$this->TestResult->find('all',array('conditions'=>array('TestResult.test_id'=>$id)));
 			$positive_mrk=5;
 			$negative_mrk=1;

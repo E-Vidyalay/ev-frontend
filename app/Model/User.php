@@ -18,6 +18,12 @@ class User extends AppModel
                 'rule'=>'isUnique'
             )
         ));
+    public $belongsTo=array(
+            'UserType'=>array(
+                'className'=>'UserType',
+                'foreignKey'=>'user_type',
+                'dependent'=>true
+            ));
     public function beforeSave($options = array())
     {
         parent::beforeSave($options);

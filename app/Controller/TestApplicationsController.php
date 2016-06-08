@@ -5,7 +5,7 @@
 			if($this->request->is('post')){
 				$c=$this->SubTopic->find('list',array('conditions'=>array('topic_id'=>$this->data['TestApplication']['topic_id']),'fields'=>array('id','name')));
 				if(count($c)>0){
-					$this->layout='student_layout';
+					$this->layout='site_layout';
 					$this->set('sub_topics',$c);
 					$this->set('topic_id',$this->data['TestApplication']['topic_id']);
 					$this->set('uid',$this->data['TestApplication']['uid']);
