@@ -32,21 +32,16 @@
 			<div class="columns large-3 hide-for-small hide-for-medium">
 				<li class='has-sub-menu-lit right lit-cat' style="font-size:13px">
 				  <?php
-				  	echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa')) . " View all",array('controller'=>'InformationPosts','action'=>'index'),array('escape' => false));
+				  	echo $this->Html->link("View all",array('controller'=>'InformationPosts','action'=>'index'),array('escape' => false));
 				  ?>
-	   
-	              
 	            </li>
 			</div>
 			<div class="columns large-9 hide-for-large-up">
 				<ul class="vi-menu hl">
-					
 					<li class='has-sub-menu-lit lit-cat' style="font-size:13px">
 					  <?php
-					  	echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa')) . " View all",array('controller'=>'InformationPosts','action'=>'index'),array('escape' => false));
+					  	echo $this->Html->link(" View all",array('controller'=>'InformationPosts','action'=>'index'),array('escape' => false));
 					  ?>
-	   
-	              
 	            </li>
 				</ul>
 			</div>
@@ -56,22 +51,19 @@
 		
 		<div class="row">
 			<div class="columns large-12" id="vi-cont">
+				<h2> માહિતિ મિત્ર</h2>
+				<hr/>
 				<div class="row"><div class="columns large-8">
 				<?php
 					foreach ($posts as $key => $value) {
 						$date=date('M j Y g:i a',strtotime($value['InformationPost']['updated_at']));
-						echo "<div class='post-pane'>";
-								echo "<div class='post-pane-heading'>";
-									echo $value['InformationPost']['title'];
-								echo "</div>";
-								echo "<div class='post-pane-body'>";
+						echo "<div class='panel'>";
+									echo "<a class='watch_i' id='".$value['InformationPost']['id']."'><h3 class='read-link'>".$value['InformationPost']['title']."</h3></a>";
+									echo "<div class='post-pane-body'>";
 									echo $value['InformationPost']['meta_description'];
-								echo "</div>";
-								echo "<div class='post-pane-heading'>";
 									echo '<ul class="postBylist">';
 									echo '<li class="listitem"><i class="fa fa-clock-o fa-fw"></i>'.$date.'</li>';
 									echo "<li class='listitem'><b>By</b> ".$value['Admin']['firstname']." ".$value['Admin']['lastname']."</li>";
-									echo "<span class='right'><a class='watch_i read-link ' id='".$value['InformationPost']['id']."'>Read more</a></span>";
 									echo '</ul>';
 								echo "</div>";
 							echo "</div>";?>

@@ -1,4 +1,3 @@
-
 <div id="sub_cat_list" class="panel callout" style="padding:0.25rem">
 	<?php echo "<a href='#' style='font-size:13px;padding:2px' class='hobby_fetch' id='".$tps['Hobby']['id']."'>".$tps['Hobby']['name']."</a> / ".$subHobby['SubHobby']['name'];
 	 ?>
@@ -25,18 +24,20 @@
 	<div class="columns large-9">
 		<div class='urls-embed'>
 			<?php
-				echo "<div class='post-pane'>";
+				// echo "<div class='post-pane'>";
 								$date=date('M j Y, g:i a',strtotime($posts[0]['HobbylobbyPost']['updated_at']));
-								echo "<div class='post-pane-heading'>";
-									echo $posts[0]['HobbylobbyPost']['title'];
-								echo "</div>";
+								echo "<div class='panel'>";
+								// echo "<div class='post-pane-heading'>";
+								echo "<h3>".$posts[0]['HobbylobbyPost']['title']."</h3>";
+								// echo "</div>";
 								echo "<div class='post-pane-body'>";
 									echo $posts[0]['HobbylobbyPost']['meta_description'];
-								echo "</div>";
-								echo "<div class='post-pane-heading'>";
+								// echo "</div>";
+								// echo "<div class='post-pane-heading'>";
 									echo '<ul class="postBylist">';
 									echo '<li class="listitem"><i class="fa fa-clock-o fa-fw"></i>'.$date.'</li>';
 									echo "<li class='listitem'><b>For </b>".$posts[0]['Level']['level_name']."</li><li class='listitem'><b>By</b> ".$posts[0]['Admin']['firstname']." ".$posts[0]['Admin']['lastname']."</li>";
+									echo "<li class='listitem'><b><i class='fa fa-comments fa-fw'></i></b>".count($comments)." Comments</li>";
 									echo '</ul>';
 								echo "</div>";
 							echo "</div>";

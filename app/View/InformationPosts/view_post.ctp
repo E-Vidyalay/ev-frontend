@@ -1,17 +1,23 @@
+<ul class="breadcrumbs">
+	<li><?php 
+	echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-home fa-fw'))." પ્રવેશદ્વાર",array('controller'=>'Pages','action'=>'home'),array('escape' => false));
+	?></li>
+	<li><?php 
+	echo $this->Html->link("માહિતિ મિત્ર",array('controller'=>'InformationPosts','action'=>'index'),array('escape' => false));
+	?></li>
+	<li class="current"><?php echo $value['InformationPost']['title'];?></li>
+</ul>
 <div class="row"><div class="columns large-8">
 <?php
 				$date=date('M j Y g:i a',strtotime($value['InformationPost']['updated_at']));
-				echo "<div class='post-pane'>";
-								echo "<div class='post-pane-heading'>";
-									echo $value['InformationPost']['title'];
-								echo "</div>";
+				echo "<div class='panel'>";
+									echo "<h3>".$value['InformationPost']['title']."</h3>";
 								echo "<div class='post-pane-body'>";
 									echo $value['InformationPost']['meta_description'];
-								echo "</div>";
-								echo "<div class='post-pane-heading'>";
 									echo '<ul class="postBylist">';
 									echo '<li class="listitem"><i class="fa fa-clock-o fa-fw"></i>'.$date.'</li>';
 									echo "<li class='listitem'><b>By</b> ".$value['Admin']['firstname']." ".$value['Admin']['lastname']."</li>";
+									echo "<li class='listitem'><b><i class='fa fa-comments fa-fw'></i></b> ".count($comments)."</li>";
 									echo '</ul>';
 								echo "</div>";
 							echo "</div>";

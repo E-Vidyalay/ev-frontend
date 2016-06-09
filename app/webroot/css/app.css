@@ -816,13 +816,8 @@
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#ffe8e8e8', GradientType=0);
 	background-repeat: repeat-x;
 }
-.read-link{
-	background: #43AC6A;
-	color: #fff;
-	padding: 5px;
-	border-radius: 2px;
-	margin-right: 3px;
-	font-size: 12px;
+.read-link:hover{
+	text-decoration: underline;
 }
 .post-pane-body{
 	padding: 10px;

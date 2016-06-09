@@ -56,8 +56,6 @@
 					  <?php
 					  	echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa')) . " View all",array('controller'=>'HobbylobbyPosts','action'=>'index'),array('escape' => false));
 					  ?>
-
-
 	            </li>
 				</ul>
 			</div>
@@ -71,18 +69,13 @@
 				<?php
 					foreach ($posts as $key => $value) {
 						$date=date('M j Y, g:i a',strtotime($value['HobbylobbyPost']['updated_at']));
-						echo "<div class='post-pane'>";
-								echo "<div class='post-pane-heading'>";
-									echo $value['HobbylobbyPost']['title'];
-								echo "</div>";
+						echo "<div class='panel'>";
+									echo "<a class='watch_p' id='".$value['HobbylobbyPost']['id']."'><h3 class='read-link'>".$value['HobbylobbyPost']['title']."</h3></a>";
 								echo "<div class='post-pane-body'>";
 									echo $value['HobbylobbyPost']['meta_description'];
-								echo "</div>";
-								echo "<div class='post-pane-heading'>";
 									echo '<ul class="postBylist">';
 									echo '<li class="listitem"><i class="fa fa-clock-o fa-fw"></i>'.$date.'</li>';
 									echo "<li class='listitem'><b>For </b>".$value['Level']['level_name']."</li><li class='listitem'><b>By</b> ".$value['Admin']['firstname']." ".$value['Admin']['lastname']."</li>";
-									echo "<span class='right'><a class='watch_p read-link' id='".$value['HobbylobbyPost']['id']."'>Read more</a></span>";
 									echo '</ul>';
 								echo "</div>";
 							echo "</div>";?>

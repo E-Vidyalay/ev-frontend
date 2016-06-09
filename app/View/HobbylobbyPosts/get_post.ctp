@@ -1,16 +1,17 @@
 <?php
 				$date=date('M j Y, g:i a',strtotime($post['HobbylobbyPost']['updated_at']));
-				echo "<div class='post-pane'>";
-								echo "<div class='post-pane-heading'>";
-									echo $post['HobbylobbyPost']['title'];
-								echo "</div>";
+				echo "<div class='panel'>";
+								// echo "<div class='post-pane-heading'>";
+									echo "<h3>".$post['HobbylobbyPost']['title']."</h3>";
+								// echo "</div>";
 								echo "<div class='post-pane-body'>";
 									echo $post['HobbylobbyPost']['meta_description'];
-								echo "</div>";
-								echo "<div class='post-pane-heading'>";
+								// echo "</div>";
+								// echo "<div class='post-pane-heading'>";
 									echo '<ul class="postBylist">';
 									echo '<li class="listitem"><i class="fa fa-clock-o fa-fw"></i>'.$date.'</li>';
 									echo "<li class='listitem'><b>For </b>".$post['Level']['level_name']."</li> <li class='listitem'><b>By</b> ".$post['Admin']['firstname']." ".$post['Admin']['lastname']."</li>";
+									echo "<li class='listitem'><b><i class='fa fa-comments fa-fw'></i></b>".count($comments)." Comments</li>";
 									echo '</ul>';
 								echo "</div>";
 							echo "</div>";
