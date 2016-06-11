@@ -3,7 +3,7 @@
 		public $uses=array('User','Student','Teacher');
 
 		public function home(){
-			$this->layout='teacher_layout';
+			$this->layout='site_layout';
 		}
 	}
 ?>

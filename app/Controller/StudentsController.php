@@ -58,14 +58,12 @@
 				$this->redirect(array('controller'=>'students','action'=>'home'));
 			}
 		}
-		public function edit_profile($id){
+		public function edit_profile(){
 			$this->layout="site_layout";
-			$stu=$this->User->findById($id);
-			$uid=$stu['User']['id'];
-			$this->set('id',$uid);
+			$stu=$this->User->findById($this->Auth->user('id'));
 			if(empty($this->data))
         	{
-            	$this->data=$this->User->findById($id);
+            	$this->data=$this->User->findById($this->Auth->user('id'));
         	}
 		}	
 	}

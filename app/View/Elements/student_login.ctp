@@ -44,7 +44,7 @@
                     ?> &nbsp;&nbsp;<?php echo $activeUser['User']['name']; ?></label></li>
         <li><?php echo $this->Html->link('Dashboard',array('controller'=>'students','action'=>'home'));?></li>
         <li><?php echo $this->Html->link('Apply for quiz',array('controller'=>'students','action'=>'test_application'));?></li>
-        <li><?php echo $this->Html->link('Edit Profile',array('controller'=>'students','action'=>'edit_profile',$activeUser['User']['id'])); ?></li>
+        <li><?php echo $this->Html->link('Edit Profile',array('controller'=>'students','action'=>'edit_profile')); ?></li>
         <li><?php echo $this->Html->link('Logout',array('controller'=>'users','action'=>'logout')); ?></li>
         <li><label>ઈ-વિદ્યાલય</label></li>
         <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-home fa-fw')) . " પ્રવેશદ્વાર",array('controller'=>'Pages','action'=>'home'),array('escape' => false)); ?></li>
@@ -92,7 +92,7 @@
                     ?> &nbsp;&nbsp;<?php echo $activeUser['User']['name']; ?>
               </a>
               <ul class='sub-menu'>
-                <li><?php echo $this->Html->link('Edit Profile',array('controller'=>'students','action'=>'edit_profile',$activeUser['User']['id'])); ?></li>
+                <li><?php echo $this->Html->link('Edit Profile',array('controller'=>'students','action'=>'edit_profile')); ?></li>
                 <li><?php echo $this->Html->link('Logout',array('controller'=>'users','action'=>'logout')); ?></li>
 
               </ul>

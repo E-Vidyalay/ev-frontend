@@ -3,7 +3,7 @@
 		public $uses=array('User','Student','Parents');
 
 		public function home(){
-			$this->layout='parent_layout';
+			$this->layout='site_layout';
 		}
 		public function edit_profile($id){
 			$this->layout="parent_layout";

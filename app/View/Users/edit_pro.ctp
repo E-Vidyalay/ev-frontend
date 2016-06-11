@@ -8,6 +8,8 @@
       echo $this->Form->input('name',array('type'=>'text','required','placeholder'=>'Name','label'=>'Name'));
       // echo $this->Form->input('password',array('type'=>'password','placeholder'=>'Old Password','label'=>'Old Password'));
       echo $this->Form->input('newpassword',array('type'=>'password','placeholder'=>'New Password','label'=>'New Password'));
+      echo '<hr/>';
+      echo '<label><b>If you want to change you existing email Id.</b></label>';
       echo $this->Form->input('newusername', array('label' => 'Change Email','placeholder'=>'Email','type'=>'email'));
     ?>
           <hr/>
@@ -32,8 +34,19 @@
           <div class="columns large-9">
           <?php
           echo $this->Form->input('Save Details',array('type'=>'submit','label'=>false,'div'=>false,'class'=>'button tiny radius'));
-          echo $this->Html->link('Cancel',array('controller'=>'students','action'=>'home'),array('class'=>'button tiny secondary radius'));
           echo $this->Form->end();
+          if($activeUser['User']['UserType']['name']=='Student'){
+            echo $this->Html->link('Cancel',array('controller'=>'students','action'=>'home'),array('class'=>'button tiny secondary radius'));
+          }
+          else if($activeUser['User']['UserType']['name']=='Parent'){
+            echo $this->Html->link('Cancel',array('controller'=>'parents','action'=>'home'),array('class'=>'button tiny secondary radius'));
+          }
+          else if($activeUser['User']['UserType']['name']=='Teacher'){
+            echo $this->Html->link('Cancel',array('controller'=>'teachers','action'=>'home'),array('class'=>'button tiny secondary radius'));
+          }
+          else{
+            echo $this->Html->link('Cancel',array('controller'=>'contributors','action'=>'index'),array('class'=>'button tiny secondary radius'));
+          }
           ?>
           </div>
           </div>

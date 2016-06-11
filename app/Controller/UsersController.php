@@ -46,11 +46,8 @@
 
                     // $user = $this->User->findById($user_id);
 
-                    $this->Auth->login($user['User']);
-                    $user=$this->data;
-                    $user_id=$this->User->getInsertID();
+                    $this->Auth->login();
                     $usr=$this->Auth->user();
-                    $usr['id']=$user_id;
                     $this->Session->write('Auth.User', $usr);
                     if(empty($user['User']['user_type'])) {
                         $this->redirect(array('controller'=>'users','action'=>'set_user_type',$user_id));
@@ -58,13 +55,13 @@
                     else{
                         if($user['User']['user_type']=='cb6f8154-fbbc-11e4-b148-01f8d649e9b6'){
                             $student=array();
-                            $student['user_id']=$this->User->getInsertID();
+                            $student['user_id']=$this->Auth->user('id');
                             $this->Student->save($student);
                             $this->redirect(array('controller'=>'students','action'=>'home'));
                         }
                         if($user['User']['user_type']=='cb6f95fe-fbbc-11e4-b148-01f8d649e9b6'){
                             $teacher=array();
-                            $teacher['user_id']=$this->User->getInsertID();
+                            $teacher['user_id']=$this->Auth->user('id');
                             $this->Teacher->save($teacher);
                             $this->redirect(array('controller'=>'teachers','action'=>'home'));
                         }
@@ -73,7 +70,7 @@
                         }
                         if($user['User']['user_type']=='ddd4e9c3-1ef4-11e5-a1e8-543530b4dd8d'){
                             $contri=array();
-                            $contri['user_id']=$this->User->getInsertID();
+                            $contri['user_id']=$this->Auth->user('id');
                             $this->Contributor->save($contri);
                             $this->redirect(array('controller'=>'contributors','action'=>'index'));
                         }
@@ -293,14 +290,11 @@
             }
         }
     }
-    public function edit_pro($id){
+    public function edit_pro(){
         $this->layout="site_layout";
-            $stu=$this->User->findById($id);
-            $uid=$stu['User']['id'];
-            $this->set('id',$uid);
             if(empty($this->data))
             {
-                $this->data=$this->User->findById($id);
+                $this->data=$this->User->findById($this->Auth->user('id'));
             }
         if($this->request->is('post')){
             $data=$this->Auth->user();

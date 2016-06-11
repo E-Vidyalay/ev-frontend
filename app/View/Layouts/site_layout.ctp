@@ -74,11 +74,10 @@ var ids = [ "guj-in" ];
 <div class="off-canvas-wrap" data-offcanvas>
   <div class="inner-wrap" style='position:relative;min-height:500px'>
     <?php
-    //pr($activeUser);die();
       if(empty($activeUser['User'])){
             echo $this->Element('menu');
         }
-        elseif($activeUser['User']['user_type']=='cb6f8154-fbbc-11e4-b148-01f8d649e9b6'){
+        else if($activeUser['User']['user_type']=='cb6f8154-fbbc-11e4-b148-01f8d649e9b6'){
            echo $this->Element('student_login');
         }
          else {
