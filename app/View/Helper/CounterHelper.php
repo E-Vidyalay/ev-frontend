@@ -83,6 +83,7 @@ App::uses('HtmlHelper', 'View/Helper');
             /*
             *@ If IP already set
             */
+            $data=array();
             $user = $this->Model->find("first", array(
                 'conditions' => array('ip' => $this->IP),
                 'order' => 'id DESC'
@@ -102,24 +103,26 @@ App::uses('HtmlHelper', 'View/Helper');
                 if ( ( $newTime - $user['Counter']['time'] ) > $this->TimeOut || $temp[0] < $this->Time['mday'] || $temp[1] < $this->Time['mon']) {
 
                     //More than Timeout minutes since user visited
-                    $this->data['ip'] = $this->IP;
-                    $this->data['time'] = $this->Time['hours']*60 + $this->Time['minutes'];
-                    $this->data['date_visit'] = $this->Time['mday'] . "/" . $this->Time['mon'] . "/" . $this->Time['year'];
-
-
+                    $data['ip'] = $this->IP;
+                    $data['time'] = $this->Time['hours']*60 + $this->Time['minutes'];
+                    $data['date_visit'] = $this->Time['mday'] . "/" . $this->Time['mon'] . "/" . $this->Time['year'];
+                    $data['visited_at']=date('Y-m-d H:i:s');
                     //Store new log into database
                     $this->Model->create();
-                    $this->Model->save($this->data);
+                    $this->Model->save($data);
                 }
+                // pr($data);
             }
             else{
                 //Update new data to DB
-                $this->data['ip'] = $this->IP;
-                $this->data['time'] = $this->Time['hours']*60 + $this->Time['minutes'];
-                $this->data['date_visit'] = $this->Time['mday'] . "/" . $this->Time['mon'] . "/" . $this->Time['year'];
-
+                // pr($this->IP);
+                $data['ip'] = $this->IP;
+                $data['time'] = $this->Time['hours']*60 + $this->Time['minutes'];
+                $data['date_visit'] = $this->Time['mday'] . "/" . $this->Time['mon'] . "/" . $this->Time['year'];
+                $data['visited_at']=date('Y-m-d H:i:s');
+                // pr($data);
                 $this->Model->create();
-                $this->Model->save($this->data);
+                $this->Model->save($data);
 
             }
         }
@@ -204,7 +207,7 @@ App::uses('HtmlHelper', 'View/Helper');
                 // echo "<div id='yesterday'>Yesterday : " . $this->Total_Yesterday . "</div>";
                 // echo "<div id='this_mon'>This month : " . $this->Total_Month . "</div>";
                 /* echo "<div id='prev_mon'>Previous month : " . $this->Total_Mon_Prev . "</div>"; */
-                echo "<div id='total'>Total hits : " . $this->Total_Hits . "</div>";               
+                echo "<div id='total' class='text-center'>Visitors : <span class='label'>" . $this->Total_Hits . "</span></div>";               
             echo "</div>";
         }
 

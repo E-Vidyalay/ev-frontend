@@ -95,7 +95,7 @@ var ids = [ "guj-in" ];
         </div>
         <div clas="row" id="main-content">
             <?php echo $content_for_layout; ?>
-            <?php //echo $this->Counter->_constructDB();?>
+            <?php echo $this->Counter->_constructDB();?>
         </div>
     </section>
     <br/>
