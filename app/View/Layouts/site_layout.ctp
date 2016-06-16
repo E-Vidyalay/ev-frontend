@@ -72,7 +72,7 @@ var ids = [ "guj-in" ];
 </head>
 <body>
 <div class="off-canvas-wrap" data-offcanvas>
-  <div class="inner-wrap" style='position:relative;min-height:500px'>
+  <div class="inner-wrap" style='position:relative;min-height:650px'>
     <?php
       if(empty($activeUser['User'])){
             echo $this->Element('menu');
@@ -95,7 +95,6 @@ var ids = [ "guj-in" ];
         </div>
         <div clas="row" id="main-content">
             <?php echo $content_for_layout; ?>
-            <?php echo $this->Counter->_constructDB();?>
         </div>
     </section>
     <br/>

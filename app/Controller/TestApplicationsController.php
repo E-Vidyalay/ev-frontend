@@ -7,8 +7,9 @@
 				if(count($c)>0){
 					$this->layout='site_layout';
 					$this->set('sub_topics',$c);
+					$full_topic=$this->Topic->find('list',array('fields'=>array('id','display_name'),'conditions'=>array('id'=>$this->data['TestApplication']['topic_id'])));
+					$this->set('topic_full_name',array_values($full_topic));
 					$this->set('topic_id',$this->data['TestApplication']['topic_id']);
-					$this->set('uid',$this->data['TestApplication']['uid']);
 					$this->set('student_id',$this->data['TestApplication']['student_id']);
 
 				}

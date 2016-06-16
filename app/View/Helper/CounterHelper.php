@@ -200,15 +200,13 @@ App::uses('HtmlHelper', 'View/Helper');
         //Show detail static for website
         private function ShowDetail(){
             echo $this->CounterStyle();
-            echo "<div id='counter'>";
                 // echo "<div id='ip'>Your IP : " . $this->IP . "</div>";
                 // echo "<div id='online'>Online : " . $this->User_Online . "</div>";
                 // echo "<div id='today'>Today : " . $this->Total_Today . "</div>";
                 // echo "<div id='yesterday'>Yesterday : " . $this->Total_Yesterday . "</div>";
                 // echo "<div id='this_mon'>This month : " . $this->Total_Month . "</div>";
                 /* echo "<div id='prev_mon'>Previous month : " . $this->Total_Mon_Prev . "</div>"; */
-                echo "<div id='total' class='text-center'>Visitors : <span class='label'>" . $this->Total_Hits . "</span></div>";               
-            echo "</div>";
+                echo "<div id='total' class='text-center'>Visitors : <span class='label'>" . $this->Total_Hits . "</span></div>";
         }
 
         //Stand alone css style

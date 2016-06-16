@@ -958,8 +958,7 @@
 	display: none;
 }
 .footer{
-	position: fixed;
-    bottom: 0;
+	margin-top: -50px;
     width: 100%;
     background: #054b9a;
     opacity: 0.9;

@@ -18,6 +18,9 @@
 				$subjects=$this->Topic->find('list',array('fields'=>array('id','display_name')));
 				$this->set('subjects',$subjects);
 				$this->set('uid',$this->Auth->user('id'));
+				if($this->request->is('post')){
+					$this->TestApplication->save($this->data);	
+				}
 			}
 			else{
 				$this->Session->setFlash('You are not authorized to access this Location.','default',array('class'=>'alert-box radius alert'),'error');
