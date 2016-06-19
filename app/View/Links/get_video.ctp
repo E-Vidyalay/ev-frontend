@@ -35,10 +35,20 @@
 		
   						<div id="ev-success"></div>
 							<?php 
-							echo $this->Form->create('VideoReply',array('id'=>'replyForm_'.$value['VideoComment']['id']));
-							echo $this->Form->input('name',array('required'=>'required','placeholder'=>'Name','type'=>'text','id'=>'name_'.$value['VideoComment']['id']));
-							echo $this->Form->input('email',array('required'=>'required','placeholder'=>'Email','type'=>'email','id'=>'email_'.$value['VideoComment']['id']));
-							echo $this->Form->input('comment_id',array('type'=>'hidden','value'=>$value['VideoComment']['id']));
+							if($activeUser){
+								echo 'Logged in as '.$activeUser['User']['name'];
+								echo $this->Form->create('VideoReply',array('id'=>'replyForm_'.$value['VideoComment']['id']));
+								echo $this->Form->input('name',array('type'=>'hidden','id'=>'name_'.$value['VideoComment']['id'],'value'=>$activeUser['User']['name']));
+								echo $this->Form->input('email',array('type'=>'hidden','id'=>'email_'.$value['VideoComment']['id'],'value'=>$activeUser['User']['username']));
+								echo $this->Form->input('comment_id',array('type'=>'hidden','value'=>$value['VideoComment']['id']));
+							}
+							else{
+								echo $this->Form->create('VideoReply',array('id'=>'replyForm_'.$value['VideoComment']['id']));
+								echo $this->Form->input('name',array('required'=>'required','placeholder'=>'Name','type'=>'text','id'=>'name_'.$value['VideoComment']['id']));
+								echo $this->Form->input('email',array('required'=>'required','placeholder'=>'Email','type'=>'email','id'=>'email_'.$value['VideoComment']['id']));
+								echo $this->Form->input('comment_id',array('type'=>'hidden','value'=>$value['VideoComment']['id']));
+							}
+							
 						?>
 						<table cellpadding="3" cellspacing="0" border="1" class="editor">
 				    		<tr class="editortoolbar" >
@@ -85,10 +95,20 @@
 		
   <div id="ev-success"></div>
 			<?php 
-			echo $this->Form->create('VideoComment',array('id'=>'VideoCommentGetVideoForm'));
-			echo $this->Form->input('name',array('required'=>'required','placeholder'=>'Name','type'=>'text'));
-			echo $this->Form->input('email',array('required'=>'required','placeholder'=>'Email','type'=>'email'));
-			echo $this->Form->input('video_id',array('type'=>'hidden','value'=>$links['Link']['id']));
+			if($activeUser){
+				echo 'Logged in as '.$activeUser['User']['name'];
+				echo $this->Form->create('VideoComment',array('id'=>'VideoCommentGetVideoForm'));
+				echo $this->Form->input('name',array('type'=>'hidden','value'=>$activeUser['User']['name']));
+				echo $this->Form->input('email',array('type'=>'hidden','value'=>$activeUser['User']['username']));
+				echo $this->Form->input('video_id',array('type'=>'hidden','value'=>$links['Link']['id']));	
+			}
+			else{
+				echo $this->Form->create('VideoComment',array('id'=>'VideoCommentGetVideoForm'));
+				echo $this->Form->input('name',array('required'=>'required','placeholder'=>'Name','type'=>'text'));
+				echo $this->Form->input('email',array('required'=>'required','placeholder'=>'Email','type'=>'email'));
+				echo $this->Form->input('video_id',array('type'=>'hidden','value'=>$links['Link']['id']));
+			}
+			
 		?>
 		<table cellpadding="3" cellspacing="0" border="1" class="editor">
     		<tr class="editortoolbar" >

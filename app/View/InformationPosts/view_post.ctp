@@ -51,10 +51,20 @@
 		
   						<div id="ev-success"></div>
 							<?php 
-							echo $this->Form->create('InformationReply',array('id'=>'replyForm_'.$value['InformationComment']['id']));
-							echo $this->Form->input('name',array('required'=>'required','placeholder'=>'Name','type'=>'text','id'=>'name_'.$value['InformationComment']['id']));
-							echo $this->Form->input('email',array('required'=>'required','placeholder'=>'Email','type'=>'email','id'=>'email_'.$value['InformationComment']['id']));
-							echo $this->Form->input('comment_id',array('type'=>'hidden','value'=>$value['InformationComment']['id']));
+							if($activeUser){
+								echo 'Logged in as '.$activeUser['User']['name'];
+								echo $this->Form->create('InformationReply',array('id'=>'replyForm_'.$value['InformationComment']['id']));
+								echo $this->Form->input('name',array('type'=>'hidden','id'=>'name_'.$value['InformationComment']['id'],'value'=>$activeUser['User']['name']));
+								echo $this->Form->input('email',array('type'=>'hidden','id'=>'email_'.$value['InformationComment']['id'],'value'=>$activeUser['User']['username']));
+								echo $this->Form->input('comment_id',array('type'=>'hidden','value'=>$value['InformationComment']['id']));	
+							}
+							else{
+								echo $this->Form->create('InformationReply',array('id'=>'replyForm_'.$value['InformationComment']['id']));
+								echo $this->Form->input('name',array('required'=>'required','placeholder'=>'Name','type'=>'text','id'=>'name_'.$value['InformationComment']['id']));
+								echo $this->Form->input('email',array('required'=>'required','placeholder'=>'Email','type'=>'email','id'=>'email_'.$value['InformationComment']['id']));
+								echo $this->Form->input('comment_id',array('type'=>'hidden','value'=>$value['InformationComment']['id']));
+							}
+							
 						?>
 						<table cellpadding="3" cellspacing="0" border="1" class="editor">
 				    		<tr class="editortoolbar" >
@@ -101,10 +111,19 @@
 		
   <div id="ev-success"></div>
 			<?php 
-			echo $this->Form->create('InformationComment',array('id'=>'InformationCommentGetForm'));
-			echo $this->Form->input('name',array('required'=>'required','placeholder'=>'Name','type'=>'text'));
-			echo $this->Form->input('email',array('required'=>'required','placeholder'=>'Email','type'=>'email'));
-			echo $this->Form->input('post_id',array('type'=>'hidden','value'=>$value['InformationPost']['id']));
+			if($activeUser){
+				echo 'Logged in as '.$activeUser['User']['name'];
+				echo $this->Form->create('InformationComment',array('id'=>'InformationCommentGetForm'));
+				echo $this->Form->input('name',array('type'=>'hidden','value'=>$activeUser['User']['name']));
+				echo $this->Form->input('email',array('type'=>'hidden','value'=>$activeUser['User']['username']));
+				echo $this->Form->input('post_id',array('type'=>'hidden','value'=>$value['InformationPost']['id']));
+			}
+			else{
+				echo $this->Form->create('InformationComment',array('id'=>'InformationCommentGetForm'));
+				echo $this->Form->input('name',array('required'=>'required','placeholder'=>'Name','type'=>'text'));
+				echo $this->Form->input('email',array('required'=>'required','placeholder'=>'Email','type'=>'email'));
+				echo $this->Form->input('post_id',array('type'=>'hidden','value'=>$value['InformationPost']['id']));
+			}
 		?>
 		<table cellpadding="3" cellspacing="0" border="1" class="editor">
     		<tr class="editortoolbar" >
