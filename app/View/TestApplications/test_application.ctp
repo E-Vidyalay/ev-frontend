@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="columns large-8 large-offset-2">
-		<div class="content-card">
+		<div class="content-card small-12 small-offset-0">
 			<h3>ક્વિઝ આપો</h3>
 			<h4 class="subheader"><small>મૂળ પાઠ:</small> <?php echo $topic_full_name[0];?></h4>
 		<hr/>
@@ -18,10 +18,11 @@
 						</li>
 						<li><h5>જો તમે સમગ્ર વિષય માટે ક્વિઝ આપવા માંગો છો, તો પછી Start પર ક્લિક કરો.</h5>
 						</li>
+						<li><h5>પ્રશ્નોની સંખ્યા: 10</h5></li>
 						</ul>
 						</blockquote>';
 				echo "<div class='text-center'>";
-				echo $this->Form->input('Start',array('type'=>'submit','div'=>false,'label'=>false,'class'=>'button tiny success radius'));
+				echo $this->Form->input('Start',array('type'=>'submit','div'=>false,'label'=>false,'class'=>'button small success radius'));
 				echo '</div>'
 			?>
 			</form>

@@ -1,8 +1,8 @@
 <div class="row">
 
-	<div class="large-6 columns large-offset-3" style="background:#fff">
+	<div class="columns large-6 large-offset-3 medium-10 medium-offset-1 small-12 panel" style="background:#fff">
 	<br/>
-	<b>You reports for quiz on <?php echo $test_meta['Topic']['display_name'];?></b>
+	<b>Your Report for quiz on <?php echo $test_meta['Topic']['display_name'];?></b>
 	<hr/>
 	<table width="100%">
 		<tr>
@@ -20,5 +20,6 @@
 			<td><?php echo $obtained; ?></td>
 		</tr>
 	</table>
+
 	</div>
 </div>

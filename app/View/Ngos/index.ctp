@@ -1,6 +1,8 @@
 <div class="row radius">
 	<div class="row" style="background:#fff;padding:20px">
 			<div class="columns large-12" id="li-ebooks">
+			<h4 align="center">List of N.G.Os under Evidyalay</h4>
+			<hr/>
 			<table id="example" class=" display responsive" cellspacing="0" width="100%">
 		    <thead>
 		        <tr>

@@ -72,7 +72,7 @@ var ids = [ "guj-in" ];
 </head>
 <body>
 <div class="off-canvas-wrap" data-offcanvas>
-  <div class="inner-wrap" style='position:relative;min-height:650px'>
+  <div class="inner-wrap" style='position:relative;'>
     <?php
       if(empty($activeUser['User'])){
             echo $this->Element('menu');
@@ -84,7 +84,7 @@ var ids = [ "guj-in" ];
            echo $this->Element('profile_login');
          }
     ?>
-    <section class="main-section" style="margin-top: -30px;">
+    <section class="main-section" style="margin-top: -30px;min-height:600px;">
       <!-- content goes here -->
         <div class="ev-alert">
             <?php
@@ -100,11 +100,11 @@ var ids = [ "guj-in" ];
     <br/>
     <br/>
     <br/>
+      <?php
+        echo $this->Element('footer');
+      ?>
   <a class="exit-off-canvas"></a>
   </div>
-  <?php
-	echo $this->Element('footer');
-	?>
 </div>
   <?php echo $this->Element('Dialogs');
   ?>

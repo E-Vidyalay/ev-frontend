@@ -4,6 +4,9 @@
             <div class="columns large-6 panel large-offset-3 medium-8 small-offset-1 small-10 medium-offset-2" style="background:#fff;padding:20px">
                 <h4 align="center">NGO Sign up</h4>
                 <hr/>
+                <blockquote>
+                    <p>તમારા એનજીઓ evidyalay હેઠળ સાઇન અપ કરવા માંગે છે, તો પછી તમે નીચેની વિગતો ભરી શકો છો</p>
+                </blockquote>
             <?php echo $this->Form->create('Ngo', array('type'=>'file','controller'=>'NGOs','action'=>'register','class' => 'main-form')); ?>
                 <?php
                 echo $this->Form->label('first_name', 'Name',array('div'=>false,'class'=>'address_label'));

@@ -1,6 +1,6 @@
 <?php
 	class TestResultsController extends AppController{
-		public $uses=array('TestResult','TestApplication','Student','User','QuestionBank');
+		public $uses=array('TestResult','TestApplication','Student','User','QuestionBank','Markingscheme');
 
 		public function generate_result(){
 			$this->layout='site_layout';
@@ -30,32 +30,44 @@
 		public function get_result($id){
 			$this->layout='site_layout';
 			$test_data=$this->TestResult->find('all',array('conditions'=>array('TestResult.test_id'=>$id)));
-			$positive_mrk=5;
-			$negative_mrk=1;
+			//pr($test_data);
 			$total_questions=count($test_data);
-			$total_marks=$total_questions*$positive_mrk;
+			// foreach($test_data as $posimrks) {
+			// 	pr($this->Markingscheme->find('first',array('conditions'=>array('id'=>$posimrks['QuestionBank']['markingscheme_id']))));
+			// }
 			$correct_ans=0;
 			$incorrect_ans=0;
 			$unanswered=0;
+			$positive_mrk=0;
+			$negative_mrk=0;
+			$total_marks=0;
 			foreach ($test_data as $t) {
+					$scheme=$this->Markingscheme->find('first',array('conditions'=>array('id'=>$t['QuestionBank']['markingscheme_id'])));
+					$total_marks=$total_marks+$scheme['Markingscheme']['positive_marks'];
 					if($t['TestResult']['result']==-1){
+						$negative_mrk=$negative_mrk+$scheme['Markingscheme']['negative_marks'];
 						$incorrect_ans++;
 					}
 					else if($t['TestResult']['result']==0){
 						$unanswered++;
 					}
 					else{
+						$positive_mrk=$positive_mrk+$scheme['Markingscheme']['positive_marks'];
 						$correct_ans++;
 					}
 			}
+			// pr($total_marks);
+			// pr($positive_mrk);
+			// pr($negative_mrk);
 			$test=$this->TestApplication->findById($id);
 			$this->set('test_meta',$test);
 			$this->set('correct_ans',$correct_ans);
 			$this->set('incorrect_ans',$incorrect_ans);
 			$this->set('unanswered',$unanswered);
-			$marks_obtained=($correct_ans*$positive_mrk)-($incorrect_ans*$negative_mrk)+($unanswered*0);
+			$marks_obtained=$positive_mrk-$negative_mrk;
 			$this->set('total',$total_marks);
 			$this->set('obtained',$marks_obtained);
+			$this->set('test_questions',$test_data);
 		}	
 	}
 ?>

@@ -4,9 +4,15 @@
 
 		public function home(){
 			$this->layout='site_layout';
-			$student=$this->Student->find('first',array('conditions'=>array('Student.user_id'=>$this->Auth->user('id'))));
-			$th=$this->TestApplication->find('all',array('conditions'=>array('TestApplication.student_id'=>$student['Student']['id'])));
-			$this->set('test_history',$th);
+			if($this->Auth->user('UserType.name')=='Student'){
+				$student=$this->Student->find('first',array('conditions'=>array('Student.user_id'=>$this->Auth->user('id'))));
+				$th=$this->TestApplication->find('all',array('conditions'=>array('TestApplication.student_id'=>$student['Student']['id'])));
+				$this->set('test_history',$th);
+			}
+			else{
+				$this->Session->setFlash('You are not authorized to access this Location.','default',array('class'=>'alert-box radius alert'),'error');
+				$this->redirect(array('controller'=>'Pages','action'=>'home'));
+			}
 
 		}
 

@@ -34,7 +34,7 @@ class LinksController extends AppController {
 				$body="Thank you for  your valuable contribuation,<br/> We are approving this content it may take 24 hrs to approve and display this content. If there are any queries or if the content is not as per the direction we may reject the content and will also ask for the further improvement.";
 				$body.="<br/><br/> <b> Regards,<br/>evidyalay team </b>";
 				$Email = new CakeEmail();
-				$Email->from(array('noreply@ev.learnlabs.in' => 'ઈ-વિદ્યાલય Team'))
+				$Email->from(array('noreply@evidyalay.net' => 'ઈ-વિદ્યાલય Team'))
 						->to($this->Auth->user('username'))
 						->subject('Contribution request')
 						->emailFormat('html')
@@ -43,8 +43,8 @@ class LinksController extends AppController {
 				$body1="There is new contribution request for ebooks kindly verify and approve it.<br/><b> Link to the approval page</b> ".$this->viewVars['admin_url']."/admins/contribute_link";
 
 				$Email = new CakeEmail();
-				$Email->from(array('noreply@ev.learnlabs.in' => 'ઈ-વિદ્યાલય Team'))
-						->to('lakhan.m.samani@gmail.com')
+				$Email->from(array('noreply@evidyalay.net' => 'ઈ-વિદ્યાલય Team'))
+						->to('kashyap.dj9350@gmail.com')
 						->subject('Contribution request')
 						->emailFormat('html')
 						->send($body1);

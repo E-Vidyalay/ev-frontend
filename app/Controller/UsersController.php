@@ -22,29 +22,26 @@
                 {
 
                     //Get EmailTemplate
-                    // $registerEmailTemplate = $this->EmailTemplate->find('first',array('conditions'=>array('EmailTemplate.alias'=>'register_success')));
+                    $registerEmailTemplate = $this->EmailTemplate->find('first',array('conditions'=>array('EmailTemplate.alias'=>'register_success')));
 
-                    // if($registerEmailTemplate != null)
-                    // {
-                    //     //Send Mail
-                    //     $Email = new CakeEmail('default');
+                    if($registerEmailTemplate != null)
+                    {
+                        //Send Mail
+                        $Email = new CakeEmail('default');
 
-                    //     $subject = $registerEmailTemplate['EmailTemplate']['title'];
-                    //     $message =  html_entity_decode($registerEmailTemplate['EmailTemplate']['content']);
+                        $subject = $registerEmailTemplate['EmailTemplate']['title'];
+                        $message =  html_entity_decode($registerEmailTemplate['EmailTemplate']['content']);
+                        $message = str_replace("{user_name}",$user['User']['first_name'],$message);
+                        $Email->emailFormat('html');
+                        $Email->template('default');
+                        $Email->to($user['User']['username']);
+                        $Email->subject($subject);
+                        $Email->send($message);
 
-                    //     $message = str_replace("{user_name}",$user['User']['first_name'],$message);
+                    }
+                    $user_id = $this->User->getInsertId();
 
-
-                    //     $Email->emailFormat('html');
-                    //     $Email->template('default');
-                    //     $Email->to($user['User']['username']);
-                    //     $Email->subject($subject);
-                    //     $Email->send($message);
-
-                    // }
-                    // $user_id = $this->User->getInsertId();
-
-                    // $user = $this->User->findById($user_id);
+                    $user = $this->User->findById($user_id);
 
                     $this->Auth->login();
                     $usr=$this->Auth->user();
@@ -77,7 +74,7 @@
                     }
 
                     $this->Session->setFlash('Thank you for registering.', 'default', array('class' => 'alert-box success radius') , 'success');
-                    $this->redirect(array('controller'=>'pages','action'=>'home'));
+                    $this->redirect(array('controller'=>'Pages','action'=>'home'));
 
 
                 }
@@ -87,7 +84,7 @@
                 }
             }
             else{
-                $this->redirect(array('controller'=>'pages','action'=>'home'));
+                $this->redirect(array('controller'=>'Pages','action'=>'home'));
             }
 
 
