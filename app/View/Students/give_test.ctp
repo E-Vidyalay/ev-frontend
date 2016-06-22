@@ -2,8 +2,10 @@
 <div class="columns large-6 large-offset-3 small-12 small-offset-0">
 	<div class="content-card small-12 small-offset-0">
 <h3>ક્વિઝ આપો</h3>
+<h4 class="subheader"><small>ધોરણ:</small> <?php echo $questions[0]['Standard']['name'];?></h4>
 <h4 class="subheader"><small>મૂળ પાઠ:</small> <?php echo $questions[0]['Topic']['display_name'];?></h4>
-<?php 
+<?php
+pr($questions[0]);
 if($questions[0]['QuestionBank']['sub_topic_id']!=null){
 echo '<h4 class="subheader"><small>પાઠ:</small>'.$questions[0]['SubTopic']['name'].'</h4>';
 }?>

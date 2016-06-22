@@ -10,8 +10,25 @@ $(document).ready(function(){
 	$(".accordion-navigation > div").removeClass("active");
 	$(".accordion-navigation > div").first().addClass("active");
 	$(".side-nav > li").first().addClass("li-active");
-        $('.english').hide();
+    $('.english').hide();
 });
+$("#standard").on('change',function(event){
+        var u=baseUrl+"/Students/get_topic/"+$(this).val();
+        console.log(u);
+        console.log($('.loading'));
+        $('.loading').show();
+        $.ajax({
+            url:u,
+            success:function(data){
+                $("#sb_topic").html(data);
+                $('.loading').hide();
+            },
+            error:function(e){
+                alert("Sorry there was error");
+                $('.loading').hide();
+            }
+        })
+    });
 $(".course-menu > ul > li > a").mouseover(function(){
 	var a=$(this).attr('data-target');
 	$(".subject-menu").hide();

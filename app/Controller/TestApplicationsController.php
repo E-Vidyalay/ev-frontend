@@ -1,6 +1,6 @@
 <?php
 	class TestApplicationsController extends AppController{
-		public $uses=array('TestApplication','Student','User','Subject','Topic','SubTopic');
+		public $uses=array('TestApplication','Student','User','Subject','Topic','SubTopic','Standard');
 		public function test_application(){
 			if($this->request->is('post')){
 				$c=$this->SubTopic->find('list',array('conditions'=>array('topic_id'=>$this->data['TestApplication']['topic_id']),'fields'=>array('id','name')));
@@ -9,9 +9,10 @@
 					$this->set('sub_topics',$c);
 					$full_topic=$this->Topic->find('list',array('fields'=>array('id','display_name'),'conditions'=>array('id'=>$this->data['TestApplication']['topic_id'])));
 					$this->set('topic_full_name',array_values($full_topic));
+					$this->set('standard',$this->Standard->find('first',array('conditions'=>array('id'=>$this->data['TestApplication']['standard_id']))));
+					$this->set('standard_id',$this->data['TestApplication']['standard_id']);
 					$this->set('topic_id',$this->data['TestApplication']['topic_id']);
 					$this->set('student_id',$this->data['TestApplication']['student_id']);
-
 				}
 				else{
 					if($this->TestApplication->save($this->data)){	

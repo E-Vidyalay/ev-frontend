@@ -8,14 +8,20 @@
 			<?php
 				echo $this->Form->create('TestApplication',array('controller'=>'TestApplications','action'=>'test_application'));
 				echo $this->Form->input('student_id',array('type'=>'hidden','value'=>$student_id));
-				echo $this->Form->input('topic_id',array('type'=>'select','options'=>$subjects,'required','label'=>'મુખ્ય વિષય','empty'=>'Select subject/topic','div'=>false));
+				echo $this->Form->input('standard_id',array('type'=>'select','options'=>$standards,'required','label'=>'ધોરણ','empty'=>'Select ધોરણ','div'=>false,'id'=>'standard'));
+				echo '<div id="sb_topic">'.
+					$this->Form->input('topic_id',array('type'=>'select','required','label'=>'મુખ્ય વિષય','empty'=>'Select મુખ્ય વિષય','div'=>false));
 				echo "<br/>";
 				echo "<div class='text-center'>";
 				echo $this->Form->button('આગળ વધો  <i class="fa fa-arrow-right"></i>',array('type'=>'submit','div'=>false,'label'=>false,'class'=>'button small radius'));
 				echo "</div>";
+				echo '</div>';
 			?>
 		</form>
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	
+</script>
 		

@@ -106,6 +106,9 @@ var ids = [ "guj-in" ];
   <a class="exit-off-canvas"></a>
   </div>
 </div>
+<div class="loading">
+    <i class="fa fa-spinner fa-spin fa-3x"></i>
+  </div>
   <?php echo $this->Element('Dialogs');
   ?>
 

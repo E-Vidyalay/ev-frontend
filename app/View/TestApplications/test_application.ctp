@@ -2,12 +2,14 @@
 	<div class="columns large-8 large-offset-2">
 		<div class="content-card small-12 small-offset-0">
 			<h3>ક્વિઝ આપો</h3>
+			<h4 class="subheader"><small>ધોરણ:</small> <?php echo $standard['Standard']['name'];?></h4>
 			<h4 class="subheader"><small>મૂળ પાઠ:</small> <?php echo $topic_full_name[0];?></h4>
 		<hr/>
 			<?php
 				echo $this->Form->create('TestApplication',array('controller'=>'TestApplications','action'=>'test_sbt_post'));
 				echo $this->Form->input('uid',array('type'=>'hidden','value'=>$activeUser['User']['id']));
 				echo $this->Form->input('student_id',array('type'=>'hidden','value'=>$student_id));
+				echo $this->Form->input('standard_id',array('type'=>'hidden','value'=>$standard_id));
 				echo $this->Form->input('topic_id',array('type'=>'hidden','value'=>$topic_id));
 				echo $this->Form->input('sub_topic_id',array('type'=>'select','options'=>$sub_topics,'label'=>'પેટા વિષયો','empty'=>'Select subject/topic','div'=>false));
 				echo "<br/>";
