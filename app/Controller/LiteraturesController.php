@@ -8,8 +8,8 @@
 		public function index(){
 			$date = new DateTime('15 days ago');
 			$cdate=$date->format('Y-m-d');
-			$lt=$this->Ebook->find('all',array('conditions'=>array('DATE(Ebook.updated_at) >'=>$cdate,'allow'=>1),'order'=>array('Ebook.updated_at'=>'desc')));
-			$this->set('latest',$lt);
+			$lat=$this->Ebook->find('all',array('conditions'=>array('DATE(Ebook.updated_at) >'=>$cdate,'allow'=>1),'order'=>array('Ebook.updated_at'=>'desc')));
+			$this->set('latest',$lat);
 			$this->layout='site_layout';
 			$lt=$this->Literature->find('all');
 			$this->set('lit',$lt);

@@ -4,6 +4,7 @@
 		<div class="seperator"></div>
 		<ul style="list-style:square;font-size:13px;">
 			<?php
+				// pr($latest);
 				if(count($latest)>0){
 					for ($i=0;$i<sizeof($latest);$i++) {
 						if($i<7){
