@@ -1,6 +1,10 @@
 		<thead>
 		        <tr>
 		            <th>Book Name</th>
+		            <th>લેખક</th>
+		            <th>સંકલનકાર</th>
+		            <th>અનુવાદ સાથે</th>
+		            <th>ચિત્રો સાથે</th>
 		            <th>Category</th>
 		            <th>Book type</th>
 		            <th>Level</th>
@@ -13,6 +17,25 @@
 					foreach ($books as $key => $value) {
 						echo "<tr>";
 							echo "<td>".$value['Ebook']['name']."</td>";
+							if($value['Ebook']['author']!=null){
+								echo "<td>".$value['Ebook']['author']."</td>";
+							}
+							if($value['Ebook']['compiler']!=null){
+								echo "<td>".$value['Ebook']['compiler']."</td>";
+							}
+							
+							if($value['Ebook']['with_translation']==1){
+								echo "<td>અંગ્રેઝી અનુવાદ ઉપલબ્ધ છે.</td>";
+							}
+							else{
+								echo "<td>અંગ્રેઝી અનુવાદ ઉપલબ્ધ નથી.</td>";
+							}
+							if($value['Ebook']['with_picture']==1){
+								echo "<td>ચિત્રો ઉપલબ્ધ છે.</td>";
+							}
+							else{
+								echo "<td>ચિત્રો ઉપલબ્ધ નથી.</td>";
+							}
 							echo "<td>".$value['Literature']['name']."</td>";
 							echo "<td>".$value['SubLiterature']['name']."</td>";
 							echo "<td>".$value['Level']['level_name']."</td>";
@@ -23,6 +46,8 @@
 							else{
 								echo "<a target='_blank' href='".$this->webroot."files/ebook/path/".$value['Ebook']['id']."/".$value['Ebook']['path']."' class='book-link'>Read book</a>";
 							}
+							echo "<br>";
+								echo "<br>";
 									echo '<a href="#" class="book-desc" data-reveal-id="md-'.$value['Ebook']['id'].'">Read book description</a>
 
 									<div id="md-'.$value['Ebook']['id'].'" class="reveal-modal small" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">

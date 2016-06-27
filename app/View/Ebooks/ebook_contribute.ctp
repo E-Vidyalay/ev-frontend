@@ -1,17 +1,45 @@
 <div class="row" >
             <div class="columns large-8 panel large-offset-2 medium-8 small-offset-1 small-10 medium-offset-2" style="background:#fff;padding:20px">
-                <h4 align="center">Please enter the following details</h4>
+                <h4 align="center">ઇબુક દાન કરવા માટે નીચે ની વિગતો પૂરો </h4>
                 <hr/>
             <?php echo $this->Form->create('Ebook', array('type'=>'file','controller'=>'Ebooks','action'=>'ebook_contribute','class' => 'main-form')); ?>
                 <?php
-                echo $this->Form->input('name',array('type'=>'text','class'=>'form-control','required','label'=>'Book Title','placeholder'=>'Book name'));
+                echo $this->Form->input('name',array('type'=>'text','class'=>'form-control','required','label'=>'Book Title ( ઇબુક નામ )','placeholder'=>'Book Title ( ઇબુક નામ )'));
+                ?>
+                <div class="clear"></div>
+                <?php
+                echo $this->Form->input('author',array('type'=>'text','class'=>'form-control','required','label'=>'Author ( લેખક )','placeholder'=>'Author Name ( લેખક નામ )'));
+                ?>
+                <div class="clear"></div>
+                <?php
+                echo $this->Form->input('compiler',array('type'=>'text','class'=>'form-control','required','label'=>'Compiled by ( સંકલન )','placeholder'=>'Comiled by ( સંકલન )'));
+                ?>
+                <div class="clear"></div>
+                <label>Is Translation available in E-book? (ઇંગલિશ અનુવાદ ઇબુકમાં ઉપલબ્ધ છે?)</label>
+                <?php 
+                    echo $this->Form->input('with_translation', array(
+                        'options' => array('NO', 'YES'),
+                        'type' => 'radio',
+                        'class'=>'radio-inline',
+                        'label'=>'Is Translation available in E-book?'
+                    ));
+                ?>
+                <div class="clear"></div>
+                <label>Are Pictures available in E-book? (ચિત્રો ઇબુકમાં ઉપલબ્ધ છે?)</label>
+                <?php 
+                    echo $this->Form->input('with_picture', array(
+                        'options' => array('NO', 'YES'),
+                        'type' => 'radio',
+                        'class'=>'radio-inline',
+                        'label'=>'Are Pictures available in E-book?'
+                    ));
                 ?>
                 <div class="clear"></div>
                 <?php
                 echo $this->Form->input('level_id',array('type'=>'select','class'=>'form-control','required','options'=>$level,'empty'=>'Select level/age group of the book'));
                 ?>
                 <div class="clear"></div>
-                <?php echo $this->Form->input('sub_category_id',array('type'=>'select','class'=>'form-control','required','options'=>$sl,'empty'=>'Select book type','label'=>'Select book type')); ?>
+                <?php echo $this->Form->input('sub_category_id',array('type'=>'select','class'=>'form-control','required','options'=>$sl,'empty'=>'Select ઇબુક સાહિત્ય પ્રકાર','label'=>'Select book type (Select ઇબુક સાહિત્ય પ્રકાર)')); ?>
                 <div class="clear"></div>
                 <?php
                     echo $this->Form->input('path',array(
