@@ -57,6 +57,7 @@
             <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-newspaper-o fa-fw')) . " News letter",array('controller'=>'NewsLetters','action'=>'index'),array('escape' => false)); ?>
             <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-eye fa-fw')) . " Vision",array('controller'=>'pages','action'=>'vision'),array('escape' => false)); ?>
             <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-bookmark-o fa-fw')) . " About EVidyalay",array('controller'=>'pages','action'=>'about_us'),array('escape' => false)); ?>
+            <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-hand-o-up fa-fw')) . " ઉદ્દેશ્યો",array('controller'=>'pages','action'=>'objective'),array('escape' => false)); ?>
           </div>
         </div>
       </section>
@@ -65,7 +66,6 @@
         <span class="brand-name">ઈ-વિદ્યાલય</span>
         <ul class="right" id="top-menu">
           <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-home fa-fw')) . " પ્રવેશદ્વાર",array('controller'=>'Pages','action'=>'home'),array('escape' => false)); ?></li>
-          <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-hand-o-up fa-fw')) . " ઉદ્દેશ્યો",array('controller'=>'pages','action'=>'objective'),array('escape' => false)); ?></li>
         <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-bolt fa-fw')) . " શા માટે ઈ-વિ?",array('controller'=>'pages','action'=>'why_ev'),array('escape' => false)); ?></li>
         <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-child fa-fw')) . " ફાયદા",array('controller'=>'pages','action'=>'benefit'),array('escape' => false)); ?></li>
           <li class='has-sub-menu'><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-play-circle-o fa-fw')) . " વિડીયો લાઇબ્રેરી",array('controller'=>'Links','action'=>'index'),array('escape' => false)); ?></li>
@@ -81,6 +81,7 @@
                   <li><?php echo $this->Html->link('લેખ',array('controller'=>'LiteraturePosts','action'=>'index')); ?></li>
                   </ul></li>
             <li class='has-sub-menu'><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-info fa-fw')) . " માહિતિ મિત્ર",array('controller'=>'InformationPosts','action'=>'index'),array('escape' => false)); ?></li>
+            <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-question-circle fa-fw')) . 'પ્રશ્નોત્તરી ',array('controller'=>'students','action'=>'test_application'),array('escape' => false));?></li>
             <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-lightbulb-o fa-fw')) . " યોગદાન",array('controller'=>'Contributors','action'=>'index'),array('escape' => false));?></li>
             
         </ul>

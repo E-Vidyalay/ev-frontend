@@ -36,6 +36,7 @@
 				<li>'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-smile-o fa-fw')) . " હોબીલોબી",array('controller'=>'Pages','action'=>'latest_post',$value['Level']['id']),array('escape' => false,'class'=>'overlay-text')).'</li>
 				<li>'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-book fa-fw')) . " ઈ-બૂક",array('controller'=>'Pages','action'=>'latest_ebook',$value['Level']['id']),array('escape' => false,'class'=>'overlay-text')).'</li>
 				<li>'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-pencil-square fa-fw')) . " સાહિત્ય લેખ",array('controller'=>'Pages','action'=>'latest_lekh',$value['Level']['id']),array('escape' => false,'class'=>'overlay-text')).'</li>
+				<li>'.$this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-question-circle fa-fw')) . 'પ્રશ્નોત્તરી ',array('controller'=>'students','action'=>'test_application'),array('escape' => false,'class'=>'overlay-text')).'</li>
 				</ul>
 			</div>';
 		echo '</div>';

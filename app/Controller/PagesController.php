@@ -118,6 +118,7 @@ class PagesController extends AppController {
 	public function latest_ebook($lid=NULL){
 		$this->layout='site_layout';
 		//pr($this->Ebook->find('all',array('conditions'=>array('Ebook.level_id'=>$lid,'allow'=>1),'order'=>array('Ebook.updated_at'=>'desc'))));die();	
+		$this->set('levels',$this->Level->find('all',array('order'=>array('Level.updated_at'=>'asc'))));
 		$this->set('books',$this->Ebook->find('all',array('conditions'=>array('Ebook.level_id'=>$lid,'allow'=>1),'order'=>array('Ebook.updated_at'=>'desc'))));
 	}
 	public function latest_lekh($lid=NULL){

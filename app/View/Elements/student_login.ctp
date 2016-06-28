@@ -43,7 +43,7 @@
                 }
                     ?> &nbsp;&nbsp;<?php echo $activeUser['User']['name']; ?></label></li>
         <li><?php echo $this->Html->link('Dashboard',array('controller'=>'students','action'=>'home'));?></li>
-        <li><?php echo $this->Html->link('Apply for quiz',array('controller'=>'students','action'=>'test_application'));?></li>
+        <li><?php echo $this->Html->link('પ્રશ્નોત્તરી ',array('controller'=>'students','action'=>'test_application'));?></li>
         <li><?php echo $this->Html->link('Edit Profile',array('controller'=>'students','action'=>'edit_profile')); ?></li>
         <li><?php echo $this->Html->link('Logout',array('controller'=>'users','action'=>'logout')); ?></li>
         <li><label>ઈ-વિદ્યાલય</label></li>
@@ -80,7 +80,7 @@
           <div class="columns large-7">
             <ul class="right" id="pro-menu">
             <li><?php echo $this->Html->link('Dashboard',array('controller'=>'students','action'=>'home'),array('class'=>'np-menu'));?></li>
-            <li class='has-sub-menu'><?php echo $this->Html->link('Apply for quiz',array('controller'=>'students','action'=>'test_application'),array('class'=>'np-menu'));?></li>
+            <li class='has-sub-menu'><?php echo $this->Html->link('પ્રશ્નોત્તરી ',array('controller'=>'students','action'=>'test_application'),array('class'=>'np-menu'));?></li>
             <li class='has-sub-menu'>
               <a id='usr-a'><?php
                 if(empty($activeUser['User']['path'])){
