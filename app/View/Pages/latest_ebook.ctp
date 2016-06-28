@@ -11,6 +11,7 @@
 						// pr($value);
 						echo '<li style="background-color:'.$value['Level']['color'].'">'.$this->Html->link($value['Level']['level_name']." ઈ-બૂક",array('controller'=>'Pages','action'=>'latest_ebook',$value['Level']['id']),array('style'=>'color:white;')).'</li>';
 					}?>
+					<li><?php echo $this->Html->link("View all",array('controller'=>'Literatures','action'=>'index'),array('style'=>'color:white;'));?></li>
 				</ul>
 			</div>	
 		</div>
