@@ -21,7 +21,5 @@ class HobbylobbyPost extends AppModel{
                     'foreignKey'=>'updated_by',
                     'dependent'=>true
                 )); 
-
-	
-	}
+}
 ?>

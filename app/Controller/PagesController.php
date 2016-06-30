@@ -35,8 +35,7 @@ class PagesController extends AppController {
  * @var array
  */
 	public $uses = array('Article','Level','HobbylobbyPost','Ebook','LiteraturePost','VideoComment','VideoReply','HobbylobbyComment','HobbylobbyReply','LiteratureComment','LiteratureReply');
-
-
+    
     public function beforeFilter()
     {
         AppController::beforeFilter();

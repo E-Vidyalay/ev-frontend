@@ -1,4 +1,20 @@
 <br/>
+<div class="row">
+            <div class="columns large-10 large-offset-1">
+            <script>
+              (function() {
+                var cx = '011118420518729370922:opcgijryito';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+              })();
+            </script>
+            <gcse:search></gcse:search>
+          </div>
+          </div>
 <div class="content-card large-10 small-12 large-offset-1 small-offset-0" id="home-content">
 <div class="row">
 <h3 class="head-navu">વિશિષ્ટ તત્વો</h3>

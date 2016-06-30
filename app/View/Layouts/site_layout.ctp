@@ -1,6 +1,7 @@
   <!DOCTYPE html>
 <html>
 <head>
+  <meta name="google-site-verification" content="bsgnSZWqUPd7i7uLPVkGE3nZtDPa5cqUpuVlaBQefwM" />
   <title>ઈ-વિદ્યાલય</title>
   <?php
     echo $this->Html->css('normalize');
@@ -93,7 +94,7 @@ var ids = [ "guj-in" ];
                 echo $this->Session->flash('auth', array('params'=>array('class'=>'alert-box radius alert')));
             ?>
         </div>
-        <div clas="row" id="main-content">
+        <div class="row" id="main-content">
             <?php echo $content_for_layout; ?>
         </div>
     </section>
