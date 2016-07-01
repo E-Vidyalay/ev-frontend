@@ -1,23 +1,24 @@
 <br/>
-<div class="row">
-            <div class="columns large-10 large-offset-1">
-            <script>
-              (function() {
-                var cx = '011118420518729370922:opcgijryito';
-                var gcse = document.createElement('script');
-                gcse.type = 'text/javascript';
-                gcse.async = true;
-                gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(gcse, s);
-              })();
-            </script>
-            <gcse:search></gcse:search>
-          </div>
-          </div>
 <div class="content-card large-10 small-12 large-offset-1 small-offset-0" id="home-content">
 <div class="row">
-<h3 class="head-navu">વિશિષ્ટ તત્વો</h3>
+	<h3 class="head-navu">વિશિષ્ટ તત્વો</h3>
+	<div class="columns large-6" style="height:100px;">
+	news updates
+	</div>
+    <div class="columns large-6" style="height:100px;">
+        <script>
+          (function() {
+            var cx = '011118420518729370922:opcgijryito';
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+          })();
+        </script>
+        <gcse:search></gcse:search>
+	</div>
 </div>
 	<div class="row">
 	<?php
@@ -74,6 +75,35 @@
 <p>Education is the foundation of any society and the manner, language in which it is conveyed governs its success. As we all move in the new era of &ldquo;e&rdquo;, where internet is the key enabler for majority of the day to day things, right from shopping, communicating, tickets, so on and so forth. This has initiated a change in the way of learning as well.</p>
 <p>EVidyalay is one more sincere attempt to drive the change in the way of learning so that the learning becomes simple, more users friendly and interesting.</p>
 <p>One of the main features of EV is its online video library. It comprises of videos on Mathematics, Vedic Mathematics, Early Learning Gujarati, etc. The video library is under continuous development taking into consideration feedbacks. EVidyalay&rsquo;s vision is to make education accessible to all children, which is repeatable as well independent of time and location. Children should be able to learn anytime, anywhere at their own pace. At the same time we can effectively use tools and techniques to make learning more interactive and helpful to teachers as well parents. Teachers can encourage project-based classroom, Peer tutoring, Lively discussion in the field of knowledge.</p>
+</div>
+<div class="row">
+	<div class="columns large-5">
+		<script src="https://apis.google.com/js/platform.js"></script>
+		<script>
+		  function onYtEvent(payload) {
+		    if (payload.eventType == 'subscribe') {
+		      // Add code to handle subscribe event.
+		    } else if (payload.eventType == 'unsubscribe') {
+		      // Add code to handle unsubscribe event.
+		    }
+		    if (window.console) { // for debugging only
+		      window.console.log('YT event: ', payload);
+		    }
+		  }
+		</script>
+		<div class="g-ytsubscribe" data-channel="EVidyalay" data-layout="default" data-count="default" data-onytevent="onYtEvent"></div>
+	</div>
+	<div class="columns large-5">
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=771314749638441";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+		<div class="fb-like" data-href="https://www.facebook.com/EVidyalay-1402367269999383/?fref=ts" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
+	</div>
 </div>
 </div>
 <br/>

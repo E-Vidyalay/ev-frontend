@@ -2,7 +2,8 @@
 <html>
 <head>
   <meta name="google-site-verification" content="bsgnSZWqUPd7i7uLPVkGE3nZtDPa5cqUpuVlaBQefwM" />
-  <title>ઈ-વિદ્યાલય</title>
+  <title>ઈ-વિદ્યાલય | ભણો ગમે ત્યાં, ગમે ત્યારે
+</title>
   <?php
     echo $this->Html->css('normalize');
     echo $this->Html->css('foundation');
