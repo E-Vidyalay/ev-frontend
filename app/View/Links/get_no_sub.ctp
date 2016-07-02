@@ -30,6 +30,36 @@
 				echo '<div class="flex-video">';
 				echo '<iframe width="100%" height="415" src="'.$links[0]['Link']['link_url'].'" frameborder="0" allowfullscreen style="padding:15px;border:1px solid #dfdfdf;"></iframe></div>';
 			?>
+			<div style="padding:15px;border:1px solid #dfdfdf;">
+				<h5><b>Links Details:</b></h5>
+				<?php echo $links[0]['Link']['tags'];?>
+				<br/>
+				<br/>
+				<h7><b>Video Belongs to Category:</b></h7>
+				<br/>
+
+				<?php 
+				if($links[0]['SubTopic']['id']!=NULL){
+					echo $links[0]['Topic']['display_name'].' - '.$links[0]['SubTopic']['name'];	
+				}
+				else{
+					echo $links[0]['Topic']['display_name'];	
+				}
+				?>
+				<br/>
+				<br/>
+				<h7><b>Uploaded By:</b> <?php 
+				if($links[0]['Link']['contributed']==0){
+					echo $uploader['Admin']['firstname']." ".$uploader['Admin']['lastname'];	
+				}
+				else{
+					echo $uploader['User']['name'];		
+				}
+				?></h7>
+				<br/>
+				<br/>
+				<?php echo '<i class="fa fa-comments fa-fw"></i>'.count($comments).' Comments';?>
+			</div>
 			<br/>
 			 <div class="comments">
 			 	<?php

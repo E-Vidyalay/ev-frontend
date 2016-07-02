@@ -34,7 +34,7 @@ class PagesController extends AppController {
  *
  * @var array
  */
-	public $uses = array('Article','Level','HobbylobbyPost','Ebook','LiteraturePost','VideoComment','VideoReply','HobbylobbyComment','HobbylobbyReply','LiteratureComment','LiteratureReply');
+	public $uses = array('Admin','User','Article','Level','HobbylobbyPost','Ebook','LiteraturePost','VideoComment','VideoReply','HobbylobbyComment','HobbylobbyReply','LiteratureComment','LiteratureReply');
     
     public function beforeFilter()
     {
@@ -107,11 +107,13 @@ class PagesController extends AppController {
 	public function latest_video($lid=NULL){
 		$this->layout='site_layout';
 		//pr($this->Link->find('all',array('conditions'=>array('Topic.level_id'=>$lid,'allow'=>1))));die();
+		$this->set('levels',$this->Level->find('all',array('order'=>array('Level.updated_at'=>'asc'))));
 		$this->set('links',$this->Link->find('all',array('conditions'=>array('Topic.level_id'=>$lid,'allow'=>1),'order'=>array('Link.updated_at'=>'desc'))));
 	}
 	public function latest_post($lid=NULL){
 		$this->layout='site_layout';
 		//pr($this->HobbylobbyPost->find('all',array('conditions'=>array('HobbylobbyPost.level_id'=>$lid))));die();
+		$this->set('levels',$this->Level->find('all',array('order'=>array('Level.updated_at'=>'asc'))));
 		$this->set('posts',$this->HobbylobbyPost->find('all',array('conditions'=>array('HobbylobbyPost.level_id'=>$lid),'order'=>array('HobbylobbyPost.updated_at'=>'desc'))));	
 	}
 	public function latest_ebook($lid=NULL){
@@ -123,11 +125,21 @@ class PagesController extends AppController {
 	public function latest_lekh($lid=NULL){
 		$this->layout='site_layout';
 		//pr($this->LiteraturePost->find('all',array('conditions'=>array('LiteraturePost.level_id'=>$lid),'order'=>array('LiteraturePost.updated_at'=>'desc'))));die();	
+		$this->set('levels',$this->Level->find('all',array('order'=>array('Level.updated_at'=>'asc'))));
 		$this->set('posts',$this->LiteraturePost->find('all',array('conditions'=>array('LiteraturePost.level_id'=>$lid),'order'=>array('LiteraturePost.updated_at'=>'desc'))));
 	}
 	public function watch_video($id=NULL){
 		$this->layout='ajax';
-		$this->set('links',$this->Link->findById($id));
+		$link=$this->Link->findById($id);
+		if($link['Link']['contributed']==0){
+			$upload=$this->Admin->findById($link['Link']['uploaded_by']);
+			$this->set('uploader',$upload);
+		}
+		else{
+			$upload=$this->User->findById($link['Link']['uploaded_by']);
+			$this->set('uploader',$upload);	
+		}
+		$this->set('links',$link);
 		$c=$this->VideoComment->find('all',array('conditions'=>array('video_id'=>$id)));
 		$this->set('comments',$c);
 		$this->set('replies',$this->VideoReply->find('all'));

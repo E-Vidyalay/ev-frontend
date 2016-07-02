@@ -10,7 +10,7 @@
 </div>
 <div class="columns large-4">
 <div style="padding:15px;border:1px solid #dfdfdf;">
-<h5>Links Details:</h5>
+<h5><b>Links Details:</b></h5>
 <?php echo $links['Link']['tags'];?>
 <br/>
 <br/>
@@ -24,7 +24,21 @@ if($links['SubTopic']['id']!=NULL){
 else{
 	echo $links['Topic']['display_name'];	
 }
-?></div></div>
+?>
+<br/>
+<br/>
+<h7><b>Uploaded By:</b> <?php 
+if($links['Link']['contributed']==0){
+	echo $uploader['Admin']['firstname']." ".$uploader['Admin']['lastname'];	
+}
+else{
+	echo $uploader['User']['name'];		
+}
+?></h7>
+<br/>
+<br/>
+<?php echo '<i class="fa fa-comments fa-fw"></i>'.count($comments).' Comments';?>
+</div></div>
 </div>
 <br/>
   	<div class="comments">
@@ -55,10 +69,19 @@ else{
 		
   						<div id="ev-success"></div>
 							<?php 
-							echo $this->Form->create('VideoReply',array('id'=>'replyForm_'.$value['VideoComment']['id']));
-							echo $this->Form->input('name',array('required'=>'required','placeholder'=>'Name','type'=>'text','id'=>'name_'.$value['VideoComment']['id']));
-							echo $this->Form->input('email',array('required'=>'required','placeholder'=>'Email','type'=>'email','id'=>'email_'.$value['VideoComment']['id']));
-							echo $this->Form->input('comment_id',array('type'=>'hidden','value'=>$value['VideoComment']['id']));
+							if($activeUser){
+								echo 'Logged in as '.$activeUser['User']['name'];
+								echo $this->Form->create('VideoReply',array('id'=>'replyForm_'.$value['VideoComment']['id']));
+								echo $this->Form->input('name',array('type'=>'hidden','id'=>'name_'.$value['VideoComment']['id'],'value'=>$activeUser['User']['name']));
+								echo $this->Form->input('email',array('type'=>'hidden','id'=>'email_'.$value['VideoComment']['id'],'value'=>$activeUser['User']['username']));
+								echo $this->Form->input('comment_id',array('type'=>'hidden','value'=>$value['VideoComment']['id']));	
+							}
+							else{
+								echo $this->Form->create('VideoReply',array('id'=>'replyForm_'.$value['VideoComment']['id']));
+								echo $this->Form->input('name',array('required'=>'required','placeholder'=>'Name','type'=>'text','id'=>'name_'.$value['VideoComment']['id']));
+								echo $this->Form->input('email',array('required'=>'required','placeholder'=>'Email','type'=>'email','id'=>'email_'.$value['VideoComment']['id']));
+								echo $this->Form->input('comment_id',array('type'=>'hidden','value'=>$value['VideoComment']['id']));
+							}
 						?>
 						<table cellpadding="3" cellspacing="0" border="1" class="editor">
 				    		<tr class="editortoolbar" >
@@ -81,7 +104,7 @@ else{
 				        </table>
 
 					<?php
-						  echo $this->Js->submit('Post', array(
+						  echo $this->Js->submit('Reply', array(
 							
 							'update'=>'#success','class'=>'button btn-rply tiny radius','id'=>'btn_'.$value['VideoComment']['id']
 							 ));
@@ -105,10 +128,19 @@ else{
 		
   <div id="ev-success"></div>
 			<?php 
-			echo $this->Form->create('VideoComment',array('id'=>'VideoCommentGetVideoForm'));
-			echo $this->Form->input('name',array('required'=>'required','placeholder'=>'Name','type'=>'text'));
-			echo $this->Form->input('email',array('required'=>'required','placeholder'=>'Email','type'=>'email'));
-			echo $this->Form->input('video_id',array('type'=>'hidden','value'=>$links['Link']['id']));
+			if($activeUser){
+				echo 'Logged in as '.$activeUser['User']['name'];
+				echo $this->Form->create('VideoComment',array('id'=>'VideoCommentGetVideoForm'));
+				echo $this->Form->input('name',array('type'=>'hidden','value'=>$activeUser['User']['name']));
+				echo $this->Form->input('email',array('type'=>'hidden','value'=>$activeUser['User']['username']));
+				echo $this->Form->input('video_id',array('type'=>'hidden','value'=>$links['Link']['id']));	
+			}
+			else{
+				echo $this->Form->create('VideoComment',array('id'=>'VideoCommentGetVideoForm'));
+				echo $this->Form->input('name',array('required'=>'required','placeholder'=>'Name','type'=>'text'));
+				echo $this->Form->input('email',array('required'=>'required','placeholder'=>'Email','type'=>'email'));
+				echo $this->Form->input('video_id',array('type'=>'hidden','value'=>$links['Link']['id']));
+			}
 		?>
 		<table cellpadding="3" cellspacing="0" border="1" class="editor">
     		<tr class="editortoolbar" >
@@ -131,7 +163,7 @@ else{
         </table>
 
 		<?
-			  echo $this->Js->submit('Post', array(
+			  echo $this->Js->submit('Comment', array(
 				
 				'update'=>'#success','id'=>'btn','class'=>'button tiny radius'
 				 ));

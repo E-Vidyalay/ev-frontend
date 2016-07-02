@@ -1,21 +1,18 @@
 <div class="row">
-<div class="columns large-12">
+<div class="columns large-12 post-content">
 <?php
 				$date=date('M j Y',strtotime($post['HobbylobbyPost']['updated_at']));
-				echo "<div class='post-pane'>";
-								echo "<div class='post-pane-heading'>";
-									echo $post['HobbylobbyPost']['title'];
-								echo "</div>";
-								echo "<div class='post-pane-body'>";
-									echo $post['HobbylobbyPost']['meta_description'];
-								echo "</div>";
-								echo "<div class='post-pane-heading'>";
-									echo '<ul class="postBylist">';
-									echo '<li class="listitem"><i class="fa fa-calendar fa-fw"></i>'.$date.'</li>';
-									echo "<li class='listitem'><b>For </b>".$post['Level']['level_name']."</li><li class='listitem'><b>By</b> ".$post['Admin']['name']."</li>";
-									echo '</ul>';
-								echo "</div>";
-							echo "</div>";
+				echo "<div class='panel'>";
+						echo "<h3>".$post['HobbylobbyPost']['title']."</h3>";
+					echo "<div class='post-pane-body'>";
+						echo $post['HobbylobbyPost']['meta_description'];
+					echo "</div>";
+						echo '<ul class="postBylist">';
+						echo '<li class="listitem"><i class="fa fa-calendar fa-fw"></i>'.$date.'</li>';
+						echo "<li class='listitem'><b>For </b>".$post['Level']['level_name']."</li><li class='listitem'><b>By</b> ".$post['Admin']['firstname']." ".$post['Admin']['lastname']."</li>";
+						echo '<li class="listitem"><i class="fa fa-comments fa-fw"></i>'.count($comments).' Comments</li>';
+						echo '</ul>';
+				echo "</div>";
 			?>
 			<br/>
 			 <div class="comments">
@@ -46,10 +43,19 @@
 		
   						<div id="ev-success"></div>
 							<?php 
-							echo $this->Form->create('HobbylobbyReply',array('id'=>'replyForm_'.$value['HobbylobbyComment']['id']));
-							echo $this->Form->input('name',array('required'=>'required','placeholder'=>'Name','type'=>'text','id'=>'name_'.$value['HobbylobbyComment']['id']));
-							echo $this->Form->input('email',array('required'=>'required','placeholder'=>'Email','type'=>'email','id'=>'email_'.$value['HobbylobbyComment']['id']));
-							echo $this->Form->input('comment_id',array('type'=>'hidden','value'=>$value['HobbylobbyComment']['id']));
+							if($activeUser){
+								echo 'Logged in as '.$activeUser['User']['name'];
+								echo $this->Form->create('HobbylobbyReply',array('id'=>'replyForm_'.$value['HobbylobbyComment']['id']));
+								echo $this->Form->input('name',array('type'=>'hidden','id'=>'name_'.$value['HobbylobbyComment']['id'],'value'=>$activeUser['User']['name']));
+								echo $this->Form->input('email',array('type'=>'hidden','id'=>'email_'.$value['HobbylobbyComment']['id'],'value'=>$activeUser['User']['username']));
+								echo $this->Form->input('comment_id',array('type'=>'hidden','value'=>$value['HobbylobbyComment']['id']));
+							}
+							else{
+								echo $this->Form->create('HobbylobbyReply',array('id'=>'replyForm_'.$value['HobbylobbyComment']['id']));
+								echo $this->Form->input('name',array('required'=>'required','placeholder'=>'Name','type'=>'text','id'=>'name_'.$value['HobbylobbyComment']['id']));
+								echo $this->Form->input('email',array('required'=>'required','placeholder'=>'Email','type'=>'email','id'=>'email_'.$value['HobbylobbyComment']['id']));
+								echo $this->Form->input('comment_id',array('type'=>'hidden','value'=>$value['HobbylobbyComment']['id']));	
+							}
 						?>
 						<table cellpadding="3" cellspacing="0" border="1" class="editor">
 				    		<tr class="editortoolbar" >
@@ -72,7 +78,7 @@
 				        </table>
 
 					<?php
-						  echo $this->Js->submit('Post', array(
+						  echo $this->Js->submit('Reply', array(
 							
 							'update'=>'#success','class'=>'button btn-rply-comment tiny radius','id'=>'btn_'.$value['HobbylobbyComment']['id']
 							 ));
@@ -96,10 +102,20 @@
 		
   <div id="ev-success"></div>
 			<?php 
-			echo $this->Form->create('HobbylobbyComment',array('id'=>'HobbylobbyCommentGetForm'));
-			echo $this->Form->input('name',array('required'=>'required','placeholder'=>'Name','type'=>'text'));
-			echo $this->Form->input('email',array('required'=>'required','placeholder'=>'Email','type'=>'email'));
-			echo $this->Form->input('post_id',array('type'=>'hidden','value'=>$post['HobbylobbyPost']['id']));
+			if($activeUser){
+				// pr($activeUser);
+				echo 'Logged in as '.$activeUser['User']['name'];
+				echo $this->Form->create('HobbylobbyComment',array('id'=>'HobbylobbyCommentGetForm'));
+				echo $this->Form->input('name',array('type'=>'hidden','value'=>$activeUser['User']['name']));
+				echo $this->Form->input('email',array('type'=>'hidden','value'=>$activeUser['User']['username']));
+				echo $this->Form->input('post_id',array('type'=>'hidden','value'=>$post['HobbylobbyPost']['id']));
+			}
+			else{
+				echo $this->Form->create('HobbylobbyComment',array('id'=>'HobbylobbyCommentGetForm'));
+				echo $this->Form->input('name',array('required'=>'required','placeholder'=>'Name','type'=>'text'));
+				echo $this->Form->input('email',array('required'=>'required','placeholder'=>'Email','type'=>'email'));
+				echo $this->Form->input('post_id',array('type'=>'hidden','value'=>$post['HobbylobbyPost']['id']));	
+			}
 		?>
 		<table cellpadding="3" cellspacing="0" border="1" class="editor">
     		<tr class="editortoolbar" >
@@ -121,8 +137,8 @@
             </tr>
         </table>
 
-		<?
-			  echo $this->Js->submit('Post', array(
+		<?php
+			  echo $this->Js->submit('Comment', array(
 				
 				'update'=>'#success','id'=>'btn1','class'=>'button tiny radius'
 				 ));

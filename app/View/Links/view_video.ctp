@@ -10,7 +10,7 @@
   </div>
 <div class="columns large-4">
 <div style="padding:15px;border:1px solid #dfdfdf;">
-<h5>Links Details:</h5>
+<h5><b>Links Details:</b></h5>
 <?php echo $links['Link']['tags'];?>
 <br/>
 <br/>
@@ -24,7 +24,21 @@ if($links['SubTopic']['id']!=NULL){
 else{
 	echo $links['Topic']['display_name'];	
 }
-?></div></div>
+?>
+<br/>
+<br/>
+<h7><b>Uploaded By:</b> <?php 
+if($links['Link']['contributed']==0){
+	echo $uploader['Admin']['firstname']." ".$uploader['Admin']['lastname'];	
+}
+else{
+	echo $uploader['User']['name'];		
+}
+?></h7>
+<br/>
+<br/>
+<?php echo '<i class="fa fa-comments fa-fw"></i>'.count($comments).' Comments';?>
+</div></div>
 </div>
 <br/>
   	<div class="comments">

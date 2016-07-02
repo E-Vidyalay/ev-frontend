@@ -1,18 +1,15 @@
 <?php
 	$date=date('M j Y',strtotime($value['LiteraturePost']['updated_at']));
-	echo "<div class='post-pane'>";
-		echo "<div class='post-pane-heading'>";
-			echo $value['LiteraturePost']['title'];
-		echo "</div>";
+	echo "<div class='panel'>";
+			echo "<h3>".$value['LiteraturePost']['title']."</h3>";
 		echo "<div class='post-pane-body'>";
 			echo $value['LiteraturePost']['meta_description'];
 		echo "</div>";
-		echo "<div class='post-pane-heading'>";
 			echo '<ul class="postBylist">';
 				echo '<li class="listitem"><i class="fa fa-calendar fa-fw"></i>'.$date.'</li>';
-				echo "<li class='listitem'><b>For </b>".$value['Level']['level_name']."</li><li class='listitem'><b>By</b> ".$value['Admin']['name']."</li>";
+				echo "<li class='listitem'><b>For </b>".$value['Level']['level_name']."</li><li class='listitem'><b>By</b> ".$value['Admin']['firstname'].' '.$value['Admin']['lastname']."</li>";
+				echo '<li class="listitem"><i class="fa fa-comments fa-fw"></i>'.count($comments).' Comments</li>';
 				echo '</ul>';
-		echo "</div>";
 	echo "</div>";	
 ?>
 
@@ -43,11 +40,20 @@
 						<?php echo $this->Html->script('validation', FALSE); ?>
 		
   						<div id="ev-success"></div>
-							<?php 
-							echo $this->Form->create('LiteratureReply',array('id'=>'replyForm_'.$value['LiteratureComment']['id']));
-							echo $this->Form->input('name',array('required'=>'required','placeholder'=>'Name','type'=>'text','id'=>'name_'.$value['LiteratureComment']['id']));
-							echo $this->Form->input('email',array('required'=>'required','placeholder'=>'Email','type'=>'email','id'=>'email_'.$value['LiteratureComment']['id']));
-							echo $this->Form->input('comment_id',array('type'=>'hidden','value'=>$value['LiteratureComment']['id']));
+							<?php
+							if($activeUser){
+								echo 'Logged in as '.$activeUser['User']['name'];
+								echo $this->Form->create('LiteratureReply',array('id'=>'replyForm_'.$value['LiteratureComment']['id']));
+								echo $this->Form->input('name',array('type'=>'hidden','id'=>'name_'.$value['LiteratureComment']['id'],'value'=>$activeUser['User']['name']));
+								echo $this->Form->input('email',array('type'=>'hidden','id'=>'email_'.$value['LiteratureComment']['id'],'value'=>$activeUser['User']['username']));
+								echo $this->Form->input('comment_id',array('type'=>'hidden','value'=>$value['LiteratureComment']['id']));
+							}
+							else{
+								echo $this->Form->create('LiteratureReply',array('id'=>'replyForm_'.$value['LiteratureComment']['id']));
+								echo $this->Form->input('name',array('required'=>'required','placeholder'=>'Name','type'=>'text','id'=>'name_'.$value['LiteratureComment']['id']));
+								echo $this->Form->input('email',array('required'=>'required','placeholder'=>'Email','type'=>'email','id'=>'email_'.$value['LiteratureComment']['id']));
+								echo $this->Form->input('comment_id',array('type'=>'hidden','value'=>$value['LiteratureComment']['id']));
+							}
 						?>
 						<table cellpadding="3" cellspacing="0" border="1" class="editor">
 				    		<tr class="editortoolbar" >
@@ -64,13 +70,13 @@
 				    		</tr>
 				            <tr>
 				                <td>
-				                <?php echo $this->Form->input('text',array('type'=>'textarea','id'=>'typingarea','class'=>'bigger','cols'=>'64','rows'=>'5'));?>
+				                <?php echo $this->Form->input('reply',array('type'=>'textarea','id'=>'typingarea','class'=>'bigger','cols'=>'64','rows'=>'5'));?>
 				                <!-- <textarea id="typingarea" name="typingarea" rows="5" cols="64" class="bigger" spellcheck="false"></textarea> --></td>
 				            </tr>
 				        </table>
 
 					<?php
-						  echo $this->Js->submit('Post', array(
+						  echo $this->Js->submit('Reply', array(
 							
 							'update'=>'#success','class'=>'button btn-rply-lit tiny radius','id'=>'btn_'.$value['LiteratureComment']['id']
 							 ));
@@ -94,10 +100,19 @@
 		
   <div id="ev-success"></div>
 			<?php 
-			echo $this->Form->create('LiteratureComment',array('id'=>'VideoCommentGetVideoForm'));
-			echo $this->Form->input('name',array('required'=>'required','placeholder'=>'Name','type'=>'text'));
-			echo $this->Form->input('email',array('required'=>'required','placeholder'=>'Email','type'=>'email'));
-			echo $this->Form->input('post_id',array('type'=>'hidden','value'=>$value['LiteraturePost']['id']));
+			if($activeUser){
+				echo 'Logged in as '.$activeUser['User']['name'];
+				echo $this->Form->create('LiteratureComment',array('id'=>'VideoCommentGetVideoForm'));
+				echo $this->Form->input('name',array('type'=>'hidden','value'=>$activeUser['User']['name']));
+				echo $this->Form->input('email',array('type'=>'hidden','value'=>$activeUser['User']['username']));
+				echo $this->Form->input('post_id',array('type'=>'hidden','value'=>$value['LiteraturePost']['id']));
+			}
+			else{
+				echo $this->Form->create('LiteratureComment',array('id'=>'VideoCommentGetVideoForm'));
+				echo $this->Form->input('name',array('required'=>'required','placeholder'=>'Name','type'=>'text'));
+				echo $this->Form->input('email',array('required'=>'required','placeholder'=>'Email','type'=>'email'));
+				echo $this->Form->input('post_id',array('type'=>'hidden','value'=>$value['LiteraturePost']['id']));
+			}	
 		?>
 		<table cellpadding="3" cellspacing="0" border="1" class="editor">
     		<tr class="editortoolbar" >
@@ -114,14 +129,14 @@
     		</tr>
             <tr>
                 <td>
-                <?php echo $this->Form->input('text',array('type'=>'textarea','id'=>'typingarea','class'=>'bigger','cols'=>'64','rows'=>'5'));?>
+                <?php echo $this->Form->input('comment',array('type'=>'textarea','id'=>'typingarea','class'=>'bigger','cols'=>'64','rows'=>'5'));?>
                 <!-- <textarea id="typingarea" name="typingarea" rows="5" cols="64" class="bigger" spellcheck="false"></textarea> --></td>
             </tr>
         </table>
 
-		<?
-			  echo $this->Js->submit('Post', array(
-				
+		<?php
+			  echo $this->Js->submit('Comment', array(
+	
 				'update'=>'#success','id'=>'btn-lit-post','class'=>'button tiny radius'
 				 ));
 			echo $this->Form->end();
