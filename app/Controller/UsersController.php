@@ -20,62 +20,62 @@
 
                 if($this->User->save($user))
                 {
+                    $body='<br/>
+                        <div class="row">
+                            <div class="columns large-10 large-offset-1 medium-10 medium-offset-1 small-12">
+                                <div class="panel">
+                                    <h3>One step to Successfull Registration.</h3>
+                                    <hr/>
+                                    <p>You have registered successfully to E-Vidyalay Portal with below username.
+                                    Username: '.$user['User']['username'].'
+                                    <br/>
+                                    Confirm your Registration by Clicking the Below link:
+                                    <a href="http://evidyalay.net/kashyap1ev/frontend/users/activate_user/'
+                                    .$this->User->getLastInsertId().'">http://evidyalay.net/kashyap1ev/frontend/users/activate_user/'
+                                    .$this->User->getLastInsertId().'</a>
+                                    <br/>
+                                    Login with your registered username and password.
+                                    <hr/>
+                                    Please do not reply to this mail. This is a system generated email.
+                                    </div>
+                                    <br/>
+                                </div>
+                            </div>
+                        </div>';
+                        $Email = new CakeEmail();
+                        $Email->from(array('noreply@evidyalay.net' => 'ઈ-વિદ્યાલય Team'))
+                            ->to($user['User']['username'])
+                            ->subject('Welcome to E-Vidyalay')
+                            ->template('default')
+                            ->emailFormat('html')
+                            ->send($body);
 
-                    //Get EmailTemplate
-                    $registerEmailTemplate = $this->EmailTemplate->find('first',array('conditions'=>array('EmailTemplate.alias'=>'register_success')));
-
-                    if($registerEmailTemplate != null)
-                    {
-                        //Send Mail
-                        $Email = new CakeEmail('default');
-
-                        $subject = $registerEmailTemplate['EmailTemplate']['title'];
-                        $message =  html_entity_decode($registerEmailTemplate['EmailTemplate']['content']);
-                        $message = str_replace("{user_name}",$user['User']['first_name'],$message);
-                        $Email->emailFormat('html');
-                        $Email->template('default');
-                        $Email->to($user['User']['username']);
-                        $Email->subject($subject);
-                        $Email->send($message);
-
-                    }
                     $user_id = $this->User->getInsertId();
 
                     $user = $this->User->findById($user_id);
-
-                    $this->Auth->login();
-                    $usr=$this->Auth->user();
-                    $this->Session->write('Auth.User', $usr);
-                    if(empty($user['User']['user_type'])) {
-                        $this->redirect(array('controller'=>'users','action'=>'set_user_type',$user_id));
-                    }
-                    else{
                         if($user['User']['user_type']=='cb6f8154-fbbc-11e4-b148-01f8d649e9b6'){
                             $student=array();
-                            $student['user_id']=$this->Auth->user('id');
+                            $student['user_id']=$user_id;
                             $this->Student->save($student);
-                            $this->redirect(array('controller'=>'students','action'=>'home'));
                         }
                         if($user['User']['user_type']=='cb6f95fe-fbbc-11e4-b148-01f8d649e9b6'){
                             $teacher=array();
-                            $teacher['user_id']=$this->Auth->user('id');
+                            $teacher['user_id']=$user_id;
                             $this->Teacher->save($teacher);
-                            $this->redirect(array('controller'=>'teachers','action'=>'home'));
                         }
                         if($user['User']['user_type']=='d0cf96fc-fbbc-11e4-b148-01f8d649e9b6'){
-                            $this->redirect(array('controller'=>'parents','action'=>'home'));
+                            $parent=array();
+                            $parent['user_id']=$user_id;
+                            $this->Parent->save($parent);
                         }
                         if($user['User']['user_type']=='ddd4e9c3-1ef4-11e5-a1e8-543530b4dd8d'){
                             $contri=array();
-                            $contri['user_id']=$this->Auth->user('id');
+                            $contri['user_id']=$user_id;
                             $this->Contributor->save($contri);
-                            $this->redirect(array('controller'=>'contributors','action'=>'index'));
                         }
-                    }
 
                     $this->Session->setFlash('Thank you for registering.', 'default', array('class' => 'alert-box success radius') , 'success');
                     $this->redirect(array('controller'=>'Pages','action'=>'home'));
-
 
                 }
                 else{
@@ -92,14 +92,15 @@
 
         public function callback(){
         $auth_details = unserialize(base64_decode($this->request->data['opauth']));
-
+        pr($this->data);
+        die();
         //echo json_encode($auth_details); die();
         $newUser = array();
         $newUser['User']['first_name'] = $auth_details['auth']['info']['first_name'];
         $newUser['User']['last_name'] = $auth_details['auth']['info']['last_name'];
         $newUser['User']['username'] = $auth_details['auth']['info']['email'];
         $newUser['User']['password'] = substr(str_shuffle(str_repeat("0123456789abcdefghijklmnopqrstuvwxyz", 6)), 0, 6);
-
+        $newUser['User']['is_active'] = 1;
         if($auth_details['auth']['provider']=="Google")
         {
             $newUser['User']['google_token'] = $auth_details['auth']['uid'];
@@ -237,7 +238,7 @@
                 }
             }
             else{
-                $this->Session->setFlash('Sorry invalid username or password','default',array('class'=>'alert-box radius alert'),'error');
+                $this->Session->setFlash('Sorry invalid username or password OR Inactive user','default',array('class'=>'alert-box radius alert'),'error');
                 $this->redirect(array('controller'=>'Pages','action'=>'home'));
             }
         }
@@ -415,7 +416,7 @@
                         $body="<h1>Forgot password</h1>";
                         $body.="Your new password is:".$pass;
                         $Email = new CakeEmail();
-                        $Email->from(array('noreply@ev.learnlabs.in' => 'ઈ-વિદ્યાલય Team'))
+                        $Email->from(array('noreply@evidyalay.net' => 'ઈ-વિદ્યાલય Team'))
                              ->to($data['User']['username'])
                              ->subject('Forgot password')
                              ->viewVars(array('value' => $data['User']))
@@ -427,6 +428,25 @@
                 }
                 else{
                     $this->Session->setFlash('Sorry, email not found','default',array('class'=>'alert-box alert radius'),'error');
+                }
+            }
+        }
+        public function activate_user($id){
+            $user['User']['id']=$id;
+            $user['User']['is_active']=1;
+            if($id==NULL){
+                $this->Session->setFlash('ID, not found','default',array('class'=>'alert-box alert radius'),'error');
+                $this->redirect(array('controller'=>'Pages','action'=>'home'));
+            }
+            else{
+                //add update query
+                if($this->User->save($user)){
+                    $this->Session->setFlash('Approved Successfully now Login here','default',array('class'=>'alert-box success radius'),'success');
+                    $this->redirect(array('controller'=>'users','action'=>'login'));
+                }
+                else{
+                    $this->Session->setFlash('ID, not found','default',array('class'=>'alert-box alert radius'),'error');
+                    $this->redirect(array('controller'=>'Pages','action'=>'home'));
                 }
             }
         }

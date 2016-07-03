@@ -57,9 +57,13 @@ class AppController extends Controller {
         $this->Auth->authenticate = array('Form');
         // Pass settings in
         $this->Auth->authenticate = array(
+            'all' => array(
+                    'userModel' => 'User',
+                    'scope' => array('User.is_active' => 1)
+                ),
             'Form' => array('userModel' => 'User')
         );
-        $this->Auth->allow('login','signup','callback','custom_login','register','forgot_password','home');
+        $this->Auth->allow('login','signup','callback','custom_login','register','forgot_password','home','activate_user');
         $this->activeUser = $this->Session->read('Auth');
         $this->isLoggedIn = $this->Auth->loggedIn();
         $this->set('typeList',$this->UserType->find('list'));
