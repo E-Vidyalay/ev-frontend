@@ -18,6 +18,7 @@
       echo $this->Form->input('લૉગિન - Login',array('type'=>'submit','label'=>false,'div'=>false,'class'=>'button button tiny radius'));
       echo $this->Form->end();
       echo '<a href="#" data-reveal-id="forgot_password">પાસવર્ડ ભૂલી ગયા ?</a>';
+      echo '<a href="#" data-reveal-id="register" class="right">Not a Member? Register</a>';
       // echo $this->Html->link('Forgot Password ?',array('controller'=>'users','action'=>'forgot_password'))
     ?>
 </div>
@@ -83,6 +84,7 @@
                 </div> -->
 
                 <?php echo $this->Form->input('સાઇનઅપ - Sign Up',array('type'=>'submit','div'=>false,'class'=>'button tiny radius','id'=>'register-submit','label'=>false)); ?>
+                <a href="#" data-reveal-id="login" class="right">Already Member? Login here</a>
                 <div class="clear"></div>
                 </form>
             </div>

@@ -49,8 +49,10 @@
                 </div> -->
 
                 <?php echo $this->Form->input('સાઇનઅપ - Sign Up',array('type'=>'submit','div'=>false,'class'=>'button tiny radius','id'=>'register-submit','label'=>false)); ?>
+                <?php echo $this->Html->link('Already Member? Login here',array('controller'=>'users','action'=>'login'),array('div'=>false,'class'=>'right')); ?>
                 <div class="clear"></div>
                 </form>
+                <hr/>
                  <div><h4>Or Sign up with</h4></div>
              <hr/>
             <?php 

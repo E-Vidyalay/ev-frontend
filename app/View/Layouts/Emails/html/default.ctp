@@ -25,7 +25,7 @@
 		width: 100%;
 		color: #fff;
 		text-align: center;">
-		<img id="logo" src='http://evidyalay.net/kashyap1ev/frontend/img/ev-logo2.png' style="float: inherit;max-height: 57px;margin-left: 30%;padding-top: 5px;">
+		<img id="logo" src='http://frontend.evidyalay.net/img/ev-logo2.png' style="float: inherit;max-height: 57px;margin-left: 30%;padding-top: 5px;">
         <span class="brand-name" style="float: right;margin-right: 34%;font-size: 32px;padding-top:12px;">ઈ-વિદ્યાલય</span>
 	</div>
 	<div class="content" style="background-color: #fff;

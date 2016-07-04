@@ -30,8 +30,8 @@
                                     Username: '.$user['User']['username'].'
                                     <br/>
                                     Confirm your Registration by Clicking the Below link:
-                                    <a href="http://evidyalay.net/kashyap1ev/frontend/users/activate_user/'
-                                    .$this->User->getLastInsertId().'">http://evidyalay.net/kashyap1ev/frontend/users/activate_user/'
+                                    <a href="http://frontend.evidyalay.net/users/activate_user/'
+                                    .$this->User->getLastInsertId().'">http://frontend.evidyalay.net/users/activate_user/'
                                     .$this->User->getLastInsertId().'</a>
                                     <br/>
                                     Login with your registered username and password.
@@ -169,6 +169,12 @@
     }
     public function login(){
         $this->layout='site_layout';
+        if(isset($this->request->query['quiz'])){
+            $this->set('quiz',$this->request->query['quiz']);
+        }
+        else{
+            $this->set('quiz',null);   
+        }
         if($this->Session->check('Auth.User')){
                 if(empty($activeUser['User']['user_type'])){
                         $this->redirect(array('controller'=>'users','action'=>'set_user_type',$activeUser['User']['user_type']));
@@ -198,7 +204,7 @@
                 }
                 else{
                     if($this->Auth->user('user_type')=='cb6f8154-fbbc-11e4-b148-01f8d649e9b6'){
-                        $this->redirect(array('controller'=>'students','action'=>'home'));
+                            $this->redirect(array('controller'=>'students','action'=>'home'));
                     }
                     if($this->Auth->user('user_type')=='cb6f95fe-fbbc-11e4-b148-01f8d649e9b6'){
                         $this->redirect(array('controller'=>'teachers','action'=>'home'));
@@ -211,7 +217,7 @@
                     }
 
                 }
-        }
+            }
 
         if($this->request->is('post')){
 
@@ -223,7 +229,12 @@
                 }
                 else{
                     if($user['User']['user_type']=='cb6f8154-fbbc-11e4-b148-01f8d649e9b6'){
-                        $this->redirect(array('controller'=>'students','action'=>'home'));
+                        if(isset($this->request->data['User']['quiz']) ){
+                            $this->redirect(array('controller'=>'students','action'=>'test_application'));
+                        }
+                        else{
+                            $this->redirect(array('controller'=>'students','action'=>'home'));
+                        }
                     }
                     if($user['User']['user_type']=='cb6f95fe-fbbc-11e4-b148-01f8d649e9b6'){
                         $this->redirect(array('controller'=>'teachers','action'=>'home'));

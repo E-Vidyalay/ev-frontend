@@ -67,7 +67,7 @@ class AppController extends Controller {
         $this->activeUser = $this->Session->read('Auth');
         $this->isLoggedIn = $this->Auth->loggedIn();
         $this->set('typeList',$this->UserType->find('list'));
-        $this->set('admin_url','http://evidyalay.net/kashyap1ev/admin/');
+        $this->set('admin_url','http://admin.evidyalay.net/');
     }
     public function beforeRender() {
         if($this->name == 'CakeError') {

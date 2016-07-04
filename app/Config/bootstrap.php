@@ -116,13 +116,13 @@ CakePlugin::load('Upload');
 CakePlugin::load('SocialShare');
 CakePlugin::load('Opauth', array('routes' => true, 'bootstrap' => true));
 
-Configure::write('Opauth.path', '/kashyap1ev/frontend/auth/');
+Configure::write('Opauth.path', '/auth/');
 //Configure::write('Opauth.path', '/cakestudio/auth/');
 
 Configure::write('Opauth.Strategy.Google', array(
     'client_id' => '171802006720-v3smtct8lk4dfe640o4l56u95ngvfmll.apps.googleusercontent.com',
     'client_secret' => '1FxR6aWqAJBol4rwJxDSZwVF',
-    'redirect_uri' => 'http://evidyalay.net/kashyap1ev/frontend/auth/google/oauth2callback/'
+    'redirect_uri' => 'http://frontend.evidyalay.net/auth/google/oauth2callback/'
 ));
 Configure::write('Opauth.Strategy.Facebook', array(
     'app_id' => '771314749638441',
