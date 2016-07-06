@@ -32,7 +32,8 @@ class LinksController extends AppController {
 			if($this->Link->save($data))
 			{
 				$body="Thank you for  your valuable contribuation,<br/> We are approving this content it may take 24 hrs to approve and display this content. If there are any queries or if the content is not as per the direction we may reject the content and will also ask for the further improvement.";
-				$body.="<br/><br/> <b> Regards,<br/>evidyalay team </b>";
+				$body.="<br/><br/> <b> Regards,<br/>evidyalay team </b><br/><br/>";
+				$body.="Please do not reply to this mail. This is a system generated email.";
 				$Email = new CakeEmail();
 				$Email->from(array('noreply@evidyalay.net' => 'ઈ-વિદ્યાલય Team'))
 						->to($this->Auth->user('username'))

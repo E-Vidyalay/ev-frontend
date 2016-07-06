@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="columns large-8 large-offset-2">
 		<div class="content-card small-12 small-offset-0">
-			<h3>ક્વિઝ આપો</h3>
+			<h3>પ્રશ્નોત્તરી</h3>
 			<h4 class="subheader"><small>ધોરણ:</small> <?php echo $standard['Standard']['name'];?></h4>
 			<h4 class="subheader"><small>મૂળ પાઠ:</small> <?php echo $topic_full_name[0];?></h4>
 		<hr/>

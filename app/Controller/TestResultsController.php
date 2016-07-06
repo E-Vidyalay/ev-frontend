@@ -1,6 +1,6 @@
 <?php
 	class TestResultsController extends AppController{
-		public $uses=array('TestResult','TestApplication','Student','User','QuestionBank','Markingscheme');
+		public $uses=array('TestResult','TestApplication','Student','User','QuestionBank','Markingscheme','Level');
 
 		public function generate_result(){
 			$this->layout='site_layout';
@@ -60,6 +60,8 @@
 			// pr($positive_mrk);
 			// pr($negative_mrk);
 			$test=$this->TestApplication->findById($id);
+			$level=$this->Level->findById($test['Standard']['level_id']);
+			$this->set('level_color',$level);
 			$this->set('test_meta',$test);
 			$this->set('correct_ans',$correct_ans);
 			$this->set('incorrect_ans',$incorrect_ans);

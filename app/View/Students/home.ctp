@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="columns large-8 large-offset-0 medium-10 medium-offset-1 small-12 panel" style="background:#fff;">
-		<h4>તમે આપેલ ક્વિઝ </h4>
+		<h4>તમે આપેલ પ્રશ્નોતરી </h4>
 		<hr/>
 		<div class="row" style="border-bottom:1px dotted #bbb;padding:5px;margin-left:5px;margin-right:5px;">
 			<div class="columns large-3 small-4" style="font-size:13px">

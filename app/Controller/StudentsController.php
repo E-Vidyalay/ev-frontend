@@ -41,6 +41,8 @@
 			if($this->Auth->user('UserType.name')=='Student'){
 				$this->set('test_id',$id);
 				$test=$this->TestApplication->findById($id);
+				$level=$this->Level->findById($test['Standard']['level_id']);
+				$this->set('level_color',$level);
 				$questions=array();
 				if($test['TestApplication']['sub_topic_id']!=""){
 					$questions=$this->QuestionBank->find('all',array('conditions'=>array('QuestionBank.topic_id'=>$test['TestApplication']['topic_id'],'QuestionBank.sub_topic_id'=>$test['TestApplication']['sub_topic_id'],'QuestionBank.standard_id'=>$test['TestApplication']['standard_id'])));

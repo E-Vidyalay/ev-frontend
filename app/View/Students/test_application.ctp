@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="columns large-8 large-offset-2">
 		<div class="content-card small-12 small-offset-0">
-			<h3>ક્વિઝ આપો</h3>
+			<h3>પ્રશ્નોત્તરી</h3>
 		<h6>કૃપા કરીને વિષય પસંદ કરો કે જેના માટે તમે ક્વિઝ આપવા માંગો છો !</h6>
 		<hr/>
 

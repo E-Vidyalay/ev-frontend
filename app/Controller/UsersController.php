@@ -92,79 +92,114 @@
 
         public function callback(){
         $auth_details = unserialize(base64_decode($this->request->data['opauth']));
-        pr($this->data);
-        die();
         //echo json_encode($auth_details); die();
         $newUser = array();
-        $newUser['User']['first_name'] = $auth_details['auth']['info']['first_name'];
-        $newUser['User']['last_name'] = $auth_details['auth']['info']['last_name'];
-        $newUser['User']['username'] = $auth_details['auth']['info']['email'];
-        $newUser['User']['password'] = substr(str_shuffle(str_repeat("0123456789abcdefghijklmnopqrstuvwxyz", 6)), 0, 6);
-        $newUser['User']['is_active'] = 1;
-        if($auth_details['auth']['provider']=="Google")
-        {
-            $newUser['User']['google_token'] = $auth_details['auth']['uid'];
-        }
-        else if($auth_details['auth']['provider']=="Facebook")
-        {
-            $newUser['User']['fb_token'] = $auth_details['auth']['uid'];
-        }
-
-        $userEmail = $newUser['User']['username'];
-
-        $user = $this->User->find('first',array('conditions'=>array('User.username'=>$userEmail)));
-
-        if($user != null)
-        {
-
+        if(isset($auth_details['auth']['info']['email'])){
+            $newUser['User']['name'] = $auth_details['auth']['info']['name'];
+            $newUser['User']['username'] = $auth_details['auth']['info']['email'];
+            $newUser['User']['password'] = substr(str_shuffle(str_repeat("0123456789abcdefghijklmnopqrstuvwxyz", 6)), 0, 6);
+            $newUser['User']['is_active'] = 1;
             if($auth_details['auth']['provider']=="Google")
             {
-                $user['User']['google_token'] = $auth_details['auth']['uid'];
+                $newUser['User']['google_token'] = $auth_details['auth']['uid'];
             }
             else if($auth_details['auth']['provider']=="Facebook")
             {
-                $user['User']['fb_token'] = $auth_details['auth']['uid'];
+                $newUser['User']['fb_token'] = $auth_details['auth']['uid'];
             }
 
-            if($this->User->save($user)){
+            $userEmail = $newUser['User']['username'];
+
+            $user = $this->User->find('first',array('conditions'=>array('User.username'=>$userEmail)));
+
+            if($user != null)
+            {
+
+                if($auth_details['auth']['provider']=="Google")
+                {
+                    $user['User']['google_token'] = $auth_details['auth']['uid'];
+                }
+                else if($auth_details['auth']['provider']=="Facebook")
+                {
+                    $user['User']['fb_token'] = $auth_details['auth']['uid'];
+                }
+
+                if($this->User->save($user)){
+                }
+                $authUser=array();
+                $authUser=$user['User'];
+                $authUser['UserType']=$user['UserType'];
+                $this->Auth->login($authUser);
+
+                $this->Session->setFlash('Welcome back!', 'default', array('class' => 'alert-box success radius') , 'success');
+
             }
+            else{
 
-            $this->Auth->login($user['User']);
-
-            $this->Session->setFlash('Welcome back!', 'default', array('class' => 'alert-box success radius') , 'success');
-
+                if($this->User->save($newUser))
+                {
+                    $user_id = $this->User->getInsertID();
+                    $user = $this->User->findById($user_id);
+                    if(isset($newUser['User']['fb_token'])){
+                        $welcome='Facebook';
+                    }
+                    else{
+                        $welcome='Google';    
+                    }
+                    $body='<br/>
+                        <div class="row">
+                            <div class="columns large-10 large-offset-1 medium-10 medium-offset-1 small-12">
+                                <div class="panel">
+                                    <h3>Welcome to E-Vidyalay</h3>
+                                    <hr/>
+                                    <p>You have registered successfully to E-Vidyalay Portal with below username.
+                                    Username: '.$userEmail.'
+                                    You have registered through your '.$welcome.' account.
+                                    <br/>
+                                    Login with your registered username and password.
+                                    <hr/>
+                                    Please do not reply to this mail. This is a system generated email.
+                                    </div>
+                                    <br/>
+                                </div>
+                            </div>
+                        </div>';
+                        $Email = new CakeEmail();
+                        $Email->from(array('noreply@evidyalay.net' => 'ઈ-વિદ્યાલય Team'))
+                            ->to($userEmail)
+                            ->subject('Welcome to E-Vidyalay')
+                            ->template('default')
+                            ->emailFormat('html')
+                            ->send($body);
+                    $this->Auth->login($user['User']);
+                    $this->Session->setFlash('Thank you for joining E Vidyalay!', 'default', array('class' => 'alert-box radius success') , 'success');
+                }
+                else
+                {
+                    $this->Session->setFlash('Sorry, an error occurred. Please try again.', 'default', array('class' => 'alert-box alert radius') , 'error');
+                }
+            }
+            if(empty($user['User']['user_type'])) {
+                $this->redirect(array('controller'=>'users','action'=>'set_user_type',$user['User']['id']));
+            }
+            else{
+                if($user['User']['user_type']=='cb6f8154-fbbc-11e4-b148-01f8d649e9b6'){
+                    $this->redirect(array('controller'=>'students','action'=>'home'));
+                }
+                if($user['User']['user_type']=='cb6f95fe-fbbc-11e4-b148-01f8d649e9b6'){
+                    $this->redirect(array('controller'=>'teachers','action'=>'home'));
+                }
+                if($user['User']['user_type']=='d0cf96fc-fbbc-11e4-b148-01f8d649e9b6'){
+                    $this->redirect(array('controller'=>'parents','action'=>'home'));
+                }
+                if($user['User']['user_type']=='ddd4e9c3-1ef4-11e5-a1e8-543530b4dd8d'){
+                    $this->redirect(array('controller'=>'contributors','action'=>'index'));
+                }
+            }
         }
         else{
-
-            if($this->User->save($newUser))
-            {
-                $user_id = $this->User->getInsertID();
-                $user = $this->User->findById($user_id);
-
-                $this->Auth->login($user['User']);
-                $this->Session->setFlash('Thank you for joining E Vidyalay!', 'default', array('class' => 'alert-box radius success') , 'success');
-            }
-            else
-            {
-                $this->Session->setFlash('Sorry, an error occurred. Please try again.', 'default', array('class' => 'alert-box alert radius') , 'error');
-            }
-        }
-        if(empty($user['User']['user_type'])) {
-            $this->redirect(array('controller'=>'users','action'=>'set_user_type',$user['User']['id']));
-        }
-        else{
-            if($user['User']['user_type']=='cb6f8154-fbbc-11e4-b148-01f8d649e9b6'){
-                $this->redirect(array('controller'=>'students','action'=>'home'));
-            }
-            if($user['User']['user_type']=='cb6f95fe-fbbc-11e4-b148-01f8d649e9b6'){
-                $this->redirect(array('controller'=>'teachers','action'=>'home'));
-            }
-            if($user['User']['user_type']=='d0cf96fc-fbbc-11e4-b148-01f8d649e9b6'){
-                $this->redirect(array('controller'=>'parents','action'=>'home'));
-            }
-            if($user['User']['user_type']=='ddd4e9c3-1ef4-11e5-a1e8-543530b4dd8d'){
-                $this->redirect(array('controller'=>'contributors','action'=>'index'));
-            }
+            $this->Session->setFlash('Sorry, an error occurred. Seems like other api is not sharing data', 'default', array('class' => 'alert-box alert radius') , 'error');
+            $this->redirect(array('controller'=>'Pages','action'=>'home'));
         }
     }
     public function login(){
@@ -270,14 +305,11 @@
         if($this->request->is('post')){
 
             if($this->User->save($this->data)){
-                $usr=$this->Auth->user();
-                $usr['path']=$this->data['User']['path']['name'];
-                $usr['path_dir']=$id;
-                $usr['user_type']=$this->data['User']['user_type'];
-                if(isset($this->data['User']['name'])){
-                    $usr['name']=$this->data['User']['name'];
-                }
-                $this->Session->write('Auth.User', $usr);
+                $user=$this->User->find('first',array('conditions'=>array('User.id'=>$this->Auth->user('id'))));
+                $authUser=array();
+                $authUser=$user['User'];
+                $authUser['UserType']=$user['UserType'];
+                $this->Session->write('Auth.User', $authUser);
                 if($this->data['User']['user_type']=='cb6f8154-fbbc-11e4-b148-01f8d649e9b6'){
                     $student=array();
                     $student['user_id']=$this->data['User']['id'];
@@ -426,6 +458,7 @@
                     if($this->User->save($result)){
                         $body="<h1>Forgot password</h1>";
                         $body.="Your new password is:".$pass;
+                        $body.="Please do not reply to this mail. This is a system generated email.";
                         $Email = new CakeEmail();
                         $Email->from(array('noreply@evidyalay.net' => 'ઈ-વિદ્યાલય Team'))
                              ->to($data['User']['username'])

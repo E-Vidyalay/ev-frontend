@@ -125,8 +125,8 @@ Configure::write('Opauth.Strategy.Google', array(
     'redirect_uri' => 'http://frontend.evidyalay.net/auth/google/oauth2callback/'
 ));
 Configure::write('Opauth.Strategy.Facebook', array(
-    'app_id' => '771314749638441',
-    'app_secret' => '61a05c092dc6c59f1db1a0ccc6216c0c',
+    'app_id' => '1738657096417195',
+    'app_secret' => '49400461fecb9b7545570c7157e2eefc',
     'scope'=>'email'
 ));
 
