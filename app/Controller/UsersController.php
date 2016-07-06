@@ -457,7 +457,9 @@
                     $result['User']['password']=$pass;
                     if($this->User->save($result)){
                         $body="<h1>Forgot password</h1>";
-                        $body.="Your new password is:".$pass;
+                        $body.="Your new password is: ".$pass;
+                        $body.="<br/>";
+                        $body.="<hr/>";
                         $body.="Please do not reply to this mail. This is a system generated email.";
                         $Email = new CakeEmail();
                         $Email->from(array('noreply@evidyalay.net' => 'ઈ-વિદ્યાલય Team'))
