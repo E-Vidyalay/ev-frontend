@@ -21,7 +21,16 @@
   </script>
 <nav class="tab-bar hide-for-large hide-for-xlarge hide-for-xxlarge">
       <section class="left-small">
-        <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+        <a class="left-off-canvas-toggle menu-icon" style="text-indent:1.1875rem;">
+        <?php 
+              if(empty($activeUser['User']['path'])){
+                echo $this->Html->image('user_avatar.png',array('class'=>'usr-img'));
+              }
+              else{
+                echo '<img src="'.$this->webroot.'files/user/path/'.$activeUser['User']['id'].'/small_'.$activeUser['User']['path'].'" class="usr-img"/ > ';
+              }
+        ?></a>
+        <!-- <a class="left-off-canvas-toggle fa fa-user fa-3x menu-icon" href="#" style="text-indent:1.1875rem;"></a> -->
       </section>
 
       <section class="middle tab-bar-section">

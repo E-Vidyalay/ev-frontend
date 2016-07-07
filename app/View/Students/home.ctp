@@ -12,7 +12,7 @@
 			<div class="columns large-3 small-4" style="font-size:13px">
 				<b>તારીખ સમય</b>
 			</div>
-			<div class="columns large-3 small-4" style="font-size:13px">
+			<div class="columns large-3 small-6" style="font-size:13px">
 			</div>
 		</div>
 		<?php
@@ -38,7 +38,7 @@
 					$date=date_create($h['TestApplication']['date']);
 					echo date_format($date,"jS F Y h:i:s A"); ?>
 				</div>
-				<div class="columns large-3 small-4">
+				<div class="columns large-3 small-6">
 					<?php echo $this->Html->link('Get report',array('controller'=>'TestResults','action'=>'get_result',$h['TestApplication']['id']),array('class'=>'button info tiny round','style'=>'margin-top:10px')); ?>
 				</div>
 			</div>
