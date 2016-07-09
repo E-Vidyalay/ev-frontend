@@ -11,6 +11,7 @@
 						echo '<li class="listitem"><i class="fa fa-calendar fa-fw"></i>'.$date.'</li>';
 						echo "<li class='listitem'><b>For </b>".$post['Level']['level_name']."</li><li class='listitem'><b>By</b> ".$post['Admin']['firstname']." ".$post['Admin']['lastname']."</li>";
 						echo '<li class="listitem"><i class="fa fa-comments fa-fw"></i>'.count($comments).' Comments</li>';
+						echo '<li class="listitem"><i class="fa fa-eye fa-fw"></i>'.$post['HobbylobbyPost']['views'].' Views</li>';
 						echo '</ul>';
 				echo "</div>";
 			?>

@@ -9,6 +9,7 @@
 				echo '<li class="listitem"><i class="fa fa-calendar fa-fw"></i>'.$date.'</li>';
 				echo "<li class='listitem'><b>For </b>".$value['Level']['level_name']."</li><li class='listitem'><b>By</b> ".$value['Admin']['firstname'].' '.$value['Admin']['lastname']."</li>";
 				echo '<li class="listitem"><i class="fa fa-comments fa-fw"></i>'.count($comments).' Comments</li>';
+				echo '<li class="listitem"><i class="fa fa-eye fa-fw"></i>'.$value['LiteraturePost']['views'].' Views</li>';
 				echo '</ul>';
 	echo "</div>";	
 ?>

@@ -34,7 +34,7 @@ class PagesController extends AppController {
  *
  * @var array
  */
-	public $uses = array('Admin','User','Article','Level','HobbylobbyPost','Ebook','LiteraturePost','VideoComment','VideoReply','HobbylobbyComment','HobbylobbyReply','LiteratureComment','LiteratureReply');
+	public $uses = array('Admin','User','Article','Level','HobbylobbyPost','HobbylobbyPostCounter','Ebook','LiteraturePost','LiteraturePostCounter','Link','LinksCounter','VideoComment','VideoReply','HobbylobbyComment','HobbylobbyReply','LiteratureComment','LiteratureReply');
     
     public function beforeFilter()
     {
@@ -130,6 +130,7 @@ class PagesController extends AppController {
 	}
 	public function watch_video($id=NULL){
 		$this->layout='ajax';
+		$this->LinksCounter->_constructDB($id);
 		$link=$this->Link->findById($id);
 		if($link['Link']['contributed']==0){
 			$upload=$this->Admin->findById($link['Link']['uploaded_by']);
@@ -145,6 +146,7 @@ class PagesController extends AppController {
 		$this->set('replies',$this->VideoReply->find('all'));
 	}
 	public function watch_post($id=NULL){
+		$this->HobbylobbyPostCounter->_constructDB($id);
 		$l=$this->HobbylobbyPost->findById($id);
 		$this->layout='ajax';
 		$this->set('post',$l);
@@ -154,6 +156,7 @@ class PagesController extends AppController {
 	}
 	public function watch_lekh($id=null){
 			$this->layout='ajax';
+			$this->LiteraturePostCounter->_constructDB($id);
 			$this->set('value',$this->LiteraturePost->findById($id));
 			$this->set('comments',$this->LiteratureComment->find('all',array('conditions'=>array('post_id'=>$id))));
 			$this->set('replies',$this->LiteratureReply->find('all'));
