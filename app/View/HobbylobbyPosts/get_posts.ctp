@@ -38,6 +38,7 @@
 									echo '<li class="listitem"><i class="fa fa-clock-o fa-fw"></i>'.$date.'</li>';
 									echo "<li class='listitem'><b>For </b>".$posts[0]['Level']['level_name']."</li><li class='listitem'><b>By</b> ".$posts[0]['Admin']['firstname']." ".$posts[0]['Admin']['lastname']."</li>";
 									echo "<li class='listitem'><b><i class='fa fa-comments fa-fw'></i></b>".count($comments)." Comments</li>";
+									echo "<li class='listitem'><b><i class='fa fa-eye fa-fw'></i></b>".$views." Views</li>";
 									echo '</ul>';
 								echo "</div>";
 							echo "</div>";

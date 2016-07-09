@@ -1,7 +1,7 @@
 <?php
 	class LiteraturePostsController extends AppController{
 
-		var $uses = array('Literature','LiteraturePost','SubLiterature','Level','LiteratureComment','LiteratureReply');
+		var $uses = array('Literature','LiteraturePost','LiteraturePostCounter','SubLiterature','Level','LiteratureComment','LiteratureReply');
 
 		public function beforeFilter(){
 			parent::beforeFilter();
@@ -22,6 +22,7 @@
 		}
 		public function get_post($id=null){
 			$this->layout='ajax';
+			$this->LiteraturePostCounter->_constructDB($id);
 			$this->set('value',$this->LiteraturePost->findById($id));
 			$this->set('comments',$this->LiteratureComment->find('all',array('conditions'=>array('post_id'=>$id))));
 			$this->set('replies',$this->LiteratureReply->find('all'));

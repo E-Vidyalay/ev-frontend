@@ -17,7 +17,8 @@
 									echo '<ul class="postBylist">';
 									echo '<li class="listitem"><i class="fa fa-clock-o fa-fw"></i>'.$date.'</li>';
 									echo "<li class='listitem'><b>By</b> ".$value['Admin']['firstname']." ".$value['Admin']['lastname']."</li>";
-									echo "<li class='listitem'><b><i class='fa fa-comments fa-fw'></i></b> ".count($comments)."</li>";
+									echo "<li class='listitem'><b><i class='fa fa-comments fa-fw'></i></b> ".count($comments)." Comments</li>";
+									echo "<li class='listitem'><b><i class='fa fa-eye fa-fw'></i></b> ".$value['InformationPost']['views']." Views</li>";
 									echo '</ul>';
 								echo "</div>";
 							echo "</div>";

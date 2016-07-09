@@ -1,7 +1,7 @@
 <?php
 	class InformationPostsController extends AppController{
 
-		var $uses = array('InformationPost','InformationComment','InformationReply');
+		var $uses = array('InformationPost','InformationPostCounter','InformationComment','InformationReply');
 
 		public function beforeFilter(){
 			parent::beforeFilter();
@@ -18,6 +18,7 @@
 			
 		}
 		public function view_post($id=null){
+			$this->InformationPostCounter->_constructDB($id);
 			$this->layout='ajax';
 			$this->set('value',$this->InformationPost->findById($id));
 			$this->set('comments',$this->InformationComment->find('all',array('conditions'=>array('post_id'=>$id))));

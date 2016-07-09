@@ -2,7 +2,7 @@
 App::uses('CakeEmail', 'Network/Email');
 class LinksController extends AppController {
 
-	var $uses = array('Link','Topic','SubTopic','Level','Subject','VideoComment','VideoReply','Admin','User');
+	var $uses = array('Link','LinksCounter','Topic','SubTopic','Level','Subject','VideoComment','VideoReply','Admin','User');
 
 	public function beforeFilter(){
 		parent::beforeFilter();
@@ -74,19 +74,23 @@ class LinksController extends AppController {
 		$this->layout='ajax';
 		$this->set('tps',$this->Topic->findById($id));
 		$links=$this->Link->find('all',array('conditions'=>array('Link.topic_id'=>$id,'allow'=>1),'order'=>array('Link.updated_at'=>'desc')));
-		if($links[0]['Link']['contributed']==0){
-			$upload=$this->Admin->findById($links[0]['Link']['uploaded_by']);
-			$this->set('uploader',$upload);
-		}
-		else{
-			$upload=$this->User->findById($links[0]['Link']['uploaded_by']);
-			$this->set('uploader',$upload);	
+		if(!empty($links)){
+			$this->LinksCounter->_constructDB($links[0]['Link']['id']);
+			if($links[0]['Link']['contributed']==0){
+				$upload=$this->Admin->findById($links[0]['Link']['uploaded_by']);
+				$this->set('uploader',$upload);
+			}
+			else{
+				$upload=$this->User->findById($links[0]['Link']['uploaded_by']);
+				$this->set('uploader',$upload);	
+			}
 		}
 		$this->set('links',$links);
 		if(count($links)>0){
-		$this->set('comments',$this->VideoComment->find('all',array('conditions'=>array('video_id'=>$links[0]['Link']['id']))));
-		$this->set('replies',$this->VideoReply->find('all'));
-
+			$this->set('comments',$this->VideoComment->find('all',array('conditions'=>array('video_id'=>$links[0]['Link']['id']))));
+			$this->set('replies',$this->VideoReply->find('all'));
+			$views=$this->LinksCounter->find('all',array('conditions'=>array('link_id'=>$links[0]['Link']['id'])));
+			$this->set('views',count($views));
 		}
 	}
 	public function get_subject($id=null){
@@ -119,6 +123,7 @@ class LinksController extends AppController {
 
 	}
 	function view_video($id){
+		$this->LinksCounter->_constructDB($id);
 		$l=$this->Link->findById($id);
 		$this->layout='ajax';
 		if($l['Link']['contributed']==0){
@@ -153,18 +158,23 @@ class LinksController extends AppController {
 		$this->set('subTopic',$sb);
 		$this->set('tps',$sub);
 		$links=$this->Link->find('all',array('conditions'=>array('Link.sub_topic_id'=>$id,'allow'=>1),'order'=>array('Link.updated_at'=>'desc')));
-		if($links[0]['Link']['contributed']==0){
-			$upload=$this->Admin->findById($links[0]['Link']['uploaded_by']);
-			$this->set('uploader',$upload);
-		}
-		else{
-			$upload=$this->User->findById($links[0]['Link']['uploaded_by']);
-			$this->set('uploader',$upload);	
+		if(!empty($links)){
+			$this->LinksCounter->_constructDB($links[0]['Link']['id']);
+			if($links[0]['Link']['contributed']==0){
+				$upload=$this->Admin->findById($links[0]['Link']['uploaded_by']);
+				$this->set('uploader',$upload);
+			}
+			else{
+				$upload=$this->User->findById($links[0]['Link']['uploaded_by']);
+				$this->set('uploader',$upload);	
+			}
 		}
 		$this->set('links',$links);
 		if(count($links)>0){
-		$this->set('comments',$this->VideoComment->find('all',array('conditions'=>array('video_id'=>$links[0]['Link']['id']))));
-		$this->set('replies',$this->VideoReply->find('all'));
+			$this->set('comments',$this->VideoComment->find('all',array('conditions'=>array('video_id'=>$links[0]['Link']['id']))));
+			$this->set('replies',$this->VideoReply->find('all'));
+			$views=$this->LinksCounter->find('all',array('conditions'=>array('link_id'=>$links[0]['Link']['id'])));
+			$this->set('views',count($views));
 		}
 	}
 	function view_gallery($id=NULL)
@@ -194,6 +204,7 @@ class LinksController extends AppController {
 
 	function get_video($id=NULL)
 	{
+		$this->LinksCounter->_constructDB($id);
 		$this->layout='ajax';
 		$l=$this->Link->findById($id);
 		if($l['Link']['contributed']==0){

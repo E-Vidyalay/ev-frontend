@@ -1,7 +1,7 @@
 <?php 
 class HobbylobbyPostsController extends AppController {
 
-	var $uses = array('HobbylobbyPost','Hobby','SubHobby','Level','HobbylobbyComment','HobbylobbyReply');
+	var $uses = array('HobbylobbyPost','HobbylobbyPostCounter','Hobby','SubHobby','Level','HobbylobbyComment','HobbylobbyReply');
 
 	public function beforeFilter(){
 		parent::beforeFilter();
@@ -47,6 +47,11 @@ class HobbylobbyPostsController extends AppController {
 		//pr($hob);die();
 		$this->set('tps',$hob);
 		$posts=$this->HobbylobbyPost->find('all',array('conditions'=>array('HobbylobbyPost.sub_hobby_id'=>$sub['SubHobby']['id'],'HobbylobbyPost.level_id'=>$lid),'order'=>array('HobbylobbyPost.updated_at'=>'desc')));
+		if(!empty($posts)){
+			$this->HobbylobbyPostCounter->_constructDB($posts[0]['HobbylobbyPost']['id']);
+			$views=$this->HobbylobbyPostCounter->find('all',array('conditions'=>array('post_id'=>$posts[0]['HobbylobbyPost']['id'])));
+			$this->set('views',count($views));
+		}
 		//pr($posts);die();
 		$this->set('posts',$posts);
 		if(count($posts)>0){
@@ -57,6 +62,7 @@ class HobbylobbyPostsController extends AppController {
 	function get_post($id=NULL)
 	{
 		$this->layout='ajax';
+		$this->HobbylobbyPostCounter->_constructDB($id);
 		$l=$this->HobbylobbyPost->findById($id);
 		$this->set('post',$l);
 		$c=$this->HobbylobbyComment->find('all',array('conditions'=>array('post_id'=>$id)));
@@ -64,6 +70,7 @@ class HobbylobbyPostsController extends AppController {
 		$this->set('replies',$this->HobbylobbyReply->find('all'));
 	}
 	function view_post($id){
+		$this->HobbylobbyPostCounter->_constructDB($id);
 		$l=$this->HobbylobbyPost->findById($id);
 		$this->layout='ajax';
 		$this->set('post',$l);

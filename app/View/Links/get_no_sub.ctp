@@ -59,6 +59,9 @@
 				<br/>
 				<br/>
 				<?php echo '<i class="fa fa-comments fa-fw"></i>'.count($comments).' Comments';?>
+				<br/>
+				<br/>
+				<?php echo '<i class="fa fa-eye fa-fw"></i>'.$views.' Views';?>
 			</div>
 			<br/>
 			 <div class="comments">
