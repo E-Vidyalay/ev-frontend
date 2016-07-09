@@ -3,7 +3,10 @@
 <div class="row">
 	<h3 class="head-navu">વિશિષ્ટ તત્વો</h3>
 	<div class="columns large-6" style="height:100px;">
-	news updates
+		<blockquote style="color:black;background-color: #e1f3da;height:104px;">
+			<h6 align="center" style="background-color:white;padding:1px;">આજનો સુવિચાર</h6>
+			<i class="fa fa-quote-left" aria-hidden="true"></i> Those people who think they know everything are a great annoyance to those of us who do. <i class="fa fa-quote-right" aria-hidden="true"></i><cite>Isaac Asimov</cite>
+		</blockquote>
 	</div>
     <div class="columns large-6" style="height:100px;">
         <script>
