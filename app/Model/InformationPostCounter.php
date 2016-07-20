@@ -1,5 +1,12 @@
 <?php
     class InformationPostCounter extends AppModel{
+        // public $belongsTo=array(
+        //     'InformationPost'=>array(
+        //         'className'=>'InformationPost',
+        //         'foreignKey'=>'post_id',
+        //         'dependent'=>true
+        //     ));
+
         //IP FROM USER
         private $IP;
         private $post_id;

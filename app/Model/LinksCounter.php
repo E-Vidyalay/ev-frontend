@@ -1,5 +1,12 @@
 <?php
     class LinksCounter extends AppModel{
+        // public $belongsTo=array(
+        //     'Link'=>array(
+        //         'className'=>'Link',
+        //         'foreignKey'=>'link_id',
+        //         'dependent'=>true
+        //     ));
+
         //IP FROM USER
         private $IP;
         private $link_id;

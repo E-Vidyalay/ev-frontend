@@ -1,76 +1,7 @@
 <div class="row radius">
-	<div class="columns large-2 latest-pane hide-for-small hide-for-medium" style="position: fixed;width: 200px;">
-		<h6 style="text-align:center"> <i class="fa fa-book"></i>&nbsp;&nbsp;નવું</h6>
-		<div class="seperator"></div>
-		<ul style="list-style:square;font-size:13px;">
-			<?php
-				if(count($latest)>0){
-					for ($i=0;$i<sizeof($latest);$i++) {
-						if($i<7){
-						if($latest[$i]['SubTopic']['id']!=NULL){
-						echo "<li style='padding-top:5px;'><a class='watch_v' id='".$latest[$i]['Link']['id']."'>".$latest[$i]['Link']['link_title']." : ".$latest[$i]['Topic']['display_name']." - ".$latest[$i]['SubTopic']['name']."</a></li> ";
-						}else{
-							echo "<li style='padding-top:5px;'><a class='watch_v' id='".$latest[$i]['Link']['id']."'>".$latest[$i]['Link']['link_title']." : ".$latest[$i]['Topic']['display_name']."</a></li> ";
-						}
-						}
-					}
-				}
-				else if(count($videos)>=2){
-					for($i=0;$i<sizeof($videos);$i++){
-						if($i<2){
-						if($videos[$i]['SubTopic']['id']!=NULL){
-						echo "<li style='padding-top:5px;'><a class='watch_v' id='".$videos[$i]['Link']['id']."'>".$videos[$i]['Link']['link_title']." : ".$videos[$i]['Topic']['display_name']." - ".$videos[$i]['SubTopic']['name']."</a></li> ";
-						}else{
-							echo "<li style='padding-top:5px;'><a class='watch_v' id='".$videos[$i]['Link']['id']."'>".$videos[$i]['Link']['link_title']." : ".$videos[$i]['Topic']['display_name']."</a></li> ";
-						}
-						}
-					}
-				}
-				else{
-					echo "<a style='font-size:15px;color:#fff;cursor: default;'>કઈ નવું ઉપલબ્ધ નથી</a> ";
-				}
-
-
-
-			?>
-		</ul>
-	</div>
+	<?php echo $this->Element('links/links_latest_side');?>
 	<div class="columns large-10" style="background: #fff;">
-		<div class="row">
-			<div class="columns large-9 hide-for-small hide-for-medium">
-				<ul class="vi-menu vi">
-
-					<?php
-						foreach($levels as $l){
-							echo "<li style='background:".$l['Level']['color']."'><a id='".$l['Level']['id']."'>".$l['Level']['level_name']."</a></li>";
-						}
-					?>
-				</ul>
-			</div>
-			<div class="columns large-3 hide-for-small hide-for-medium">
-				<li class='has-sub-menu-lit right lit-cat' style="font-size:13px">
-				  <?php
-				  	echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa')) . " View all",array('controller'=>'Links','action'=>'index'),array('escape' => false));
-				  ?>
-
-
-	            </li>
-			</div>
-			<div class="columns large-9 hide-for-large-up">
-				<ul class="vi-menu vi">
-					<?php
-						foreach($levels as $l){
-							echo "<li style='background:".$l['Level']['color']."'><a id='".$l['Level']['id']."'>".$l['Level']['level_name']."</a></li>";
-						}
-					?>
-					<li class='has-sub-menu-lit lit-cat' style="font-size:13px">
-				  <?php
-				  	echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa')) . " View all",array('controller'=>'Links','action'=>'index'),array('escape' => false));
-				  ?>
-	            </li>
-				</ul>
-			</div>
-		</div>
+		<?php echo $this->Element('links/link_level_tab');?>
 		<div id="sub_lit">
 		<div class="row">
 			<div class="columns large-12" id="vi-cont">

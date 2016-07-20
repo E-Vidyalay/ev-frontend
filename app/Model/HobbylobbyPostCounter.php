@@ -1,6 +1,13 @@
 <?php
     class HobbylobbyPostCounter extends AppModel{
+        // public $belongsTo=array(
+        //     'HobbylobbyPost'=>array(
+        //         'className'=>'HobbylobbyPost',
+        //         'foreignKey'=>'post_id',
+        //         'dependent'=>true
+        //     ));
         //IP FROM USER
+
         private $IP;
         private $post_id;
         //HobbylobbyPost model
