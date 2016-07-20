@@ -1,14 +1,21 @@
-<ul class="breadcrumbs">
-	<li><?php 
-	echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-home fa-fw'))." પ્રવેશદ્વાર",array('controller'=>'Pages','action'=>'home'),array('escape' => false));
-	?></li>
-	<li><?php 
-	echo $this->Html->link("માહિતિ મિત્ર",array('controller'=>'InformationPosts','action'=>'index'),array('escape' => false));
-	?></li>
-	<li class="current"><?php echo $value['InformationPost']['title'];?></li>
-</ul>
-<div class="row"><div class="columns large-8">
-<?php
+<div class="row radius">
+	<?php echo $this->Element('information/information_latest_side');?>
+	<div class="columns large-10" style="background: #fff;">
+		<?php echo $this->Element('information/information_level_tab');?>
+		
+		<div class="row">
+			<div class="columns large-12" id="vi-cont">
+			<ul class="breadcrumbs">
+				<li><?php 
+				echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-home fa-fw'))." પ્રવેશદ્વાર",array('controller'=>'Pages','action'=>'home'),array('escape' => false));
+				?></li>
+				<li><?php 
+				echo $this->Html->link("માહિતિ મિત્ર",array('controller'=>'InformationPosts','action'=>'index'),array('escape' => false));
+				?></li>
+				<li class="current"><?php echo $value['InformationPost']['title'];?></li>
+			</ul>
+			<div class="row"><div class="columns large-9">
+			<?php
 				$date=date('M j Y g:i a',strtotime($value['InformationPost']['updated_at']));
 				echo "<div class='panel'>";
 									echo "<h3>".$value['InformationPost']['title']."</h3>";
@@ -19,6 +26,20 @@
 									echo "<li class='listitem'><b>By</b> ".$value['Admin']['firstname']." ".$value['Admin']['lastname']."</li>";
 									echo "<li class='listitem'><b><i class='fa fa-comments fa-fw'></i></b> ".count($comments)." Comments</li>";
 									echo "<li class='listitem'><b><i class='fa fa-eye fa-fw'></i></b> ".$value['InformationPost']['views']." Views</li>";
+									echo '<div class="right" align="right">';
+									$link=$this->base."/InformationPosts/view_post/".$value['InformationPost']['id'];
+									echo '&nbsp;&nbsp;';
+									echo 'Share on: ';
+									echo $this->SocialShare->fa(
+										'facebook',
+										$link
+										);
+									echo '&nbsp;&nbsp;';
+									echo $this->SocialShare->fa(
+										'twitter',
+										$link
+										);
+									echo '</div>';
 									echo '</ul>';
 								echo "</div>";
 							echo "</div>";
@@ -101,16 +122,15 @@
 				  	}
 			?>
 						</div>
-<button class='cmt-toggle button success tiny radius'>Leave comment</button> 
+			<button class='cmt-toggle button success tiny radius'>Leave comment</button> 
 			<div class="row comment-box " id="cmt-bx">
 				<div class="columns large-12" >
 					<div class="panel" style="padding:15px">
 					<h5> Write Comment</h5>
 					<hr/>
 					   <?php echo $this->Html->script('jquery', FALSE); ?> 
-<?php echo $this->Html->script('validation', FALSE); ?>
-		
-  <div id="ev-success"></div>
+						<?php echo $this->Html->script('validation', FALSE); ?>
+			<div id="ev-success"></div>
 			<?php 
 			if($activeUser){
 				echo 'Logged in as '.$activeUser['User']['name'];
@@ -157,4 +177,7 @@
 				</div>
 			</div>
 			</div>
+			</div>
+	</div>
+</div>
 			
