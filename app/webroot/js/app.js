@@ -513,22 +513,6 @@ $(document).on('click','.hobby_fetch',function(event){
     })
 });
 //Literature post ajax
-$(document).on('click','.get-lit-post',function(event){
-    var u=baseUrl+'/LiteraturePosts/get_post/'+$(this).attr('id');
-    $('.loading').show();
-    console.log(u);
-    $.ajax({
-        url:u,
-        success:function(data){
-            $(".post-content").html(data);
-            $('.loading').hide();
-        },
-        error:function(e){
-            alert("Sorry there was error :"+u);
-            $('.loading').hide();
-        }
-    })
-});
 $(document).on('click','#btn-lit-post',function(event){
     form = $("#VideoCommentGetVideoForm").serialize();
     var u=baseUrl+'/LiteratureComments/index';
@@ -591,54 +575,7 @@ $(document).on('click','.btn-rply-lit',function(event){
      return false;  //stop the actual form post !important!
 
   });
-$(".sub-menu-lit > li > a").click(function(){
-    var u=baseUrl+'/LiteraturePosts/get_lit_post/'+$(this).attr('id');
-    $('.loading').show();
-    console.log(u);
-    $.ajax({
-        url:u,
-        success:function(data){
-            $(".post-content").html(data);
-            $('.loading').hide();
-        },
-        error:function(e){
-            alert("Sorry there was error :"+u);
-            $('.loading').hide();
-        }
-    })
-});
-$("#slit-list > li >a").click(function(){
-    var u=baseUrl+'/LiteraturePosts/get_sublit_post/'+$(this).attr('id');
-    $('.loading').show();
-    console.log(u);
-    $.ajax({
-        url:u,
-        success:function(data){
-            $(".post-content").html(data);
-            $('.loading').hide();
-        },
-        error:function(e){
-            alert("Sorry there was error :"+u);
-            $('.loading').hide();
-        }
-    })
-});
-$(".lt-menu > li >a").click(function(){
-    var u=baseUrl+'/LiteraturePosts/get_level_post/'+$(this).attr('id');
-    $('.loading').show();
-    console.log(u);
-    $.ajax({
-        url:u,
-        success:function(data){
-            $(".post-content").html(data);
-            $('.loading').hide();
-        },
-        error:function(e){
-            alert("Sorry there was error :"+u);
-            $('.loading').hide();
-        }
-    })
-});
+
 //for information comments
 $(document).on('click','#btn2',function(event){
     form = $("#InformationCommentGetForm").serialize();
