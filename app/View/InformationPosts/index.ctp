@@ -28,5 +28,8 @@
 				</div></div>
 			</div>
 		</div>
+		<div class="loading">
+		<i class="fa fa-spinner fa-spin fa-3x"></i>
+		</div>
 	</div>
 </div>

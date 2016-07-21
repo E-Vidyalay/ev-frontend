@@ -152,54 +152,6 @@ $("#removeDp").on('click',function(event){
     	}
     })
 });
-$("#level_menu > li >a").click(function(){
-    var u=baseUrl+'/Literatures/get_level_book/'+$(this).attr('id');
-    console.log(u);
-    $('.loading').show();
-    $.ajax({
-        url:u,
-        success:function(data){
-            $("#example").html(data);
-            $('.loading').hide();
-        },
-        error:function(e){
-            alert("Sorry there was error :"+u);
-            $('.loading').hide();
-        }
-    })
-});
-$("#slit-list > li >a").click(function(){
-    var u=baseUrl+'/Literatures/get_sublit_book/'+$(this).attr('id');
-    console.log(u);
-    $('.loading').show();
-    $.ajax({
-        url:u,
-        success:function(data){
-            $("#example").html(data);
-            $('.loading').hide();
-        },
-        error:function(e){
-            alert("Sorry there was error :"+e);
-            $('.loading').hide();
-        }
-    })
-});
-$("#lit_menu > li > a").click(function(){
-    var u=baseUrl+'/Literatures/get_lit_book/'+$(this).attr('id');
-    console.log(u);
-    $('.loading').show();
-    $.ajax({
-        url:u,
-        success:function(data){
-            $("#example").html(data);
-            $('.loading').hide();
-        },
-        error:function(e){
-            alert("Sorry there was error :"+u);
-            $('.loading').hide();
-        }
-    })
-});
 $(".vi > li >a").click(function(){
     var u=baseUrl+'/Links/get_subject/'+$(this).attr('id');
     console.log(u);
@@ -687,22 +639,6 @@ $(".lt-menu > li >a").click(function(){
         }
     })
 });
-//for information view posts
-$(document).on('click','.watch_i',function(event){
-    var u=baseUrl+'/InformationPosts/view_post/'+$(this).attr('id');
-    $('.loading').show();
-    $.ajax({
-        url:u,
-        success:function(data){
-            $("#vi-cont").html(data);
-            $('.loading').hide();
-        },
-        error:function(e){
-            alert("Sorry there was error :"+e);
-            $('.loading').hide();
-        }
-    });
-})
 //for information comments
 $(document).on('click','#btn2',function(event){
     form = $("#InformationCommentGetForm").serialize();

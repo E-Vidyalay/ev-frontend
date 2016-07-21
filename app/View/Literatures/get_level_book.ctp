@@ -1,3 +1,12 @@
+<div class="row radius">
+	<?php echo $this->Element('literature/literature_latest_side');?>
+	<div class="columns large-10" style="background: #fff;">
+		<?php echo $this->Element('literature/literature_level_tab');?>
+		<div id="sub_lit">
+		<?php echo $this->Element('literature/literature_cat_tab');?>
+		<div class="row">
+			<div class="columns large-12" id="li-ebooks">
+			<table id="example" class="display responsive" cellspacing="0" width="100%">		   
 		    <thead>
 		        <tr>
 		            <th>Book Name</th>
@@ -13,7 +22,6 @@
 		    </thead>
 			<tbody>
 				<?php
-					if(count($books)>0){
 					foreach ($books as $key => $value) {
 						echo "<tr>";
 							echo "<td>".$value['Ebook']['name']."</td>";
@@ -41,14 +49,12 @@
 							echo "<td>".$value['Level']['level_name']."</td>";
 							echo "<td>";
 							if($value['Ebook']['contributed']==0){
-								echo "<a target='_blank' href='".$admin_url."files/ebook/path/".$value['Ebook']['id']."/".$value['Ebook']['path']."' class='book-link'>Read book</a>";
+								echo "<a target='_blank' href='".$admin_url."files/ebook/path/".$value['Ebook']['id']."/".$value['Ebook']['path']."' class='book-link button tiny'>Read book</a>";
 							}
 							else{
-								echo "<a target='_blank' href='".$this->webroot."files/ebook/path/".$value['Ebook']['id']."/".$value['Ebook']['path']."' class='book-link'>Read book</a>";
+								echo "<a target='_blank' href='".$this->webroot."files/ebook/path/".$value['Ebook']['id']."/".$value['Ebook']['path']."' class='book-link button tiny'>Read book</a>";
 							}
-							echo "<br>";
-								echo "<br>";
-									echo '<a href="#" class="book-desc" data-reveal-id="md-'.$value['Ebook']['id'].'">Read book description</a>
+									echo '<a href="#" class="book-desc button tiny info" data-reveal-id="md-'.$value['Ebook']['id'].'">Read book description</a>
 
 									<div id="md-'.$value['Ebook']['id'].'" class="reveal-modal small" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 									 <br/>
@@ -62,10 +68,14 @@
 							echo "</td>";
 						echo "</tr>";
 					}
-					}
-					else{
-						echo'<tr class="odd"><td class="dataTables_empty" colspan="5" valign="top">No books found</td></tr>';
-					}
-
 				?>
 			</tbody>
+			</table>
+			</div>
+		</div>
+		<div class="loading">
+		<i class="fa fa-spinner fa-spin fa-3x"></i>
+		</div>
+		</div>
+	</div>
+</div>
