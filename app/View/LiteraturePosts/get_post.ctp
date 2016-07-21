@@ -5,7 +5,7 @@
 		<div id="sub_lit">
 		<?php echo $this->Element('literature_post/literature_post_cat_tab');?>
 		<div class="row ">
-			<div class="columns large-10 post-content" id="li-LiteraturePosts">
+			<div class="columns large-9 post-content" id="li-LiteraturePosts">
 		<?php
 			$date=date('M j Y g:i a',strtotime($value['LiteraturePost']['updated_at']));
 			echo "<div class='panel'>";
@@ -17,20 +17,39 @@
 						echo "<li class='listitem'><b>For </b>".$value['Level']['level_name']."</li><li class='listitem'><b>By</b> ".$value['Admin']['firstname']." ".$value['Admin']['lastname']."</li>";
 						echo '<li class="listitem"><i class="fa fa-comments fa-fw"></i>'.count($comments).' Comments</li>';
 						echo '<li class="listitem"><i class="fa fa-eye fa-fw"></i>'.$value['LiteraturePost']['views'].' Views</li>';
-						echo '<div class="right" align="right">';
+						echo '</ul>';
+						echo '<ul class="postBylist">';
+									echo '<li class="listitem">';
 									$link=$this->base."/LiteraturePosts/get_post/".$value['LiteraturePost']['id'];
-									echo '&nbsp;&nbsp;';
 									echo 'Share on: ';
+									echo '</li>';
+									echo '<li class="listitem">';
 									echo $this->SocialShare->fa(
 										'facebook',
-										$link
+										$link,
+										array(
+											'text' => $value['LiteraturePost']['title']
+										)
 										);
-									echo '&nbsp;&nbsp;';
+									echo '</li>';
+									echo '<li class="listitem">';
 									echo $this->SocialShare->fa(
 										'twitter',
-										$link
+										$link,
+										array(
+											'text' => $value['LiteraturePost']['title']
+										)
 										);
-									echo '</div>';
+									echo '</li>';
+									echo '<li class="listitem visible-for-small-only">';
+									echo $this->SocialShare->fa(
+										'whatsapp',
+										$link,
+										array(
+												'text' => $value['LiteraturePost']['title']
+											)
+										);
+									echo '</li>';
 						echo '</ul>';
 				echo "</div>";
 			echo "</div>";	

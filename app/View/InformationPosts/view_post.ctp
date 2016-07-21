@@ -26,20 +26,33 @@
 									echo "<li class='listitem'><b>By</b> ".$value['Admin']['firstname']." ".$value['Admin']['lastname']."</li>";
 									echo "<li class='listitem'><b><i class='fa fa-comments fa-fw'></i></b> ".count($comments)." Comments</li>";
 									echo "<li class='listitem'><b><i class='fa fa-eye fa-fw'></i></b> ".$value['InformationPost']['views']." Views</li>";
-									echo '<div class="right" align="right">';
+									echo '</ul>';
+									echo '<ul class="postBylist">';
 									$link=$this->base."/InformationPosts/view_post/".$value['InformationPost']['id'];
-									echo '&nbsp;&nbsp;';
+									echo "<li class='listitem'>";
 									echo 'Share on: ';
+									echo "</li>";
+									echo "<li class='listitem'>";
 									echo $this->SocialShare->fa(
 										'facebook',
 										$link
 										);
-									echo '&nbsp;&nbsp;';
+									echo "</li>";
+									echo "<li class='listitem'>";
 									echo $this->SocialShare->fa(
 										'twitter',
 										$link
 										);
-									echo '</div>';
+									echo "</li>";
+									echo '<li class="listitem visible-for-small-only">';
+									echo $this->SocialShare->fa(
+										'whatsapp',
+										$link,
+										array(
+												'text' => $value['InformationPost']['title']
+											)
+										);
+									echo '</li>';
 									echo '</ul>';
 								echo "</div>";
 							echo "</div>";
