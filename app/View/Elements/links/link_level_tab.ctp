@@ -4,7 +4,9 @@
 
 					<?php
 						foreach($levels as $l){
-							echo "<li style='background:".$l['Level']['color']."'><a id='".$l['Level']['id']."'>".$l['Level']['level_name']."</a></li>";
+							echo "<li style='background:".$l['Level']['color']."'>";
+							echo $this->Html->link($l['Level']['level_name'],array('controller'=>'Links','action'=>'get_subject',$l['Level']['id']),array('escape' => false));
+							echo "</li>";
 						}
 					?>
 				</ul>
@@ -22,7 +24,9 @@
 				<ul class="vi-menu vi">
 					<?php
 						foreach($levels as $l){
-							echo "<li style='background:".$l['Level']['color']."'><a id='".$l['Level']['id']."'>".$l['Level']['level_name']."</a></li>";
+							echo "<li style='background:".$l['Level']['color']."'>";
+							echo $this->Html->link($l['Level']['level_name'],array('controller'=>'Links','action'=>'get_subject',$l['Level']['id']),array('escape' => false));
+							echo "</li>";
 						}
 					?>
 					<li class='has-sub-menu-lit lit-cat' style="font-size:13px">

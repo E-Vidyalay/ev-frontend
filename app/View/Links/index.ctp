@@ -9,17 +9,18 @@
 		    <thead>
 		        <tr>
 		            <th>Video Name</th>
-		            <th>Category</th>
-		            <th>Sub-Category</th>
+		            <th>Level-Subject-Category</th>
+		            <th>Sub Category</th>
 		            <th>Action</th>
 		        </tr>
 		    </thead>
 			<tbody>
 				<?php
 					foreach ($videos as $key => $value) {
+						// echo pr($value);
 						echo "<tr>";
 							echo "<td>".$value['Link']['link_title']."</td>";
-							echo "<td>".$value['Topic']['name']."</td>";
+							echo "<td>".$value['Topic']['display_name']."</td>";
 							$sb="";
 							if($value['SubTopic']['name']!="" || $value['SubTopic']['name']!=NULL){
 								$sb=$value['SubTopic']['name'];
@@ -29,16 +30,24 @@
 							}
 							echo "<td>".$sb."</td>";
 							echo "<td>";
-								echo "<a href='#' class='book-link watch_v' id='".$value['Link']['id']."' >View video</a>";
-									echo '<a href="#" class="book-desc" data-reveal-id="md-'.$value['Link']['id'].'">Read video description</a>
+								echo $this->Html->link('View video',array('controller'=>'Links','action'=>'view_video',$value['Link']['id']),array('escape' => false,'class'=>'book-link button tiny'));
+									echo '<a href="#" class="book-desc button tiny info" data-reveal-id="md-'.$value['Link']['id'].'">Read video description</a>
 
 									<div id="md-'.$value['Link']['id'].'" class="reveal-modal small" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 									 <br/>
 									 <h4>Video Description</h4>
 									 <hr/>
 									 	<div class="book-d radius">
+									 		<h5><b>Links Details:</b></h5>
 									 		'.$value['Link']['tags'].'
-									 	</div>
+									 		<h7><b>Video Belongs to Category:</b></h7> '; 
+											if($value['SubTopic']['id']!=NULL){
+												echo $value['Topic']['display_name'].' - '.$value['SubTopic']['name'];	
+											}
+											else{
+												echo $value['Topic']['display_name'];	
+											}
+										echo '</div>
 									  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 									</div>';
 							echo "</td>";

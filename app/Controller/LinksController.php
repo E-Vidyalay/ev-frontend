@@ -71,7 +71,20 @@ class LinksController extends AppController {
 		}
 	}
 	public function get_no_sub($id=null){
-		$this->layout='ajax';
+		$this->layout='site_layout';
+		$date = new DateTime('15 days ago');
+		$cdate=$date->format('Y-m-d');
+		$lt=$this->Link->find('all',array('conditions'=>array('DATE(Link.updated_at) >'=>$cdate,'allow'=>1),'order'=>array('Link.updated_at'=>'desc')));
+		$this->set('latest',$lt);
+			$lt=$this->Topic->find('all');
+		$this->set('lit',$lt);
+		$slt=$this->SubTopic->find('all');
+		$this->set('slit',$slt);
+		$this->set('subjects',$this->Subject->find('all'));
+		$this->set('videos',$this->Link->find('all',array('conditions'=>array('allow'=>1),'order'=>array('Link.updated_at'=>'desc'))));
+		$this->set('levels',$this->Level->find('all',array('order'=>array('Level.updated_at'=>'asc'))));
+
+		//get_no_sub original logic
 		$this->set('tps',$this->Topic->findById($id));
 		$links=$this->Link->find('all',array('conditions'=>array('Link.topic_id'=>$id,'allow'=>1),'order'=>array('Link.updated_at'=>'desc')));
 		if(!empty($links)){
@@ -94,7 +107,18 @@ class LinksController extends AppController {
 		}
 	}
 	public function get_subject($id=null){
-		$this->layout='ajax';
+		$this->layout='site_layout';
+		$date = new DateTime('15 days ago');
+		$cdate=$date->format('Y-m-d');
+		$lt=$this->Link->find('all',array('conditions'=>array('DATE(Link.updated_at) >'=>$cdate,'allow'=>1),'order'=>array('Link.updated_at'=>'desc')));
+		$this->set('latest',$lt);
+		$lt=$this->Topic->find('all');
+		$this->set('lit',$lt);
+		$slt=$this->SubTopic->find('all');
+		$this->set('slit',$slt);
+		$this->set('subjects',$this->Subject->find('all'));
+		$this->set('videos',$this->Link->find('all',array('conditions'=>array('allow'=>1),'order'=>array('Link.updated_at'=>'desc'))));
+		$this->set('levels',$this->Level->find('all',array('order'=>array('Level.updated_at'=>'asc'))));
 		$topics=$this->Topic->find('all',array('conditions'=>array('level_id'=>$id)));
 		if(count($topics)>0){
 			$subjects_array=array();
@@ -124,8 +148,21 @@ class LinksController extends AppController {
 	}
 	function view_video($id){
 		$this->LinksCounter->_constructDB($id);
+		$date = new DateTime('15 days ago');
+		$cdate=$date->format('Y-m-d');
+		$lt=$this->Link->find('all',array('conditions'=>array('DATE(Link.updated_at) >'=>$cdate,'allow'=>1),'order'=>array('Link.updated_at'=>'desc')));
+		$this->set('latest',$lt);
+		$lt=$this->Topic->find('all');
+		$this->set('lit',$lt);
+		$slt=$this->SubTopic->find('all');
+		$this->set('slit',$slt);
+		$this->set('subjects',$this->Subject->find('all'));
+		$this->set('videos',$this->Link->find('all',array('conditions'=>array('allow'=>1),'order'=>array('Link.updated_at'=>'desc'))));
+		$this->set('levels',$this->Level->find('all',array('order'=>array('Level.updated_at'=>'asc'))));
+
+		//get_subject original logic
 		$l=$this->Link->findById($id);
-		$this->layout='ajax';
+		$this->layout='site_layout';
 		if($l['Link']['contributed']==0){
 			$upload=$this->Admin->findById($l['Link']['uploaded_by']);
 			$this->set('uploader',$upload);
@@ -140,19 +177,58 @@ class LinksController extends AppController {
 		$this->set('replies',$this->VideoReply->find('all'));
 	}
 	function get_topics($sub_id=null, $level_id=null){
+		$date = new DateTime('15 days ago');
+		$cdate=$date->format('Y-m-d');
+		$lt=$this->Link->find('all',array('conditions'=>array('DATE(Link.updated_at) >'=>$cdate,'allow'=>1),'order'=>array('Link.updated_at'=>'desc')));
+		$this->set('latest',$lt);
+		$lt=$this->Topic->find('all');
+		$this->set('lit',$lt);
+		$slt=$this->SubTopic->find('all');
+		$this->set('slit',$slt);
+		$this->set('subjects',$this->Subject->find('all'));
+		$this->set('videos',$this->Link->find('all',array('conditions'=>array('allow'=>1),'order'=>array('Link.updated_at'=>'desc'))));
+		$this->set('levels',$this->Level->find('all',array('order'=>array('Level.updated_at'=>'asc'))));
+
+		//geti_topics original logic
 		$this->set('subject',$this->Subject->findById($sub_id));
 		$topics=$this->Topic->find('all',array('conditions'=>array('Topic.level_id'=>$level_id,'Topic.subject_id'=>$sub_id)));
-		$this->layout='ajax';
+		$this->layout='site_layout';
 		$this->set('topics',$topics);
 		$this->set('subs',$this->SubTopic->find('all'));
 	}
 	function get_sub_topics($tid=null){
-		$this->layout='ajax';
+		$this->layout='site_layout';
+		$date = new DateTime('15 days ago');
+		$cdate=$date->format('Y-m-d');
+		$lt=$this->Link->find('all',array('conditions'=>array('DATE(Link.updated_at) >'=>$cdate,'allow'=>1),'order'=>array('Link.updated_at'=>'desc')));
+		$this->set('latest',$lt);
+		$lt=$this->Topic->find('all');
+		$this->set('lit',$lt);
+		$slt=$this->SubTopic->find('all');
+		$this->set('slit',$slt);
+		$this->set('subjects',$this->Subject->find('all'));
+		$this->set('videos',$this->Link->find('all',array('conditions'=>array('allow'=>1),'order'=>array('Link.updated_at'=>'desc'))));
+		$this->set('levels',$this->Level->find('all',array('order'=>array('Level.updated_at'=>'asc'))));
+
+		
+		//get_sub_topics original logic
 		$this->set('subject',$this->Topic->findById($tid));
 		$this->set('subs',$this->SubTopic->find('all',array('conditions'=>array('topic_id'=>$tid))));
 	}
 	function get_links($id){
-		$this->layout='ajax';
+		$this->layout='site_layout';
+		$date = new DateTime('15 days ago');
+		$cdate=$date->format('Y-m-d');
+		$lt=$this->Link->find('all',array('conditions'=>array('DATE(Link.updated_at) >'=>$cdate,'allow'=>1),'order'=>array('Link.updated_at'=>'desc')));
+		$this->set('latest',$lt);
+		$lt=$this->Topic->find('all');
+		$this->set('lit',$lt);
+		$slt=$this->SubTopic->find('all');
+		$this->set('slit',$slt);
+		$this->set('subjects',$this->Subject->find('all'));
+		$this->set('videos',$this->Link->find('all',array('conditions'=>array('allow'=>1),'order'=>array('Link.updated_at'=>'desc'))));
+		$this->set('levels',$this->Level->find('all',array('order'=>array('Level.updated_at'=>'asc'))));
+
 		$sb=$this->SubTopic->findById($id);
 		$sub=$this->Topic->findById($sb['Topic']['id']);
 		$this->set('subTopic',$sb);

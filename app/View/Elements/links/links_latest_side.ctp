@@ -8,9 +8,13 @@
 					for ($i=0;$i<sizeof($latest);$i++) {
 						if($i<7){
 						if($latest[$i]['SubTopic']['id']!=NULL){
-						echo "<li style='padding-top:5px;'><a class='watch_v' id='".$latest[$i]['Link']['id']."'>".$latest[$i]['Link']['link_title']." : ".$latest[$i]['Topic']['display_name']." - ".$latest[$i]['SubTopic']['name']."</a></li> ";
+						echo "<li style='padding-top:5px;'>";
+						echo $this->Html->link($latest[$i]['Link']['link_title']." : ".$latest[$i]['Topic']['display_name']." - ".$latest[$i]['SubTopic']['name'],array('controller'=>'Links','action'=>'view_video',$latest[$i]['Link']['id']),array('escape' => false));
+						echo "</li> ";
 						}else{
-							echo "<li style='padding-top:5px;'><a class='watch_v' id='".$latest[$i]['Link']['id']."'>".$latest[$i]['Link']['link_title']." : ".$latest[$i]['Topic']['display_name']."</a></li> ";
+							echo "<li style='padding-top:5px;'>";
+							echo $this->Html->link($latest[$i]['Link']['link_title']." : ".$latest[$i]['Topic']['display_name'],array('controller'=>'Links','action'=>'view_video',$latest[$i]['Link']['id']),array('escape' => false));
+							echo "</li> ";
 						}
 						}
 					}
@@ -19,9 +23,13 @@
 					for($i=0;$i<sizeof($videos);$i++){
 						if($i<2){
 						if($videos[$i]['SubTopic']['id']!=NULL){
-						echo "<li style='padding-top:5px;'><a class='watch_v' id='".$videos[$i]['Link']['id']."'>".$videos[$i]['Link']['link_title']." : ".$videos[$i]['Topic']['display_name']." - ".$videos[$i]['SubTopic']['name']."</a></li> ";
+							echo "<li style='padding-top:5px;'>";
+							echo $this->Html->link($videos[$i]['Link']['link_title']." : ".$videos[$i]['Topic']['display_name']." - ".$videos[$i]['SubTopic']['name'],array('controller'=>'Links','action'=>'view_video',$videos[$i]['Link']['id']),array('escape' => false));
+							echo "</li> ";
 						}else{
-							echo "<li style='padding-top:5px;'><a class='watch_v' id='".$videos[$i]['Link']['id']."'>".$videos[$i]['Link']['link_title']." : ".$videos[$i]['Topic']['display_name']."</a></li> ";
+							echo "<li style='padding-top:5px;'>";
+							echo $this->Html->link($videos[$i]['Link']['link_title']." : ".$videos[$i]['Topic']['display_name'],array('controller'=>'Links','action'=>'view_video',$videos[$i]['Link']['id']),array('escape' => false));
+							echo "</li> ";
 						}
 						}
 					}
