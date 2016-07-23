@@ -12,8 +12,7 @@
 <div style="padding:15px;border:1px solid #dfdfdf;">
 <h5><b>Links Details:</b></h5>
 <?php echo $links['Link']['tags'];?>
-<br/>
-<br/>
+
 <h7><b>Video Belongs to Category:</b></h7>
 <br/>
 
@@ -41,7 +40,44 @@ else{
 <br/>
 <br/>
 <?php echo '<i class="fa fa-eye fa-fw"></i>'.$links['Link']['views'].' Views';?>
-</div></div>
+<br/>
+	<?php 
+		echo '<ul class="postBylist">';
+				echo '<li class="listitem">';
+				$link=$this->base."/Links/view_video/".$links['Link']['id'];
+				echo 'Share on: ';
+				echo '</li>';
+				echo '<li class="listitem">';
+				echo $this->SocialShare->fa(
+					'facebook',
+					$link,
+					array(
+						'text' => $links['Link']['link_title']
+					)
+					);
+				echo '</li>';
+				echo '<li class="listitem">';
+				echo $this->SocialShare->fa(
+					'twitter',
+					$link,
+					array(
+						'text' => $links['Link']['link_title']
+					)
+					);
+				echo '</li>';
+				echo '<li class="listitem visible-for-small-only">';
+				echo $this->SocialShare->fa(
+					'whatsapp',
+					$link,
+					array(
+							'text' => $links['Link']['link_title']
+						)
+					);
+				echo '</li>';
+			echo '</ul>';
+		?>
+</div>
+</div>
 </div>
 <br/>
   	<div class="comments">

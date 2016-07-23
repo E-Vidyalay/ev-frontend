@@ -1,7 +1,7 @@
 <?php
 App::uses('CakeEmail', 'Network/Email');
 class LinksController extends AppController {
-
+	public $helpers = array('SocialShare.SocialShare');
 	var $uses = array('Link','LinksCounter','Topic','SubTopic','Level','Subject','VideoComment','VideoReply','Admin','User');
 
 	public function beforeFilter(){

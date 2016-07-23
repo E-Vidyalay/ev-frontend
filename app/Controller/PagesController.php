@@ -35,7 +35,7 @@ class PagesController extends AppController {
  * @var array
  */
 	public $uses = array('Admin','User','Article','Level','HobbylobbyPost','HobbylobbyPostCounter','Ebook','LiteraturePost','LiteraturePostCounter','Link','LinksCounter','VideoComment','VideoReply','HobbylobbyComment','HobbylobbyReply','LiteratureComment','LiteratureReply');
-    
+    public $helpers = array('SocialShare.SocialShare');
     public function beforeFilter()
     {
         AppController::beforeFilter();
