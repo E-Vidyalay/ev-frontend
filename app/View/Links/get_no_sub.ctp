@@ -71,6 +71,43 @@
 								<br/>
 								<br/>
 								<?php echo '<i class="fa fa-eye fa-fw"></i>'.$views.' Views';?>
+								<br/>
+								<br/>
+								<?php 
+								echo '<ul class="postBylist">';
+										echo '<li class="listitem">';
+										$link=$this->base."/Links/view_video/".$links[0]['Link']['id'];
+										echo 'Share on: ';
+										echo '</li>';
+										echo '<li class="listitem">';
+										echo $this->SocialShare->fa(
+											'facebook',
+											$link,
+											array(
+												'text' => $links[0]['Link']['link_title']
+											)
+											);
+										echo '</li>';
+										echo '<li class="listitem">';
+										echo $this->SocialShare->fa(
+											'twitter',
+											$link,
+											array(
+												'text' => $links[0]['Link']['link_title']
+											)
+											);
+										echo '</li>';
+										echo '<li class="listitem visible-for-small-only">';
+										echo $this->SocialShare->fa(
+											'whatsapp',
+											$link,
+											array(
+													'text' => $links[0]['Link']['link_title']
+												)
+											);
+										echo '</li>';
+									echo '</ul>';
+								?>
 							</div>
 							<br/>
 							 <div class="comments">
