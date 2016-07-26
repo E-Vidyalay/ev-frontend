@@ -146,8 +146,8 @@ class LinksController extends AppController {
 		}
 
 	}
-	function view_video($id){
-		$this->LinksCounter->_constructDB($id);
+	function view_video($id=null){
+		$this->layout='site_layout';
 		$date = new DateTime('15 days ago');
 		$cdate=$date->format('Y-m-d');
 		$lt=$this->Link->find('all',array('conditions'=>array('DATE(Link.updated_at) >'=>$cdate,'allow'=>1),'order'=>array('Link.updated_at'=>'desc')));
@@ -159,22 +159,33 @@ class LinksController extends AppController {
 		$this->set('subjects',$this->Subject->find('all'));
 		$this->set('videos',$this->Link->find('all',array('conditions'=>array('allow'=>1),'order'=>array('Link.updated_at'=>'desc'))));
 		$this->set('levels',$this->Level->find('all',array('order'=>array('Level.updated_at'=>'asc'))));
-
+		//Video exist check
+		$lexist=$this->Link->findById($id);
 		//get_subject original logic
-		$l=$this->Link->findById($id);
-		$this->layout='site_layout';
-		if($l['Link']['contributed']==0){
-			$upload=$this->Admin->findById($l['Link']['uploaded_by']);
-			$this->set('uploader',$upload);
+		if($id!=null){
+			if($lexist!=null){
+				$this->LinksCounter->_constructDB($id);
+				$l=$this->Link->findById($id);
+				if($l['Link']['contributed']==0){
+					$upload=$this->Admin->findById($l['Link']['uploaded_by']);
+					$this->set('uploader',$upload);
+				}
+				else{
+					$upload=$this->User->findById($l['Link']['uploaded_by']);
+					$this->set('uploader',$upload);	
+				}
+				$this->set('links',$l);
+				$c=$this->VideoComment->find('all',array('conditions'=>array('video_id'=>$id)));
+				$this->set('comments',$c);
+				$this->set('replies',$this->VideoReply->find('all'));
+			}
+			else{
+				$this->set('err',true);	
+			}
 		}
 		else{
-			$upload=$this->User->findById($l['Link']['uploaded_by']);
-			$this->set('uploader',$upload);	
+			$this->set('err',true);	
 		}
-		$this->set('links',$l);
-		$c=$this->VideoComment->find('all',array('conditions'=>array('video_id'=>$id)));
-		$this->set('comments',$c);
-		$this->set('replies',$this->VideoReply->find('all'));
 	}
 	function get_topics($sub_id=null, $level_id=null){
 		$date = new DateTime('15 days ago');

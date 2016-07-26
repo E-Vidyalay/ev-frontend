@@ -2,6 +2,12 @@
 	<?php echo $this->Element('links/links_latest_side');?>
 	<div class="columns large-10" style="background: #fff;">
 		<?php echo $this->Element('links/link_level_tab');?>
+		<?php  
+				if($err){
+					echo "<h3>No such video available</h3>";
+				}
+				else{
+		?>
 		<div id="sub_lit">
 		<div class="row">
 			<div class="columns large-8">
@@ -217,9 +223,9 @@
 					</div>
 				</div>
 			</div>
+			<?php } ?>
 		</div>
 	</div>
-</div>
 
 
 
