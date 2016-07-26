@@ -178,6 +178,7 @@ class LinksController extends AppController {
 				$c=$this->VideoComment->find('all',array('conditions'=>array('video_id'=>$id)));
 				$this->set('comments',$c);
 				$this->set('replies',$this->VideoReply->find('all'));
+				$this->set('err',false);	
 			}
 			else{
 				$this->set('err',true);	
