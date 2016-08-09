@@ -83,6 +83,7 @@ class HobbylobbyPostsController extends AppController {
 		$this->set('subHobby',$sub);
 		//pr($hob);die();
 		$this->set('tps',$hob);
+		$this->set('lid',$lid);
 		$posts=$this->HobbylobbyPost->find('all',array('conditions'=>array('HobbylobbyPost.sub_hobby_id'=>$sub['SubHobby']['id'],'HobbylobbyPost.level_id'=>$lid),'order'=>array('HobbylobbyPost.updated_at'=>'desc')));
 		if(!empty($posts)){
 			$this->HobbylobbyPostCounter->_constructDB($posts[0]['HobbylobbyPost']['id']);

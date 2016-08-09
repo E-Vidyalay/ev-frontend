@@ -8,7 +8,7 @@
 			<div class="columns large-12" id="vi-cont">
 			<div id="sub_cat_list" class="panel callout" style="padding:0.25rem">
 				<?php 
-					echo $this->Html->link($tps['Hobby']['name'],array('controller'=>'HobbylobbyPosts','action'=>'get_sub_hobby',$tps['Hobby']['id']),array('escape' => false));
+					echo $this->Html->link($tps['Hobby']['name'],array('controller'=>'HobbylobbyPosts','action'=>'get_sub_hobby',$tps['Hobby']['id'],$lid),array('escape' => false));
 					echo ' / '.$subHobby['SubHobby']['name'];
 				 ?>
 			</div>
