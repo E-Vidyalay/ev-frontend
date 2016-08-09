@@ -33,15 +33,24 @@
 									echo 'Share on: ';
 									echo "</li>";
 									echo "<li class='listitem'>";
+									$description=strip_tags($value['InformationPost']['meta_description']);
 									echo $this->SocialShare->fa(
 										'facebook',
-										$link
+										$link,
+										array(
+											'text' => $value['InformationPost']['title'],
+											'image' => 'http://frontend.evidyalay.net/img/ev-logo.png',
+											'description' => $description
+											)
 										);
 									echo "</li>";
 									echo "<li class='listitem'>";
 									echo $this->SocialShare->fa(
 										'twitter',
-										$link
+										$link,
+										array(
+											'text' => $value['InformationPost']['title'],
+											)
 										);
 									echo "</li>";
 									echo '<li class="listitem visible-for-small-only">';

@@ -42,7 +42,7 @@
 											$link,
 											array(
 												'text' => $post['HobbylobbyPost']['title'],
-												'image' => $this->Html->image('ev-logo2.png'),
+												'image' => 'http://frontend.evidyalay.net/img/ev-logo.png',
 												'description' => $description
 											)
 											);
