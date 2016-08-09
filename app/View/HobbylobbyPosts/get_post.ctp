@@ -14,6 +14,43 @@
 									echo "<li class='listitem'><b><i class='fa fa-comments fa-fw'></i></b>".count($comments)." Comments</li>";
 									echo "<li class='listitem'><b><i class='fa fa-eye fa-fw'></i></b>".$post['HobbylobbyPost']['views']." Views</li>";
 									echo '</ul>';
+									echo '<ul class="postBylist">';
+										echo '<li class="listitem">';
+										$link=$this->base."/HobbylobbyPosts/view_post/".$post['HobbylobbyPost']['id'];
+										echo 'Share on: ';
+										echo '</li>';
+										echo '<li class="listitem">';
+										$description=strip_tags($post['HobbylobbyPost']['meta_description']);
+										// pr($description);
+										echo $this->SocialShare->fa(
+											'facebook',
+											$link,
+											array(
+												'text' => $post['HobbylobbyPost']['title'],
+												'image' => $this->Html->image('ev-logo2.png'),
+												'description' => $description
+											)
+											);
+										echo '</li>';
+										echo '<li class="listitem">';
+										echo $this->SocialShare->fa(
+											'twitter',
+											$link,
+											array(
+												'text' => $post['HobbylobbyPost']['title']
+											)
+											);
+										echo '</li>';
+										echo '<li class="listitem visible-for-small-only">';
+										echo $this->SocialShare->fa(
+											'whatsapp',
+											$link,
+											array(
+													'text' => $post['HobbylobbyPost']['title']
+												)
+											);
+										echo '</li>';
+									echo '</ul>';
 								echo "</div>";
 							echo "</div>";
 			?>
@@ -89,10 +126,10 @@
 					?>
 					</div>
 				</div>
-			</div>
-			<?php
+				<?php
 				  	}
-			?>
+				?>
+			</div>
 						</div>
 <button class='cmt-toggle button success tiny radius'>Leave comment</button> 
 			<div class="row comment-box " id="cmt-bx">

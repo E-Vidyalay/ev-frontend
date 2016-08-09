@@ -11,7 +11,7 @@
 					foreach ($posts as $key => $value) {
 						$date=date('M j Y, g:i a',strtotime($value['HobbylobbyPost']['updated_at']));
 						echo "<div class='panel'>";
-									echo "<a class='watch_p' id='".$value['HobbylobbyPost']['id']."'><h3 class='read-link'>".$value['HobbylobbyPost']['title']."</h3></a>";
+								echo $this->Html->link("<h3 class='read-link'>".$value['HobbylobbyPost']['title']."</h3>",array('controller'=>'HobbylobbyPosts','action'=>'view_post',$value['HobbylobbyPost']['id']),array('escape' => false));
 								echo "<div class='post-pane-body'>";
 									echo $value['HobbylobbyPost']['meta_description'];
 									echo '<ul class="postBylist">';
@@ -26,9 +26,6 @@
 				?>
 				</div></div>
 			</div>
-		</div>
-		<div class="loading">
-			<i class="fa fa-spinner fa-spin fa-3x"></i>
 		</div>
 		</div>
 	</div>

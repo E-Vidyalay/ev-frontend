@@ -26,7 +26,8 @@ class SocialShareHelper extends AppHelper {
 		'digg' => 'http://digg.com/submit?url={url}&amp;title={text}',
 		'email' => 'mailto:?subject={text}&body={url}',
 		'evernote' => 'http://www.evernote.com/clip.action?url={url}&amp;title={text}',
-		'facebook' => 'https://www.facebook.com/sharer/sharer.php?u={url}',
+		'facebook' => 'https://www.facebook.com/dialog/feed?app_id=1738657096417195&display=popup&picture={image}&name={text}&description={description}&link={url}',
+		//'https://www.facebook.com/sharer/sharer.php?u={url}',
 		'friendfeed' => 'http://www.friendfeed.com/share?url={url}&amp;title={text}',
 		'google' => 'http://www.google.com/bookmarks/mark?op=edit&amp;bkmk={url}&amp;title={text}',
 		'gplus' => 'https://plus.google.com/share?url={url}',
@@ -94,18 +95,21 @@ class SocialShareHelper extends AppHelper {
 
 		$text = !empty($options['text']) ? $options['text'] : '';
 		$image = !empty($options['image']) ? $options['image'] : '';
+		$description = !empty($options['description']) ? $options['description'] : '';
 
 		if (!empty($this->_urls[$service])) {
 			return preg_replace(
 				array(
 					'/{url}/',
 					'/{text}/',
-					'/{image}/'
+					'/{image}/',
+					'/{description}/'
 				),
 				array(
 					urlencode($url),
 					urlencode($text),
-					urlencode($image)
+					urlencode($image),
+					urlencode($description)
 				),
 				$this->_urls[$service]
 			);

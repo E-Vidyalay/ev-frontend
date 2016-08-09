@@ -1,0 +1,26 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SocialMedia Plugin\n"
+"POT-Creation-Date: 2014-03-19 11:45+0100\n"
+"PO-Revision-Date: 2014-03-19 11:47+0100\n"
+"Last-Translator: Mischa ter Smitten <m.tersmitten@oefenweb.nl>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: Dutch\n"
+"X-Poedit-Country: NETHERLANDS\n"
+
+#: Test/Case/View/Helper/SocialMediaHelperTest.php:43;62
+msgid "Share on Facebook"
+msgstr "Delen op Facebook"
+
+#: Test/Case/View/Helper/SocialMediaHelperTest.php:94;106
+msgid "Share on Twitter"
+msgstr "Delen op Twitter"
+

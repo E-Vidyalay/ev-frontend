@@ -231,62 +231,13 @@ $(document).on('click','.btn-rply',function(event){
   });
 
 //Hobby lobby all ajax function
-$(".hl > li >a").click(function(){
-    var u=baseUrl+'/HobbylobbyPosts/get_hobby/'+$(this).attr('id');
-    console.log(u);
-    $('.loading').show();
-    $.ajax({
-        url:u,
-        success:function(data){
-            $("#vi-cont").html(data);
-            $('.loading').hide();
-        },
-        error:function(e){
-            alert("Sorry there was error :"+u);
-            $('.loading').hide();
-        }
-    })
-});
-
-$(document).on('click','#hobs >li >a',function(event){
-    var u=baseUrl+'/HobbylobbyPosts/get_sub_hobby/'+$(this).attr('id');
-    console.log(u);
-    $('.loading').show();
-    $.ajax({
-        url:u,
-        success:function(data){
-            $("#vi-cont").html(data);
-            $('.loading').hide();
-        },
-        error:function(e){
-            alert("Sorry there was error :"+u);
-            $('.loading').hide();
-        }
-    })
-});
-
-
-$(document).on('click','#subl-subhb >li >a',function(event){
-    var u=baseUrl+'/HobbylobbyPosts/get_posts/'+$(this).attr('id');
-    console.log(u);
-    $('.loading').show();
-    $.ajax({
-        url:u,
-        success:function(data){
-            $("#vi-cont").html(data);
-            $('.loading').hide();
-        },
-        error:function(e){
-            alert("Sorry there was error :"+u);
-            $('.loading').hide();
-        }
-    })
-});
 
 $(document).on('click','#posts >li >a',function(event){
     var u=baseUrl+'/HobbylobbyPosts/get_post/'+$(this).attr('id');
     console.log(u);
     $('.loading').show();
+    $(".vis li").removeClass('active');
+    $(this).parent().addClass('active');
     $.ajax({
         url:u,
         success:function(data){
@@ -299,21 +250,6 @@ $(document).on('click','#posts >li >a',function(event){
         }
     })
 });
-$(document).on('click','.watch_p',function(event){
-    var u=baseUrl+'/HobbylobbyPosts/view_post/'+$(this).attr('id');
-    $('.loading').show();
-    $.ajax({
-        url:u,
-        success:function(data){
-            $("#vi-cont").html(data);
-            $('.loading').hide();
-        },
-        error:function(e){
-            alert("Sorry there was error :"+u);
-            $('.loading').hide();
-        }
-    });
-})
 $(document).on('click','#btn1',function(event){
     form = $("#HobbylobbyCommentGetForm").serialize();
     var u=baseUrl+'/HobbylobbyComments/index';

@@ -47,11 +47,15 @@
 						echo 'Share on: ';
 						echo '</li>';
 						echo '<li class="listitem">';
+						$myArray=explode('/', $links['Link']['link_url']);
+						$description=strip_tags($links['Link']['tags']);
 						echo $this->SocialShare->fa(
 							'facebook',
 							$link,
 							array(
-								'text' => $links['Link']['link_title']
+								'text' => $links['Link']['link_title'],
+								'image' => 'http://img.youtube.com/vi/'.$myArray[4].'/0.jpg',
+								'description' => $description
 							)
 							);
 						echo '</li>';
