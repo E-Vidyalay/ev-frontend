@@ -179,6 +179,29 @@
     height: 100%;
 
 }
+.videos img {
+  width:100%;
+  height:auto;
+}
+a.video {
+  float: left;
+  position: relative;
+}
+a.video span {
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  background: url("../img/play-btn.png") no-repeat;
+  background-position: 45% 50%;
+  background-size: 300%;
+}
+@media screen and (max-width: 480px) {
+  a.video span {
+    background-size: 400%;
+  }
+}
+
+
 .login_dialouge_heading{
 	background-color:#054b9a;
 	color:#fff;

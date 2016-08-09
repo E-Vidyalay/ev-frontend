@@ -8,7 +8,7 @@
 				<ul class="side-nav" style="color:white;">
 					<?php foreach ($levels as $key => $value) {
 						// pr($value);
-						echo '<li style="background-color:'.$value['Level']['color'].'">'.$this->Html->link($value['Level']['level_name']." ઈ-બૂક",array('controller'=>'Pages','action'=>'latest_video',$value['Level']['id']),array('style'=>'color:white;')).'</li>';
+						echo '<li style="background-color:'.$value['Level']['color'].'">'.$this->Html->link($value['Level']['level_name']." વિડિઓઝ",array('controller'=>'Pages','action'=>'latest_video',$value['Level']['id']),array('style'=>'color:white;')).'</li>';
 					}?>
 					<li><?php echo $this->Html->link("View all",array('controller'=>'Links','action'=>'index'),array('style'=>'color:white;'));?></li>
 				</ul>
@@ -25,7 +25,15 @@
 					  if(!empty($links)){ 
 					  	for ($i=0;$i<sizeof($links);$i++) {
 					  		if($i<10){
-							echo '<li>'.$this->Html->tag('i', '', array('class' => 'fa fa-play-circle-o fa-1x')).'&nbsp;&nbsp;<a class="link_video" id="'.$links[$i]['Link']['id'].'" class="">'.$links[$i]['Link']['link_title'].'</a></li>';
+					  		$myArray=explode('/', $links[$i]['Link']['link_url']);
+							echo '<li class="videos">';
+							echo '<a class="link_video video" id="'.$links[$i]['Link']['id'].'">';
+							echo '<span></span>';
+							echo '<img src="http://i1.ytimg.com/vi/'.$myArray[4].'/0.jpg" alt="'.$links[$i]['Link']['link_title'].'" />';
+							echo $links[$i]['Link']['link_title'];
+							echo '</a>';
+
+							echo '</li>';
 							}
 					  	}
 					  }

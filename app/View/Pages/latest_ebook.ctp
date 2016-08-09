@@ -69,22 +69,25 @@
 											echo "<td>".$books[$i]['Level']['level_name']."</td>";
 											echo "<td>";
 												if($books[$i]['Ebook']['contributed']==0){
-													echo "<a target='_blank' href='".$admin_url."files/ebook/path/".$books[$i]['Ebook']['id']."/".$books[$i]['Ebook']['path']."' class='book-link'>Read book</a>";
+													echo "<a target='_blank' href='".$admin_url."files/ebook/path/".$books[$i]['Ebook']['id']."/".$books[$i]['Ebook']['path']."' class='book-link button tiny'>Read book</a>";
 												}
 												else{
-													echo "<a target='_blank' href='".$this->webroot."files/ebook/path/".$books[$i]['Ebook']['id']."/".$books[$i]['Ebook']['path']."' class='book-link'>Read book</a>";
+													echo "<a target='_blank' href='".$this->webroot."files/ebook/path/".$books[$i]['Ebook']['id']."/".$books[$i]['Ebook']['path']."' class='book-link button tiny'>Read book</a>";
 												}
 												echo "<br>";
 												echo "<br>";
-													echo '<a href="#" class="book-desc" data-reveal-id="md-'.$books[$i]['Ebook']['id'].'">Read book description</a>
+													echo '<a href="#" class="book-desc button tiny info" data-reveal-id="md-'.$books[$i]['Ebook']['id'].'">Read book description</a>
 
 													<div id="md-'.$books[$i]['Ebook']['id'].'" class="reveal-modal small" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 													 <br/>
 													 <h4>Book Description</h4>
 													 <hr/>
 													 	<div class="book-d radius">
+													 		<h5><b>E-Book Details:</b></h5>
 													 		'.$books[$i]['Ebook']['description'].'
-													 	</div>
+													 		<h7><b>E-Book Belongs to Category:</b></h7> ';
+													 		echo $books[$i]['Literature']['name'].' - '.$books[$i]['SubLiterature']['name'].' ( '.$books[$i]['Level']['level_name'].' ) ';
+													 	echo '</div>
 													  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 													</div>';
 											echo "</td>";

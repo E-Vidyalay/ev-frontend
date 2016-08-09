@@ -8,7 +8,7 @@
 				<ul class="side-nav" style="color:white;">
 					<?php foreach ($levels as $key => $value) {
 						// pr($value);
-						echo '<li style="background-color:'.$value['Level']['color'].'">'.$this->Html->link($value['Level']['level_name']." ઈ-બૂક",array('controller'=>'Pages','action'=>'latest_post',$value['Level']['id']),array('style'=>'color:white;')).'</li>';
+						echo '<li style="background-color:'.$value['Level']['color'].'">'.$this->Html->link($value['Level']['level_name']." હોબીલોબી",array('controller'=>'Pages','action'=>'latest_post',$value['Level']['id']),array('style'=>'color:white;')).'</li>';
 					}?>
 					<li><?php echo $this->Html->link("View all",array('controller'=>'HobbylobbyPosts','action'=>'index'),array('style'=>'color:white;'));?></li>
 				</ul>

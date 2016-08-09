@@ -11,6 +11,42 @@
 				echo '<li class="listitem"><i class="fa fa-comments fa-fw"></i>'.count($comments).' Comments</li>';
 				echo '<li class="listitem"><i class="fa fa-eye fa-fw"></i>'.$value['LiteraturePost']['views'].' Views</li>';
 				echo '</ul>';
+				echo '<ul class="postBylist">';
+					echo '<li class="listitem">';
+									$link=$this->base."/LiteraturePosts/get_post/".$value['LiteraturePost']['id'];
+									echo 'Share on: ';
+									echo '</li>';
+									echo '<li class="listitem">';
+									$description=strip_tags($value['LiteraturePost']['meta_description']);
+									echo $this->SocialShare->fa(
+										'facebook',
+										$link,
+										array(
+											'text' => $value['LiteraturePost']['title'],
+											'image' => 'http://frontend.evidyalay.net/img/ev-logo.png',
+											'description' => $description
+											)
+										);
+									echo '</li>';
+									echo '<li class="listitem">';
+									echo $this->SocialShare->fa(
+										'twitter',
+										$link,
+										array(
+											'text' => $value['LiteraturePost']['title'],
+											)
+										);
+									echo '</li>';
+									echo '<li class="listitem visible-for-small-only">';
+									echo $this->SocialShare->fa(
+										'whatsapp',
+										$link,
+										array(
+												'text' => $value['LiteraturePost']['title']
+											)
+										);
+									echo '</li>';
+						echo '</ul>';
 	echo "</div>";	
 ?>
 

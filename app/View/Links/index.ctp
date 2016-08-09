@@ -8,6 +8,7 @@
 			<table id="example" class="display responsive" cellspacing="0" width="100%">
 		    <thead>
 		        <tr>
+		        	<th></th>
 		            <th>Video Name</th>
 		            <th>Level-Subject-Category</th>
 		            <th>Sub Category</th>
@@ -19,6 +20,8 @@
 					foreach ($videos as $key => $value) {
 						// echo pr($value);
 						echo "<tr>";
+						$myArray=explode('/', $value['Link']['link_url']);
+							echo '<td><img src="http://img.youtube.com/vi/'.$myArray[4].'/default.jpg"></td>';
 							echo "<td>".$value['Link']['link_title']."</td>";
 							echo "<td>".$value['Topic']['display_name']."</td>";
 							$sb="";

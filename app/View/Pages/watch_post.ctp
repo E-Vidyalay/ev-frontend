@@ -13,6 +13,42 @@
 						echo '<li class="listitem"><i class="fa fa-comments fa-fw"></i>'.count($comments).' Comments</li>';
 						echo '<li class="listitem"><i class="fa fa-eye fa-fw"></i>'.$post['HobbylobbyPost']['views'].' Views</li>';
 						echo '</ul>';
+						echo '<ul class="postBylist">';
+				echo '<li class="listitem">';
+				$link=$this->base."/HobbylobbyPost/view_post/".$post['HobbylobbyPost']['id'];
+				echo 'Share on: ';
+				echo '</li>';
+				echo '<li class="listitem">';
+				$description=strip_tags($post['HobbylobbyPost']['meta_description']);
+				echo $this->SocialShare->fa(
+					'facebook',
+					$link,
+					array(
+						'text' => $post['HobbylobbyPost']['title'],
+						'image' => 'http://frontend.evidyalay.net/img/ev-logo.png',
+						'description' => $description
+					)
+					);
+				echo '</li>';
+				echo '<li class="listitem">';
+				echo $this->SocialShare->fa(
+					'twitter',
+					$link,
+					array(
+						'text' => $post['HobbylobbyPost']['title']
+					)
+					);
+				echo '</li>';
+				echo '<li class="listitem visible-for-small-only">';
+				echo $this->SocialShare->fa(
+					'whatsapp',
+					$link,
+					array(
+							'text' => $post['HobbylobbyPost']['title']
+						)
+					);
+				echo '</li>';
+			echo '</ul>';
 				echo "</div>";
 			?>
 			<br/>
