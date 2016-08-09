@@ -61,8 +61,11 @@
 												 <h4>Book Description</h4>
 												 <hr/>
 												 	<div class="book-d radius">
-												 		'.$value['Ebook']['description'].'
-												 	</div>
+												 		<h5><b>E-Book Details:</b></h5>
+										 		'.$value['Ebook']['description'].'
+										 		<h7><b>E-Book Belongs to Category:</b></h7> ';
+										 		echo $value['Literature']['name'].' - '.$value['SubLiterature']['name'].' ( '.$value['Level']['level_name'].' ) ';
+								 		echo '</div>
 												  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 												</div>';
 										echo "</td>";
