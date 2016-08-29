@@ -2,13 +2,34 @@
 <div class="content-card large-10 small-12 large-offset-1 small-offset-0" id="home-content">
 <div class="row">
 	<h3 class="head-navu">વિશિષ્ટ તત્વો</h3>
-	<div class="columns large-6" style="height:100px;">
-		<blockquote style="color:black;background-color: #e1f3da;height:104px;">
+	<div class="columns large-12">
+		<blockquote style="color:black;background-color: #e1f3da;">
 			<h6 align="center" style="background-color:white;padding:1px;">આજનો સુવિચાર</h6>
-			<i class="fa fa-quote-left" aria-hidden="true"></i> Those people who think they know everything are a great annoyance to those of us who do. <i class="fa fa-quote-right" aria-hidden="true"></i><cite>Isaac Asimov</cite>
+			<div class="large-12" align="center">
+				<i class="fa fa-quote-left" aria-hidden="true"></i>
+				<?php
+				if($today_thought!=null){
+					echo strip_tags($today_thought['Thought']['thought']);	
+				}	
+				else{
+					echo "Those people who think they know everything are a great annoyance to those of us who do";
+				}
+				?>
+				<i class="fa fa-quote-right" aria-hidden="true"></i>
+				<cite><?php
+				if($today_thought!=null){
+					echo $today_thought['Thought']['thinker'];
+				}
+				else{
+					echo "Isaac Asimov";
+				}
+				?></cite>
+			</div>
 		</blockquote>
 	</div>
-    <div class="columns large-6" style="height:100px;">
+</div>
+<div class="row">
+    <div class="columns large-12">
         <script>
           (function() {
             var cx = '011118420518729370922:opcgijryito';

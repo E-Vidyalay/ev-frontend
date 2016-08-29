@@ -34,7 +34,7 @@ class PagesController extends AppController {
  *
  * @var array
  */
-	public $uses = array('Admin','User','Article','Level','HobbylobbyPost','HobbylobbyPostCounter','Ebook','LiteraturePost','LiteraturePostCounter','Link','LinksCounter','VideoComment','VideoReply','HobbylobbyComment','HobbylobbyReply','LiteratureComment','LiteratureReply');
+	public $uses = array('Admin','User','Article','Level','Thought','HobbylobbyPost','HobbylobbyPostCounter','Ebook','LiteraturePost','LiteraturePostCounter','Link','LinksCounter','VideoComment','VideoReply','HobbylobbyComment','HobbylobbyReply','LiteratureComment','LiteratureReply');
     public $helpers = array('SocialShare.SocialShare');
     public function beforeFilter()
     {
@@ -103,6 +103,7 @@ class PagesController extends AppController {
 	public function home(){
 		$this->layout='site_layout';
 		$this->set('levels',$this->Level->find('all',array('order'=>array('Level.updated_at'=>'asc'))));
+		$this->set('today_thought',$this->Thought->find('first',array('order' => array('date' => 'DESC'))));
 	}
 	public function latest_video($lid=NULL){
 		$this->layout='site_layout';
