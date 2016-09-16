@@ -1,49 +1,85 @@
 <br/>
-<div class="content-card large-10 small-12 large-offset-1 small-offset-0" id="home-content">
+<div class="content-card large-12 small-12 large-offset-0 small-offset-0" id="home-content">
 <div class="row">
 	<h3 class="head-navu">વિશિષ્ટ તત્વો</h3>
-	<div class="columns large-12">
-		<blockquote style="color:black;background-color: #e1f3da;">
-			<h6 align="center" style="background-color:white;padding:1px;">આજનો સુવિચાર</h6>
-			<div class="large-12" align="center">
-				<i class="fa fa-quote-left" aria-hidden="true"></i>
-				<?php
-				if($today_thought!=null){
-					echo strip_tags($today_thought['Thought']['thought']);	
-				}	
-				else{
-					echo "Those people who think they know everything are a great annoyance to those of us who do";
-				}
-				?>
-				<i class="fa fa-quote-right" aria-hidden="true"></i>
-				<cite><?php
-				if($today_thought!=null){
-					echo $today_thought['Thought']['thinker'];
-				}
-				else{
-					echo "Isaac Asimov";
-				}
-				?></cite>
+	<div class="columns large-2" style="color:black;background-color: #e1f3da;">
+		<div class="row">
+			<div class="columns large-12">
+				<div class="row">
+					<div class="columns large-12">
+					<h6 align="center" style="background-color:white;padding:3px;margin-top: 10px;">આજનો સુવિચાર</h6>
+					</div>
+				</div>
+			<blockquote>
+				<div class="large-12">
+					<i class="fa fa-quote-left" aria-hidden="true"></i>
+					<?php
+					if($today_thought!=null){
+						echo strip_tags($today_thought['Thought']['thought']);	
+					}	
+					else{
+						echo "Those people who think they know everything are a great annoyance to those of us who do";
+					}
+					?>
+					<i class="fa fa-quote-right" aria-hidden="true"></i>
+					<cite><?php
+					if($today_thought!=null){
+						echo $today_thought['Thought']['thinker'];
+					}
+					else{
+						echo "Isaac Asimov";
+					}
+					?></cite>
+				</div>
+			</blockquote>
 			</div>
-		</blockquote>
+		</div>
+		<hr style="border: solid #619919;
+    border-width: 3px 0 0;" >
+		<div class="row">
+			<div class="columns large-12">
+				<div class="row">
+					<div class="columns large-12">
+					<h6 align="center" style="background-color:white;padding:3px;margin-top: 10px;">Google Search Engine</h6>
+					</div>
+				</div>
+				<script>
+			    (function() {
+			    var cx = '011118420518729370922:opcgijryito';
+			    var gcse = document.createElement('script'); 
+			    gcse.type = 'text/javascript'; 
+			    gcse.async = true;
+			    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//www.google.com/cse/cse.js?cx=' + cx;
+			    var s = document.getElementsByTagName('script')[0]; 
+			    s.parentNode.insertBefore(gcse, s);
+			})();
+			</script>
+			<div style="width:0px;overflow:hidden;height:0px;">
+			    <gcse:search enableAutoComplete="true"></gcse:search>
+			</div>
+			<form id="searchbox_011118420518729370922:opcgijryito" action="">
+				<div class="row">
+    				<div class="small-12">
+    					<!-- <div class="row"> -->
+        				<div class="small-8 columns">
+					    	<input value="011118420518729370922:opcgijryito" name="cx" type="hidden"/>
+						    <input value="FORID:11" name="cof" type="hidden"/>
+						    <input id="q" style="" name="q" size="75" type="text"/>
+						</div>
+						<div class="small-4 columns hide-for-small-only">
+				    		<button class="right eng-btn button tiny radius"><i class="fa fa-search" aria-hidden="true"></i></button>
+						</div>
+						<div class="small-4 columns hide-for-medium-up show-for-small-only">
+				    		<button class="eng-btn button tiny radius"><i class="fa fa-search" aria-hidden="true"></i></button>
+						</div>
+				    	<!-- </div> -->
+			    	</div>
+				</div>
+			</form>
+			</div>
+		</div>
 	</div>
-</div>
-<div class="row">
-    <div class="columns large-12">
-        <script>
-          (function() {
-            var cx = '011118420518729370922:opcgijryito';
-            var gcse = document.createElement('script');
-            gcse.type = 'text/javascript';
-            gcse.async = true;
-            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(gcse, s);
-          })();
-        </script>
-        <gcse:search></gcse:search>
-	</div>
-</div>
+<div class="columns large-10">
 	<div class="row">
 	<?php
 		foreach ($levels as $key => $value) {
@@ -86,9 +122,8 @@
 	?>
 	</div>
 	<br/>
-</div>
-<br/>
-<div class="content-card large-10 small-12 large-offset-1 small-offset-0">
+<div class="row">
+<div class="content-card large-12 small-12 large-offset-0 small-offset-0">
 	<div class="gujarati"><span style="font-size: x-large;">પરિચય</span> <button class="right eng-btn button tiny radius">Read in english</button><hr />
 <p>શિક્ષણ કોઈ પણ સમાજના પાયામાં હોય છે.અને તે શી રીતે અને કેવી ભાષામાં આપવામાં આવે છે; એની ઉપર એની ફળતાનો આધાર રહેતો હોય છે. જેમ આપણે સૌ &lsquo;ઈ&rsquo; સાથે સંકળાયેલા નવા યુગમાં આગળ ધપતા જઈએ; અને જેમ ઈન્ટરનેટ રોજબરોજની ખરીદી, સંદેશ વ્યવહાર, ટિકેટિંગ, અને એવી ઘણી બધી બાબતોમાં વધારે સક્ષમ પુરવાર થતું જાય છે; તેમ ઈન્ટરનેટના માધ્યમ વડે શીખવાની પદ્ધતિઓ પણ વધારે ને વધારે સાદી અને સરળ બની શકે છે.</p>
 <p>શિક્ષણ વધારે સરળ, વધારે રસિક અને ઉપયોગ કરનારને માટે વધારે મૈત્રીભર્યું બનાવવાની દિશામાં ઈ-વિદ્યાલય આવો એક સન્નિષ્ઠ પ્રયાસ છે.</p>
@@ -128,6 +163,8 @@
 		}(document, 'script', 'facebook-jssdk'));</script>
 		<div class="fb-like" data-href="https://www.facebook.com/EVidyalay-1402367269999383/?fref=ts" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
 	</div>
+</div>
+</div>
 </div>
 </div>
 <br/>
