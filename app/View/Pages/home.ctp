@@ -64,7 +64,7 @@
         				<div class="small-8 columns">
 					    	<input value="011118420518729370922:opcgijryito" name="cx" type="hidden"/>
 						    <input value="FORID:11" name="cof" type="hidden"/>
-						    <input id="q" style="" name="q" size="75" type="text"/>
+						    <input id="guj-in" name="q" size="75" type="text"/>
 						</div>
 						<div class="small-4 columns hide-for-small-only">
 				    		<button class="right eng-btn button tiny radius"><i class="fa fa-search" aria-hidden="true"></i></button>
