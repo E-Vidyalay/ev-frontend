@@ -124,7 +124,8 @@ class LinksController extends AppController {
 			$subjects_array=array();
 			$i=0;
 			foreach($topics as $t){
-				$subjects_array[$i]=$t['Subject']['id'];
+					$subjects_array[$i]=$t['Subject']['id'];
+					$i++;
 			}
 			$fa=array_unique($subjects_array);
 			$sba=array();
@@ -132,11 +133,11 @@ class LinksController extends AppController {
 			foreach($fa as $f){
 				$y=0;
 				foreach ($subs as $s) {
-					if($s['Subject']['id']==$f){
+					if($s['Subject']['id']===$f){
 						$sba[$y]=$s;
 						$sba[$y]['level_id']=$id;
-						$y++;
 					}
+				$y++;
 				}
 			}
 			$this->set('subjects',$sba);
