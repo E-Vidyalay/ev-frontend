@@ -16,11 +16,17 @@
 			<?php echo "<i style='font-size:13px'>".$n['Admin']['firstname']." ".$n['Admin']['lastname'].", <i class='fa fa-clock-o fa-fw'></i>".$date."</i>"; 
 			echo '<div class="right" style="background:#fff;padding:10px" align="right">';
 			$link=$this->base."/NewsLetters/sharenews/".$n['NewsLetter']['id'];
+			$description=strip_tags($n['NewsLetter']['content']);
 			echo '&nbsp;&nbsp;';
 			echo 'Share on: ';
 			echo $this->SocialShare->fa(
 				'facebook',
-				$link
+				$link,
+				array(
+					'text' => $n['NewsLetter']['title'],
+					'image' => 'http://frontend.evidyalay.net/img/ev-logo.png',
+					'description' => $description
+					)
 				);
 			echo '&nbsp;&nbsp;';
 			echo $this->SocialShare->fa(
