@@ -74,7 +74,7 @@
                             $this->Contributor->save($contri);
                         }
 
-                    $this->Session->setFlash('Thank you for registering.', 'default', array('class' => 'alert-box success radius') , 'success');
+                    $this->Session->setFlash('Thank you for registering. Check your mail to activate your account.', 'default', array('class' => 'alert-box success radius') , 'success');
                     $this->redirect(array('controller'=>'Pages','action'=>'home'));
 
                 }
