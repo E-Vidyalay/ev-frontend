@@ -1,11 +1,11 @@
 <div class="row">
-<div class="columns large-8 large-offset-2" style="background:#F0F0F0;">
+<div class="columns large-8 medium-10 small-10 large-offset-2 medium-offset-1 small-offset-1" style="background:#F0F0F0;">
 	<?php 
 		foreach ($news as $n) {
 			$date=date('M j Y g:i a',strtotime($n['NewsLetter']['date']));
 	?>
 		<div class="row">
-		<div class="columns" style="background:#fff;padding:10px">
+		<div class="columns " style="background:#fff;padding:10px">
 			<h3><?php echo $n['NewsLetter']['title']; ?></h3>
 			<hr/>
 			<p style="text-align:justify">
