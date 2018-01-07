@@ -12,7 +12,7 @@ echo '<h4 class="subheader" style="color:white;"><small style="color:white;">પ
 }?>
 </div>
 <?php
-echo $this->Form->create('TestResult',array('controller'=>'TestResults','action'=>'generate_result','novalidate'));
+echo $this->Form->create('TestResult',array('controller'=>'TestResults','url'=>'generate_result','novalidate'));
 echo $this->Form->input('test_id',array('type'=>'hidden','value'=>$test_id));
 $i=0;
 foreach ($questions as $question) {?>

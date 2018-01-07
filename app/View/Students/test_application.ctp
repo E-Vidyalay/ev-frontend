@@ -6,7 +6,7 @@
 		<hr/>
 
 			<?php
-				echo $this->Form->create('TestApplication',array('controller'=>'TestApplications','action'=>'test_application'));
+				echo $this->Form->create('TestApplication',array('controller'=>'TestApplications','url'=>'test_application'));
 				echo $this->Form->input('student_id',array('type'=>'hidden','value'=>$student_id));
 				echo $this->Form->input('standard_id',array('type'=>'select','options'=>$standards,'required','label'=>'ધોરણ','empty'=>'Select ધોરણ','div'=>false,'id'=>'standard'));
 				echo '<div id="sb_topic">'.

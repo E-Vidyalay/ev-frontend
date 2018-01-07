@@ -120,9 +120,9 @@ Configure::write('Opauth.path', '/auth/');
 //Configure::write('Opauth.path', '/cakestudio/auth/');
 
 Configure::write('Opauth.Strategy.Google', array(
-    'client_id' => '171802006720-v3smtct8lk4dfe640o4l56u95ngvfmll.apps.googleusercontent.com',
-    'client_secret' => '1FxR6aWqAJBol4rwJxDSZwVF',
-    'redirect_uri' => 'http://frontend.evidyalay.net/auth/google/oauth2callback/'
+    'client_id' => '646435650032-396n9t7eqtmn7714uq5mb9bsg0old9cb.apps.googleusercontent.com',
+    'client_secret' => '3M0i0xmF0LXJ7dd2t1W0G55Q',
+    'redirect_uri' => 'http://demo.evidyalay.net/auth/google/oauth2callback/'
 ));
 Configure::write('Opauth.Strategy.Facebook', array(
     'app_id' => '1738657096417195',

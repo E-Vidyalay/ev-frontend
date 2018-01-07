@@ -4,7 +4,7 @@
     <h3>ઇમેઇલ દ્વારા લૉગિન કરો (Log in with your email)</h3>
     <hr/>
     <?php
-      echo $this->Form->create('User',array('controller'=>'users','action'=>'custom_login'));
+      echo $this->Form->create('User',array('controller'=>'users','url'=>'custom_login'));
       echo $this->Form->input('username',array('type'=>'email','required','placeholder'=>'Username','label'=>'ઇમેઇલ'));
       echo $this->Form->input('password',array('type'=>'password','required','placeholder'=>'Password','label'=>'પાસવર્ડ'));
       if($quiz!=null){

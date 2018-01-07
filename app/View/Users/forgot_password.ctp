@@ -6,7 +6,7 @@
             <p>તમારા વપરાશકર્તા ઇમેઇલ દાખલ કરો. તમને તમારા નોંધાયેલાં ઇમેઇલ પર એક નવો પાસવર્ડ પ્રાપ્ત થશે.</p>
         </blockquote>
 		<?php
-			echo $this->Form->create('User',array('controller'=>'users','action'=>'forgot_password'));
+			echo $this->Form->create('User',array('controller'=>'users','url'=>'forgot_password'));
 			echo $this->Form->input('username',array(
 				'placeholder'=>'Enter Your Email',
 				'label'=>'ઇમેઇલ',

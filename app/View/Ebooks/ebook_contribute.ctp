@@ -2,7 +2,7 @@
             <div class="columns large-8 panel large-offset-2 medium-8 small-offset-1 small-10 medium-offset-2" style="background:#fff;padding:20px">
                 <h4 align="center">ઇબુક દાન કરવા માટે નીચે ની વિગતો પૂરો </h4>
                 <hr/>
-            <?php echo $this->Form->create('Ebook', array('type'=>'file','controller'=>'Ebooks','action'=>'ebook_contribute','class' => 'main-form')); ?>
+            <?php echo $this->Form->create('Ebook', array('type'=>'file','controller'=>'Ebooks','url'=>'ebook_contribute','class' => 'main-form')); ?>
                 <?php
                 echo $this->Form->input('name',array('type'=>'text','class'=>'form-control','required','label'=>'Book Title ( ઇબુક નામ )','placeholder'=>'Book Title ( ઇબુક નામ )'));
                 ?>

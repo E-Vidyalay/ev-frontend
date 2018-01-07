@@ -4,7 +4,7 @@
             <div class="columns large-6 panel large-offset-3 medium-8 small-10 small-offset-1 small-8 medium-offset-2" style="background:#fff;padding:20px">
                 <h4 align="center">ઇમેઇલ સાથે સાઇનઅપ (Sign Up with Email)</h4>
                 <hr/>
-            <?php echo $this->Form->create('User', array('controller'=>'users','action'=>'signup','class' => 'main-form')); ?>
+            <?php echo $this->Form->create('User', array('controller'=>'users','url'=>'signup','class' => 'main-form')); ?>
             <?php
                 echo $this->Form->label('first_name', 'પૂરું નામ',array('div'=>false,'class'=>'address_label'));
                 echo '<small>જરૂરી</small>';

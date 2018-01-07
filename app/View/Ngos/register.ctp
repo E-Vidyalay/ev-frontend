@@ -7,7 +7,7 @@
                 <blockquote>
                     <p>તમારા એનજીઓ evidyalay હેઠળ સાઇન અપ કરવા માંગે છે, તો પછી તમે નીચેની વિગતો ભરી શકો છો</p>
                 </blockquote>
-            <?php echo $this->Form->create('Ngo', array('type'=>'file','controller'=>'NGOs','action'=>'register','class' => 'main-form')); ?>
+            <?php echo $this->Form->create('Ngo', array('type'=>'file','controller'=>'NGOs','url'=>'register','class' => 'main-form')); ?>
                 <?php
                 echo $this->Form->label('first_name', 'Name',array('div'=>false,'class'=>'address_label'));
                 ?>

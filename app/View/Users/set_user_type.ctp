@@ -6,7 +6,7 @@
 		<div class="row">
 			<div class="colums large-8 large-offset-2 panel">
 				<?php
-					echo $this->Form->create('User',array('type'=>'file','controller'=>'users','action'=>'set_user_type'));
+					echo $this->Form->create('User',array('type'=>'file','controller'=>'users','url'=>'set_user_type'));
 					echo $this->Form->input('id',array('type'=>'hidden','value'=>$uid));
 					if(empty($activeUser['User']['name'])){
 						echo "<h6> Your name </h6>";

@@ -6,7 +6,7 @@
 			<h4 class="subheader"><small>મૂળ પાઠ:</small> <?php echo $topic_full_name[0];?></h4>
 		<hr/>
 			<?php
-				echo $this->Form->create('TestApplication',array('controller'=>'TestApplications','action'=>'test_sbt_post'));
+				echo $this->Form->create('TestApplication',array('controller'=>'TestApplications','url'=>'test_sbt_post'));
 				echo $this->Form->input('uid',array('type'=>'hidden','value'=>$activeUser['User']['id']));
 				echo $this->Form->input('student_id',array('type'=>'hidden','value'=>$student_id));
 				echo $this->Form->input('standard_id',array('type'=>'hidden','value'=>$standard_id));

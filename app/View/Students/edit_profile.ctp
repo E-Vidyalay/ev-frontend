@@ -3,7 +3,7 @@
     <h3> Edit Profile </h3>
     <hr/>
     <?php
-      echo $this->Form->create('User',array('type'=>'file','controller'=>'users','action'=>'edit_profile'));
+      echo $this->Form->create('User',array('type'=>'file','controller'=>'users','url'=>'edit_profile'));
       echo $this->Form->input('id',array('type'=>'hidden'));
       echo $this->Form->input('name',array('type'=>'text','required','placeholder'=>'Name','label'=>'Name'));
       // echo $this->Form->input('password',array('type'=>'password','placeholder'=>'Old Password','label'=>'Old Password'));

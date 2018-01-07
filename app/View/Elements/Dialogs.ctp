@@ -12,7 +12,7 @@
  <div class="row">
  <div class="columns large-6 panel">
     <?php
-      echo $this->Form->create('User',array('controller'=>'users','action'=>'custom_login'));
+      echo $this->Form->create('User',array('controller'=>'users','url'=>'custom_login'));
       echo $this->Form->input('username',array('type'=>'email','required','placeholder'=>'Username','label'=>'ઇમેઇલ'));
       echo $this->Form->input('password',array('type'=>'password','required','placeholder'=>'Password','label'=>'પાસવર્ડ'));
       echo $this->Form->input('લૉગિન - Login',array('type'=>'submit','label'=>false,'div'=>false,'class'=>'button button tiny radius'));
@@ -42,7 +42,7 @@
         <div class="row">
             <br/>
             <div class="columns large-6 panel">
-            <?php echo $this->Form->create('User', array('controller'=>'users','action'=>'signup','class' => 'main-form')); ?>
+            <?php echo $this->Form->create('User', array('controller'=>'users','url'=>'signup','class' => 'main-form')); ?>
             <?php
                 echo $this->Form->label('first_name', 'પૂરું નામ',array('div'=>false,'class'=>'address_label'));
                 ?>
@@ -114,7 +114,7 @@
         <p>તમારા વપરાશકર્તા ઇમેઇલ દાખલ કરો. તમને તમારા નોંધાયેલાં ઇમેઇલ પર એક નવો પાસવર્ડ પ્રાપ્ત થશે.</p>
     </blockquote>
     <?php
-      echo $this->Form->create('User',array('controller'=>'users','action'=>'forgot_password'));
+      echo $this->Form->create('User',array('controller'=>'users','url'=>'forgot_password'));
       echo $this->Form->label('username', 'ઇમેઇલ',array('div'=>false,'class'=>'address_label'));
       echo $this->Form->input('username',array(
         'placeholder'=>'Enter Your Email',
